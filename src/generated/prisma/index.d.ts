@@ -1,0 +1,21669 @@
+
+/**
+ * Client
+**/
+
+import * as runtime from './runtime/library.js';
+import $Types = runtime.Types // general types
+import $Public = runtime.Types.Public
+import $Utils = runtime.Types.Utils
+import $Extensions = runtime.Types.Extensions
+import $Result = runtime.Types.Result
+
+export type PrismaPromise<T> = $Public.PrismaPromise<T>
+
+
+/**
+ * Model User
+ * 
+ */
+export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model Car
+ * 
+ */
+export type Car = $Result.DefaultSelection<Prisma.$CarPayload>
+/**
+ * Model Service
+ * 
+ */
+export type Service = $Result.DefaultSelection<Prisma.$ServicePayload>
+/**
+ * Model Bonus
+ * 
+ */
+export type Bonus = $Result.DefaultSelection<Prisma.$BonusPayload>
+/**
+ * Model Multi_branch
+ * 
+ */
+export type Multi_branch = $Result.DefaultSelection<Prisma.$Multi_branchPayload>
+/**
+ * Model Commit
+ * 
+ */
+export type Commit = $Result.DefaultSelection<Prisma.$CommitPayload>
+/**
+ * Model Notification
+ * 
+ */
+export type Notification = $Result.DefaultSelection<Prisma.$NotificationPayload>
+/**
+ * Model OTP
+ * 
+ */
+export type OTP = $Result.DefaultSelection<Prisma.$OTPPayload>
+/**
+ * Model History
+ * 
+ */
+export type History = $Result.DefaultSelection<Prisma.$HistoryPayload>
+/**
+ * Model Register_car
+ * 
+ */
+export type Register_car = $Result.DefaultSelection<Prisma.$Register_carPayload>
+/**
+ * Model Register_service
+ * 
+ */
+export type Register_service = $Result.DefaultSelection<Prisma.$Register_servicePayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const User_role_enum: {
+  ADMIN: 'ADMIN',
+  MECHANIC: 'MECHANIC',
+  CUSTOMER: 'CUSTOMER'
+};
+
+export type User_role_enum = (typeof User_role_enum)[keyof typeof User_role_enum]
+
+
+export const Bonus_type_enum: {
+  REFERRAL: 'REFERRAL',
+  LOYALTY: 'LOYALTY',
+  PROMO: 'PROMO'
+};
+
+export type Bonus_type_enum = (typeof Bonus_type_enum)[keyof typeof Bonus_type_enum]
+
+
+export const OTP_status_enum: {
+  PENDING: 'PENDING',
+  USED: 'USED',
+  EXPIRED: 'EXPIRED'
+};
+
+export type OTP_status_enum = (typeof OTP_status_enum)[keyof typeof OTP_status_enum]
+
+
+export const OTP_type_enum: {
+  VERIFICATION: 'VERIFICATION',
+  PASSWORD_RESET: 'PASSWORD_RESET'
+};
+
+export type OTP_type_enum = (typeof OTP_type_enum)[keyof typeof OTP_type_enum]
+
+
+export const History_status_enum: {
+  OPEN: 'OPEN',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+};
+
+export type History_status_enum = (typeof History_status_enum)[keyof typeof History_status_enum]
+
+
+export const Register_car_status_enum: {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  STOLEN: 'STOLEN'
+};
+
+export type Register_car_status_enum = (typeof Register_car_status_enum)[keyof typeof Register_car_status_enum]
+
+
+export const Register_service_status_enum: {
+  SCHEDULED: 'SCHEDULED',
+  DONE: 'DONE',
+  NO_SHOW: 'NO_SHOW'
+};
+
+export type Register_service_status_enum = (typeof Register_service_status_enum)[keyof typeof Register_service_status_enum]
+
+}
+
+export type User_role_enum = $Enums.User_role_enum
+
+export const User_role_enum: typeof $Enums.User_role_enum
+
+export type Bonus_type_enum = $Enums.Bonus_type_enum
+
+export const Bonus_type_enum: typeof $Enums.Bonus_type_enum
+
+export type OTP_status_enum = $Enums.OTP_status_enum
+
+export const OTP_status_enum: typeof $Enums.OTP_status_enum
+
+export type OTP_type_enum = $Enums.OTP_type_enum
+
+export const OTP_type_enum: typeof $Enums.OTP_type_enum
+
+export type History_status_enum = $Enums.History_status_enum
+
+export const History_status_enum: typeof $Enums.History_status_enum
+
+export type Register_car_status_enum = $Enums.Register_car_status_enum
+
+export const Register_car_status_enum: typeof $Enums.Register_car_status_enum
+
+export type Register_service_status_enum = $Enums.Register_service_status_enum
+
+export const Register_service_status_enum: typeof $Enums.Register_service_status_enum
+
+/**
+ * ##  Prisma Client ʲˢ
+ *
+ * Type-safe database client for TypeScript & Node.js
+ * @example
+ * ```
+ * const prisma = new PrismaClient()
+ * // Fetch zero or more Users
+ * const users = await prisma.user.findMany()
+ * ```
+ *
+ *
+ * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
+ */
+export class PrismaClient<
+  ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
+  U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
+  ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs
+> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
+
+    /**
+   * ##  Prisma Client ʲˢ
+   *
+   * Type-safe database client for TypeScript & Node.js
+   * @example
+   * ```
+   * const prisma = new PrismaClient()
+   * // Fetch zero or more Users
+   * const users = await prisma.user.findMany()
+   * ```
+   *
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
+   */
+
+  constructor(optionsArg ?: Prisma.Subset<ClientOptions, Prisma.PrismaClientOptions>);
+  $on<V extends U>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): PrismaClient;
+
+  /**
+   * Connect with the database
+   */
+  $connect(): $Utils.JsPromise<void>;
+
+  /**
+   * Disconnect from the database
+   */
+  $disconnect(): $Utils.JsPromise<void>;
+
+  /**
+   * Add a middleware
+   * @deprecated since 4.16.0. For new code, prefer client extensions instead.
+   * @see https://pris.ly/d/extensions
+   */
+  $use(cb: Prisma.Middleware): void
+
+/**
+   * Executes a prepared raw query and returns the number of affected rows.
+   * @example
+   * ```
+   * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
+   * ```
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   */
+  $executeRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<number>;
+
+  /**
+   * Executes a raw query and returns the number of affected rows.
+   * Susceptible to SQL injections, see documentation.
+   * @example
+   * ```
+   * const result = await prisma.$executeRawUnsafe('UPDATE User SET cool = $1 WHERE email = $2 ;', true, 'user@email.com')
+   * ```
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   */
+  $executeRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<number>;
+
+  /**
+   * Performs a prepared raw query and returns the `SELECT` data.
+   * @example
+   * ```
+   * const result = await prisma.$queryRaw`SELECT * FROM User WHERE id = ${1} OR email = ${'user@email.com'};`
+   * ```
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   */
+  $queryRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<T>;
+
+  /**
+   * Performs a raw query and returns the `SELECT` data.
+   * Susceptible to SQL injections, see documentation.
+   * @example
+   * ```
+   * const result = await prisma.$queryRawUnsafe('SELECT * FROM User WHERE id = $1 OR email = $2;', 1, 'user@email.com')
+   * ```
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   */
+  $queryRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<T>;
+
+
+  /**
+   * Allows the running of a sequence of read/write operations that are guaranteed to either succeed or fail as a whole.
+   * @example
+   * ```
+   * const [george, bob, alice] = await prisma.$transaction([
+   *   prisma.user.create({ data: { name: 'George' } }),
+   *   prisma.user.create({ data: { name: 'Bob' } }),
+   *   prisma.user.create({ data: { name: 'Alice' } }),
+   * ])
+   * ```
+   * 
+   * Read more in our [docs](https://www.prisma.io/docs/concepts/components/prisma-client/transactions).
+   */
+  $transaction<P extends Prisma.PrismaPromise<any>[]>(arg: [...P], options?: { isolationLevel?: Prisma.TransactionIsolationLevel }): $Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>
+
+  $transaction<R>(fn: (prisma: Omit<PrismaClient, runtime.ITXClientDenyList>) => $Utils.JsPromise<R>, options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): $Utils.JsPromise<R>
+
+
+  $extends: $Extensions.ExtendsHook<"extends", Prisma.TypeMapCb<ClientOptions>, ExtArgs, $Utils.Call<Prisma.TypeMapCb<ClientOptions>, {
+    extArgs: ExtArgs
+  }>>
+
+      /**
+   * `prisma.user`: Exposes CRUD operations for the **User** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
+    * ```
+    */
+  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.car`: Exposes CRUD operations for the **Car** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Cars
+    * const cars = await prisma.car.findMany()
+    * ```
+    */
+  get car(): Prisma.CarDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.service`: Exposes CRUD operations for the **Service** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Services
+    * const services = await prisma.service.findMany()
+    * ```
+    */
+  get service(): Prisma.ServiceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bonus`: Exposes CRUD operations for the **Bonus** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Bonuses
+    * const bonuses = await prisma.bonus.findMany()
+    * ```
+    */
+  get bonus(): Prisma.BonusDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.multi_branch`: Exposes CRUD operations for the **Multi_branch** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Multi_branches
+    * const multi_branches = await prisma.multi_branch.findMany()
+    * ```
+    */
+  get multi_branch(): Prisma.Multi_branchDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.commit`: Exposes CRUD operations for the **Commit** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Commits
+    * const commits = await prisma.commit.findMany()
+    * ```
+    */
+  get commit(): Prisma.CommitDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.notification`: Exposes CRUD operations for the **Notification** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Notifications
+    * const notifications = await prisma.notification.findMany()
+    * ```
+    */
+  get notification(): Prisma.NotificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.oTP`: Exposes CRUD operations for the **OTP** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more OTPS
+    * const oTPS = await prisma.oTP.findMany()
+    * ```
+    */
+  get oTP(): Prisma.OTPDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.history`: Exposes CRUD operations for the **History** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Histories
+    * const histories = await prisma.history.findMany()
+    * ```
+    */
+  get history(): Prisma.HistoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.register_car`: Exposes CRUD operations for the **Register_car** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Register_cars
+    * const register_cars = await prisma.register_car.findMany()
+    * ```
+    */
+  get register_car(): Prisma.Register_carDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.register_service`: Exposes CRUD operations for the **Register_service** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Register_services
+    * const register_services = await prisma.register_service.findMany()
+    * ```
+    */
+  get register_service(): Prisma.Register_serviceDelegate<ExtArgs, ClientOptions>;
+}
+
+export namespace Prisma {
+  export import DMMF = runtime.DMMF
+
+  export type PrismaPromise<T> = $Public.PrismaPromise<T>
+
+  /**
+   * Validator
+   */
+  export import validator = runtime.Public.validator
+
+  /**
+   * Prisma Errors
+   */
+  export import PrismaClientKnownRequestError = runtime.PrismaClientKnownRequestError
+  export import PrismaClientUnknownRequestError = runtime.PrismaClientUnknownRequestError
+  export import PrismaClientRustPanicError = runtime.PrismaClientRustPanicError
+  export import PrismaClientInitializationError = runtime.PrismaClientInitializationError
+  export import PrismaClientValidationError = runtime.PrismaClientValidationError
+
+  /**
+   * Re-export of sql-template-tag
+   */
+  export import sql = runtime.sqltag
+  export import empty = runtime.empty
+  export import join = runtime.join
+  export import raw = runtime.raw
+  export import Sql = runtime.Sql
+
+
+
+  /**
+   * Decimal.js
+   */
+  export import Decimal = runtime.Decimal
+
+  export type DecimalJsLike = runtime.DecimalJsLike
+
+  /**
+   * Metrics
+   */
+  export type Metrics = runtime.Metrics
+  export type Metric<T> = runtime.Metric<T>
+  export type MetricHistogram = runtime.MetricHistogram
+  export type MetricHistogramBucket = runtime.MetricHistogramBucket
+
+  /**
+  * Extensions
+  */
+  export import Extension = $Extensions.UserArgs
+  export import getExtensionContext = runtime.Extensions.getExtensionContext
+  export import Args = $Public.Args
+  export import Payload = $Public.Payload
+  export import Result = $Public.Result
+  export import Exact = $Public.Exact
+
+  /**
+   * Prisma Client JS version: 6.6.0
+   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   */
+  export type PrismaVersion = {
+    client: string
+  }
+
+  export const prismaVersion: PrismaVersion
+
+  /**
+   * Utility Types
+   */
+
+
+  export import JsonObject = runtime.JsonObject
+  export import JsonArray = runtime.JsonArray
+  export import JsonValue = runtime.JsonValue
+  export import InputJsonObject = runtime.InputJsonObject
+  export import InputJsonArray = runtime.InputJsonArray
+  export import InputJsonValue = runtime.InputJsonValue
+
+  /**
+   * Types of the values used to represent different kinds of `null` values when working with JSON fields.
+   *
+   * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+   */
+  namespace NullTypes {
+    /**
+    * Type of `Prisma.DbNull`.
+    *
+    * You cannot use other instances of this class. Please use the `Prisma.DbNull` value.
+    *
+    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+    */
+    class DbNull {
+      private DbNull: never
+      private constructor()
+    }
+
+    /**
+    * Type of `Prisma.JsonNull`.
+    *
+    * You cannot use other instances of this class. Please use the `Prisma.JsonNull` value.
+    *
+    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+    */
+    class JsonNull {
+      private JsonNull: never
+      private constructor()
+    }
+
+    /**
+    * Type of `Prisma.AnyNull`.
+    *
+    * You cannot use other instances of this class. Please use the `Prisma.AnyNull` value.
+    *
+    * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+    */
+    class AnyNull {
+      private AnyNull: never
+      private constructor()
+    }
+  }
+
+  /**
+   * Helper for filtering JSON entries that have `null` on the database (empty on the db)
+   *
+   * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+   */
+  export const DbNull: NullTypes.DbNull
+
+  /**
+   * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
+   *
+   * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+   */
+  export const JsonNull: NullTypes.JsonNull
+
+  /**
+   * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
+   *
+   * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
+   */
+  export const AnyNull: NullTypes.AnyNull
+
+  type SelectAndInclude = {
+    select: any
+    include: any
+  }
+
+  type SelectAndOmit = {
+    select: any
+    omit: any
+  }
+
+  /**
+   * Get the type of the value, that the Promise holds.
+   */
+  export type PromiseType<T extends PromiseLike<any>> = T extends PromiseLike<infer U> ? U : T;
+
+  /**
+   * Get the return type of a function which returns a Promise.
+   */
+  export type PromiseReturnType<T extends (...args: any) => $Utils.JsPromise<any>> = PromiseType<ReturnType<T>>
+
+  /**
+   * From T, pick a set of properties whose keys are in the union K
+   */
+  type Prisma__Pick<T, K extends keyof T> = {
+      [P in K]: T[P];
+  };
+
+
+  export type Enumerable<T> = T | Array<T>;
+
+  export type RequiredKeys<T> = {
+    [K in keyof T]-?: {} extends Prisma__Pick<T, K> ? never : K
+  }[keyof T]
+
+  export type TruthyKeys<T> = keyof {
+    [K in keyof T as T[K] extends false | undefined | null ? never : K]: K
+  }
+
+  export type TrueKeys<T> = TruthyKeys<Prisma__Pick<T, RequiredKeys<T>>>
+
+  /**
+   * Subset
+   * @desc From `T` pick properties that exist in `U`. Simple version of Intersection
+   */
+  export type Subset<T, U> = {
+    [key in keyof T]: key extends keyof U ? T[key] : never;
+  };
+
+  /**
+   * SelectSubset
+   * @desc From `T` pick properties that exist in `U`. Simple version of Intersection.
+   * Additionally, it validates, if both select and include are present. If the case, it errors.
+   */
+  export type SelectSubset<T, U> = {
+    [key in keyof T]: key extends keyof U ? T[key] : never
+  } &
+    (T extends SelectAndInclude
+      ? 'Please either choose `select` or `include`.'
+      : T extends SelectAndOmit
+        ? 'Please either choose `select` or `omit`.'
+        : {})
+
+  /**
+   * Subset + Intersection
+   * @desc From `T` pick properties that exist in `U` and intersect `K`
+   */
+  export type SubsetIntersection<T, U, K> = {
+    [key in keyof T]: key extends keyof U ? T[key] : never
+  } &
+    K
+
+  type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
+
+  /**
+   * XOR is needed to have a real mutually exclusive union type
+   * https://stackoverflow.com/questions/42123407/does-typescript-support-mutually-exclusive-types
+   */
+  type XOR<T, U> =
+    T extends object ?
+    U extends object ?
+      (Without<T, U> & U) | (Without<U, T> & T)
+    : U : T
+
+
+  /**
+   * Is T a Record?
+   */
+  type IsObject<T extends any> = T extends Array<any>
+  ? False
+  : T extends Date
+  ? False
+  : T extends Uint8Array
+  ? False
+  : T extends BigInt
+  ? False
+  : T extends object
+  ? True
+  : False
+
+
+  /**
+   * If it's T[], return T
+   */
+  export type UnEnumerate<T extends unknown> = T extends Array<infer U> ? U : T
+
+  /**
+   * From ts-toolbelt
+   */
+
+  type __Either<O extends object, K extends Key> = Omit<O, K> &
+    {
+      // Merge all but K
+      [P in K]: Prisma__Pick<O, P & keyof O> // With K possibilities
+    }[K]
+
+  type EitherStrict<O extends object, K extends Key> = Strict<__Either<O, K>>
+
+  type EitherLoose<O extends object, K extends Key> = ComputeRaw<__Either<O, K>>
+
+  type _Either<
+    O extends object,
+    K extends Key,
+    strict extends Boolean
+  > = {
+    1: EitherStrict<O, K>
+    0: EitherLoose<O, K>
+  }[strict]
+
+  type Either<
+    O extends object,
+    K extends Key,
+    strict extends Boolean = 1
+  > = O extends unknown ? _Either<O, K, strict> : never
+
+  export type Union = any
+
+  type PatchUndefined<O extends object, O1 extends object> = {
+    [K in keyof O]: O[K] extends undefined ? At<O1, K> : O[K]
+  } & {}
+
+  /** Helper Types for "Merge" **/
+  export type IntersectOf<U extends Union> = (
+    U extends unknown ? (k: U) => void : never
+  ) extends (k: infer I) => void
+    ? I
+    : never
+
+  export type Overwrite<O extends object, O1 extends object> = {
+      [K in keyof O]: K extends keyof O1 ? O1[K] : O[K];
+  } & {};
+
+  type _Merge<U extends object> = IntersectOf<Overwrite<U, {
+      [K in keyof U]-?: At<U, K>;
+  }>>;
+
+  type Key = string | number | symbol;
+  type AtBasic<O extends object, K extends Key> = K extends keyof O ? O[K] : never;
+  type AtStrict<O extends object, K extends Key> = O[K & keyof O];
+  type AtLoose<O extends object, K extends Key> = O extends unknown ? AtStrict<O, K> : never;
+  export type At<O extends object, K extends Key, strict extends Boolean = 1> = {
+      1: AtStrict<O, K>;
+      0: AtLoose<O, K>;
+  }[strict];
+
+  export type ComputeRaw<A extends any> = A extends Function ? A : {
+    [K in keyof A]: A[K];
+  } & {};
+
+  export type OptionalFlat<O> = {
+    [K in keyof O]?: O[K];
+  } & {};
+
+  type _Record<K extends keyof any, T> = {
+    [P in K]: T;
+  };
+
+  // cause typescript not to expand types and preserve names
+  type NoExpand<T> = T extends unknown ? T : never;
+
+  // this type assumes the passed object is entirely optional
+  type AtLeast<O extends object, K extends string> = NoExpand<
+    O extends unknown
+    ? | (K extends keyof O ? { [P in K]: O[P] } & O : O)
+      | {[P in keyof O as P extends K ? P : never]-?: O[P]} & O
+    : never>;
+
+  type _Strict<U, _U = U> = U extends unknown ? U & OptionalFlat<_Record<Exclude<Keys<_U>, keyof U>, never>> : never;
+
+  export type Strict<U extends object> = ComputeRaw<_Strict<U>>;
+  /** End Helper Types for "Merge" **/
+
+  export type Merge<U extends object> = ComputeRaw<_Merge<Strict<U>>>;
+
+  /**
+  A [[Boolean]]
+  */
+  export type Boolean = True | False
+
+  // /**
+  // 1
+  // */
+  export type True = 1
+
+  /**
+  0
+  */
+  export type False = 0
+
+  export type Not<B extends Boolean> = {
+    0: 1
+    1: 0
+  }[B]
+
+  export type Extends<A1 extends any, A2 extends any> = [A1] extends [never]
+    ? 0 // anything `never` is false
+    : A1 extends A2
+    ? 1
+    : 0
+
+  export type Has<U extends Union, U1 extends Union> = Not<
+    Extends<Exclude<U1, U>, U1>
+  >
+
+  export type Or<B1 extends Boolean, B2 extends Boolean> = {
+    0: {
+      0: 0
+      1: 1
+    }
+    1: {
+      0: 1
+      1: 1
+    }
+  }[B1][B2]
+
+  export type Keys<U extends Union> = U extends unknown ? keyof U : never
+
+  type Cast<A, B> = A extends B ? A : B;
+
+  export const type: unique symbol;
+
+
+
+  /**
+   * Used by group by
+   */
+
+  export type GetScalarType<T, O> = O extends object ? {
+    [P in keyof T]: P extends keyof O
+      ? O[P]
+      : never
+  } : never
+
+  type FieldPaths<
+    T,
+    U = Omit<T, '_avg' | '_sum' | '_count' | '_min' | '_max'>
+  > = IsObject<T> extends True ? U : T
+
+  type GetHavingFields<T> = {
+    [K in keyof T]: Or<
+      Or<Extends<'OR', K>, Extends<'AND', K>>,
+      Extends<'NOT', K>
+    > extends True
+      ? // infer is only needed to not hit TS limit
+        // based on the brilliant idea of Pierre-Antoine Mills
+        // https://github.com/microsoft/TypeScript/issues/30188#issuecomment-478938437
+        T[K] extends infer TK
+        ? GetHavingFields<UnEnumerate<TK> extends object ? Merge<UnEnumerate<TK>> : never>
+        : never
+      : {} extends FieldPaths<T[K]>
+      ? never
+      : K
+  }[keyof T]
+
+  /**
+   * Convert tuple to union
+   */
+  type _TupleToUnion<T> = T extends (infer E)[] ? E : never
+  type TupleToUnion<K extends readonly any[]> = _TupleToUnion<K>
+  type MaybeTupleToUnion<T> = T extends any[] ? TupleToUnion<T> : T
+
+  /**
+   * Like `Pick`, but additionally can also accept an array of keys
+   */
+  type PickEnumerable<T, K extends Enumerable<keyof T> | keyof T> = Prisma__Pick<T, MaybeTupleToUnion<K>>
+
+  /**
+   * Exclude all keys with underscores
+   */
+  type ExcludeUnderscoreKeys<T extends string> = T extends `_${string}` ? never : T
+
+
+  export type FieldRef<Model, FieldType> = runtime.FieldRef<Model, FieldType>
+
+  type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRef<Model, FieldType>
+
+
+  export const ModelName: {
+    User: 'User',
+    Car: 'Car',
+    Service: 'Service',
+    Bonus: 'Bonus',
+    Multi_branch: 'Multi_branch',
+    Commit: 'Commit',
+    Notification: 'Notification',
+    OTP: 'OTP',
+    History: 'History',
+    Register_car: 'Register_car',
+    Register_service: 'Register_service'
+  };
+
+  export type ModelName = (typeof ModelName)[keyof typeof ModelName]
+
+
+  export type Datasources = {
+    db?: Datasource
+  }
+
+  interface TypeMapCb<ClientOptions = {}> extends $Utils.Fn<{extArgs: $Extensions.InternalArgs }, $Utils.Record<string, any>> {
+    returns: Prisma.TypeMap<this['params']['extArgs'], ClientOptions extends { omit: infer OmitOptions } ? OmitOptions : {}>
+  }
+
+  export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> = {
+    globalOmitOptions: {
+      omit: GlobalOmitOptions
+    }
+    meta: {
+      modelProps: "user" | "car" | "service" | "bonus" | "multi_branch" | "commit" | "notification" | "oTP" | "history" | "register_car" | "register_service"
+      txIsolationLevel: Prisma.TransactionIsolationLevel
+    }
+    model: {
+      User: {
+        payload: Prisma.$UserPayload<ExtArgs>
+        fields: Prisma.UserFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findFirst: {
+            args: Prisma.UserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findMany: {
+            args: Prisma.UserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          create: {
+            args: Prisma.UserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          createMany: {
+            args: Prisma.UserCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          delete: {
+            args: Prisma.UserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          update: {
+            args: Prisma.UserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          upsert: {
+            args: Prisma.UserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          aggregate: {
+            args: Prisma.UserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUser>
+          }
+          groupBy: {
+            args: Prisma.UserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserCountArgs<ExtArgs>
+            result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
+      Car: {
+        payload: Prisma.$CarPayload<ExtArgs>
+        fields: Prisma.CarFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CarFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CarFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload>
+          }
+          findFirst: {
+            args: Prisma.CarFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CarFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload>
+          }
+          findMany: {
+            args: Prisma.CarFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload>[]
+          }
+          create: {
+            args: Prisma.CarCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload>
+          }
+          createMany: {
+            args: Prisma.CarCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CarCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload>[]
+          }
+          delete: {
+            args: Prisma.CarDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload>
+          }
+          update: {
+            args: Prisma.CarUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload>
+          }
+          deleteMany: {
+            args: Prisma.CarDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CarUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CarUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload>[]
+          }
+          upsert: {
+            args: Prisma.CarUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CarPayload>
+          }
+          aggregate: {
+            args: Prisma.CarAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCar>
+          }
+          groupBy: {
+            args: Prisma.CarGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CarGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CarCountArgs<ExtArgs>
+            result: $Utils.Optional<CarCountAggregateOutputType> | number
+          }
+        }
+      }
+      Service: {
+        payload: Prisma.$ServicePayload<ExtArgs>
+        fields: Prisma.ServiceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ServiceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ServiceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          findFirst: {
+            args: Prisma.ServiceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ServiceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          findMany: {
+            args: Prisma.ServiceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>[]
+          }
+          create: {
+            args: Prisma.ServiceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          createMany: {
+            args: Prisma.ServiceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ServiceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>[]
+          }
+          delete: {
+            args: Prisma.ServiceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          update: {
+            args: Prisma.ServiceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          deleteMany: {
+            args: Prisma.ServiceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ServiceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ServiceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>[]
+          }
+          upsert: {
+            args: Prisma.ServiceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ServicePayload>
+          }
+          aggregate: {
+            args: Prisma.ServiceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateService>
+          }
+          groupBy: {
+            args: Prisma.ServiceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ServiceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ServiceCountArgs<ExtArgs>
+            result: $Utils.Optional<ServiceCountAggregateOutputType> | number
+          }
+        }
+      }
+      Bonus: {
+        payload: Prisma.$BonusPayload<ExtArgs>
+        fields: Prisma.BonusFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BonusFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BonusFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload>
+          }
+          findFirst: {
+            args: Prisma.BonusFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BonusFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload>
+          }
+          findMany: {
+            args: Prisma.BonusFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload>[]
+          }
+          create: {
+            args: Prisma.BonusCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload>
+          }
+          createMany: {
+            args: Prisma.BonusCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BonusCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload>[]
+          }
+          delete: {
+            args: Prisma.BonusDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload>
+          }
+          update: {
+            args: Prisma.BonusUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload>
+          }
+          deleteMany: {
+            args: Prisma.BonusDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BonusUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BonusUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload>[]
+          }
+          upsert: {
+            args: Prisma.BonusUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BonusPayload>
+          }
+          aggregate: {
+            args: Prisma.BonusAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBonus>
+          }
+          groupBy: {
+            args: Prisma.BonusGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BonusGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BonusCountArgs<ExtArgs>
+            result: $Utils.Optional<BonusCountAggregateOutputType> | number
+          }
+        }
+      }
+      Multi_branch: {
+        payload: Prisma.$Multi_branchPayload<ExtArgs>
+        fields: Prisma.Multi_branchFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.Multi_branchFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.Multi_branchFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload>
+          }
+          findFirst: {
+            args: Prisma.Multi_branchFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.Multi_branchFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload>
+          }
+          findMany: {
+            args: Prisma.Multi_branchFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload>[]
+          }
+          create: {
+            args: Prisma.Multi_branchCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload>
+          }
+          createMany: {
+            args: Prisma.Multi_branchCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.Multi_branchCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload>[]
+          }
+          delete: {
+            args: Prisma.Multi_branchDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload>
+          }
+          update: {
+            args: Prisma.Multi_branchUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload>
+          }
+          deleteMany: {
+            args: Prisma.Multi_branchDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.Multi_branchUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.Multi_branchUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload>[]
+          }
+          upsert: {
+            args: Prisma.Multi_branchUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Multi_branchPayload>
+          }
+          aggregate: {
+            args: Prisma.Multi_branchAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMulti_branch>
+          }
+          groupBy: {
+            args: Prisma.Multi_branchGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Multi_branchGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.Multi_branchCountArgs<ExtArgs>
+            result: $Utils.Optional<Multi_branchCountAggregateOutputType> | number
+          }
+        }
+      }
+      Commit: {
+        payload: Prisma.$CommitPayload<ExtArgs>
+        fields: Prisma.CommitFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CommitFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CommitFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload>
+          }
+          findFirst: {
+            args: Prisma.CommitFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CommitFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload>
+          }
+          findMany: {
+            args: Prisma.CommitFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload>[]
+          }
+          create: {
+            args: Prisma.CommitCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload>
+          }
+          createMany: {
+            args: Prisma.CommitCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CommitCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload>[]
+          }
+          delete: {
+            args: Prisma.CommitDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload>
+          }
+          update: {
+            args: Prisma.CommitUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload>
+          }
+          deleteMany: {
+            args: Prisma.CommitDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CommitUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CommitUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload>[]
+          }
+          upsert: {
+            args: Prisma.CommitUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommitPayload>
+          }
+          aggregate: {
+            args: Prisma.CommitAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCommit>
+          }
+          groupBy: {
+            args: Prisma.CommitGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CommitGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CommitCountArgs<ExtArgs>
+            result: $Utils.Optional<CommitCountAggregateOutputType> | number
+          }
+        }
+      }
+      Notification: {
+        payload: Prisma.$NotificationPayload<ExtArgs>
+        fields: Prisma.NotificationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NotificationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NotificationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          findFirst: {
+            args: Prisma.NotificationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NotificationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          findMany: {
+            args: Prisma.NotificationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+          }
+          create: {
+            args: Prisma.NotificationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          createMany: {
+            args: Prisma.NotificationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NotificationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+          }
+          delete: {
+            args: Prisma.NotificationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          update: {
+            args: Prisma.NotificationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          deleteMany: {
+            args: Prisma.NotificationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NotificationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.NotificationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>[]
+          }
+          upsert: {
+            args: Prisma.NotificationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotificationPayload>
+          }
+          aggregate: {
+            args: Prisma.NotificationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNotification>
+          }
+          groupBy: {
+            args: Prisma.NotificationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NotificationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NotificationCountArgs<ExtArgs>
+            result: $Utils.Optional<NotificationCountAggregateOutputType> | number
+          }
+        }
+      }
+      OTP: {
+        payload: Prisma.$OTPPayload<ExtArgs>
+        fields: Prisma.OTPFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OTPFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OTPFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+          }
+          findFirst: {
+            args: Prisma.OTPFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OTPFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+          }
+          findMany: {
+            args: Prisma.OTPFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload>[]
+          }
+          create: {
+            args: Prisma.OTPCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+          }
+          createMany: {
+            args: Prisma.OTPCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OTPCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload>[]
+          }
+          delete: {
+            args: Prisma.OTPDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+          }
+          update: {
+            args: Prisma.OTPUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+          }
+          deleteMany: {
+            args: Prisma.OTPDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OTPUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OTPUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload>[]
+          }
+          upsert: {
+            args: Prisma.OTPUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+          }
+          aggregate: {
+            args: Prisma.OTPAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOTP>
+          }
+          groupBy: {
+            args: Prisma.OTPGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OTPGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OTPCountArgs<ExtArgs>
+            result: $Utils.Optional<OTPCountAggregateOutputType> | number
+          }
+        }
+      }
+      History: {
+        payload: Prisma.$HistoryPayload<ExtArgs>
+        fields: Prisma.HistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.HistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.HistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.HistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.HistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload>
+          }
+          findMany: {
+            args: Prisma.HistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload>[]
+          }
+          create: {
+            args: Prisma.HistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload>
+          }
+          createMany: {
+            args: Prisma.HistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.HistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.HistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload>
+          }
+          update: {
+            args: Prisma.HistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.HistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.HistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.HistoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload>[]
+          }
+          upsert: {
+            args: Prisma.HistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.HistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHistory>
+          }
+          groupBy: {
+            args: Prisma.HistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.HistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<HistoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      Register_car: {
+        payload: Prisma.$Register_carPayload<ExtArgs>
+        fields: Prisma.Register_carFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.Register_carFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.Register_carFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload>
+          }
+          findFirst: {
+            args: Prisma.Register_carFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.Register_carFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload>
+          }
+          findMany: {
+            args: Prisma.Register_carFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload>[]
+          }
+          create: {
+            args: Prisma.Register_carCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload>
+          }
+          createMany: {
+            args: Prisma.Register_carCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.Register_carCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload>[]
+          }
+          delete: {
+            args: Prisma.Register_carDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload>
+          }
+          update: {
+            args: Prisma.Register_carUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload>
+          }
+          deleteMany: {
+            args: Prisma.Register_carDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.Register_carUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.Register_carUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload>[]
+          }
+          upsert: {
+            args: Prisma.Register_carUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_carPayload>
+          }
+          aggregate: {
+            args: Prisma.Register_carAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRegister_car>
+          }
+          groupBy: {
+            args: Prisma.Register_carGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Register_carGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.Register_carCountArgs<ExtArgs>
+            result: $Utils.Optional<Register_carCountAggregateOutputType> | number
+          }
+        }
+      }
+      Register_service: {
+        payload: Prisma.$Register_servicePayload<ExtArgs>
+        fields: Prisma.Register_serviceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.Register_serviceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.Register_serviceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload>
+          }
+          findFirst: {
+            args: Prisma.Register_serviceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.Register_serviceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload>
+          }
+          findMany: {
+            args: Prisma.Register_serviceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload>[]
+          }
+          create: {
+            args: Prisma.Register_serviceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload>
+          }
+          createMany: {
+            args: Prisma.Register_serviceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.Register_serviceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload>[]
+          }
+          delete: {
+            args: Prisma.Register_serviceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload>
+          }
+          update: {
+            args: Prisma.Register_serviceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload>
+          }
+          deleteMany: {
+            args: Prisma.Register_serviceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.Register_serviceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.Register_serviceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload>[]
+          }
+          upsert: {
+            args: Prisma.Register_serviceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Register_servicePayload>
+          }
+          aggregate: {
+            args: Prisma.Register_serviceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRegister_service>
+          }
+          groupBy: {
+            args: Prisma.Register_serviceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Register_serviceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.Register_serviceCountArgs<ExtArgs>
+            result: $Utils.Optional<Register_serviceCountAggregateOutputType> | number
+          }
+        }
+      }
+    }
+  } & {
+    other: {
+      payload: any
+      operations: {
+        $executeRaw: {
+          args: [query: TemplateStringsArray | Prisma.Sql, ...values: any[]],
+          result: any
+        }
+        $executeRawUnsafe: {
+          args: [query: string, ...values: any[]],
+          result: any
+        }
+        $queryRaw: {
+          args: [query: TemplateStringsArray | Prisma.Sql, ...values: any[]],
+          result: any
+        }
+        $queryRawUnsafe: {
+          args: [query: string, ...values: any[]],
+          result: any
+        }
+      }
+    }
+  }
+  export const defineExtension: $Extensions.ExtendsHook<"define", Prisma.TypeMapCb, $Extensions.DefaultArgs>
+  export type DefaultPrismaClient = PrismaClient
+  export type ErrorFormat = 'pretty' | 'colorless' | 'minimal'
+  export interface PrismaClientOptions {
+    /**
+     * Overwrites the datasource url from your schema.prisma file
+     */
+    datasources?: Datasources
+    /**
+     * Overwrites the datasource url from your schema.prisma file
+     */
+    datasourceUrl?: string
+    /**
+     * @default "colorless"
+     */
+    errorFormat?: ErrorFormat
+    /**
+     * @example
+     * ```
+     * // Defaults to stdout
+     * log: ['query', 'info', 'warn', 'error']
+     * 
+     * // Emit as events
+     * log: [
+     *   { emit: 'stdout', level: 'query' },
+     *   { emit: 'stdout', level: 'info' },
+     *   { emit: 'stdout', level: 'warn' }
+     *   { emit: 'stdout', level: 'error' }
+     * ]
+     * ```
+     * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/logging#the-log-option).
+     */
+    log?: (LogLevel | LogDefinition)[]
+    /**
+     * The default values for transactionOptions
+     * maxWait ?= 2000
+     * timeout ?= 5000
+     */
+    transactionOptions?: {
+      maxWait?: number
+      timeout?: number
+      isolationLevel?: Prisma.TransactionIsolationLevel
+    }
+    /**
+     * Global configuration for omitting model fields by default.
+     * 
+     * @example
+     * ```
+     * const prisma = new PrismaClient({
+     *   omit: {
+     *     user: {
+     *       password: true
+     *     }
+     *   }
+     * })
+     * ```
+     */
+    omit?: Prisma.GlobalOmitConfig
+  }
+  export type GlobalOmitConfig = {
+    user?: UserOmit
+    car?: CarOmit
+    service?: ServiceOmit
+    bonus?: BonusOmit
+    multi_branch?: Multi_branchOmit
+    commit?: CommitOmit
+    notification?: NotificationOmit
+    oTP?: OTPOmit
+    history?: HistoryOmit
+    register_car?: Register_carOmit
+    register_service?: Register_serviceOmit
+  }
+
+  /* Types for Logging */
+  export type LogLevel = 'info' | 'query' | 'warn' | 'error'
+  export type LogDefinition = {
+    level: LogLevel
+    emit: 'stdout' | 'event'
+  }
+
+  export type GetLogType<T extends LogLevel | LogDefinition> = T extends LogDefinition ? T['emit'] extends 'event' ? T['level'] : never : never
+  export type GetEvents<T extends any> = T extends Array<LogLevel | LogDefinition> ?
+    GetLogType<T[0]> | GetLogType<T[1]> | GetLogType<T[2]> | GetLogType<T[3]>
+    : never
+
+  export type QueryEvent = {
+    timestamp: Date
+    query: string
+    params: string
+    duration: number
+    target: string
+  }
+
+  export type LogEvent = {
+    timestamp: Date
+    message: string
+    target: string
+  }
+  /* End Types for Logging */
+
+
+  export type PrismaAction =
+    | 'findUnique'
+    | 'findUniqueOrThrow'
+    | 'findMany'
+    | 'findFirst'
+    | 'findFirstOrThrow'
+    | 'create'
+    | 'createMany'
+    | 'createManyAndReturn'
+    | 'update'
+    | 'updateMany'
+    | 'updateManyAndReturn'
+    | 'upsert'
+    | 'delete'
+    | 'deleteMany'
+    | 'executeRaw'
+    | 'queryRaw'
+    | 'aggregate'
+    | 'count'
+    | 'runCommandRaw'
+    | 'findRaw'
+    | 'groupBy'
+
+  /**
+   * These options are being passed into the middleware as "params"
+   */
+  export type MiddlewareParams = {
+    model?: ModelName
+    action: PrismaAction
+    args: any
+    dataPath: string[]
+    runInTransaction: boolean
+  }
+
+  /**
+   * The `T` type makes sure, that the `return proceed` is not forgotten in the middleware implementation
+   */
+  export type Middleware<T = any> = (
+    params: MiddlewareParams,
+    next: (params: MiddlewareParams) => $Utils.JsPromise<T>,
+  ) => $Utils.JsPromise<T>
+
+  // tested in getLogLevel.test.ts
+  export function getLogLevel(log: Array<LogLevel | LogDefinition>): LogLevel | undefined;
+
+  /**
+   * `PrismaClient` proxy available in interactive transactions.
+   */
+  export type TransactionClient = Omit<Prisma.DefaultPrismaClient, runtime.ITXClientDenyList>
+
+  export type Datasource = {
+    url?: string
+  }
+
+  /**
+   * Count Types
+   */
+
+
+  /**
+   * Count Type UserCountOutputType
+   */
+
+  export type UserCountOutputType = {
+    Bonus: number
+    Notification: number
+    Commit: number
+    OTP: number
+    Register_car: number
+    Register_service: number
+    History: number
+  }
+
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Bonus?: boolean | UserCountOutputTypeCountBonusArgs
+    Notification?: boolean | UserCountOutputTypeCountNotificationArgs
+    Commit?: boolean | UserCountOutputTypeCountCommitArgs
+    OTP?: boolean | UserCountOutputTypeCountOTPArgs
+    Register_car?: boolean | UserCountOutputTypeCountRegister_carArgs
+    Register_service?: boolean | UserCountOutputTypeCountRegister_serviceArgs
+    History?: boolean | UserCountOutputTypeCountHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCountOutputType
+     */
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountBonusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BonusWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountNotificationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCommitArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommitWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountOTPArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OTPWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountRegister_carArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Register_carWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountRegister_serviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Register_serviceWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HistoryWhereInput
+  }
+
+
+  /**
+   * Count Type CarCountOutputType
+   */
+
+  export type CarCountOutputType = {
+    Register_service: number
+    History: number
+  }
+
+  export type CarCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Register_service?: boolean | CarCountOutputTypeCountRegister_serviceArgs
+    History?: boolean | CarCountOutputTypeCountHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CarCountOutputType without action
+   */
+  export type CarCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CarCountOutputType
+     */
+    select?: CarCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CarCountOutputType without action
+   */
+  export type CarCountOutputTypeCountRegister_serviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Register_serviceWhereInput
+  }
+
+  /**
+   * CarCountOutputType without action
+   */
+  export type CarCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HistoryWhereInput
+  }
+
+
+  /**
+   * Count Type ServiceCountOutputType
+   */
+
+  export type ServiceCountOutputType = {
+    Register_service: number
+    History: number
+  }
+
+  export type ServiceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Register_service?: boolean | ServiceCountOutputTypeCountRegister_serviceArgs
+    History?: boolean | ServiceCountOutputTypeCountHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ServiceCountOutputType without action
+   */
+  export type ServiceCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ServiceCountOutputType
+     */
+    select?: ServiceCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ServiceCountOutputType without action
+   */
+  export type ServiceCountOutputTypeCountRegister_serviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Register_serviceWhereInput
+  }
+
+  /**
+   * ServiceCountOutputType without action
+   */
+  export type ServiceCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HistoryWhereInput
+  }
+
+
+  /**
+   * Count Type Multi_branchCountOutputType
+   */
+
+  export type Multi_branchCountOutputType = {
+    Register_service: number
+    History: number
+  }
+
+  export type Multi_branchCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Register_service?: boolean | Multi_branchCountOutputTypeCountRegister_serviceArgs
+    History?: boolean | Multi_branchCountOutputTypeCountHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Multi_branchCountOutputType without action
+   */
+  export type Multi_branchCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branchCountOutputType
+     */
+    select?: Multi_branchCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Multi_branchCountOutputType without action
+   */
+  export type Multi_branchCountOutputTypeCountRegister_serviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Register_serviceWhereInput
+  }
+
+  /**
+   * Multi_branchCountOutputType without action
+   */
+  export type Multi_branchCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HistoryWhereInput
+  }
+
+
+  /**
+   * Count Type Register_carCountOutputType
+   */
+
+  export type Register_carCountOutputType = {
+    History: number
+  }
+
+  export type Register_carCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    History?: boolean | Register_carCountOutputTypeCountHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Register_carCountOutputType without action
+   */
+  export type Register_carCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_carCountOutputType
+     */
+    select?: Register_carCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Register_carCountOutputType without action
+   */
+  export type Register_carCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HistoryWhereInput
+  }
+
+
+  /**
+   * Count Type Register_serviceCountOutputType
+   */
+
+  export type Register_serviceCountOutputType = {
+    History: number
+  }
+
+  export type Register_serviceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    History?: boolean | Register_serviceCountOutputTypeCountHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Register_serviceCountOutputType without action
+   */
+  export type Register_serviceCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_serviceCountOutputType
+     */
+    select?: Register_serviceCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Register_serviceCountOutputType without action
+   */
+  export type Register_serviceCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HistoryWhereInput
+  }
+
+
+  /**
+   * Models
+   */
+
+  /**
+   * Model User
+   */
+
+  export type AggregateUser = {
+    _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  export type UserAvgAggregateOutputType = {
+    User_ID: number | null
+  }
+
+  export type UserSumAggregateOutputType = {
+    User_ID: number | null
+  }
+
+  export type UserMinAggregateOutputType = {
+    User_ID: number | null
+    User_last_name: string | null
+    User_first_name: string | null
+    User_email: string | null
+    User_phone: string | null
+    User_password: string | null
+    User_role: $Enums.User_role_enum | null
+    User_create_at: Date | null
+    User_update_at: Date | null
+  }
+
+  export type UserMaxAggregateOutputType = {
+    User_ID: number | null
+    User_last_name: string | null
+    User_first_name: string | null
+    User_email: string | null
+    User_phone: string | null
+    User_password: string | null
+    User_role: $Enums.User_role_enum | null
+    User_create_at: Date | null
+    User_update_at: Date | null
+  }
+
+  export type UserCountAggregateOutputType = {
+    User_ID: number
+    User_last_name: number
+    User_first_name: number
+    User_email: number
+    User_phone: number
+    User_password: number
+    User_role: number
+    User_create_at: number
+    User_update_at: number
+    _all: number
+  }
+
+
+  export type UserAvgAggregateInputType = {
+    User_ID?: true
+  }
+
+  export type UserSumAggregateInputType = {
+    User_ID?: true
+  }
+
+  export type UserMinAggregateInputType = {
+    User_ID?: true
+    User_last_name?: true
+    User_first_name?: true
+    User_email?: true
+    User_phone?: true
+    User_password?: true
+    User_role?: true
+    User_create_at?: true
+    User_update_at?: true
+  }
+
+  export type UserMaxAggregateInputType = {
+    User_ID?: true
+    User_last_name?: true
+    User_first_name?: true
+    User_email?: true
+    User_phone?: true
+    User_password?: true
+    User_role?: true
+    User_create_at?: true
+    User_update_at?: true
+  }
+
+  export type UserCountAggregateInputType = {
+    User_ID?: true
+    User_last_name?: true
+    User_first_name?: true
+    User_email?: true
+    User_phone?: true
+    User_password?: true
+    User_role?: true
+    User_create_at?: true
+    User_update_at?: true
+    _all?: true
+  }
+
+  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which User to aggregate.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Users
+    **/
+    _count?: true | UserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UserAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UserSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type GetUserAggregateType<T extends UserAggregateArgs> = {
+        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUser[P]>
+      : GetScalarType<T[P], AggregateUser[P]>
+  }
+
+
+
+
+  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
+    by: UserScalarFieldEnum[] | UserScalarFieldEnum
+    having?: UserScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserCountAggregateInputType | true
+    _avg?: UserAvgAggregateInputType
+    _sum?: UserSumAggregateInputType
+    _min?: UserMinAggregateInputType
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type UserGroupByOutputType = {
+    User_ID: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone: string | null
+    User_password: string
+    User_role: $Enums.User_role_enum
+    User_create_at: Date
+    User_update_at: Date
+    _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserGroupByOutputType[P]>
+            : GetScalarType<T[P], UserGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    User_ID?: boolean
+    User_last_name?: boolean
+    User_first_name?: boolean
+    User_email?: boolean
+    User_phone?: boolean
+    User_password?: boolean
+    User_role?: boolean
+    User_create_at?: boolean
+    User_update_at?: boolean
+    Bonus?: boolean | User$BonusArgs<ExtArgs>
+    Notification?: boolean | User$NotificationArgs<ExtArgs>
+    Commit?: boolean | User$CommitArgs<ExtArgs>
+    OTP?: boolean | User$OTPArgs<ExtArgs>
+    Register_car?: boolean | User$Register_carArgs<ExtArgs>
+    Register_service?: boolean | User$Register_serviceArgs<ExtArgs>
+    History?: boolean | User$HistoryArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    User_ID?: boolean
+    User_last_name?: boolean
+    User_first_name?: boolean
+    User_email?: boolean
+    User_phone?: boolean
+    User_password?: boolean
+    User_role?: boolean
+    User_create_at?: boolean
+    User_update_at?: boolean
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    User_ID?: boolean
+    User_last_name?: boolean
+    User_first_name?: boolean
+    User_email?: boolean
+    User_phone?: boolean
+    User_password?: boolean
+    User_role?: boolean
+    User_create_at?: boolean
+    User_update_at?: boolean
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectScalar = {
+    User_ID?: boolean
+    User_last_name?: boolean
+    User_first_name?: boolean
+    User_email?: boolean
+    User_phone?: boolean
+    User_password?: boolean
+    User_role?: boolean
+    User_create_at?: boolean
+    User_update_at?: boolean
+  }
+
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"User_ID" | "User_last_name" | "User_first_name" | "User_email" | "User_phone" | "User_password" | "User_role" | "User_create_at" | "User_update_at", ExtArgs["result"]["user"]>
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Bonus?: boolean | User$BonusArgs<ExtArgs>
+    Notification?: boolean | User$NotificationArgs<ExtArgs>
+    Commit?: boolean | User$CommitArgs<ExtArgs>
+    OTP?: boolean | User$OTPArgs<ExtArgs>
+    Register_car?: boolean | User$Register_carArgs<ExtArgs>
+    Register_service?: boolean | User$Register_serviceArgs<ExtArgs>
+    History?: boolean | User$HistoryArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "User"
+    objects: {
+      Bonus: Prisma.$BonusPayload<ExtArgs>[]
+      Notification: Prisma.$NotificationPayload<ExtArgs>[]
+      Commit: Prisma.$CommitPayload<ExtArgs>[]
+      OTP: Prisma.$OTPPayload<ExtArgs>[]
+      Register_car: Prisma.$Register_carPayload<ExtArgs>[]
+      Register_service: Prisma.$Register_servicePayload<ExtArgs>[]
+      History: Prisma.$HistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      User_ID: number
+      User_last_name: string
+      User_first_name: string
+      User_email: string
+      User_phone: string | null
+      User_password: string
+      User_role: $Enums.User_role_enum
+      User_create_at: Date
+      User_update_at: Date
+    }, ExtArgs["result"]["user"]>
+    composites: {}
+  }
+
+  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
+
+  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserCountAggregateInputType | true
+    }
+
+  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
+    /**
+     * Find zero or one User that matches the filter.
+     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one User that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first User that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first User that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Users that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Users
+     * const users = await prisma.user.findMany()
+     * 
+     * // Get first 10 Users
+     * const users = await prisma.user.findMany({ take: 10 })
+     * 
+     * // Only select the `User_ID`
+     * const userWithUser_IDOnly = await prisma.user.findMany({ select: { User_ID: true } })
+     * 
+     */
+    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a User.
+     * @param {UserCreateArgs} args - Arguments to create a User.
+     * @example
+     * // Create one User
+     * const User = await prisma.user.create({
+     *   data: {
+     *     // ... data to create a User
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Users.
+     * @param {UserCreateManyArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Users and returns the data saved in the database.
+     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Users and only return the `User_ID`
+     * const userWithUser_IDOnly = await prisma.user.createManyAndReturn({
+     *   select: { User_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a User.
+     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * @example
+     * // Delete one User
+     * const User = await prisma.user.delete({
+     *   where: {
+     *     // ... filter to delete one User
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one User.
+     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * @example
+     * // Update one User
+     * const user = await prisma.user.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Users.
+     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * @example
+     * // Delete a few Users
+     * const { count } = await prisma.user.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Users
+     * const user = await prisma.user.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Users and returns the data updated in the database.
+     * @param {UserUpdateManyAndReturnArgs} args - Arguments to update many Users.
+     * @example
+     * // Update many Users
+     * const user = await prisma.user.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Users and only return the `User_ID`
+     * const userWithUser_IDOnly = await prisma.user.updateManyAndReturn({
+     *   select: { User_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends UserUpdateManyAndReturnArgs>(args: SelectSubset<T, UserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one User.
+     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * @example
+     * // Update or create a User
+     * const user = await prisma.user.upsert({
+     *   create: {
+     *     // ... data to create a User
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the User we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @example
+     * // Count the number of Users
+     * const count = await prisma.user.count({
+     *   where: {
+     *     // ... the filter for the Users we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserCountArgs>(
+      args?: Subset<T, UserCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+
+    /**
+     * Group by User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserGroupByArgs['orderBy'] }
+        : { orderBy?: UserGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the User model
+   */
+  readonly fields: UserFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for User.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Bonus<T extends User$BonusArgs<ExtArgs> = {}>(args?: Subset<T, User$BonusArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Notification<T extends User$NotificationArgs<ExtArgs> = {}>(args?: Subset<T, User$NotificationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Commit<T extends User$CommitArgs<ExtArgs> = {}>(args?: Subset<T, User$CommitArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    OTP<T extends User$OTPArgs<ExtArgs> = {}>(args?: Subset<T, User$OTPArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Register_car<T extends User$Register_carArgs<ExtArgs> = {}>(args?: Subset<T, User$Register_carArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Register_service<T extends User$Register_serviceArgs<ExtArgs> = {}>(args?: Subset<T, User$Register_serviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    History<T extends User$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, User$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the User model
+   */
+  interface UserFieldRefs {
+    readonly User_ID: FieldRef<"User", 'Int'>
+    readonly User_last_name: FieldRef<"User", 'String'>
+    readonly User_first_name: FieldRef<"User", 'String'>
+    readonly User_email: FieldRef<"User", 'String'>
+    readonly User_phone: FieldRef<"User", 'String'>
+    readonly User_password: FieldRef<"User", 'String'>
+    readonly User_role: FieldRef<"User", 'User_role_enum'>
+    readonly User_create_at: FieldRef<"User", 'DateTime'>
+    readonly User_update_at: FieldRef<"User", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * User findUnique
+   */
+  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findUniqueOrThrow
+   */
+  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findFirst
+   */
+  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findFirstOrThrow
+   */
+  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findMany
+   */
+  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which Users to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User create
+   */
+  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to create a User.
+     */
+    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+  }
+
+  /**
+   * User createMany
+   */
+  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * User createManyAndReturn
+   */
+  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * User update
+   */
+  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a User.
+     */
+    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    /**
+     * Choose, which User to update.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User updateMany
+   */
+  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Users.
+     */
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    /**
+     * Filter which Users to update
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * User updateManyAndReturn
+   */
+  export type UserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * The data used to update Users.
+     */
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    /**
+     * Filter which Users to update
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * User upsert
+   */
+  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the User to update in case it exists.
+     */
+    where: UserWhereUniqueInput
+    /**
+     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     */
+    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    /**
+     * In case the User was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+  }
+
+  /**
+   * User delete
+   */
+  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter which User to delete.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User deleteMany
+   */
+  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Users to delete
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * User.Bonus
+   */
+  export type User$BonusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    where?: BonusWhereInput
+    orderBy?: BonusOrderByWithRelationInput | BonusOrderByWithRelationInput[]
+    cursor?: BonusWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BonusScalarFieldEnum | BonusScalarFieldEnum[]
+  }
+
+  /**
+   * User.Notification
+   */
+  export type User$NotificationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    cursor?: NotificationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * User.Commit
+   */
+  export type User$CommitArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    where?: CommitWhereInput
+    orderBy?: CommitOrderByWithRelationInput | CommitOrderByWithRelationInput[]
+    cursor?: CommitWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CommitScalarFieldEnum | CommitScalarFieldEnum[]
+  }
+
+  /**
+   * User.OTP
+   */
+  export type User$OTPArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    where?: OTPWhereInput
+    orderBy?: OTPOrderByWithRelationInput | OTPOrderByWithRelationInput[]
+    cursor?: OTPWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OTPScalarFieldEnum | OTPScalarFieldEnum[]
+  }
+
+  /**
+   * User.Register_car
+   */
+  export type User$Register_carArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    where?: Register_carWhereInput
+    orderBy?: Register_carOrderByWithRelationInput | Register_carOrderByWithRelationInput[]
+    cursor?: Register_carWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Register_carScalarFieldEnum | Register_carScalarFieldEnum[]
+  }
+
+  /**
+   * User.Register_service
+   */
+  export type User$Register_serviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    where?: Register_serviceWhereInput
+    orderBy?: Register_serviceOrderByWithRelationInput | Register_serviceOrderByWithRelationInput[]
+    cursor?: Register_serviceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Register_serviceScalarFieldEnum | Register_serviceScalarFieldEnum[]
+  }
+
+  /**
+   * User.History
+   */
+  export type User$HistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    where?: HistoryWhereInput
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    cursor?: HistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * User without action
+   */
+  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Car
+   */
+
+  export type AggregateCar = {
+    _count: CarCountAggregateOutputType | null
+    _avg: CarAvgAggregateOutputType | null
+    _sum: CarSumAggregateOutputType | null
+    _min: CarMinAggregateOutputType | null
+    _max: CarMaxAggregateOutputType | null
+  }
+
+  export type CarAvgAggregateOutputType = {
+    Car_ID: number | null
+  }
+
+  export type CarSumAggregateOutputType = {
+    Car_ID: number | null
+  }
+
+  export type CarMinAggregateOutputType = {
+    Car_ID: number | null
+    Car_list: string | null
+  }
+
+  export type CarMaxAggregateOutputType = {
+    Car_ID: number | null
+    Car_list: string | null
+  }
+
+  export type CarCountAggregateOutputType = {
+    Car_ID: number
+    Car_list: number
+    _all: number
+  }
+
+
+  export type CarAvgAggregateInputType = {
+    Car_ID?: true
+  }
+
+  export type CarSumAggregateInputType = {
+    Car_ID?: true
+  }
+
+  export type CarMinAggregateInputType = {
+    Car_ID?: true
+    Car_list?: true
+  }
+
+  export type CarMaxAggregateInputType = {
+    Car_ID?: true
+    Car_list?: true
+  }
+
+  export type CarCountAggregateInputType = {
+    Car_ID?: true
+    Car_list?: true
+    _all?: true
+  }
+
+  export type CarAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Car to aggregate.
+     */
+    where?: CarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cars to fetch.
+     */
+    orderBy?: CarOrderByWithRelationInput | CarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Cars
+    **/
+    _count?: true | CarCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CarAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CarSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CarMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CarMaxAggregateInputType
+  }
+
+  export type GetCarAggregateType<T extends CarAggregateArgs> = {
+        [P in keyof T & keyof AggregateCar]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCar[P]>
+      : GetScalarType<T[P], AggregateCar[P]>
+  }
+
+
+
+
+  export type CarGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CarWhereInput
+    orderBy?: CarOrderByWithAggregationInput | CarOrderByWithAggregationInput[]
+    by: CarScalarFieldEnum[] | CarScalarFieldEnum
+    having?: CarScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CarCountAggregateInputType | true
+    _avg?: CarAvgAggregateInputType
+    _sum?: CarSumAggregateInputType
+    _min?: CarMinAggregateInputType
+    _max?: CarMaxAggregateInputType
+  }
+
+  export type CarGroupByOutputType = {
+    Car_ID: number
+    Car_list: string | null
+    _count: CarCountAggregateOutputType | null
+    _avg: CarAvgAggregateOutputType | null
+    _sum: CarSumAggregateOutputType | null
+    _min: CarMinAggregateOutputType | null
+    _max: CarMaxAggregateOutputType | null
+  }
+
+  type GetCarGroupByPayload<T extends CarGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CarGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CarGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CarGroupByOutputType[P]>
+            : GetScalarType<T[P], CarGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CarSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Car_ID?: boolean
+    Car_list?: boolean
+    Register_service?: boolean | Car$Register_serviceArgs<ExtArgs>
+    History?: boolean | Car$HistoryArgs<ExtArgs>
+    _count?: boolean | CarCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["car"]>
+
+  export type CarSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Car_ID?: boolean
+    Car_list?: boolean
+  }, ExtArgs["result"]["car"]>
+
+  export type CarSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Car_ID?: boolean
+    Car_list?: boolean
+  }, ExtArgs["result"]["car"]>
+
+  export type CarSelectScalar = {
+    Car_ID?: boolean
+    Car_list?: boolean
+  }
+
+  export type CarOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Car_ID" | "Car_list", ExtArgs["result"]["car"]>
+  export type CarInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Register_service?: boolean | Car$Register_serviceArgs<ExtArgs>
+    History?: boolean | Car$HistoryArgs<ExtArgs>
+    _count?: boolean | CarCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CarIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CarIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $CarPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Car"
+    objects: {
+      Register_service: Prisma.$Register_servicePayload<ExtArgs>[]
+      History: Prisma.$HistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Car_ID: number
+      Car_list: string | null
+    }, ExtArgs["result"]["car"]>
+    composites: {}
+  }
+
+  type CarGetPayload<S extends boolean | null | undefined | CarDefaultArgs> = $Result.GetResult<Prisma.$CarPayload, S>
+
+  type CarCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CarFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CarCountAggregateInputType | true
+    }
+
+  export interface CarDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Car'], meta: { name: 'Car' } }
+    /**
+     * Find zero or one Car that matches the filter.
+     * @param {CarFindUniqueArgs} args - Arguments to find a Car
+     * @example
+     * // Get one Car
+     * const car = await prisma.car.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CarFindUniqueArgs>(args: SelectSubset<T, CarFindUniqueArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Car that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CarFindUniqueOrThrowArgs} args - Arguments to find a Car
+     * @example
+     * // Get one Car
+     * const car = await prisma.car.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CarFindUniqueOrThrowArgs>(args: SelectSubset<T, CarFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Car that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CarFindFirstArgs} args - Arguments to find a Car
+     * @example
+     * // Get one Car
+     * const car = await prisma.car.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CarFindFirstArgs>(args?: SelectSubset<T, CarFindFirstArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Car that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CarFindFirstOrThrowArgs} args - Arguments to find a Car
+     * @example
+     * // Get one Car
+     * const car = await prisma.car.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CarFindFirstOrThrowArgs>(args?: SelectSubset<T, CarFindFirstOrThrowArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Cars that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CarFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Cars
+     * const cars = await prisma.car.findMany()
+     * 
+     * // Get first 10 Cars
+     * const cars = await prisma.car.findMany({ take: 10 })
+     * 
+     * // Only select the `Car_ID`
+     * const carWithCar_IDOnly = await prisma.car.findMany({ select: { Car_ID: true } })
+     * 
+     */
+    findMany<T extends CarFindManyArgs>(args?: SelectSubset<T, CarFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Car.
+     * @param {CarCreateArgs} args - Arguments to create a Car.
+     * @example
+     * // Create one Car
+     * const Car = await prisma.car.create({
+     *   data: {
+     *     // ... data to create a Car
+     *   }
+     * })
+     * 
+     */
+    create<T extends CarCreateArgs>(args: SelectSubset<T, CarCreateArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Cars.
+     * @param {CarCreateManyArgs} args - Arguments to create many Cars.
+     * @example
+     * // Create many Cars
+     * const car = await prisma.car.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CarCreateManyArgs>(args?: SelectSubset<T, CarCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Cars and returns the data saved in the database.
+     * @param {CarCreateManyAndReturnArgs} args - Arguments to create many Cars.
+     * @example
+     * // Create many Cars
+     * const car = await prisma.car.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Cars and only return the `Car_ID`
+     * const carWithCar_IDOnly = await prisma.car.createManyAndReturn({
+     *   select: { Car_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CarCreateManyAndReturnArgs>(args?: SelectSubset<T, CarCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Car.
+     * @param {CarDeleteArgs} args - Arguments to delete one Car.
+     * @example
+     * // Delete one Car
+     * const Car = await prisma.car.delete({
+     *   where: {
+     *     // ... filter to delete one Car
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CarDeleteArgs>(args: SelectSubset<T, CarDeleteArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Car.
+     * @param {CarUpdateArgs} args - Arguments to update one Car.
+     * @example
+     * // Update one Car
+     * const car = await prisma.car.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CarUpdateArgs>(args: SelectSubset<T, CarUpdateArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Cars.
+     * @param {CarDeleteManyArgs} args - Arguments to filter Cars to delete.
+     * @example
+     * // Delete a few Cars
+     * const { count } = await prisma.car.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CarDeleteManyArgs>(args?: SelectSubset<T, CarDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Cars.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CarUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Cars
+     * const car = await prisma.car.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CarUpdateManyArgs>(args: SelectSubset<T, CarUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Cars and returns the data updated in the database.
+     * @param {CarUpdateManyAndReturnArgs} args - Arguments to update many Cars.
+     * @example
+     * // Update many Cars
+     * const car = await prisma.car.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Cars and only return the `Car_ID`
+     * const carWithCar_IDOnly = await prisma.car.updateManyAndReturn({
+     *   select: { Car_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CarUpdateManyAndReturnArgs>(args: SelectSubset<T, CarUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Car.
+     * @param {CarUpsertArgs} args - Arguments to update or create a Car.
+     * @example
+     * // Update or create a Car
+     * const car = await prisma.car.upsert({
+     *   create: {
+     *     // ... data to create a Car
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Car we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CarUpsertArgs>(args: SelectSubset<T, CarUpsertArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Cars.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CarCountArgs} args - Arguments to filter Cars to count.
+     * @example
+     * // Count the number of Cars
+     * const count = await prisma.car.count({
+     *   where: {
+     *     // ... the filter for the Cars we want to count
+     *   }
+     * })
+    **/
+    count<T extends CarCountArgs>(
+      args?: Subset<T, CarCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CarCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Car.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CarAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CarAggregateArgs>(args: Subset<T, CarAggregateArgs>): Prisma.PrismaPromise<GetCarAggregateType<T>>
+
+    /**
+     * Group by Car.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CarGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CarGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CarGroupByArgs['orderBy'] }
+        : { orderBy?: CarGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CarGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCarGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Car model
+   */
+  readonly fields: CarFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Car.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CarClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Register_service<T extends Car$Register_serviceArgs<ExtArgs> = {}>(args?: Subset<T, Car$Register_serviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    History<T extends Car$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, Car$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Car model
+   */
+  interface CarFieldRefs {
+    readonly Car_ID: FieldRef<"Car", 'Int'>
+    readonly Car_list: FieldRef<"Car", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Car findUnique
+   */
+  export type CarFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    /**
+     * Filter, which Car to fetch.
+     */
+    where: CarWhereUniqueInput
+  }
+
+  /**
+   * Car findUniqueOrThrow
+   */
+  export type CarFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    /**
+     * Filter, which Car to fetch.
+     */
+    where: CarWhereUniqueInput
+  }
+
+  /**
+   * Car findFirst
+   */
+  export type CarFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    /**
+     * Filter, which Car to fetch.
+     */
+    where?: CarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cars to fetch.
+     */
+    orderBy?: CarOrderByWithRelationInput | CarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Cars.
+     */
+    cursor?: CarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Cars.
+     */
+    distinct?: CarScalarFieldEnum | CarScalarFieldEnum[]
+  }
+
+  /**
+   * Car findFirstOrThrow
+   */
+  export type CarFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    /**
+     * Filter, which Car to fetch.
+     */
+    where?: CarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cars to fetch.
+     */
+    orderBy?: CarOrderByWithRelationInput | CarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Cars.
+     */
+    cursor?: CarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Cars.
+     */
+    distinct?: CarScalarFieldEnum | CarScalarFieldEnum[]
+  }
+
+  /**
+   * Car findMany
+   */
+  export type CarFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    /**
+     * Filter, which Cars to fetch.
+     */
+    where?: CarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cars to fetch.
+     */
+    orderBy?: CarOrderByWithRelationInput | CarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Cars.
+     */
+    cursor?: CarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cars.
+     */
+    skip?: number
+    distinct?: CarScalarFieldEnum | CarScalarFieldEnum[]
+  }
+
+  /**
+   * Car create
+   */
+  export type CarCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Car.
+     */
+    data?: XOR<CarCreateInput, CarUncheckedCreateInput>
+  }
+
+  /**
+   * Car createMany
+   */
+  export type CarCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Cars.
+     */
+    data: CarCreateManyInput | CarCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Car createManyAndReturn
+   */
+  export type CarCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * The data used to create many Cars.
+     */
+    data: CarCreateManyInput | CarCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Car update
+   */
+  export type CarUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Car.
+     */
+    data: XOR<CarUpdateInput, CarUncheckedUpdateInput>
+    /**
+     * Choose, which Car to update.
+     */
+    where: CarWhereUniqueInput
+  }
+
+  /**
+   * Car updateMany
+   */
+  export type CarUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Cars.
+     */
+    data: XOR<CarUpdateManyMutationInput, CarUncheckedUpdateManyInput>
+    /**
+     * Filter which Cars to update
+     */
+    where?: CarWhereInput
+    /**
+     * Limit how many Cars to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Car updateManyAndReturn
+   */
+  export type CarUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * The data used to update Cars.
+     */
+    data: XOR<CarUpdateManyMutationInput, CarUncheckedUpdateManyInput>
+    /**
+     * Filter which Cars to update
+     */
+    where?: CarWhereInput
+    /**
+     * Limit how many Cars to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Car upsert
+   */
+  export type CarUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Car to update in case it exists.
+     */
+    where: CarWhereUniqueInput
+    /**
+     * In case the Car found by the `where` argument doesn't exist, create a new Car with this data.
+     */
+    create: XOR<CarCreateInput, CarUncheckedCreateInput>
+    /**
+     * In case the Car was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CarUpdateInput, CarUncheckedUpdateInput>
+  }
+
+  /**
+   * Car delete
+   */
+  export type CarDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    /**
+     * Filter which Car to delete.
+     */
+    where: CarWhereUniqueInput
+  }
+
+  /**
+   * Car deleteMany
+   */
+  export type CarDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Cars to delete
+     */
+    where?: CarWhereInput
+    /**
+     * Limit how many Cars to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Car.Register_service
+   */
+  export type Car$Register_serviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    where?: Register_serviceWhereInput
+    orderBy?: Register_serviceOrderByWithRelationInput | Register_serviceOrderByWithRelationInput[]
+    cursor?: Register_serviceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Register_serviceScalarFieldEnum | Register_serviceScalarFieldEnum[]
+  }
+
+  /**
+   * Car.History
+   */
+  export type Car$HistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    where?: HistoryWhereInput
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    cursor?: HistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Car without action
+   */
+  export type CarDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Service
+   */
+
+  export type AggregateService = {
+    _count: ServiceCountAggregateOutputType | null
+    _avg: ServiceAvgAggregateOutputType | null
+    _sum: ServiceSumAggregateOutputType | null
+    _min: ServiceMinAggregateOutputType | null
+    _max: ServiceMaxAggregateOutputType | null
+  }
+
+  export type ServiceAvgAggregateOutputType = {
+    Service_ID: number | null
+    Service_price: number | null
+    Service_duration_min: number | null
+  }
+
+  export type ServiceSumAggregateOutputType = {
+    Service_ID: number | null
+    Service_price: number | null
+    Service_duration_min: number | null
+  }
+
+  export type ServiceMinAggregateOutputType = {
+    Service_ID: number | null
+    Service_name: string | null
+    Service_description: string | null
+    Service_price: number | null
+    Service_duration_min: number | null
+  }
+
+  export type ServiceMaxAggregateOutputType = {
+    Service_ID: number | null
+    Service_name: string | null
+    Service_description: string | null
+    Service_price: number | null
+    Service_duration_min: number | null
+  }
+
+  export type ServiceCountAggregateOutputType = {
+    Service_ID: number
+    Service_name: number
+    Service_description: number
+    Service_price: number
+    Service_duration_min: number
+    _all: number
+  }
+
+
+  export type ServiceAvgAggregateInputType = {
+    Service_ID?: true
+    Service_price?: true
+    Service_duration_min?: true
+  }
+
+  export type ServiceSumAggregateInputType = {
+    Service_ID?: true
+    Service_price?: true
+    Service_duration_min?: true
+  }
+
+  export type ServiceMinAggregateInputType = {
+    Service_ID?: true
+    Service_name?: true
+    Service_description?: true
+    Service_price?: true
+    Service_duration_min?: true
+  }
+
+  export type ServiceMaxAggregateInputType = {
+    Service_ID?: true
+    Service_name?: true
+    Service_description?: true
+    Service_price?: true
+    Service_duration_min?: true
+  }
+
+  export type ServiceCountAggregateInputType = {
+    Service_ID?: true
+    Service_name?: true
+    Service_description?: true
+    Service_price?: true
+    Service_duration_min?: true
+    _all?: true
+  }
+
+  export type ServiceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Service to aggregate.
+     */
+    where?: ServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Services to fetch.
+     */
+    orderBy?: ServiceOrderByWithRelationInput | ServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Services.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Services
+    **/
+    _count?: true | ServiceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ServiceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ServiceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ServiceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ServiceMaxAggregateInputType
+  }
+
+  export type GetServiceAggregateType<T extends ServiceAggregateArgs> = {
+        [P in keyof T & keyof AggregateService]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateService[P]>
+      : GetScalarType<T[P], AggregateService[P]>
+  }
+
+
+
+
+  export type ServiceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ServiceWhereInput
+    orderBy?: ServiceOrderByWithAggregationInput | ServiceOrderByWithAggregationInput[]
+    by: ServiceScalarFieldEnum[] | ServiceScalarFieldEnum
+    having?: ServiceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ServiceCountAggregateInputType | true
+    _avg?: ServiceAvgAggregateInputType
+    _sum?: ServiceSumAggregateInputType
+    _min?: ServiceMinAggregateInputType
+    _max?: ServiceMaxAggregateInputType
+  }
+
+  export type ServiceGroupByOutputType = {
+    Service_ID: number
+    Service_name: string
+    Service_description: string | null
+    Service_price: number
+    Service_duration_min: number
+    _count: ServiceCountAggregateOutputType | null
+    _avg: ServiceAvgAggregateOutputType | null
+    _sum: ServiceSumAggregateOutputType | null
+    _min: ServiceMinAggregateOutputType | null
+    _max: ServiceMaxAggregateOutputType | null
+  }
+
+  type GetServiceGroupByPayload<T extends ServiceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ServiceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ServiceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ServiceGroupByOutputType[P]>
+            : GetScalarType<T[P], ServiceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ServiceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Service_ID?: boolean
+    Service_name?: boolean
+    Service_description?: boolean
+    Service_price?: boolean
+    Service_duration_min?: boolean
+    Register_service?: boolean | Service$Register_serviceArgs<ExtArgs>
+    History?: boolean | Service$HistoryArgs<ExtArgs>
+    _count?: boolean | ServiceCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["service"]>
+
+  export type ServiceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Service_ID?: boolean
+    Service_name?: boolean
+    Service_description?: boolean
+    Service_price?: boolean
+    Service_duration_min?: boolean
+  }, ExtArgs["result"]["service"]>
+
+  export type ServiceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Service_ID?: boolean
+    Service_name?: boolean
+    Service_description?: boolean
+    Service_price?: boolean
+    Service_duration_min?: boolean
+  }, ExtArgs["result"]["service"]>
+
+  export type ServiceSelectScalar = {
+    Service_ID?: boolean
+    Service_name?: boolean
+    Service_description?: boolean
+    Service_price?: boolean
+    Service_duration_min?: boolean
+  }
+
+  export type ServiceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Service_ID" | "Service_name" | "Service_description" | "Service_price" | "Service_duration_min", ExtArgs["result"]["service"]>
+  export type ServiceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Register_service?: boolean | Service$Register_serviceArgs<ExtArgs>
+    History?: boolean | Service$HistoryArgs<ExtArgs>
+    _count?: boolean | ServiceCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ServiceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ServiceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ServicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Service"
+    objects: {
+      Register_service: Prisma.$Register_servicePayload<ExtArgs>[]
+      History: Prisma.$HistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Service_ID: number
+      Service_name: string
+      Service_description: string | null
+      Service_price: number
+      Service_duration_min: number
+    }, ExtArgs["result"]["service"]>
+    composites: {}
+  }
+
+  type ServiceGetPayload<S extends boolean | null | undefined | ServiceDefaultArgs> = $Result.GetResult<Prisma.$ServicePayload, S>
+
+  type ServiceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ServiceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ServiceCountAggregateInputType | true
+    }
+
+  export interface ServiceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Service'], meta: { name: 'Service' } }
+    /**
+     * Find zero or one Service that matches the filter.
+     * @param {ServiceFindUniqueArgs} args - Arguments to find a Service
+     * @example
+     * // Get one Service
+     * const service = await prisma.service.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ServiceFindUniqueArgs>(args: SelectSubset<T, ServiceFindUniqueArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Service that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ServiceFindUniqueOrThrowArgs} args - Arguments to find a Service
+     * @example
+     * // Get one Service
+     * const service = await prisma.service.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ServiceFindUniqueOrThrowArgs>(args: SelectSubset<T, ServiceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Service that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceFindFirstArgs} args - Arguments to find a Service
+     * @example
+     * // Get one Service
+     * const service = await prisma.service.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ServiceFindFirstArgs>(args?: SelectSubset<T, ServiceFindFirstArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Service that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceFindFirstOrThrowArgs} args - Arguments to find a Service
+     * @example
+     * // Get one Service
+     * const service = await prisma.service.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ServiceFindFirstOrThrowArgs>(args?: SelectSubset<T, ServiceFindFirstOrThrowArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Services that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Services
+     * const services = await prisma.service.findMany()
+     * 
+     * // Get first 10 Services
+     * const services = await prisma.service.findMany({ take: 10 })
+     * 
+     * // Only select the `Service_ID`
+     * const serviceWithService_IDOnly = await prisma.service.findMany({ select: { Service_ID: true } })
+     * 
+     */
+    findMany<T extends ServiceFindManyArgs>(args?: SelectSubset<T, ServiceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Service.
+     * @param {ServiceCreateArgs} args - Arguments to create a Service.
+     * @example
+     * // Create one Service
+     * const Service = await prisma.service.create({
+     *   data: {
+     *     // ... data to create a Service
+     *   }
+     * })
+     * 
+     */
+    create<T extends ServiceCreateArgs>(args: SelectSubset<T, ServiceCreateArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Services.
+     * @param {ServiceCreateManyArgs} args - Arguments to create many Services.
+     * @example
+     * // Create many Services
+     * const service = await prisma.service.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ServiceCreateManyArgs>(args?: SelectSubset<T, ServiceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Services and returns the data saved in the database.
+     * @param {ServiceCreateManyAndReturnArgs} args - Arguments to create many Services.
+     * @example
+     * // Create many Services
+     * const service = await prisma.service.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Services and only return the `Service_ID`
+     * const serviceWithService_IDOnly = await prisma.service.createManyAndReturn({
+     *   select: { Service_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ServiceCreateManyAndReturnArgs>(args?: SelectSubset<T, ServiceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Service.
+     * @param {ServiceDeleteArgs} args - Arguments to delete one Service.
+     * @example
+     * // Delete one Service
+     * const Service = await prisma.service.delete({
+     *   where: {
+     *     // ... filter to delete one Service
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ServiceDeleteArgs>(args: SelectSubset<T, ServiceDeleteArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Service.
+     * @param {ServiceUpdateArgs} args - Arguments to update one Service.
+     * @example
+     * // Update one Service
+     * const service = await prisma.service.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ServiceUpdateArgs>(args: SelectSubset<T, ServiceUpdateArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Services.
+     * @param {ServiceDeleteManyArgs} args - Arguments to filter Services to delete.
+     * @example
+     * // Delete a few Services
+     * const { count } = await prisma.service.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ServiceDeleteManyArgs>(args?: SelectSubset<T, ServiceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Services.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Services
+     * const service = await prisma.service.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ServiceUpdateManyArgs>(args: SelectSubset<T, ServiceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Services and returns the data updated in the database.
+     * @param {ServiceUpdateManyAndReturnArgs} args - Arguments to update many Services.
+     * @example
+     * // Update many Services
+     * const service = await prisma.service.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Services and only return the `Service_ID`
+     * const serviceWithService_IDOnly = await prisma.service.updateManyAndReturn({
+     *   select: { Service_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ServiceUpdateManyAndReturnArgs>(args: SelectSubset<T, ServiceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Service.
+     * @param {ServiceUpsertArgs} args - Arguments to update or create a Service.
+     * @example
+     * // Update or create a Service
+     * const service = await prisma.service.upsert({
+     *   create: {
+     *     // ... data to create a Service
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Service we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ServiceUpsertArgs>(args: SelectSubset<T, ServiceUpsertArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Services.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceCountArgs} args - Arguments to filter Services to count.
+     * @example
+     * // Count the number of Services
+     * const count = await prisma.service.count({
+     *   where: {
+     *     // ... the filter for the Services we want to count
+     *   }
+     * })
+    **/
+    count<T extends ServiceCountArgs>(
+      args?: Subset<T, ServiceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ServiceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Service.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ServiceAggregateArgs>(args: Subset<T, ServiceAggregateArgs>): Prisma.PrismaPromise<GetServiceAggregateType<T>>
+
+    /**
+     * Group by Service.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ServiceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ServiceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ServiceGroupByArgs['orderBy'] }
+        : { orderBy?: ServiceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ServiceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetServiceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Service model
+   */
+  readonly fields: ServiceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Service.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ServiceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Register_service<T extends Service$Register_serviceArgs<ExtArgs> = {}>(args?: Subset<T, Service$Register_serviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    History<T extends Service$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, Service$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Service model
+   */
+  interface ServiceFieldRefs {
+    readonly Service_ID: FieldRef<"Service", 'Int'>
+    readonly Service_name: FieldRef<"Service", 'String'>
+    readonly Service_description: FieldRef<"Service", 'String'>
+    readonly Service_price: FieldRef<"Service", 'Float'>
+    readonly Service_duration_min: FieldRef<"Service", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Service findUnique
+   */
+  export type ServiceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Service to fetch.
+     */
+    where: ServiceWhereUniqueInput
+  }
+
+  /**
+   * Service findUniqueOrThrow
+   */
+  export type ServiceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Service to fetch.
+     */
+    where: ServiceWhereUniqueInput
+  }
+
+  /**
+   * Service findFirst
+   */
+  export type ServiceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Service to fetch.
+     */
+    where?: ServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Services to fetch.
+     */
+    orderBy?: ServiceOrderByWithRelationInput | ServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Services.
+     */
+    cursor?: ServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Services.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Services.
+     */
+    distinct?: ServiceScalarFieldEnum | ServiceScalarFieldEnum[]
+  }
+
+  /**
+   * Service findFirstOrThrow
+   */
+  export type ServiceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Service to fetch.
+     */
+    where?: ServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Services to fetch.
+     */
+    orderBy?: ServiceOrderByWithRelationInput | ServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Services.
+     */
+    cursor?: ServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Services.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Services.
+     */
+    distinct?: ServiceScalarFieldEnum | ServiceScalarFieldEnum[]
+  }
+
+  /**
+   * Service findMany
+   */
+  export type ServiceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Services to fetch.
+     */
+    where?: ServiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Services to fetch.
+     */
+    orderBy?: ServiceOrderByWithRelationInput | ServiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Services.
+     */
+    cursor?: ServiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Services.
+     */
+    skip?: number
+    distinct?: ServiceScalarFieldEnum | ServiceScalarFieldEnum[]
+  }
+
+  /**
+   * Service create
+   */
+  export type ServiceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Service.
+     */
+    data: XOR<ServiceCreateInput, ServiceUncheckedCreateInput>
+  }
+
+  /**
+   * Service createMany
+   */
+  export type ServiceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Services.
+     */
+    data: ServiceCreateManyInput | ServiceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Service createManyAndReturn
+   */
+  export type ServiceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * The data used to create many Services.
+     */
+    data: ServiceCreateManyInput | ServiceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Service update
+   */
+  export type ServiceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Service.
+     */
+    data: XOR<ServiceUpdateInput, ServiceUncheckedUpdateInput>
+    /**
+     * Choose, which Service to update.
+     */
+    where: ServiceWhereUniqueInput
+  }
+
+  /**
+   * Service updateMany
+   */
+  export type ServiceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Services.
+     */
+    data: XOR<ServiceUpdateManyMutationInput, ServiceUncheckedUpdateManyInput>
+    /**
+     * Filter which Services to update
+     */
+    where?: ServiceWhereInput
+    /**
+     * Limit how many Services to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Service updateManyAndReturn
+   */
+  export type ServiceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * The data used to update Services.
+     */
+    data: XOR<ServiceUpdateManyMutationInput, ServiceUncheckedUpdateManyInput>
+    /**
+     * Filter which Services to update
+     */
+    where?: ServiceWhereInput
+    /**
+     * Limit how many Services to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Service upsert
+   */
+  export type ServiceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Service to update in case it exists.
+     */
+    where: ServiceWhereUniqueInput
+    /**
+     * In case the Service found by the `where` argument doesn't exist, create a new Service with this data.
+     */
+    create: XOR<ServiceCreateInput, ServiceUncheckedCreateInput>
+    /**
+     * In case the Service was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ServiceUpdateInput, ServiceUncheckedUpdateInput>
+  }
+
+  /**
+   * Service delete
+   */
+  export type ServiceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+    /**
+     * Filter which Service to delete.
+     */
+    where: ServiceWhereUniqueInput
+  }
+
+  /**
+   * Service deleteMany
+   */
+  export type ServiceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Services to delete
+     */
+    where?: ServiceWhereInput
+    /**
+     * Limit how many Services to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Service.Register_service
+   */
+  export type Service$Register_serviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    where?: Register_serviceWhereInput
+    orderBy?: Register_serviceOrderByWithRelationInput | Register_serviceOrderByWithRelationInput[]
+    cursor?: Register_serviceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Register_serviceScalarFieldEnum | Register_serviceScalarFieldEnum[]
+  }
+
+  /**
+   * Service.History
+   */
+  export type Service$HistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    where?: HistoryWhereInput
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    cursor?: HistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Service without action
+   */
+  export type ServiceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Service
+     */
+    select?: ServiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Service
+     */
+    omit?: ServiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ServiceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Bonus
+   */
+
+  export type AggregateBonus = {
+    _count: BonusCountAggregateOutputType | null
+    _avg: BonusAvgAggregateOutputType | null
+    _sum: BonusSumAggregateOutputType | null
+    _min: BonusMinAggregateOutputType | null
+    _max: BonusMaxAggregateOutputType | null
+  }
+
+  export type BonusAvgAggregateOutputType = {
+    Bonus_ID: number | null
+    Bonus_point: number | null
+    Bonus_user_ID: number | null
+  }
+
+  export type BonusSumAggregateOutputType = {
+    Bonus_ID: number | null
+    Bonus_point: number | null
+    Bonus_user_ID: number | null
+  }
+
+  export type BonusMinAggregateOutputType = {
+    Bonus_ID: number | null
+    Bonus_point: number | null
+    Bonus_type: $Enums.Bonus_type_enum | null
+    Bonus_user_ID: number | null
+  }
+
+  export type BonusMaxAggregateOutputType = {
+    Bonus_ID: number | null
+    Bonus_point: number | null
+    Bonus_type: $Enums.Bonus_type_enum | null
+    Bonus_user_ID: number | null
+  }
+
+  export type BonusCountAggregateOutputType = {
+    Bonus_ID: number
+    Bonus_point: number
+    Bonus_type: number
+    Bonus_user_ID: number
+    _all: number
+  }
+
+
+  export type BonusAvgAggregateInputType = {
+    Bonus_ID?: true
+    Bonus_point?: true
+    Bonus_user_ID?: true
+  }
+
+  export type BonusSumAggregateInputType = {
+    Bonus_ID?: true
+    Bonus_point?: true
+    Bonus_user_ID?: true
+  }
+
+  export type BonusMinAggregateInputType = {
+    Bonus_ID?: true
+    Bonus_point?: true
+    Bonus_type?: true
+    Bonus_user_ID?: true
+  }
+
+  export type BonusMaxAggregateInputType = {
+    Bonus_ID?: true
+    Bonus_point?: true
+    Bonus_type?: true
+    Bonus_user_ID?: true
+  }
+
+  export type BonusCountAggregateInputType = {
+    Bonus_ID?: true
+    Bonus_point?: true
+    Bonus_type?: true
+    Bonus_user_ID?: true
+    _all?: true
+  }
+
+  export type BonusAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bonus to aggregate.
+     */
+    where?: BonusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bonuses to fetch.
+     */
+    orderBy?: BonusOrderByWithRelationInput | BonusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BonusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bonuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bonuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Bonuses
+    **/
+    _count?: true | BonusCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BonusAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BonusSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BonusMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BonusMaxAggregateInputType
+  }
+
+  export type GetBonusAggregateType<T extends BonusAggregateArgs> = {
+        [P in keyof T & keyof AggregateBonus]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBonus[P]>
+      : GetScalarType<T[P], AggregateBonus[P]>
+  }
+
+
+
+
+  export type BonusGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BonusWhereInput
+    orderBy?: BonusOrderByWithAggregationInput | BonusOrderByWithAggregationInput[]
+    by: BonusScalarFieldEnum[] | BonusScalarFieldEnum
+    having?: BonusScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BonusCountAggregateInputType | true
+    _avg?: BonusAvgAggregateInputType
+    _sum?: BonusSumAggregateInputType
+    _min?: BonusMinAggregateInputType
+    _max?: BonusMaxAggregateInputType
+  }
+
+  export type BonusGroupByOutputType = {
+    Bonus_ID: number
+    Bonus_point: number
+    Bonus_type: $Enums.Bonus_type_enum
+    Bonus_user_ID: number
+    _count: BonusCountAggregateOutputType | null
+    _avg: BonusAvgAggregateOutputType | null
+    _sum: BonusSumAggregateOutputType | null
+    _min: BonusMinAggregateOutputType | null
+    _max: BonusMaxAggregateOutputType | null
+  }
+
+  type GetBonusGroupByPayload<T extends BonusGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BonusGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BonusGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BonusGroupByOutputType[P]>
+            : GetScalarType<T[P], BonusGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BonusSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Bonus_ID?: boolean
+    Bonus_point?: boolean
+    Bonus_type?: boolean
+    Bonus_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bonus"]>
+
+  export type BonusSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Bonus_ID?: boolean
+    Bonus_point?: boolean
+    Bonus_type?: boolean
+    Bonus_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bonus"]>
+
+  export type BonusSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Bonus_ID?: boolean
+    Bonus_point?: boolean
+    Bonus_type?: boolean
+    Bonus_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bonus"]>
+
+  export type BonusSelectScalar = {
+    Bonus_ID?: boolean
+    Bonus_point?: boolean
+    Bonus_type?: boolean
+    Bonus_user_ID?: boolean
+  }
+
+  export type BonusOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Bonus_ID" | "Bonus_point" | "Bonus_type" | "Bonus_user_ID", ExtArgs["result"]["bonus"]>
+  export type BonusInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type BonusIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type BonusIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $BonusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Bonus"
+    objects: {
+      User: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Bonus_ID: number
+      Bonus_point: number
+      Bonus_type: $Enums.Bonus_type_enum
+      Bonus_user_ID: number
+    }, ExtArgs["result"]["bonus"]>
+    composites: {}
+  }
+
+  type BonusGetPayload<S extends boolean | null | undefined | BonusDefaultArgs> = $Result.GetResult<Prisma.$BonusPayload, S>
+
+  type BonusCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BonusFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BonusCountAggregateInputType | true
+    }
+
+  export interface BonusDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Bonus'], meta: { name: 'Bonus' } }
+    /**
+     * Find zero or one Bonus that matches the filter.
+     * @param {BonusFindUniqueArgs} args - Arguments to find a Bonus
+     * @example
+     * // Get one Bonus
+     * const bonus = await prisma.bonus.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BonusFindUniqueArgs>(args: SelectSubset<T, BonusFindUniqueArgs<ExtArgs>>): Prisma__BonusClient<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Bonus that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BonusFindUniqueOrThrowArgs} args - Arguments to find a Bonus
+     * @example
+     * // Get one Bonus
+     * const bonus = await prisma.bonus.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BonusFindUniqueOrThrowArgs>(args: SelectSubset<T, BonusFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BonusClient<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bonus that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BonusFindFirstArgs} args - Arguments to find a Bonus
+     * @example
+     * // Get one Bonus
+     * const bonus = await prisma.bonus.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BonusFindFirstArgs>(args?: SelectSubset<T, BonusFindFirstArgs<ExtArgs>>): Prisma__BonusClient<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bonus that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BonusFindFirstOrThrowArgs} args - Arguments to find a Bonus
+     * @example
+     * // Get one Bonus
+     * const bonus = await prisma.bonus.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BonusFindFirstOrThrowArgs>(args?: SelectSubset<T, BonusFindFirstOrThrowArgs<ExtArgs>>): Prisma__BonusClient<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Bonuses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BonusFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Bonuses
+     * const bonuses = await prisma.bonus.findMany()
+     * 
+     * // Get first 10 Bonuses
+     * const bonuses = await prisma.bonus.findMany({ take: 10 })
+     * 
+     * // Only select the `Bonus_ID`
+     * const bonusWithBonus_IDOnly = await prisma.bonus.findMany({ select: { Bonus_ID: true } })
+     * 
+     */
+    findMany<T extends BonusFindManyArgs>(args?: SelectSubset<T, BonusFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Bonus.
+     * @param {BonusCreateArgs} args - Arguments to create a Bonus.
+     * @example
+     * // Create one Bonus
+     * const Bonus = await prisma.bonus.create({
+     *   data: {
+     *     // ... data to create a Bonus
+     *   }
+     * })
+     * 
+     */
+    create<T extends BonusCreateArgs>(args: SelectSubset<T, BonusCreateArgs<ExtArgs>>): Prisma__BonusClient<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Bonuses.
+     * @param {BonusCreateManyArgs} args - Arguments to create many Bonuses.
+     * @example
+     * // Create many Bonuses
+     * const bonus = await prisma.bonus.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BonusCreateManyArgs>(args?: SelectSubset<T, BonusCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Bonuses and returns the data saved in the database.
+     * @param {BonusCreateManyAndReturnArgs} args - Arguments to create many Bonuses.
+     * @example
+     * // Create many Bonuses
+     * const bonus = await prisma.bonus.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Bonuses and only return the `Bonus_ID`
+     * const bonusWithBonus_IDOnly = await prisma.bonus.createManyAndReturn({
+     *   select: { Bonus_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BonusCreateManyAndReturnArgs>(args?: SelectSubset<T, BonusCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Bonus.
+     * @param {BonusDeleteArgs} args - Arguments to delete one Bonus.
+     * @example
+     * // Delete one Bonus
+     * const Bonus = await prisma.bonus.delete({
+     *   where: {
+     *     // ... filter to delete one Bonus
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BonusDeleteArgs>(args: SelectSubset<T, BonusDeleteArgs<ExtArgs>>): Prisma__BonusClient<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Bonus.
+     * @param {BonusUpdateArgs} args - Arguments to update one Bonus.
+     * @example
+     * // Update one Bonus
+     * const bonus = await prisma.bonus.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BonusUpdateArgs>(args: SelectSubset<T, BonusUpdateArgs<ExtArgs>>): Prisma__BonusClient<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Bonuses.
+     * @param {BonusDeleteManyArgs} args - Arguments to filter Bonuses to delete.
+     * @example
+     * // Delete a few Bonuses
+     * const { count } = await prisma.bonus.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BonusDeleteManyArgs>(args?: SelectSubset<T, BonusDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bonuses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BonusUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Bonuses
+     * const bonus = await prisma.bonus.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BonusUpdateManyArgs>(args: SelectSubset<T, BonusUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bonuses and returns the data updated in the database.
+     * @param {BonusUpdateManyAndReturnArgs} args - Arguments to update many Bonuses.
+     * @example
+     * // Update many Bonuses
+     * const bonus = await prisma.bonus.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Bonuses and only return the `Bonus_ID`
+     * const bonusWithBonus_IDOnly = await prisma.bonus.updateManyAndReturn({
+     *   select: { Bonus_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BonusUpdateManyAndReturnArgs>(args: SelectSubset<T, BonusUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Bonus.
+     * @param {BonusUpsertArgs} args - Arguments to update or create a Bonus.
+     * @example
+     * // Update or create a Bonus
+     * const bonus = await prisma.bonus.upsert({
+     *   create: {
+     *     // ... data to create a Bonus
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Bonus we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BonusUpsertArgs>(args: SelectSubset<T, BonusUpsertArgs<ExtArgs>>): Prisma__BonusClient<$Result.GetResult<Prisma.$BonusPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Bonuses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BonusCountArgs} args - Arguments to filter Bonuses to count.
+     * @example
+     * // Count the number of Bonuses
+     * const count = await prisma.bonus.count({
+     *   where: {
+     *     // ... the filter for the Bonuses we want to count
+     *   }
+     * })
+    **/
+    count<T extends BonusCountArgs>(
+      args?: Subset<T, BonusCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BonusCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Bonus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BonusAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BonusAggregateArgs>(args: Subset<T, BonusAggregateArgs>): Prisma.PrismaPromise<GetBonusAggregateType<T>>
+
+    /**
+     * Group by Bonus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BonusGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BonusGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BonusGroupByArgs['orderBy'] }
+        : { orderBy?: BonusGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BonusGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBonusGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Bonus model
+   */
+  readonly fields: BonusFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Bonus.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BonusClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Bonus model
+   */
+  interface BonusFieldRefs {
+    readonly Bonus_ID: FieldRef<"Bonus", 'Int'>
+    readonly Bonus_point: FieldRef<"Bonus", 'Int'>
+    readonly Bonus_type: FieldRef<"Bonus", 'Bonus_type_enum'>
+    readonly Bonus_user_ID: FieldRef<"Bonus", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Bonus findUnique
+   */
+  export type BonusFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    /**
+     * Filter, which Bonus to fetch.
+     */
+    where: BonusWhereUniqueInput
+  }
+
+  /**
+   * Bonus findUniqueOrThrow
+   */
+  export type BonusFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    /**
+     * Filter, which Bonus to fetch.
+     */
+    where: BonusWhereUniqueInput
+  }
+
+  /**
+   * Bonus findFirst
+   */
+  export type BonusFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    /**
+     * Filter, which Bonus to fetch.
+     */
+    where?: BonusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bonuses to fetch.
+     */
+    orderBy?: BonusOrderByWithRelationInput | BonusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bonuses.
+     */
+    cursor?: BonusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bonuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bonuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bonuses.
+     */
+    distinct?: BonusScalarFieldEnum | BonusScalarFieldEnum[]
+  }
+
+  /**
+   * Bonus findFirstOrThrow
+   */
+  export type BonusFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    /**
+     * Filter, which Bonus to fetch.
+     */
+    where?: BonusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bonuses to fetch.
+     */
+    orderBy?: BonusOrderByWithRelationInput | BonusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bonuses.
+     */
+    cursor?: BonusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bonuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bonuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bonuses.
+     */
+    distinct?: BonusScalarFieldEnum | BonusScalarFieldEnum[]
+  }
+
+  /**
+   * Bonus findMany
+   */
+  export type BonusFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    /**
+     * Filter, which Bonuses to fetch.
+     */
+    where?: BonusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bonuses to fetch.
+     */
+    orderBy?: BonusOrderByWithRelationInput | BonusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Bonuses.
+     */
+    cursor?: BonusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bonuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bonuses.
+     */
+    skip?: number
+    distinct?: BonusScalarFieldEnum | BonusScalarFieldEnum[]
+  }
+
+  /**
+   * Bonus create
+   */
+  export type BonusCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Bonus.
+     */
+    data: XOR<BonusCreateInput, BonusUncheckedCreateInput>
+  }
+
+  /**
+   * Bonus createMany
+   */
+  export type BonusCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Bonuses.
+     */
+    data: BonusCreateManyInput | BonusCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Bonus createManyAndReturn
+   */
+  export type BonusCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * The data used to create many Bonuses.
+     */
+    data: BonusCreateManyInput | BonusCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Bonus update
+   */
+  export type BonusUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Bonus.
+     */
+    data: XOR<BonusUpdateInput, BonusUncheckedUpdateInput>
+    /**
+     * Choose, which Bonus to update.
+     */
+    where: BonusWhereUniqueInput
+  }
+
+  /**
+   * Bonus updateMany
+   */
+  export type BonusUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Bonuses.
+     */
+    data: XOR<BonusUpdateManyMutationInput, BonusUncheckedUpdateManyInput>
+    /**
+     * Filter which Bonuses to update
+     */
+    where?: BonusWhereInput
+    /**
+     * Limit how many Bonuses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Bonus updateManyAndReturn
+   */
+  export type BonusUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * The data used to update Bonuses.
+     */
+    data: XOR<BonusUpdateManyMutationInput, BonusUncheckedUpdateManyInput>
+    /**
+     * Filter which Bonuses to update
+     */
+    where?: BonusWhereInput
+    /**
+     * Limit how many Bonuses to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Bonus upsert
+   */
+  export type BonusUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Bonus to update in case it exists.
+     */
+    where: BonusWhereUniqueInput
+    /**
+     * In case the Bonus found by the `where` argument doesn't exist, create a new Bonus with this data.
+     */
+    create: XOR<BonusCreateInput, BonusUncheckedCreateInput>
+    /**
+     * In case the Bonus was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BonusUpdateInput, BonusUncheckedUpdateInput>
+  }
+
+  /**
+   * Bonus delete
+   */
+  export type BonusDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+    /**
+     * Filter which Bonus to delete.
+     */
+    where: BonusWhereUniqueInput
+  }
+
+  /**
+   * Bonus deleteMany
+   */
+  export type BonusDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bonuses to delete
+     */
+    where?: BonusWhereInput
+    /**
+     * Limit how many Bonuses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Bonus without action
+   */
+  export type BonusDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bonus
+     */
+    select?: BonusSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bonus
+     */
+    omit?: BonusOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BonusInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Multi_branch
+   */
+
+  export type AggregateMulti_branch = {
+    _count: Multi_branchCountAggregateOutputType | null
+    _avg: Multi_branchAvgAggregateOutputType | null
+    _sum: Multi_branchSumAggregateOutputType | null
+    _min: Multi_branchMinAggregateOutputType | null
+    _max: Multi_branchMaxAggregateOutputType | null
+  }
+
+  export type Multi_branchAvgAggregateOutputType = {
+    Multi_branch_ID: number | null
+  }
+
+  export type Multi_branchSumAggregateOutputType = {
+    Multi_branch_ID: number | null
+  }
+
+  export type Multi_branchMinAggregateOutputType = {
+    Multi_branch_ID: number | null
+    Multi_branch_name: string | null
+    Multi_branch_address: string | null
+    Multi_branch_phone: string | null
+    Multi_branch_email: string | null
+    Multi_branch_opening_hours: string | null
+    Multi_branch_create_at: Date | null
+    Multi_branch_update_at: Date | null
+  }
+
+  export type Multi_branchMaxAggregateOutputType = {
+    Multi_branch_ID: number | null
+    Multi_branch_name: string | null
+    Multi_branch_address: string | null
+    Multi_branch_phone: string | null
+    Multi_branch_email: string | null
+    Multi_branch_opening_hours: string | null
+    Multi_branch_create_at: Date | null
+    Multi_branch_update_at: Date | null
+  }
+
+  export type Multi_branchCountAggregateOutputType = {
+    Multi_branch_ID: number
+    Multi_branch_name: number
+    Multi_branch_address: number
+    Multi_branch_phone: number
+    Multi_branch_email: number
+    Multi_branch_opening_hours: number
+    Multi_branch_create_at: number
+    Multi_branch_update_at: number
+    _all: number
+  }
+
+
+  export type Multi_branchAvgAggregateInputType = {
+    Multi_branch_ID?: true
+  }
+
+  export type Multi_branchSumAggregateInputType = {
+    Multi_branch_ID?: true
+  }
+
+  export type Multi_branchMinAggregateInputType = {
+    Multi_branch_ID?: true
+    Multi_branch_name?: true
+    Multi_branch_address?: true
+    Multi_branch_phone?: true
+    Multi_branch_email?: true
+    Multi_branch_opening_hours?: true
+    Multi_branch_create_at?: true
+    Multi_branch_update_at?: true
+  }
+
+  export type Multi_branchMaxAggregateInputType = {
+    Multi_branch_ID?: true
+    Multi_branch_name?: true
+    Multi_branch_address?: true
+    Multi_branch_phone?: true
+    Multi_branch_email?: true
+    Multi_branch_opening_hours?: true
+    Multi_branch_create_at?: true
+    Multi_branch_update_at?: true
+  }
+
+  export type Multi_branchCountAggregateInputType = {
+    Multi_branch_ID?: true
+    Multi_branch_name?: true
+    Multi_branch_address?: true
+    Multi_branch_phone?: true
+    Multi_branch_email?: true
+    Multi_branch_opening_hours?: true
+    Multi_branch_create_at?: true
+    Multi_branch_update_at?: true
+    _all?: true
+  }
+
+  export type Multi_branchAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Multi_branch to aggregate.
+     */
+    where?: Multi_branchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Multi_branches to fetch.
+     */
+    orderBy?: Multi_branchOrderByWithRelationInput | Multi_branchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: Multi_branchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Multi_branches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Multi_branches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Multi_branches
+    **/
+    _count?: true | Multi_branchCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Multi_branchAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Multi_branchSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Multi_branchMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Multi_branchMaxAggregateInputType
+  }
+
+  export type GetMulti_branchAggregateType<T extends Multi_branchAggregateArgs> = {
+        [P in keyof T & keyof AggregateMulti_branch]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMulti_branch[P]>
+      : GetScalarType<T[P], AggregateMulti_branch[P]>
+  }
+
+
+
+
+  export type Multi_branchGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Multi_branchWhereInput
+    orderBy?: Multi_branchOrderByWithAggregationInput | Multi_branchOrderByWithAggregationInput[]
+    by: Multi_branchScalarFieldEnum[] | Multi_branchScalarFieldEnum
+    having?: Multi_branchScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Multi_branchCountAggregateInputType | true
+    _avg?: Multi_branchAvgAggregateInputType
+    _sum?: Multi_branchSumAggregateInputType
+    _min?: Multi_branchMinAggregateInputType
+    _max?: Multi_branchMaxAggregateInputType
+  }
+
+  export type Multi_branchGroupByOutputType = {
+    Multi_branch_ID: number
+    Multi_branch_name: string
+    Multi_branch_address: string | null
+    Multi_branch_phone: string | null
+    Multi_branch_email: string | null
+    Multi_branch_opening_hours: string | null
+    Multi_branch_create_at: Date
+    Multi_branch_update_at: Date
+    _count: Multi_branchCountAggregateOutputType | null
+    _avg: Multi_branchAvgAggregateOutputType | null
+    _sum: Multi_branchSumAggregateOutputType | null
+    _min: Multi_branchMinAggregateOutputType | null
+    _max: Multi_branchMaxAggregateOutputType | null
+  }
+
+  type GetMulti_branchGroupByPayload<T extends Multi_branchGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Multi_branchGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Multi_branchGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Multi_branchGroupByOutputType[P]>
+            : GetScalarType<T[P], Multi_branchGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type Multi_branchSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Multi_branch_ID?: boolean
+    Multi_branch_name?: boolean
+    Multi_branch_address?: boolean
+    Multi_branch_phone?: boolean
+    Multi_branch_email?: boolean
+    Multi_branch_opening_hours?: boolean
+    Multi_branch_create_at?: boolean
+    Multi_branch_update_at?: boolean
+    Register_service?: boolean | Multi_branch$Register_serviceArgs<ExtArgs>
+    History?: boolean | Multi_branch$HistoryArgs<ExtArgs>
+    _count?: boolean | Multi_branchCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["multi_branch"]>
+
+  export type Multi_branchSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Multi_branch_ID?: boolean
+    Multi_branch_name?: boolean
+    Multi_branch_address?: boolean
+    Multi_branch_phone?: boolean
+    Multi_branch_email?: boolean
+    Multi_branch_opening_hours?: boolean
+    Multi_branch_create_at?: boolean
+    Multi_branch_update_at?: boolean
+  }, ExtArgs["result"]["multi_branch"]>
+
+  export type Multi_branchSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Multi_branch_ID?: boolean
+    Multi_branch_name?: boolean
+    Multi_branch_address?: boolean
+    Multi_branch_phone?: boolean
+    Multi_branch_email?: boolean
+    Multi_branch_opening_hours?: boolean
+    Multi_branch_create_at?: boolean
+    Multi_branch_update_at?: boolean
+  }, ExtArgs["result"]["multi_branch"]>
+
+  export type Multi_branchSelectScalar = {
+    Multi_branch_ID?: boolean
+    Multi_branch_name?: boolean
+    Multi_branch_address?: boolean
+    Multi_branch_phone?: boolean
+    Multi_branch_email?: boolean
+    Multi_branch_opening_hours?: boolean
+    Multi_branch_create_at?: boolean
+    Multi_branch_update_at?: boolean
+  }
+
+  export type Multi_branchOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Multi_branch_ID" | "Multi_branch_name" | "Multi_branch_address" | "Multi_branch_phone" | "Multi_branch_email" | "Multi_branch_opening_hours" | "Multi_branch_create_at" | "Multi_branch_update_at", ExtArgs["result"]["multi_branch"]>
+  export type Multi_branchInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Register_service?: boolean | Multi_branch$Register_serviceArgs<ExtArgs>
+    History?: boolean | Multi_branch$HistoryArgs<ExtArgs>
+    _count?: boolean | Multi_branchCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type Multi_branchIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type Multi_branchIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $Multi_branchPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Multi_branch"
+    objects: {
+      Register_service: Prisma.$Register_servicePayload<ExtArgs>[]
+      History: Prisma.$HistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Multi_branch_ID: number
+      Multi_branch_name: string
+      Multi_branch_address: string | null
+      Multi_branch_phone: string | null
+      Multi_branch_email: string | null
+      Multi_branch_opening_hours: string | null
+      Multi_branch_create_at: Date
+      Multi_branch_update_at: Date
+    }, ExtArgs["result"]["multi_branch"]>
+    composites: {}
+  }
+
+  type Multi_branchGetPayload<S extends boolean | null | undefined | Multi_branchDefaultArgs> = $Result.GetResult<Prisma.$Multi_branchPayload, S>
+
+  type Multi_branchCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<Multi_branchFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Multi_branchCountAggregateInputType | true
+    }
+
+  export interface Multi_branchDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Multi_branch'], meta: { name: 'Multi_branch' } }
+    /**
+     * Find zero or one Multi_branch that matches the filter.
+     * @param {Multi_branchFindUniqueArgs} args - Arguments to find a Multi_branch
+     * @example
+     * // Get one Multi_branch
+     * const multi_branch = await prisma.multi_branch.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends Multi_branchFindUniqueArgs>(args: SelectSubset<T, Multi_branchFindUniqueArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Multi_branch that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {Multi_branchFindUniqueOrThrowArgs} args - Arguments to find a Multi_branch
+     * @example
+     * // Get one Multi_branch
+     * const multi_branch = await prisma.multi_branch.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends Multi_branchFindUniqueOrThrowArgs>(args: SelectSubset<T, Multi_branchFindUniqueOrThrowArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Multi_branch that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Multi_branchFindFirstArgs} args - Arguments to find a Multi_branch
+     * @example
+     * // Get one Multi_branch
+     * const multi_branch = await prisma.multi_branch.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends Multi_branchFindFirstArgs>(args?: SelectSubset<T, Multi_branchFindFirstArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Multi_branch that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Multi_branchFindFirstOrThrowArgs} args - Arguments to find a Multi_branch
+     * @example
+     * // Get one Multi_branch
+     * const multi_branch = await prisma.multi_branch.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends Multi_branchFindFirstOrThrowArgs>(args?: SelectSubset<T, Multi_branchFindFirstOrThrowArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Multi_branches that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Multi_branchFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Multi_branches
+     * const multi_branches = await prisma.multi_branch.findMany()
+     * 
+     * // Get first 10 Multi_branches
+     * const multi_branches = await prisma.multi_branch.findMany({ take: 10 })
+     * 
+     * // Only select the `Multi_branch_ID`
+     * const multi_branchWithMulti_branch_IDOnly = await prisma.multi_branch.findMany({ select: { Multi_branch_ID: true } })
+     * 
+     */
+    findMany<T extends Multi_branchFindManyArgs>(args?: SelectSubset<T, Multi_branchFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Multi_branch.
+     * @param {Multi_branchCreateArgs} args - Arguments to create a Multi_branch.
+     * @example
+     * // Create one Multi_branch
+     * const Multi_branch = await prisma.multi_branch.create({
+     *   data: {
+     *     // ... data to create a Multi_branch
+     *   }
+     * })
+     * 
+     */
+    create<T extends Multi_branchCreateArgs>(args: SelectSubset<T, Multi_branchCreateArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Multi_branches.
+     * @param {Multi_branchCreateManyArgs} args - Arguments to create many Multi_branches.
+     * @example
+     * // Create many Multi_branches
+     * const multi_branch = await prisma.multi_branch.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends Multi_branchCreateManyArgs>(args?: SelectSubset<T, Multi_branchCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Multi_branches and returns the data saved in the database.
+     * @param {Multi_branchCreateManyAndReturnArgs} args - Arguments to create many Multi_branches.
+     * @example
+     * // Create many Multi_branches
+     * const multi_branch = await prisma.multi_branch.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Multi_branches and only return the `Multi_branch_ID`
+     * const multi_branchWithMulti_branch_IDOnly = await prisma.multi_branch.createManyAndReturn({
+     *   select: { Multi_branch_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends Multi_branchCreateManyAndReturnArgs>(args?: SelectSubset<T, Multi_branchCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Multi_branch.
+     * @param {Multi_branchDeleteArgs} args - Arguments to delete one Multi_branch.
+     * @example
+     * // Delete one Multi_branch
+     * const Multi_branch = await prisma.multi_branch.delete({
+     *   where: {
+     *     // ... filter to delete one Multi_branch
+     *   }
+     * })
+     * 
+     */
+    delete<T extends Multi_branchDeleteArgs>(args: SelectSubset<T, Multi_branchDeleteArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Multi_branch.
+     * @param {Multi_branchUpdateArgs} args - Arguments to update one Multi_branch.
+     * @example
+     * // Update one Multi_branch
+     * const multi_branch = await prisma.multi_branch.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends Multi_branchUpdateArgs>(args: SelectSubset<T, Multi_branchUpdateArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Multi_branches.
+     * @param {Multi_branchDeleteManyArgs} args - Arguments to filter Multi_branches to delete.
+     * @example
+     * // Delete a few Multi_branches
+     * const { count } = await prisma.multi_branch.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends Multi_branchDeleteManyArgs>(args?: SelectSubset<T, Multi_branchDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Multi_branches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Multi_branchUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Multi_branches
+     * const multi_branch = await prisma.multi_branch.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends Multi_branchUpdateManyArgs>(args: SelectSubset<T, Multi_branchUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Multi_branches and returns the data updated in the database.
+     * @param {Multi_branchUpdateManyAndReturnArgs} args - Arguments to update many Multi_branches.
+     * @example
+     * // Update many Multi_branches
+     * const multi_branch = await prisma.multi_branch.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Multi_branches and only return the `Multi_branch_ID`
+     * const multi_branchWithMulti_branch_IDOnly = await prisma.multi_branch.updateManyAndReturn({
+     *   select: { Multi_branch_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends Multi_branchUpdateManyAndReturnArgs>(args: SelectSubset<T, Multi_branchUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Multi_branch.
+     * @param {Multi_branchUpsertArgs} args - Arguments to update or create a Multi_branch.
+     * @example
+     * // Update or create a Multi_branch
+     * const multi_branch = await prisma.multi_branch.upsert({
+     *   create: {
+     *     // ... data to create a Multi_branch
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Multi_branch we want to update
+     *   }
+     * })
+     */
+    upsert<T extends Multi_branchUpsertArgs>(args: SelectSubset<T, Multi_branchUpsertArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Multi_branches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Multi_branchCountArgs} args - Arguments to filter Multi_branches to count.
+     * @example
+     * // Count the number of Multi_branches
+     * const count = await prisma.multi_branch.count({
+     *   where: {
+     *     // ... the filter for the Multi_branches we want to count
+     *   }
+     * })
+    **/
+    count<T extends Multi_branchCountArgs>(
+      args?: Subset<T, Multi_branchCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Multi_branchCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Multi_branch.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Multi_branchAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Multi_branchAggregateArgs>(args: Subset<T, Multi_branchAggregateArgs>): Prisma.PrismaPromise<GetMulti_branchAggregateType<T>>
+
+    /**
+     * Group by Multi_branch.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Multi_branchGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends Multi_branchGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: Multi_branchGroupByArgs['orderBy'] }
+        : { orderBy?: Multi_branchGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, Multi_branchGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMulti_branchGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Multi_branch model
+   */
+  readonly fields: Multi_branchFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Multi_branch.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__Multi_branchClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Register_service<T extends Multi_branch$Register_serviceArgs<ExtArgs> = {}>(args?: Subset<T, Multi_branch$Register_serviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    History<T extends Multi_branch$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, Multi_branch$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Multi_branch model
+   */
+  interface Multi_branchFieldRefs {
+    readonly Multi_branch_ID: FieldRef<"Multi_branch", 'Int'>
+    readonly Multi_branch_name: FieldRef<"Multi_branch", 'String'>
+    readonly Multi_branch_address: FieldRef<"Multi_branch", 'String'>
+    readonly Multi_branch_phone: FieldRef<"Multi_branch", 'String'>
+    readonly Multi_branch_email: FieldRef<"Multi_branch", 'String'>
+    readonly Multi_branch_opening_hours: FieldRef<"Multi_branch", 'String'>
+    readonly Multi_branch_create_at: FieldRef<"Multi_branch", 'DateTime'>
+    readonly Multi_branch_update_at: FieldRef<"Multi_branch", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Multi_branch findUnique
+   */
+  export type Multi_branchFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+    /**
+     * Filter, which Multi_branch to fetch.
+     */
+    where: Multi_branchWhereUniqueInput
+  }
+
+  /**
+   * Multi_branch findUniqueOrThrow
+   */
+  export type Multi_branchFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+    /**
+     * Filter, which Multi_branch to fetch.
+     */
+    where: Multi_branchWhereUniqueInput
+  }
+
+  /**
+   * Multi_branch findFirst
+   */
+  export type Multi_branchFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+    /**
+     * Filter, which Multi_branch to fetch.
+     */
+    where?: Multi_branchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Multi_branches to fetch.
+     */
+    orderBy?: Multi_branchOrderByWithRelationInput | Multi_branchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Multi_branches.
+     */
+    cursor?: Multi_branchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Multi_branches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Multi_branches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Multi_branches.
+     */
+    distinct?: Multi_branchScalarFieldEnum | Multi_branchScalarFieldEnum[]
+  }
+
+  /**
+   * Multi_branch findFirstOrThrow
+   */
+  export type Multi_branchFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+    /**
+     * Filter, which Multi_branch to fetch.
+     */
+    where?: Multi_branchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Multi_branches to fetch.
+     */
+    orderBy?: Multi_branchOrderByWithRelationInput | Multi_branchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Multi_branches.
+     */
+    cursor?: Multi_branchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Multi_branches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Multi_branches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Multi_branches.
+     */
+    distinct?: Multi_branchScalarFieldEnum | Multi_branchScalarFieldEnum[]
+  }
+
+  /**
+   * Multi_branch findMany
+   */
+  export type Multi_branchFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+    /**
+     * Filter, which Multi_branches to fetch.
+     */
+    where?: Multi_branchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Multi_branches to fetch.
+     */
+    orderBy?: Multi_branchOrderByWithRelationInput | Multi_branchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Multi_branches.
+     */
+    cursor?: Multi_branchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Multi_branches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Multi_branches.
+     */
+    skip?: number
+    distinct?: Multi_branchScalarFieldEnum | Multi_branchScalarFieldEnum[]
+  }
+
+  /**
+   * Multi_branch create
+   */
+  export type Multi_branchCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Multi_branch.
+     */
+    data: XOR<Multi_branchCreateInput, Multi_branchUncheckedCreateInput>
+  }
+
+  /**
+   * Multi_branch createMany
+   */
+  export type Multi_branchCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Multi_branches.
+     */
+    data: Multi_branchCreateManyInput | Multi_branchCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Multi_branch createManyAndReturn
+   */
+  export type Multi_branchCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * The data used to create many Multi_branches.
+     */
+    data: Multi_branchCreateManyInput | Multi_branchCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Multi_branch update
+   */
+  export type Multi_branchUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Multi_branch.
+     */
+    data: XOR<Multi_branchUpdateInput, Multi_branchUncheckedUpdateInput>
+    /**
+     * Choose, which Multi_branch to update.
+     */
+    where: Multi_branchWhereUniqueInput
+  }
+
+  /**
+   * Multi_branch updateMany
+   */
+  export type Multi_branchUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Multi_branches.
+     */
+    data: XOR<Multi_branchUpdateManyMutationInput, Multi_branchUncheckedUpdateManyInput>
+    /**
+     * Filter which Multi_branches to update
+     */
+    where?: Multi_branchWhereInput
+    /**
+     * Limit how many Multi_branches to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Multi_branch updateManyAndReturn
+   */
+  export type Multi_branchUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * The data used to update Multi_branches.
+     */
+    data: XOR<Multi_branchUpdateManyMutationInput, Multi_branchUncheckedUpdateManyInput>
+    /**
+     * Filter which Multi_branches to update
+     */
+    where?: Multi_branchWhereInput
+    /**
+     * Limit how many Multi_branches to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Multi_branch upsert
+   */
+  export type Multi_branchUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Multi_branch to update in case it exists.
+     */
+    where: Multi_branchWhereUniqueInput
+    /**
+     * In case the Multi_branch found by the `where` argument doesn't exist, create a new Multi_branch with this data.
+     */
+    create: XOR<Multi_branchCreateInput, Multi_branchUncheckedCreateInput>
+    /**
+     * In case the Multi_branch was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<Multi_branchUpdateInput, Multi_branchUncheckedUpdateInput>
+  }
+
+  /**
+   * Multi_branch delete
+   */
+  export type Multi_branchDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+    /**
+     * Filter which Multi_branch to delete.
+     */
+    where: Multi_branchWhereUniqueInput
+  }
+
+  /**
+   * Multi_branch deleteMany
+   */
+  export type Multi_branchDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Multi_branches to delete
+     */
+    where?: Multi_branchWhereInput
+    /**
+     * Limit how many Multi_branches to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Multi_branch.Register_service
+   */
+  export type Multi_branch$Register_serviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    where?: Register_serviceWhereInput
+    orderBy?: Register_serviceOrderByWithRelationInput | Register_serviceOrderByWithRelationInput[]
+    cursor?: Register_serviceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Register_serviceScalarFieldEnum | Register_serviceScalarFieldEnum[]
+  }
+
+  /**
+   * Multi_branch.History
+   */
+  export type Multi_branch$HistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    where?: HistoryWhereInput
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    cursor?: HistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Multi_branch without action
+   */
+  export type Multi_branchDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Multi_branch
+     */
+    select?: Multi_branchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Multi_branch
+     */
+    omit?: Multi_branchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Multi_branchInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Commit
+   */
+
+  export type AggregateCommit = {
+    _count: CommitCountAggregateOutputType | null
+    _avg: CommitAvgAggregateOutputType | null
+    _sum: CommitSumAggregateOutputType | null
+    _min: CommitMinAggregateOutputType | null
+    _max: CommitMaxAggregateOutputType | null
+  }
+
+  export type CommitAvgAggregateOutputType = {
+    Commit_ID: number | null
+    Commit_entity_id: number | null
+    Commit_user_ID: number | null
+  }
+
+  export type CommitSumAggregateOutputType = {
+    Commit_ID: number | null
+    Commit_entity_id: number | null
+    Commit_user_ID: number | null
+  }
+
+  export type CommitMinAggregateOutputType = {
+    Commit_ID: number | null
+    Commit_text: string | null
+    Commit_review: string | null
+    Commit_entity_id: number | null
+    Commit_entity_name: string | null
+    Commit_create_at: Date | null
+    Commit_user_ID: number | null
+  }
+
+  export type CommitMaxAggregateOutputType = {
+    Commit_ID: number | null
+    Commit_text: string | null
+    Commit_review: string | null
+    Commit_entity_id: number | null
+    Commit_entity_name: string | null
+    Commit_create_at: Date | null
+    Commit_user_ID: number | null
+  }
+
+  export type CommitCountAggregateOutputType = {
+    Commit_ID: number
+    Commit_text: number
+    Commit_review: number
+    Commit_entity_id: number
+    Commit_entity_name: number
+    Commit_create_at: number
+    Commit_user_ID: number
+    _all: number
+  }
+
+
+  export type CommitAvgAggregateInputType = {
+    Commit_ID?: true
+    Commit_entity_id?: true
+    Commit_user_ID?: true
+  }
+
+  export type CommitSumAggregateInputType = {
+    Commit_ID?: true
+    Commit_entity_id?: true
+    Commit_user_ID?: true
+  }
+
+  export type CommitMinAggregateInputType = {
+    Commit_ID?: true
+    Commit_text?: true
+    Commit_review?: true
+    Commit_entity_id?: true
+    Commit_entity_name?: true
+    Commit_create_at?: true
+    Commit_user_ID?: true
+  }
+
+  export type CommitMaxAggregateInputType = {
+    Commit_ID?: true
+    Commit_text?: true
+    Commit_review?: true
+    Commit_entity_id?: true
+    Commit_entity_name?: true
+    Commit_create_at?: true
+    Commit_user_ID?: true
+  }
+
+  export type CommitCountAggregateInputType = {
+    Commit_ID?: true
+    Commit_text?: true
+    Commit_review?: true
+    Commit_entity_id?: true
+    Commit_entity_name?: true
+    Commit_create_at?: true
+    Commit_user_ID?: true
+    _all?: true
+  }
+
+  export type CommitAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Commit to aggregate.
+     */
+    where?: CommitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Commits to fetch.
+     */
+    orderBy?: CommitOrderByWithRelationInput | CommitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CommitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Commits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Commits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Commits
+    **/
+    _count?: true | CommitCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CommitAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CommitSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CommitMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CommitMaxAggregateInputType
+  }
+
+  export type GetCommitAggregateType<T extends CommitAggregateArgs> = {
+        [P in keyof T & keyof AggregateCommit]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCommit[P]>
+      : GetScalarType<T[P], AggregateCommit[P]>
+  }
+
+
+
+
+  export type CommitGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommitWhereInput
+    orderBy?: CommitOrderByWithAggregationInput | CommitOrderByWithAggregationInput[]
+    by: CommitScalarFieldEnum[] | CommitScalarFieldEnum
+    having?: CommitScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CommitCountAggregateInputType | true
+    _avg?: CommitAvgAggregateInputType
+    _sum?: CommitSumAggregateInputType
+    _min?: CommitMinAggregateInputType
+    _max?: CommitMaxAggregateInputType
+  }
+
+  export type CommitGroupByOutputType = {
+    Commit_ID: number
+    Commit_text: string
+    Commit_review: string | null
+    Commit_entity_id: number | null
+    Commit_entity_name: string | null
+    Commit_create_at: Date
+    Commit_user_ID: number
+    _count: CommitCountAggregateOutputType | null
+    _avg: CommitAvgAggregateOutputType | null
+    _sum: CommitSumAggregateOutputType | null
+    _min: CommitMinAggregateOutputType | null
+    _max: CommitMaxAggregateOutputType | null
+  }
+
+  type GetCommitGroupByPayload<T extends CommitGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CommitGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CommitGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CommitGroupByOutputType[P]>
+            : GetScalarType<T[P], CommitGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CommitSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Commit_ID?: boolean
+    Commit_text?: boolean
+    Commit_review?: boolean
+    Commit_entity_id?: boolean
+    Commit_entity_name?: boolean
+    Commit_create_at?: boolean
+    Commit_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["commit"]>
+
+  export type CommitSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Commit_ID?: boolean
+    Commit_text?: boolean
+    Commit_review?: boolean
+    Commit_entity_id?: boolean
+    Commit_entity_name?: boolean
+    Commit_create_at?: boolean
+    Commit_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["commit"]>
+
+  export type CommitSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Commit_ID?: boolean
+    Commit_text?: boolean
+    Commit_review?: boolean
+    Commit_entity_id?: boolean
+    Commit_entity_name?: boolean
+    Commit_create_at?: boolean
+    Commit_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["commit"]>
+
+  export type CommitSelectScalar = {
+    Commit_ID?: boolean
+    Commit_text?: boolean
+    Commit_review?: boolean
+    Commit_entity_id?: boolean
+    Commit_entity_name?: boolean
+    Commit_create_at?: boolean
+    Commit_user_ID?: boolean
+  }
+
+  export type CommitOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Commit_ID" | "Commit_text" | "Commit_review" | "Commit_entity_id" | "Commit_entity_name" | "Commit_create_at" | "Commit_user_ID", ExtArgs["result"]["commit"]>
+  export type CommitInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type CommitIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type CommitIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $CommitPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Commit"
+    objects: {
+      User: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Commit_ID: number
+      Commit_text: string
+      Commit_review: string | null
+      Commit_entity_id: number | null
+      Commit_entity_name: string | null
+      Commit_create_at: Date
+      Commit_user_ID: number
+    }, ExtArgs["result"]["commit"]>
+    composites: {}
+  }
+
+  type CommitGetPayload<S extends boolean | null | undefined | CommitDefaultArgs> = $Result.GetResult<Prisma.$CommitPayload, S>
+
+  type CommitCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CommitFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CommitCountAggregateInputType | true
+    }
+
+  export interface CommitDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Commit'], meta: { name: 'Commit' } }
+    /**
+     * Find zero or one Commit that matches the filter.
+     * @param {CommitFindUniqueArgs} args - Arguments to find a Commit
+     * @example
+     * // Get one Commit
+     * const commit = await prisma.commit.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CommitFindUniqueArgs>(args: SelectSubset<T, CommitFindUniqueArgs<ExtArgs>>): Prisma__CommitClient<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Commit that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CommitFindUniqueOrThrowArgs} args - Arguments to find a Commit
+     * @example
+     * // Get one Commit
+     * const commit = await prisma.commit.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CommitFindUniqueOrThrowArgs>(args: SelectSubset<T, CommitFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CommitClient<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Commit that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommitFindFirstArgs} args - Arguments to find a Commit
+     * @example
+     * // Get one Commit
+     * const commit = await prisma.commit.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CommitFindFirstArgs>(args?: SelectSubset<T, CommitFindFirstArgs<ExtArgs>>): Prisma__CommitClient<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Commit that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommitFindFirstOrThrowArgs} args - Arguments to find a Commit
+     * @example
+     * // Get one Commit
+     * const commit = await prisma.commit.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CommitFindFirstOrThrowArgs>(args?: SelectSubset<T, CommitFindFirstOrThrowArgs<ExtArgs>>): Prisma__CommitClient<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Commits that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommitFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Commits
+     * const commits = await prisma.commit.findMany()
+     * 
+     * // Get first 10 Commits
+     * const commits = await prisma.commit.findMany({ take: 10 })
+     * 
+     * // Only select the `Commit_ID`
+     * const commitWithCommit_IDOnly = await prisma.commit.findMany({ select: { Commit_ID: true } })
+     * 
+     */
+    findMany<T extends CommitFindManyArgs>(args?: SelectSubset<T, CommitFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Commit.
+     * @param {CommitCreateArgs} args - Arguments to create a Commit.
+     * @example
+     * // Create one Commit
+     * const Commit = await prisma.commit.create({
+     *   data: {
+     *     // ... data to create a Commit
+     *   }
+     * })
+     * 
+     */
+    create<T extends CommitCreateArgs>(args: SelectSubset<T, CommitCreateArgs<ExtArgs>>): Prisma__CommitClient<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Commits.
+     * @param {CommitCreateManyArgs} args - Arguments to create many Commits.
+     * @example
+     * // Create many Commits
+     * const commit = await prisma.commit.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CommitCreateManyArgs>(args?: SelectSubset<T, CommitCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Commits and returns the data saved in the database.
+     * @param {CommitCreateManyAndReturnArgs} args - Arguments to create many Commits.
+     * @example
+     * // Create many Commits
+     * const commit = await prisma.commit.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Commits and only return the `Commit_ID`
+     * const commitWithCommit_IDOnly = await prisma.commit.createManyAndReturn({
+     *   select: { Commit_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CommitCreateManyAndReturnArgs>(args?: SelectSubset<T, CommitCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Commit.
+     * @param {CommitDeleteArgs} args - Arguments to delete one Commit.
+     * @example
+     * // Delete one Commit
+     * const Commit = await prisma.commit.delete({
+     *   where: {
+     *     // ... filter to delete one Commit
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CommitDeleteArgs>(args: SelectSubset<T, CommitDeleteArgs<ExtArgs>>): Prisma__CommitClient<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Commit.
+     * @param {CommitUpdateArgs} args - Arguments to update one Commit.
+     * @example
+     * // Update one Commit
+     * const commit = await prisma.commit.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CommitUpdateArgs>(args: SelectSubset<T, CommitUpdateArgs<ExtArgs>>): Prisma__CommitClient<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Commits.
+     * @param {CommitDeleteManyArgs} args - Arguments to filter Commits to delete.
+     * @example
+     * // Delete a few Commits
+     * const { count } = await prisma.commit.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CommitDeleteManyArgs>(args?: SelectSubset<T, CommitDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Commits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommitUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Commits
+     * const commit = await prisma.commit.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CommitUpdateManyArgs>(args: SelectSubset<T, CommitUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Commits and returns the data updated in the database.
+     * @param {CommitUpdateManyAndReturnArgs} args - Arguments to update many Commits.
+     * @example
+     * // Update many Commits
+     * const commit = await prisma.commit.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Commits and only return the `Commit_ID`
+     * const commitWithCommit_IDOnly = await prisma.commit.updateManyAndReturn({
+     *   select: { Commit_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CommitUpdateManyAndReturnArgs>(args: SelectSubset<T, CommitUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Commit.
+     * @param {CommitUpsertArgs} args - Arguments to update or create a Commit.
+     * @example
+     * // Update or create a Commit
+     * const commit = await prisma.commit.upsert({
+     *   create: {
+     *     // ... data to create a Commit
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Commit we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CommitUpsertArgs>(args: SelectSubset<T, CommitUpsertArgs<ExtArgs>>): Prisma__CommitClient<$Result.GetResult<Prisma.$CommitPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Commits.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommitCountArgs} args - Arguments to filter Commits to count.
+     * @example
+     * // Count the number of Commits
+     * const count = await prisma.commit.count({
+     *   where: {
+     *     // ... the filter for the Commits we want to count
+     *   }
+     * })
+    **/
+    count<T extends CommitCountArgs>(
+      args?: Subset<T, CommitCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CommitCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Commit.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommitAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CommitAggregateArgs>(args: Subset<T, CommitAggregateArgs>): Prisma.PrismaPromise<GetCommitAggregateType<T>>
+
+    /**
+     * Group by Commit.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommitGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CommitGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CommitGroupByArgs['orderBy'] }
+        : { orderBy?: CommitGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CommitGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCommitGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Commit model
+   */
+  readonly fields: CommitFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Commit.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CommitClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Commit model
+   */
+  interface CommitFieldRefs {
+    readonly Commit_ID: FieldRef<"Commit", 'Int'>
+    readonly Commit_text: FieldRef<"Commit", 'String'>
+    readonly Commit_review: FieldRef<"Commit", 'String'>
+    readonly Commit_entity_id: FieldRef<"Commit", 'Int'>
+    readonly Commit_entity_name: FieldRef<"Commit", 'String'>
+    readonly Commit_create_at: FieldRef<"Commit", 'DateTime'>
+    readonly Commit_user_ID: FieldRef<"Commit", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Commit findUnique
+   */
+  export type CommitFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    /**
+     * Filter, which Commit to fetch.
+     */
+    where: CommitWhereUniqueInput
+  }
+
+  /**
+   * Commit findUniqueOrThrow
+   */
+  export type CommitFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    /**
+     * Filter, which Commit to fetch.
+     */
+    where: CommitWhereUniqueInput
+  }
+
+  /**
+   * Commit findFirst
+   */
+  export type CommitFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    /**
+     * Filter, which Commit to fetch.
+     */
+    where?: CommitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Commits to fetch.
+     */
+    orderBy?: CommitOrderByWithRelationInput | CommitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Commits.
+     */
+    cursor?: CommitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Commits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Commits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Commits.
+     */
+    distinct?: CommitScalarFieldEnum | CommitScalarFieldEnum[]
+  }
+
+  /**
+   * Commit findFirstOrThrow
+   */
+  export type CommitFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    /**
+     * Filter, which Commit to fetch.
+     */
+    where?: CommitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Commits to fetch.
+     */
+    orderBy?: CommitOrderByWithRelationInput | CommitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Commits.
+     */
+    cursor?: CommitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Commits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Commits.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Commits.
+     */
+    distinct?: CommitScalarFieldEnum | CommitScalarFieldEnum[]
+  }
+
+  /**
+   * Commit findMany
+   */
+  export type CommitFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    /**
+     * Filter, which Commits to fetch.
+     */
+    where?: CommitWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Commits to fetch.
+     */
+    orderBy?: CommitOrderByWithRelationInput | CommitOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Commits.
+     */
+    cursor?: CommitWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Commits from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Commits.
+     */
+    skip?: number
+    distinct?: CommitScalarFieldEnum | CommitScalarFieldEnum[]
+  }
+
+  /**
+   * Commit create
+   */
+  export type CommitCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Commit.
+     */
+    data: XOR<CommitCreateInput, CommitUncheckedCreateInput>
+  }
+
+  /**
+   * Commit createMany
+   */
+  export type CommitCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Commits.
+     */
+    data: CommitCreateManyInput | CommitCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Commit createManyAndReturn
+   */
+  export type CommitCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * The data used to create many Commits.
+     */
+    data: CommitCreateManyInput | CommitCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Commit update
+   */
+  export type CommitUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Commit.
+     */
+    data: XOR<CommitUpdateInput, CommitUncheckedUpdateInput>
+    /**
+     * Choose, which Commit to update.
+     */
+    where: CommitWhereUniqueInput
+  }
+
+  /**
+   * Commit updateMany
+   */
+  export type CommitUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Commits.
+     */
+    data: XOR<CommitUpdateManyMutationInput, CommitUncheckedUpdateManyInput>
+    /**
+     * Filter which Commits to update
+     */
+    where?: CommitWhereInput
+    /**
+     * Limit how many Commits to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Commit updateManyAndReturn
+   */
+  export type CommitUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * The data used to update Commits.
+     */
+    data: XOR<CommitUpdateManyMutationInput, CommitUncheckedUpdateManyInput>
+    /**
+     * Filter which Commits to update
+     */
+    where?: CommitWhereInput
+    /**
+     * Limit how many Commits to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Commit upsert
+   */
+  export type CommitUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Commit to update in case it exists.
+     */
+    where: CommitWhereUniqueInput
+    /**
+     * In case the Commit found by the `where` argument doesn't exist, create a new Commit with this data.
+     */
+    create: XOR<CommitCreateInput, CommitUncheckedCreateInput>
+    /**
+     * In case the Commit was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CommitUpdateInput, CommitUncheckedUpdateInput>
+  }
+
+  /**
+   * Commit delete
+   */
+  export type CommitDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+    /**
+     * Filter which Commit to delete.
+     */
+    where: CommitWhereUniqueInput
+  }
+
+  /**
+   * Commit deleteMany
+   */
+  export type CommitDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Commits to delete
+     */
+    where?: CommitWhereInput
+    /**
+     * Limit how many Commits to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Commit without action
+   */
+  export type CommitDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Commit
+     */
+    select?: CommitSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Commit
+     */
+    omit?: CommitOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommitInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Notification
+   */
+
+  export type AggregateNotification = {
+    _count: NotificationCountAggregateOutputType | null
+    _avg: NotificationAvgAggregateOutputType | null
+    _sum: NotificationSumAggregateOutputType | null
+    _min: NotificationMinAggregateOutputType | null
+    _max: NotificationMaxAggregateOutputType | null
+  }
+
+  export type NotificationAvgAggregateOutputType = {
+    Notification_ID: number | null
+    Notification_user_ID: number | null
+  }
+
+  export type NotificationSumAggregateOutputType = {
+    Notification_ID: number | null
+    Notification_user_ID: number | null
+  }
+
+  export type NotificationMinAggregateOutputType = {
+    Notification_ID: number | null
+    Notification_text: string | null
+    Notification_is_read: boolean | null
+    Notification_create_at: Date | null
+    Notification_user_ID: number | null
+  }
+
+  export type NotificationMaxAggregateOutputType = {
+    Notification_ID: number | null
+    Notification_text: string | null
+    Notification_is_read: boolean | null
+    Notification_create_at: Date | null
+    Notification_user_ID: number | null
+  }
+
+  export type NotificationCountAggregateOutputType = {
+    Notification_ID: number
+    Notification_text: number
+    Notification_is_read: number
+    Notification_create_at: number
+    Notification_user_ID: number
+    _all: number
+  }
+
+
+  export type NotificationAvgAggregateInputType = {
+    Notification_ID?: true
+    Notification_user_ID?: true
+  }
+
+  export type NotificationSumAggregateInputType = {
+    Notification_ID?: true
+    Notification_user_ID?: true
+  }
+
+  export type NotificationMinAggregateInputType = {
+    Notification_ID?: true
+    Notification_text?: true
+    Notification_is_read?: true
+    Notification_create_at?: true
+    Notification_user_ID?: true
+  }
+
+  export type NotificationMaxAggregateInputType = {
+    Notification_ID?: true
+    Notification_text?: true
+    Notification_is_read?: true
+    Notification_create_at?: true
+    Notification_user_ID?: true
+  }
+
+  export type NotificationCountAggregateInputType = {
+    Notification_ID?: true
+    Notification_text?: true
+    Notification_is_read?: true
+    Notification_create_at?: true
+    Notification_user_ID?: true
+    _all?: true
+  }
+
+  export type NotificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Notification to aggregate.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Notifications
+    **/
+    _count?: true | NotificationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NotificationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NotificationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NotificationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NotificationMaxAggregateInputType
+  }
+
+  export type GetNotificationAggregateType<T extends NotificationAggregateArgs> = {
+        [P in keyof T & keyof AggregateNotification]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNotification[P]>
+      : GetScalarType<T[P], AggregateNotification[P]>
+  }
+
+
+
+
+  export type NotificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithAggregationInput | NotificationOrderByWithAggregationInput[]
+    by: NotificationScalarFieldEnum[] | NotificationScalarFieldEnum
+    having?: NotificationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NotificationCountAggregateInputType | true
+    _avg?: NotificationAvgAggregateInputType
+    _sum?: NotificationSumAggregateInputType
+    _min?: NotificationMinAggregateInputType
+    _max?: NotificationMaxAggregateInputType
+  }
+
+  export type NotificationGroupByOutputType = {
+    Notification_ID: number
+    Notification_text: string
+    Notification_is_read: boolean
+    Notification_create_at: Date
+    Notification_user_ID: number
+    _count: NotificationCountAggregateOutputType | null
+    _avg: NotificationAvgAggregateOutputType | null
+    _sum: NotificationSumAggregateOutputType | null
+    _min: NotificationMinAggregateOutputType | null
+    _max: NotificationMaxAggregateOutputType | null
+  }
+
+  type GetNotificationGroupByPayload<T extends NotificationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NotificationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NotificationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NotificationGroupByOutputType[P]>
+            : GetScalarType<T[P], NotificationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NotificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Notification_ID?: boolean
+    Notification_text?: boolean
+    Notification_is_read?: boolean
+    Notification_create_at?: boolean
+    Notification_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Notification_ID?: boolean
+    Notification_text?: boolean
+    Notification_is_read?: boolean
+    Notification_create_at?: boolean
+    Notification_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Notification_ID?: boolean
+    Notification_text?: boolean
+    Notification_is_read?: boolean
+    Notification_create_at?: boolean
+    Notification_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectScalar = {
+    Notification_ID?: boolean
+    Notification_text?: boolean
+    Notification_is_read?: boolean
+    Notification_create_at?: boolean
+    Notification_user_ID?: boolean
+  }
+
+  export type NotificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Notification_ID" | "Notification_text" | "Notification_is_read" | "Notification_create_at" | "Notification_user_ID", ExtArgs["result"]["notification"]>
+  export type NotificationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type NotificationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type NotificationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $NotificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Notification"
+    objects: {
+      User: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Notification_ID: number
+      Notification_text: string
+      Notification_is_read: boolean
+      Notification_create_at: Date
+      Notification_user_ID: number
+    }, ExtArgs["result"]["notification"]>
+    composites: {}
+  }
+
+  type NotificationGetPayload<S extends boolean | null | undefined | NotificationDefaultArgs> = $Result.GetResult<Prisma.$NotificationPayload, S>
+
+  type NotificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NotificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NotificationCountAggregateInputType | true
+    }
+
+  export interface NotificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Notification'], meta: { name: 'Notification' } }
+    /**
+     * Find zero or one Notification that matches the filter.
+     * @param {NotificationFindUniqueArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NotificationFindUniqueArgs>(args: SelectSubset<T, NotificationFindUniqueArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Notification that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NotificationFindUniqueOrThrowArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NotificationFindUniqueOrThrowArgs>(args: SelectSubset<T, NotificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Notification that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindFirstArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NotificationFindFirstArgs>(args?: SelectSubset<T, NotificationFindFirstArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Notification that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindFirstOrThrowArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NotificationFindFirstOrThrowArgs>(args?: SelectSubset<T, NotificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Notifications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Notifications
+     * const notifications = await prisma.notification.findMany()
+     * 
+     * // Get first 10 Notifications
+     * const notifications = await prisma.notification.findMany({ take: 10 })
+     * 
+     * // Only select the `Notification_ID`
+     * const notificationWithNotification_IDOnly = await prisma.notification.findMany({ select: { Notification_ID: true } })
+     * 
+     */
+    findMany<T extends NotificationFindManyArgs>(args?: SelectSubset<T, NotificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Notification.
+     * @param {NotificationCreateArgs} args - Arguments to create a Notification.
+     * @example
+     * // Create one Notification
+     * const Notification = await prisma.notification.create({
+     *   data: {
+     *     // ... data to create a Notification
+     *   }
+     * })
+     * 
+     */
+    create<T extends NotificationCreateArgs>(args: SelectSubset<T, NotificationCreateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Notifications.
+     * @param {NotificationCreateManyArgs} args - Arguments to create many Notifications.
+     * @example
+     * // Create many Notifications
+     * const notification = await prisma.notification.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NotificationCreateManyArgs>(args?: SelectSubset<T, NotificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Notifications and returns the data saved in the database.
+     * @param {NotificationCreateManyAndReturnArgs} args - Arguments to create many Notifications.
+     * @example
+     * // Create many Notifications
+     * const notification = await prisma.notification.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Notifications and only return the `Notification_ID`
+     * const notificationWithNotification_IDOnly = await prisma.notification.createManyAndReturn({
+     *   select: { Notification_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NotificationCreateManyAndReturnArgs>(args?: SelectSubset<T, NotificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Notification.
+     * @param {NotificationDeleteArgs} args - Arguments to delete one Notification.
+     * @example
+     * // Delete one Notification
+     * const Notification = await prisma.notification.delete({
+     *   where: {
+     *     // ... filter to delete one Notification
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NotificationDeleteArgs>(args: SelectSubset<T, NotificationDeleteArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Notification.
+     * @param {NotificationUpdateArgs} args - Arguments to update one Notification.
+     * @example
+     * // Update one Notification
+     * const notification = await prisma.notification.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NotificationUpdateArgs>(args: SelectSubset<T, NotificationUpdateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Notifications.
+     * @param {NotificationDeleteManyArgs} args - Arguments to filter Notifications to delete.
+     * @example
+     * // Delete a few Notifications
+     * const { count } = await prisma.notification.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NotificationDeleteManyArgs>(args?: SelectSubset<T, NotificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Notifications
+     * const notification = await prisma.notification.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NotificationUpdateManyArgs>(args: SelectSubset<T, NotificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notifications and returns the data updated in the database.
+     * @param {NotificationUpdateManyAndReturnArgs} args - Arguments to update many Notifications.
+     * @example
+     * // Update many Notifications
+     * const notification = await prisma.notification.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Notifications and only return the `Notification_ID`
+     * const notificationWithNotification_IDOnly = await prisma.notification.updateManyAndReturn({
+     *   select: { Notification_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends NotificationUpdateManyAndReturnArgs>(args: SelectSubset<T, NotificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Notification.
+     * @param {NotificationUpsertArgs} args - Arguments to update or create a Notification.
+     * @example
+     * // Update or create a Notification
+     * const notification = await prisma.notification.upsert({
+     *   create: {
+     *     // ... data to create a Notification
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Notification we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NotificationUpsertArgs>(args: SelectSubset<T, NotificationUpsertArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Notifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationCountArgs} args - Arguments to filter Notifications to count.
+     * @example
+     * // Count the number of Notifications
+     * const count = await prisma.notification.count({
+     *   where: {
+     *     // ... the filter for the Notifications we want to count
+     *   }
+     * })
+    **/
+    count<T extends NotificationCountArgs>(
+      args?: Subset<T, NotificationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NotificationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Notification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NotificationAggregateArgs>(args: Subset<T, NotificationAggregateArgs>): Prisma.PrismaPromise<GetNotificationAggregateType<T>>
+
+    /**
+     * Group by Notification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NotificationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NotificationGroupByArgs['orderBy'] }
+        : { orderBy?: NotificationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NotificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNotificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Notification model
+   */
+  readonly fields: NotificationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Notification.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NotificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Notification model
+   */
+  interface NotificationFieldRefs {
+    readonly Notification_ID: FieldRef<"Notification", 'Int'>
+    readonly Notification_text: FieldRef<"Notification", 'String'>
+    readonly Notification_is_read: FieldRef<"Notification", 'Boolean'>
+    readonly Notification_create_at: FieldRef<"Notification", 'DateTime'>
+    readonly Notification_user_ID: FieldRef<"Notification", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Notification findUnique
+   */
+  export type NotificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification findUniqueOrThrow
+   */
+  export type NotificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification findFirst
+   */
+  export type NotificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification findFirstOrThrow
+   */
+  export type NotificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification findMany
+   */
+  export type NotificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notifications to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification create
+   */
+  export type NotificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Notification.
+     */
+    data: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
+  }
+
+  /**
+   * Notification createMany
+   */
+  export type NotificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Notifications.
+     */
+    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Notification createManyAndReturn
+   */
+  export type NotificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Notifications.
+     */
+    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Notification update
+   */
+  export type NotificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Notification.
+     */
+    data: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
+    /**
+     * Choose, which Notification to update.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification updateMany
+   */
+  export type NotificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Notifications.
+     */
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Notifications to update
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Notification updateManyAndReturn
+   */
+  export type NotificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * The data used to update Notifications.
+     */
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Notifications to update
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Notification upsert
+   */
+  export type NotificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Notification to update in case it exists.
+     */
+    where: NotificationWhereUniqueInput
+    /**
+     * In case the Notification found by the `where` argument doesn't exist, create a new Notification with this data.
+     */
+    create: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
+    /**
+     * In case the Notification was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
+  }
+
+  /**
+   * Notification delete
+   */
+  export type NotificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter which Notification to delete.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification deleteMany
+   */
+  export type NotificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Notifications to delete
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Notification without action
+   */
+  export type NotificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model OTP
+   */
+
+  export type AggregateOTP = {
+    _count: OTPCountAggregateOutputType | null
+    _avg: OTPAvgAggregateOutputType | null
+    _sum: OTPSumAggregateOutputType | null
+    _min: OTPMinAggregateOutputType | null
+    _max: OTPMaxAggregateOutputType | null
+  }
+
+  export type OTPAvgAggregateOutputType = {
+    OTP_ID: number | null
+    OTP_user_ID: number | null
+  }
+
+  export type OTPSumAggregateOutputType = {
+    OTP_ID: number | null
+    OTP_user_ID: number | null
+  }
+
+  export type OTPMinAggregateOutputType = {
+    OTP_ID: number | null
+    OTP_code: string | null
+    OTP_type: $Enums.OTP_type_enum | null
+    OTP_status: $Enums.OTP_status_enum | null
+    OTP_create_at: Date | null
+    OTP_expires_at: Date | null
+    OTP_user_ID: number | null
+  }
+
+  export type OTPMaxAggregateOutputType = {
+    OTP_ID: number | null
+    OTP_code: string | null
+    OTP_type: $Enums.OTP_type_enum | null
+    OTP_status: $Enums.OTP_status_enum | null
+    OTP_create_at: Date | null
+    OTP_expires_at: Date | null
+    OTP_user_ID: number | null
+  }
+
+  export type OTPCountAggregateOutputType = {
+    OTP_ID: number
+    OTP_code: number
+    OTP_type: number
+    OTP_status: number
+    OTP_create_at: number
+    OTP_expires_at: number
+    OTP_user_ID: number
+    _all: number
+  }
+
+
+  export type OTPAvgAggregateInputType = {
+    OTP_ID?: true
+    OTP_user_ID?: true
+  }
+
+  export type OTPSumAggregateInputType = {
+    OTP_ID?: true
+    OTP_user_ID?: true
+  }
+
+  export type OTPMinAggregateInputType = {
+    OTP_ID?: true
+    OTP_code?: true
+    OTP_type?: true
+    OTP_status?: true
+    OTP_create_at?: true
+    OTP_expires_at?: true
+    OTP_user_ID?: true
+  }
+
+  export type OTPMaxAggregateInputType = {
+    OTP_ID?: true
+    OTP_code?: true
+    OTP_type?: true
+    OTP_status?: true
+    OTP_create_at?: true
+    OTP_expires_at?: true
+    OTP_user_ID?: true
+  }
+
+  export type OTPCountAggregateInputType = {
+    OTP_ID?: true
+    OTP_code?: true
+    OTP_type?: true
+    OTP_status?: true
+    OTP_create_at?: true
+    OTP_expires_at?: true
+    OTP_user_ID?: true
+    _all?: true
+  }
+
+  export type OTPAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OTP to aggregate.
+     */
+    where?: OTPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OTPS to fetch.
+     */
+    orderBy?: OTPOrderByWithRelationInput | OTPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OTPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OTPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OTPS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned OTPS
+    **/
+    _count?: true | OTPCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: OTPAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OTPSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OTPMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OTPMaxAggregateInputType
+  }
+
+  export type GetOTPAggregateType<T extends OTPAggregateArgs> = {
+        [P in keyof T & keyof AggregateOTP]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOTP[P]>
+      : GetScalarType<T[P], AggregateOTP[P]>
+  }
+
+
+
+
+  export type OTPGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OTPWhereInput
+    orderBy?: OTPOrderByWithAggregationInput | OTPOrderByWithAggregationInput[]
+    by: OTPScalarFieldEnum[] | OTPScalarFieldEnum
+    having?: OTPScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OTPCountAggregateInputType | true
+    _avg?: OTPAvgAggregateInputType
+    _sum?: OTPSumAggregateInputType
+    _min?: OTPMinAggregateInputType
+    _max?: OTPMaxAggregateInputType
+  }
+
+  export type OTPGroupByOutputType = {
+    OTP_ID: number
+    OTP_code: string
+    OTP_type: $Enums.OTP_type_enum
+    OTP_status: $Enums.OTP_status_enum
+    OTP_create_at: Date
+    OTP_expires_at: Date
+    OTP_user_ID: number
+    _count: OTPCountAggregateOutputType | null
+    _avg: OTPAvgAggregateOutputType | null
+    _sum: OTPSumAggregateOutputType | null
+    _min: OTPMinAggregateOutputType | null
+    _max: OTPMaxAggregateOutputType | null
+  }
+
+  type GetOTPGroupByPayload<T extends OTPGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OTPGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OTPGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OTPGroupByOutputType[P]>
+            : GetScalarType<T[P], OTPGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OTPSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    OTP_ID?: boolean
+    OTP_code?: boolean
+    OTP_type?: boolean
+    OTP_status?: boolean
+    OTP_create_at?: boolean
+    OTP_expires_at?: boolean
+    OTP_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["oTP"]>
+
+  export type OTPSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    OTP_ID?: boolean
+    OTP_code?: boolean
+    OTP_type?: boolean
+    OTP_status?: boolean
+    OTP_create_at?: boolean
+    OTP_expires_at?: boolean
+    OTP_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["oTP"]>
+
+  export type OTPSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    OTP_ID?: boolean
+    OTP_code?: boolean
+    OTP_type?: boolean
+    OTP_status?: boolean
+    OTP_create_at?: boolean
+    OTP_expires_at?: boolean
+    OTP_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["oTP"]>
+
+  export type OTPSelectScalar = {
+    OTP_ID?: boolean
+    OTP_code?: boolean
+    OTP_type?: boolean
+    OTP_status?: boolean
+    OTP_create_at?: boolean
+    OTP_expires_at?: boolean
+    OTP_user_ID?: boolean
+  }
+
+  export type OTPOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"OTP_ID" | "OTP_code" | "OTP_type" | "OTP_status" | "OTP_create_at" | "OTP_expires_at" | "OTP_user_ID", ExtArgs["result"]["oTP"]>
+  export type OTPInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type OTPIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type OTPIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $OTPPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "OTP"
+    objects: {
+      User: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      OTP_ID: number
+      OTP_code: string
+      OTP_type: $Enums.OTP_type_enum
+      OTP_status: $Enums.OTP_status_enum
+      OTP_create_at: Date
+      OTP_expires_at: Date
+      OTP_user_ID: number
+    }, ExtArgs["result"]["oTP"]>
+    composites: {}
+  }
+
+  type OTPGetPayload<S extends boolean | null | undefined | OTPDefaultArgs> = $Result.GetResult<Prisma.$OTPPayload, S>
+
+  type OTPCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OTPFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OTPCountAggregateInputType | true
+    }
+
+  export interface OTPDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OTP'], meta: { name: 'OTP' } }
+    /**
+     * Find zero or one OTP that matches the filter.
+     * @param {OTPFindUniqueArgs} args - Arguments to find a OTP
+     * @example
+     * // Get one OTP
+     * const oTP = await prisma.oTP.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OTPFindUniqueArgs>(args: SelectSubset<T, OTPFindUniqueArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one OTP that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OTPFindUniqueOrThrowArgs} args - Arguments to find a OTP
+     * @example
+     * // Get one OTP
+     * const oTP = await prisma.oTP.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OTPFindUniqueOrThrowArgs>(args: SelectSubset<T, OTPFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OTP that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OTPFindFirstArgs} args - Arguments to find a OTP
+     * @example
+     * // Get one OTP
+     * const oTP = await prisma.oTP.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OTPFindFirstArgs>(args?: SelectSubset<T, OTPFindFirstArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OTP that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OTPFindFirstOrThrowArgs} args - Arguments to find a OTP
+     * @example
+     * // Get one OTP
+     * const oTP = await prisma.oTP.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OTPFindFirstOrThrowArgs>(args?: SelectSubset<T, OTPFindFirstOrThrowArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more OTPS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OTPFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all OTPS
+     * const oTPS = await prisma.oTP.findMany()
+     * 
+     * // Get first 10 OTPS
+     * const oTPS = await prisma.oTP.findMany({ take: 10 })
+     * 
+     * // Only select the `OTP_ID`
+     * const oTPWithOTP_IDOnly = await prisma.oTP.findMany({ select: { OTP_ID: true } })
+     * 
+     */
+    findMany<T extends OTPFindManyArgs>(args?: SelectSubset<T, OTPFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a OTP.
+     * @param {OTPCreateArgs} args - Arguments to create a OTP.
+     * @example
+     * // Create one OTP
+     * const OTP = await prisma.oTP.create({
+     *   data: {
+     *     // ... data to create a OTP
+     *   }
+     * })
+     * 
+     */
+    create<T extends OTPCreateArgs>(args: SelectSubset<T, OTPCreateArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many OTPS.
+     * @param {OTPCreateManyArgs} args - Arguments to create many OTPS.
+     * @example
+     * // Create many OTPS
+     * const oTP = await prisma.oTP.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OTPCreateManyArgs>(args?: SelectSubset<T, OTPCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many OTPS and returns the data saved in the database.
+     * @param {OTPCreateManyAndReturnArgs} args - Arguments to create many OTPS.
+     * @example
+     * // Create many OTPS
+     * const oTP = await prisma.oTP.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many OTPS and only return the `OTP_ID`
+     * const oTPWithOTP_IDOnly = await prisma.oTP.createManyAndReturn({
+     *   select: { OTP_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OTPCreateManyAndReturnArgs>(args?: SelectSubset<T, OTPCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a OTP.
+     * @param {OTPDeleteArgs} args - Arguments to delete one OTP.
+     * @example
+     * // Delete one OTP
+     * const OTP = await prisma.oTP.delete({
+     *   where: {
+     *     // ... filter to delete one OTP
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OTPDeleteArgs>(args: SelectSubset<T, OTPDeleteArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one OTP.
+     * @param {OTPUpdateArgs} args - Arguments to update one OTP.
+     * @example
+     * // Update one OTP
+     * const oTP = await prisma.oTP.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OTPUpdateArgs>(args: SelectSubset<T, OTPUpdateArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more OTPS.
+     * @param {OTPDeleteManyArgs} args - Arguments to filter OTPS to delete.
+     * @example
+     * // Delete a few OTPS
+     * const { count } = await prisma.oTP.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OTPDeleteManyArgs>(args?: SelectSubset<T, OTPDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OTPS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OTPUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many OTPS
+     * const oTP = await prisma.oTP.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OTPUpdateManyArgs>(args: SelectSubset<T, OTPUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OTPS and returns the data updated in the database.
+     * @param {OTPUpdateManyAndReturnArgs} args - Arguments to update many OTPS.
+     * @example
+     * // Update many OTPS
+     * const oTP = await prisma.oTP.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more OTPS and only return the `OTP_ID`
+     * const oTPWithOTP_IDOnly = await prisma.oTP.updateManyAndReturn({
+     *   select: { OTP_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends OTPUpdateManyAndReturnArgs>(args: SelectSubset<T, OTPUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one OTP.
+     * @param {OTPUpsertArgs} args - Arguments to update or create a OTP.
+     * @example
+     * // Update or create a OTP
+     * const oTP = await prisma.oTP.upsert({
+     *   create: {
+     *     // ... data to create a OTP
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the OTP we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OTPUpsertArgs>(args: SelectSubset<T, OTPUpsertArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of OTPS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OTPCountArgs} args - Arguments to filter OTPS to count.
+     * @example
+     * // Count the number of OTPS
+     * const count = await prisma.oTP.count({
+     *   where: {
+     *     // ... the filter for the OTPS we want to count
+     *   }
+     * })
+    **/
+    count<T extends OTPCountArgs>(
+      args?: Subset<T, OTPCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OTPCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a OTP.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OTPAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OTPAggregateArgs>(args: Subset<T, OTPAggregateArgs>): Prisma.PrismaPromise<GetOTPAggregateType<T>>
+
+    /**
+     * Group by OTP.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OTPGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OTPGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OTPGroupByArgs['orderBy'] }
+        : { orderBy?: OTPGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OTPGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOTPGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the OTP model
+   */
+  readonly fields: OTPFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for OTP.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OTPClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the OTP model
+   */
+  interface OTPFieldRefs {
+    readonly OTP_ID: FieldRef<"OTP", 'Int'>
+    readonly OTP_code: FieldRef<"OTP", 'String'>
+    readonly OTP_type: FieldRef<"OTP", 'OTP_type_enum'>
+    readonly OTP_status: FieldRef<"OTP", 'OTP_status_enum'>
+    readonly OTP_create_at: FieldRef<"OTP", 'DateTime'>
+    readonly OTP_expires_at: FieldRef<"OTP", 'DateTime'>
+    readonly OTP_user_ID: FieldRef<"OTP", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * OTP findUnique
+   */
+  export type OTPFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    /**
+     * Filter, which OTP to fetch.
+     */
+    where: OTPWhereUniqueInput
+  }
+
+  /**
+   * OTP findUniqueOrThrow
+   */
+  export type OTPFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    /**
+     * Filter, which OTP to fetch.
+     */
+    where: OTPWhereUniqueInput
+  }
+
+  /**
+   * OTP findFirst
+   */
+  export type OTPFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    /**
+     * Filter, which OTP to fetch.
+     */
+    where?: OTPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OTPS to fetch.
+     */
+    orderBy?: OTPOrderByWithRelationInput | OTPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OTPS.
+     */
+    cursor?: OTPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OTPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OTPS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OTPS.
+     */
+    distinct?: OTPScalarFieldEnum | OTPScalarFieldEnum[]
+  }
+
+  /**
+   * OTP findFirstOrThrow
+   */
+  export type OTPFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    /**
+     * Filter, which OTP to fetch.
+     */
+    where?: OTPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OTPS to fetch.
+     */
+    orderBy?: OTPOrderByWithRelationInput | OTPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OTPS.
+     */
+    cursor?: OTPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OTPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OTPS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OTPS.
+     */
+    distinct?: OTPScalarFieldEnum | OTPScalarFieldEnum[]
+  }
+
+  /**
+   * OTP findMany
+   */
+  export type OTPFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    /**
+     * Filter, which OTPS to fetch.
+     */
+    where?: OTPWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OTPS to fetch.
+     */
+    orderBy?: OTPOrderByWithRelationInput | OTPOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing OTPS.
+     */
+    cursor?: OTPWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OTPS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OTPS.
+     */
+    skip?: number
+    distinct?: OTPScalarFieldEnum | OTPScalarFieldEnum[]
+  }
+
+  /**
+   * OTP create
+   */
+  export type OTPCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    /**
+     * The data needed to create a OTP.
+     */
+    data: XOR<OTPCreateInput, OTPUncheckedCreateInput>
+  }
+
+  /**
+   * OTP createMany
+   */
+  export type OTPCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many OTPS.
+     */
+    data: OTPCreateManyInput | OTPCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * OTP createManyAndReturn
+   */
+  export type OTPCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * The data used to create many OTPS.
+     */
+    data: OTPCreateManyInput | OTPCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OTP update
+   */
+  export type OTPUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    /**
+     * The data needed to update a OTP.
+     */
+    data: XOR<OTPUpdateInput, OTPUncheckedUpdateInput>
+    /**
+     * Choose, which OTP to update.
+     */
+    where: OTPWhereUniqueInput
+  }
+
+  /**
+   * OTP updateMany
+   */
+  export type OTPUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update OTPS.
+     */
+    data: XOR<OTPUpdateManyMutationInput, OTPUncheckedUpdateManyInput>
+    /**
+     * Filter which OTPS to update
+     */
+    where?: OTPWhereInput
+    /**
+     * Limit how many OTPS to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * OTP updateManyAndReturn
+   */
+  export type OTPUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * The data used to update OTPS.
+     */
+    data: XOR<OTPUpdateManyMutationInput, OTPUncheckedUpdateManyInput>
+    /**
+     * Filter which OTPS to update
+     */
+    where?: OTPWhereInput
+    /**
+     * Limit how many OTPS to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OTP upsert
+   */
+  export type OTPUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    /**
+     * The filter to search for the OTP to update in case it exists.
+     */
+    where: OTPWhereUniqueInput
+    /**
+     * In case the OTP found by the `where` argument doesn't exist, create a new OTP with this data.
+     */
+    create: XOR<OTPCreateInput, OTPUncheckedCreateInput>
+    /**
+     * In case the OTP was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OTPUpdateInput, OTPUncheckedUpdateInput>
+  }
+
+  /**
+   * OTP delete
+   */
+  export type OTPDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+    /**
+     * Filter which OTP to delete.
+     */
+    where: OTPWhereUniqueInput
+  }
+
+  /**
+   * OTP deleteMany
+   */
+  export type OTPDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OTPS to delete
+     */
+    where?: OTPWhereInput
+    /**
+     * Limit how many OTPS to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * OTP without action
+   */
+  export type OTPDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OTP
+     */
+    select?: OTPSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OTP
+     */
+    omit?: OTPOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OTPInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model History
+   */
+
+  export type AggregateHistory = {
+    _count: HistoryCountAggregateOutputType | null
+    _avg: HistoryAvgAggregateOutputType | null
+    _sum: HistorySumAggregateOutputType | null
+    _min: HistoryMinAggregateOutputType | null
+    _max: HistoryMaxAggregateOutputType | null
+  }
+
+  export type HistoryAvgAggregateOutputType = {
+    History_ID: number | null
+    History_bonus: number | null
+    History_price: number | null
+    History_multi_branch_ID: number | null
+    History_user_ID: number | null
+    History_service_ID: number | null
+    History_register_car: number | null
+    History_register_service_ID: number | null
+    carCar_ID: number | null
+  }
+
+  export type HistorySumAggregateOutputType = {
+    History_ID: number | null
+    History_bonus: number | null
+    History_price: number | null
+    History_multi_branch_ID: number | null
+    History_user_ID: number | null
+    History_service_ID: number | null
+    History_register_car: number | null
+    History_register_service_ID: number | null
+    carCar_ID: number | null
+  }
+
+  export type HistoryMinAggregateOutputType = {
+    History_ID: number | null
+    History_bonus: number | null
+    History_price: number | null
+    History_status: $Enums.History_status_enum | null
+    History_create_at: Date | null
+    History_multi_branch_ID: number | null
+    History_user_ID: number | null
+    History_service_ID: number | null
+    History_register_car: number | null
+    History_register_service_ID: number | null
+    carCar_ID: number | null
+  }
+
+  export type HistoryMaxAggregateOutputType = {
+    History_ID: number | null
+    History_bonus: number | null
+    History_price: number | null
+    History_status: $Enums.History_status_enum | null
+    History_create_at: Date | null
+    History_multi_branch_ID: number | null
+    History_user_ID: number | null
+    History_service_ID: number | null
+    History_register_car: number | null
+    History_register_service_ID: number | null
+    carCar_ID: number | null
+  }
+
+  export type HistoryCountAggregateOutputType = {
+    History_ID: number
+    History_bonus: number
+    History_price: number
+    History_status: number
+    History_create_at: number
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car: number
+    History_register_service_ID: number
+    carCar_ID: number
+    _all: number
+  }
+
+
+  export type HistoryAvgAggregateInputType = {
+    History_ID?: true
+    History_bonus?: true
+    History_price?: true
+    History_multi_branch_ID?: true
+    History_user_ID?: true
+    History_service_ID?: true
+    History_register_car?: true
+    History_register_service_ID?: true
+    carCar_ID?: true
+  }
+
+  export type HistorySumAggregateInputType = {
+    History_ID?: true
+    History_bonus?: true
+    History_price?: true
+    History_multi_branch_ID?: true
+    History_user_ID?: true
+    History_service_ID?: true
+    History_register_car?: true
+    History_register_service_ID?: true
+    carCar_ID?: true
+  }
+
+  export type HistoryMinAggregateInputType = {
+    History_ID?: true
+    History_bonus?: true
+    History_price?: true
+    History_status?: true
+    History_create_at?: true
+    History_multi_branch_ID?: true
+    History_user_ID?: true
+    History_service_ID?: true
+    History_register_car?: true
+    History_register_service_ID?: true
+    carCar_ID?: true
+  }
+
+  export type HistoryMaxAggregateInputType = {
+    History_ID?: true
+    History_bonus?: true
+    History_price?: true
+    History_status?: true
+    History_create_at?: true
+    History_multi_branch_ID?: true
+    History_user_ID?: true
+    History_service_ID?: true
+    History_register_car?: true
+    History_register_service_ID?: true
+    carCar_ID?: true
+  }
+
+  export type HistoryCountAggregateInputType = {
+    History_ID?: true
+    History_bonus?: true
+    History_price?: true
+    History_status?: true
+    History_create_at?: true
+    History_multi_branch_ID?: true
+    History_user_ID?: true
+    History_service_ID?: true
+    History_register_car?: true
+    History_register_service_ID?: true
+    carCar_ID?: true
+    _all?: true
+  }
+
+  export type HistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which History to aggregate.
+     */
+    where?: HistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Histories to fetch.
+     */
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: HistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Histories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Histories
+    **/
+    _count?: true | HistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: HistoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: HistorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: HistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: HistoryMaxAggregateInputType
+  }
+
+  export type GetHistoryAggregateType<T extends HistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateHistory[P]>
+      : GetScalarType<T[P], AggregateHistory[P]>
+  }
+
+
+
+
+  export type HistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HistoryWhereInput
+    orderBy?: HistoryOrderByWithAggregationInput | HistoryOrderByWithAggregationInput[]
+    by: HistoryScalarFieldEnum[] | HistoryScalarFieldEnum
+    having?: HistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: HistoryCountAggregateInputType | true
+    _avg?: HistoryAvgAggregateInputType
+    _sum?: HistorySumAggregateInputType
+    _min?: HistoryMinAggregateInputType
+    _max?: HistoryMaxAggregateInputType
+  }
+
+  export type HistoryGroupByOutputType = {
+    History_ID: number
+    History_bonus: number | null
+    History_price: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at: Date
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car: number | null
+    History_register_service_ID: number | null
+    carCar_ID: number | null
+    _count: HistoryCountAggregateOutputType | null
+    _avg: HistoryAvgAggregateOutputType | null
+    _sum: HistorySumAggregateOutputType | null
+    _min: HistoryMinAggregateOutputType | null
+    _max: HistoryMaxAggregateOutputType | null
+  }
+
+  type GetHistoryGroupByPayload<T extends HistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<HistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof HistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], HistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], HistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type HistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    History_ID?: boolean
+    History_bonus?: boolean
+    History_price?: boolean
+    History_status?: boolean
+    History_create_at?: boolean
+    History_multi_branch_ID?: boolean
+    History_user_ID?: boolean
+    History_service_ID?: boolean
+    History_register_car?: boolean
+    History_register_service_ID?: boolean
+    carCar_ID?: boolean
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Register_car?: boolean | History$Register_carArgs<ExtArgs>
+    Register_service?: boolean | History$Register_serviceArgs<ExtArgs>
+    Car?: boolean | History$CarArgs<ExtArgs>
+  }, ExtArgs["result"]["history"]>
+
+  export type HistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    History_ID?: boolean
+    History_bonus?: boolean
+    History_price?: boolean
+    History_status?: boolean
+    History_create_at?: boolean
+    History_multi_branch_ID?: boolean
+    History_user_ID?: boolean
+    History_service_ID?: boolean
+    History_register_car?: boolean
+    History_register_service_ID?: boolean
+    carCar_ID?: boolean
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Register_car?: boolean | History$Register_carArgs<ExtArgs>
+    Register_service?: boolean | History$Register_serviceArgs<ExtArgs>
+    Car?: boolean | History$CarArgs<ExtArgs>
+  }, ExtArgs["result"]["history"]>
+
+  export type HistorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    History_ID?: boolean
+    History_bonus?: boolean
+    History_price?: boolean
+    History_status?: boolean
+    History_create_at?: boolean
+    History_multi_branch_ID?: boolean
+    History_user_ID?: boolean
+    History_service_ID?: boolean
+    History_register_car?: boolean
+    History_register_service_ID?: boolean
+    carCar_ID?: boolean
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Register_car?: boolean | History$Register_carArgs<ExtArgs>
+    Register_service?: boolean | History$Register_serviceArgs<ExtArgs>
+    Car?: boolean | History$CarArgs<ExtArgs>
+  }, ExtArgs["result"]["history"]>
+
+  export type HistorySelectScalar = {
+    History_ID?: boolean
+    History_bonus?: boolean
+    History_price?: boolean
+    History_status?: boolean
+    History_create_at?: boolean
+    History_multi_branch_ID?: boolean
+    History_user_ID?: boolean
+    History_service_ID?: boolean
+    History_register_car?: boolean
+    History_register_service_ID?: boolean
+    carCar_ID?: boolean
+  }
+
+  export type HistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"History_ID" | "History_bonus" | "History_price" | "History_status" | "History_create_at" | "History_multi_branch_ID" | "History_user_ID" | "History_service_ID" | "History_register_car" | "History_register_service_ID" | "carCar_ID", ExtArgs["result"]["history"]>
+  export type HistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Register_car?: boolean | History$Register_carArgs<ExtArgs>
+    Register_service?: boolean | History$Register_serviceArgs<ExtArgs>
+    Car?: boolean | History$CarArgs<ExtArgs>
+  }
+  export type HistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Register_car?: boolean | History$Register_carArgs<ExtArgs>
+    Register_service?: boolean | History$Register_serviceArgs<ExtArgs>
+    Car?: boolean | History$CarArgs<ExtArgs>
+  }
+  export type HistoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Register_car?: boolean | History$Register_carArgs<ExtArgs>
+    Register_service?: boolean | History$Register_serviceArgs<ExtArgs>
+    Car?: boolean | History$CarArgs<ExtArgs>
+  }
+
+  export type $HistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "History"
+    objects: {
+      Multi_branch: Prisma.$Multi_branchPayload<ExtArgs>
+      User: Prisma.$UserPayload<ExtArgs>
+      Service: Prisma.$ServicePayload<ExtArgs>
+      Register_car: Prisma.$Register_carPayload<ExtArgs> | null
+      Register_service: Prisma.$Register_servicePayload<ExtArgs> | null
+      Car: Prisma.$CarPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      History_ID: number
+      History_bonus: number | null
+      History_price: number | null
+      History_status: $Enums.History_status_enum
+      History_create_at: Date
+      History_multi_branch_ID: number
+      History_user_ID: number
+      History_service_ID: number
+      History_register_car: number | null
+      History_register_service_ID: number | null
+      carCar_ID: number | null
+    }, ExtArgs["result"]["history"]>
+    composites: {}
+  }
+
+  type HistoryGetPayload<S extends boolean | null | undefined | HistoryDefaultArgs> = $Result.GetResult<Prisma.$HistoryPayload, S>
+
+  type HistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HistoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HistoryCountAggregateInputType | true
+    }
+
+  export interface HistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['History'], meta: { name: 'History' } }
+    /**
+     * Find zero or one History that matches the filter.
+     * @param {HistoryFindUniqueArgs} args - Arguments to find a History
+     * @example
+     * // Get one History
+     * const history = await prisma.history.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends HistoryFindUniqueArgs>(args: SelectSubset<T, HistoryFindUniqueArgs<ExtArgs>>): Prisma__HistoryClient<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one History that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {HistoryFindUniqueOrThrowArgs} args - Arguments to find a History
+     * @example
+     * // Get one History
+     * const history = await prisma.history.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends HistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, HistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HistoryClient<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first History that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HistoryFindFirstArgs} args - Arguments to find a History
+     * @example
+     * // Get one History
+     * const history = await prisma.history.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends HistoryFindFirstArgs>(args?: SelectSubset<T, HistoryFindFirstArgs<ExtArgs>>): Prisma__HistoryClient<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first History that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HistoryFindFirstOrThrowArgs} args - Arguments to find a History
+     * @example
+     * // Get one History
+     * const history = await prisma.history.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends HistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, HistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__HistoryClient<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Histories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Histories
+     * const histories = await prisma.history.findMany()
+     * 
+     * // Get first 10 Histories
+     * const histories = await prisma.history.findMany({ take: 10 })
+     * 
+     * // Only select the `History_ID`
+     * const historyWithHistory_IDOnly = await prisma.history.findMany({ select: { History_ID: true } })
+     * 
+     */
+    findMany<T extends HistoryFindManyArgs>(args?: SelectSubset<T, HistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a History.
+     * @param {HistoryCreateArgs} args - Arguments to create a History.
+     * @example
+     * // Create one History
+     * const History = await prisma.history.create({
+     *   data: {
+     *     // ... data to create a History
+     *   }
+     * })
+     * 
+     */
+    create<T extends HistoryCreateArgs>(args: SelectSubset<T, HistoryCreateArgs<ExtArgs>>): Prisma__HistoryClient<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Histories.
+     * @param {HistoryCreateManyArgs} args - Arguments to create many Histories.
+     * @example
+     * // Create many Histories
+     * const history = await prisma.history.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends HistoryCreateManyArgs>(args?: SelectSubset<T, HistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Histories and returns the data saved in the database.
+     * @param {HistoryCreateManyAndReturnArgs} args - Arguments to create many Histories.
+     * @example
+     * // Create many Histories
+     * const history = await prisma.history.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Histories and only return the `History_ID`
+     * const historyWithHistory_IDOnly = await prisma.history.createManyAndReturn({
+     *   select: { History_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends HistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, HistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a History.
+     * @param {HistoryDeleteArgs} args - Arguments to delete one History.
+     * @example
+     * // Delete one History
+     * const History = await prisma.history.delete({
+     *   where: {
+     *     // ... filter to delete one History
+     *   }
+     * })
+     * 
+     */
+    delete<T extends HistoryDeleteArgs>(args: SelectSubset<T, HistoryDeleteArgs<ExtArgs>>): Prisma__HistoryClient<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one History.
+     * @param {HistoryUpdateArgs} args - Arguments to update one History.
+     * @example
+     * // Update one History
+     * const history = await prisma.history.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends HistoryUpdateArgs>(args: SelectSubset<T, HistoryUpdateArgs<ExtArgs>>): Prisma__HistoryClient<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Histories.
+     * @param {HistoryDeleteManyArgs} args - Arguments to filter Histories to delete.
+     * @example
+     * // Delete a few Histories
+     * const { count } = await prisma.history.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends HistoryDeleteManyArgs>(args?: SelectSubset<T, HistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Histories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Histories
+     * const history = await prisma.history.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends HistoryUpdateManyArgs>(args: SelectSubset<T, HistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Histories and returns the data updated in the database.
+     * @param {HistoryUpdateManyAndReturnArgs} args - Arguments to update many Histories.
+     * @example
+     * // Update many Histories
+     * const history = await prisma.history.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Histories and only return the `History_ID`
+     * const historyWithHistory_IDOnly = await prisma.history.updateManyAndReturn({
+     *   select: { History_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends HistoryUpdateManyAndReturnArgs>(args: SelectSubset<T, HistoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one History.
+     * @param {HistoryUpsertArgs} args - Arguments to update or create a History.
+     * @example
+     * // Update or create a History
+     * const history = await prisma.history.upsert({
+     *   create: {
+     *     // ... data to create a History
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the History we want to update
+     *   }
+     * })
+     */
+    upsert<T extends HistoryUpsertArgs>(args: SelectSubset<T, HistoryUpsertArgs<ExtArgs>>): Prisma__HistoryClient<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Histories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HistoryCountArgs} args - Arguments to filter Histories to count.
+     * @example
+     * // Count the number of Histories
+     * const count = await prisma.history.count({
+     *   where: {
+     *     // ... the filter for the Histories we want to count
+     *   }
+     * })
+    **/
+    count<T extends HistoryCountArgs>(
+      args?: Subset<T, HistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], HistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a History.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends HistoryAggregateArgs>(args: Subset<T, HistoryAggregateArgs>): Prisma.PrismaPromise<GetHistoryAggregateType<T>>
+
+    /**
+     * Group by History.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends HistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: HistoryGroupByArgs['orderBy'] }
+        : { orderBy?: HistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, HistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the History model
+   */
+  readonly fields: HistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for History.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__HistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Multi_branch<T extends Multi_branchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, Multi_branchDefaultArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Service<T extends ServiceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ServiceDefaultArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Register_car<T extends History$Register_carArgs<ExtArgs> = {}>(args?: Subset<T, History$Register_carArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Register_service<T extends History$Register_serviceArgs<ExtArgs> = {}>(args?: Subset<T, History$Register_serviceArgs<ExtArgs>>): Prisma__Register_serviceClient<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Car<T extends History$CarArgs<ExtArgs> = {}>(args?: Subset<T, History$CarArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the History model
+   */
+  interface HistoryFieldRefs {
+    readonly History_ID: FieldRef<"History", 'Int'>
+    readonly History_bonus: FieldRef<"History", 'Int'>
+    readonly History_price: FieldRef<"History", 'Float'>
+    readonly History_status: FieldRef<"History", 'History_status_enum'>
+    readonly History_create_at: FieldRef<"History", 'DateTime'>
+    readonly History_multi_branch_ID: FieldRef<"History", 'Int'>
+    readonly History_user_ID: FieldRef<"History", 'Int'>
+    readonly History_service_ID: FieldRef<"History", 'Int'>
+    readonly History_register_car: FieldRef<"History", 'Int'>
+    readonly History_register_service_ID: FieldRef<"History", 'Int'>
+    readonly carCar_ID: FieldRef<"History", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * History findUnique
+   */
+  export type HistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which History to fetch.
+     */
+    where: HistoryWhereUniqueInput
+  }
+
+  /**
+   * History findUniqueOrThrow
+   */
+  export type HistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which History to fetch.
+     */
+    where: HistoryWhereUniqueInput
+  }
+
+  /**
+   * History findFirst
+   */
+  export type HistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which History to fetch.
+     */
+    where?: HistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Histories to fetch.
+     */
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Histories.
+     */
+    cursor?: HistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Histories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Histories.
+     */
+    distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * History findFirstOrThrow
+   */
+  export type HistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which History to fetch.
+     */
+    where?: HistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Histories to fetch.
+     */
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Histories.
+     */
+    cursor?: HistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Histories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Histories.
+     */
+    distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * History findMany
+   */
+  export type HistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which Histories to fetch.
+     */
+    where?: HistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Histories to fetch.
+     */
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Histories.
+     */
+    cursor?: HistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Histories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Histories.
+     */
+    skip?: number
+    distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * History create
+   */
+  export type HistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a History.
+     */
+    data: XOR<HistoryCreateInput, HistoryUncheckedCreateInput>
+  }
+
+  /**
+   * History createMany
+   */
+  export type HistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Histories.
+     */
+    data: HistoryCreateManyInput | HistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * History createManyAndReturn
+   */
+  export type HistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * The data used to create many Histories.
+     */
+    data: HistoryCreateManyInput | HistoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * History update
+   */
+  export type HistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a History.
+     */
+    data: XOR<HistoryUpdateInput, HistoryUncheckedUpdateInput>
+    /**
+     * Choose, which History to update.
+     */
+    where: HistoryWhereUniqueInput
+  }
+
+  /**
+   * History updateMany
+   */
+  export type HistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Histories.
+     */
+    data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which Histories to update
+     */
+    where?: HistoryWhereInput
+    /**
+     * Limit how many Histories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * History updateManyAndReturn
+   */
+  export type HistoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * The data used to update Histories.
+     */
+    data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which Histories to update
+     */
+    where?: HistoryWhereInput
+    /**
+     * Limit how many Histories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * History upsert
+   */
+  export type HistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the History to update in case it exists.
+     */
+    where: HistoryWhereUniqueInput
+    /**
+     * In case the History found by the `where` argument doesn't exist, create a new History with this data.
+     */
+    create: XOR<HistoryCreateInput, HistoryUncheckedCreateInput>
+    /**
+     * In case the History was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<HistoryUpdateInput, HistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * History delete
+   */
+  export type HistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    /**
+     * Filter which History to delete.
+     */
+    where: HistoryWhereUniqueInput
+  }
+
+  /**
+   * History deleteMany
+   */
+  export type HistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Histories to delete
+     */
+    where?: HistoryWhereInput
+    /**
+     * Limit how many Histories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * History.Register_car
+   */
+  export type History$Register_carArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    where?: Register_carWhereInput
+  }
+
+  /**
+   * History.Register_service
+   */
+  export type History$Register_serviceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    where?: Register_serviceWhereInput
+  }
+
+  /**
+   * History.Car
+   */
+  export type History$CarArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Car
+     */
+    select?: CarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Car
+     */
+    omit?: CarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CarInclude<ExtArgs> | null
+    where?: CarWhereInput
+  }
+
+  /**
+   * History without action
+   */
+  export type HistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Register_car
+   */
+
+  export type AggregateRegister_car = {
+    _count: Register_carCountAggregateOutputType | null
+    _avg: Register_carAvgAggregateOutputType | null
+    _sum: Register_carSumAggregateOutputType | null
+    _min: Register_carMinAggregateOutputType | null
+    _max: Register_carMaxAggregateOutputType | null
+  }
+
+  export type Register_carAvgAggregateOutputType = {
+    Register_car_ID: number | null
+    Register_car_year: number | null
+    Register_car_user_ID: number | null
+  }
+
+  export type Register_carSumAggregateOutputType = {
+    Register_car_ID: number | null
+    Register_car_year: number | null
+    Register_car_user_ID: number | null
+  }
+
+  export type Register_carMinAggregateOutputType = {
+    Register_car_ID: number | null
+    Register_car_manufacturer: string | null
+    Register_car_mark: string | null
+    Register_car_year: number | null
+    Register_car_vin: string | null
+    Register_car_status: $Enums.Register_car_status_enum | null
+    Register_car_create_at: Date | null
+    Register_car_update_at: Date | null
+    Register_car_user_ID: number | null
+  }
+
+  export type Register_carMaxAggregateOutputType = {
+    Register_car_ID: number | null
+    Register_car_manufacturer: string | null
+    Register_car_mark: string | null
+    Register_car_year: number | null
+    Register_car_vin: string | null
+    Register_car_status: $Enums.Register_car_status_enum | null
+    Register_car_create_at: Date | null
+    Register_car_update_at: Date | null
+    Register_car_user_ID: number | null
+  }
+
+  export type Register_carCountAggregateOutputType = {
+    Register_car_ID: number
+    Register_car_manufacturer: number
+    Register_car_mark: number
+    Register_car_year: number
+    Register_car_vin: number
+    Register_car_status: number
+    Register_car_create_at: number
+    Register_car_update_at: number
+    Register_car_user_ID: number
+    _all: number
+  }
+
+
+  export type Register_carAvgAggregateInputType = {
+    Register_car_ID?: true
+    Register_car_year?: true
+    Register_car_user_ID?: true
+  }
+
+  export type Register_carSumAggregateInputType = {
+    Register_car_ID?: true
+    Register_car_year?: true
+    Register_car_user_ID?: true
+  }
+
+  export type Register_carMinAggregateInputType = {
+    Register_car_ID?: true
+    Register_car_manufacturer?: true
+    Register_car_mark?: true
+    Register_car_year?: true
+    Register_car_vin?: true
+    Register_car_status?: true
+    Register_car_create_at?: true
+    Register_car_update_at?: true
+    Register_car_user_ID?: true
+  }
+
+  export type Register_carMaxAggregateInputType = {
+    Register_car_ID?: true
+    Register_car_manufacturer?: true
+    Register_car_mark?: true
+    Register_car_year?: true
+    Register_car_vin?: true
+    Register_car_status?: true
+    Register_car_create_at?: true
+    Register_car_update_at?: true
+    Register_car_user_ID?: true
+  }
+
+  export type Register_carCountAggregateInputType = {
+    Register_car_ID?: true
+    Register_car_manufacturer?: true
+    Register_car_mark?: true
+    Register_car_year?: true
+    Register_car_vin?: true
+    Register_car_status?: true
+    Register_car_create_at?: true
+    Register_car_update_at?: true
+    Register_car_user_ID?: true
+    _all?: true
+  }
+
+  export type Register_carAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Register_car to aggregate.
+     */
+    where?: Register_carWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Register_cars to fetch.
+     */
+    orderBy?: Register_carOrderByWithRelationInput | Register_carOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: Register_carWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Register_cars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Register_cars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Register_cars
+    **/
+    _count?: true | Register_carCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Register_carAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Register_carSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Register_carMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Register_carMaxAggregateInputType
+  }
+
+  export type GetRegister_carAggregateType<T extends Register_carAggregateArgs> = {
+        [P in keyof T & keyof AggregateRegister_car]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRegister_car[P]>
+      : GetScalarType<T[P], AggregateRegister_car[P]>
+  }
+
+
+
+
+  export type Register_carGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Register_carWhereInput
+    orderBy?: Register_carOrderByWithAggregationInput | Register_carOrderByWithAggregationInput[]
+    by: Register_carScalarFieldEnum[] | Register_carScalarFieldEnum
+    having?: Register_carScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Register_carCountAggregateInputType | true
+    _avg?: Register_carAvgAggregateInputType
+    _sum?: Register_carSumAggregateInputType
+    _min?: Register_carMinAggregateInputType
+    _max?: Register_carMaxAggregateInputType
+  }
+
+  export type Register_carGroupByOutputType = {
+    Register_car_ID: number
+    Register_car_manufacturer: string | null
+    Register_car_mark: string | null
+    Register_car_year: number | null
+    Register_car_vin: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at: Date
+    Register_car_update_at: Date
+    Register_car_user_ID: number
+    _count: Register_carCountAggregateOutputType | null
+    _avg: Register_carAvgAggregateOutputType | null
+    _sum: Register_carSumAggregateOutputType | null
+    _min: Register_carMinAggregateOutputType | null
+    _max: Register_carMaxAggregateOutputType | null
+  }
+
+  type GetRegister_carGroupByPayload<T extends Register_carGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Register_carGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Register_carGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Register_carGroupByOutputType[P]>
+            : GetScalarType<T[P], Register_carGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type Register_carSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Register_car_ID?: boolean
+    Register_car_manufacturer?: boolean
+    Register_car_mark?: boolean
+    Register_car_year?: boolean
+    Register_car_vin?: boolean
+    Register_car_status?: boolean
+    Register_car_create_at?: boolean
+    Register_car_update_at?: boolean
+    Register_car_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    History?: boolean | Register_car$HistoryArgs<ExtArgs>
+    _count?: boolean | Register_carCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["register_car"]>
+
+  export type Register_carSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Register_car_ID?: boolean
+    Register_car_manufacturer?: boolean
+    Register_car_mark?: boolean
+    Register_car_year?: boolean
+    Register_car_vin?: boolean
+    Register_car_status?: boolean
+    Register_car_create_at?: boolean
+    Register_car_update_at?: boolean
+    Register_car_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["register_car"]>
+
+  export type Register_carSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Register_car_ID?: boolean
+    Register_car_manufacturer?: boolean
+    Register_car_mark?: boolean
+    Register_car_year?: boolean
+    Register_car_vin?: boolean
+    Register_car_status?: boolean
+    Register_car_create_at?: boolean
+    Register_car_update_at?: boolean
+    Register_car_user_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["register_car"]>
+
+  export type Register_carSelectScalar = {
+    Register_car_ID?: boolean
+    Register_car_manufacturer?: boolean
+    Register_car_mark?: boolean
+    Register_car_year?: boolean
+    Register_car_vin?: boolean
+    Register_car_status?: boolean
+    Register_car_create_at?: boolean
+    Register_car_update_at?: boolean
+    Register_car_user_ID?: boolean
+  }
+
+  export type Register_carOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Register_car_ID" | "Register_car_manufacturer" | "Register_car_mark" | "Register_car_year" | "Register_car_vin" | "Register_car_status" | "Register_car_create_at" | "Register_car_update_at" | "Register_car_user_ID", ExtArgs["result"]["register_car"]>
+  export type Register_carInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    History?: boolean | Register_car$HistoryArgs<ExtArgs>
+    _count?: boolean | Register_carCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type Register_carIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type Register_carIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $Register_carPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Register_car"
+    objects: {
+      User: Prisma.$UserPayload<ExtArgs>
+      History: Prisma.$HistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Register_car_ID: number
+      Register_car_manufacturer: string | null
+      Register_car_mark: string | null
+      Register_car_year: number | null
+      Register_car_vin: string | null
+      Register_car_status: $Enums.Register_car_status_enum
+      Register_car_create_at: Date
+      Register_car_update_at: Date
+      Register_car_user_ID: number
+    }, ExtArgs["result"]["register_car"]>
+    composites: {}
+  }
+
+  type Register_carGetPayload<S extends boolean | null | undefined | Register_carDefaultArgs> = $Result.GetResult<Prisma.$Register_carPayload, S>
+
+  type Register_carCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<Register_carFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Register_carCountAggregateInputType | true
+    }
+
+  export interface Register_carDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Register_car'], meta: { name: 'Register_car' } }
+    /**
+     * Find zero or one Register_car that matches the filter.
+     * @param {Register_carFindUniqueArgs} args - Arguments to find a Register_car
+     * @example
+     * // Get one Register_car
+     * const register_car = await prisma.register_car.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends Register_carFindUniqueArgs>(args: SelectSubset<T, Register_carFindUniqueArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Register_car that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {Register_carFindUniqueOrThrowArgs} args - Arguments to find a Register_car
+     * @example
+     * // Get one Register_car
+     * const register_car = await prisma.register_car.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends Register_carFindUniqueOrThrowArgs>(args: SelectSubset<T, Register_carFindUniqueOrThrowArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Register_car that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_carFindFirstArgs} args - Arguments to find a Register_car
+     * @example
+     * // Get one Register_car
+     * const register_car = await prisma.register_car.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends Register_carFindFirstArgs>(args?: SelectSubset<T, Register_carFindFirstArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Register_car that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_carFindFirstOrThrowArgs} args - Arguments to find a Register_car
+     * @example
+     * // Get one Register_car
+     * const register_car = await prisma.register_car.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends Register_carFindFirstOrThrowArgs>(args?: SelectSubset<T, Register_carFindFirstOrThrowArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Register_cars that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_carFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Register_cars
+     * const register_cars = await prisma.register_car.findMany()
+     * 
+     * // Get first 10 Register_cars
+     * const register_cars = await prisma.register_car.findMany({ take: 10 })
+     * 
+     * // Only select the `Register_car_ID`
+     * const register_carWithRegister_car_IDOnly = await prisma.register_car.findMany({ select: { Register_car_ID: true } })
+     * 
+     */
+    findMany<T extends Register_carFindManyArgs>(args?: SelectSubset<T, Register_carFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Register_car.
+     * @param {Register_carCreateArgs} args - Arguments to create a Register_car.
+     * @example
+     * // Create one Register_car
+     * const Register_car = await prisma.register_car.create({
+     *   data: {
+     *     // ... data to create a Register_car
+     *   }
+     * })
+     * 
+     */
+    create<T extends Register_carCreateArgs>(args: SelectSubset<T, Register_carCreateArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Register_cars.
+     * @param {Register_carCreateManyArgs} args - Arguments to create many Register_cars.
+     * @example
+     * // Create many Register_cars
+     * const register_car = await prisma.register_car.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends Register_carCreateManyArgs>(args?: SelectSubset<T, Register_carCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Register_cars and returns the data saved in the database.
+     * @param {Register_carCreateManyAndReturnArgs} args - Arguments to create many Register_cars.
+     * @example
+     * // Create many Register_cars
+     * const register_car = await prisma.register_car.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Register_cars and only return the `Register_car_ID`
+     * const register_carWithRegister_car_IDOnly = await prisma.register_car.createManyAndReturn({
+     *   select: { Register_car_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends Register_carCreateManyAndReturnArgs>(args?: SelectSubset<T, Register_carCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Register_car.
+     * @param {Register_carDeleteArgs} args - Arguments to delete one Register_car.
+     * @example
+     * // Delete one Register_car
+     * const Register_car = await prisma.register_car.delete({
+     *   where: {
+     *     // ... filter to delete one Register_car
+     *   }
+     * })
+     * 
+     */
+    delete<T extends Register_carDeleteArgs>(args: SelectSubset<T, Register_carDeleteArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Register_car.
+     * @param {Register_carUpdateArgs} args - Arguments to update one Register_car.
+     * @example
+     * // Update one Register_car
+     * const register_car = await prisma.register_car.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends Register_carUpdateArgs>(args: SelectSubset<T, Register_carUpdateArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Register_cars.
+     * @param {Register_carDeleteManyArgs} args - Arguments to filter Register_cars to delete.
+     * @example
+     * // Delete a few Register_cars
+     * const { count } = await prisma.register_car.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends Register_carDeleteManyArgs>(args?: SelectSubset<T, Register_carDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Register_cars.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_carUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Register_cars
+     * const register_car = await prisma.register_car.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends Register_carUpdateManyArgs>(args: SelectSubset<T, Register_carUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Register_cars and returns the data updated in the database.
+     * @param {Register_carUpdateManyAndReturnArgs} args - Arguments to update many Register_cars.
+     * @example
+     * // Update many Register_cars
+     * const register_car = await prisma.register_car.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Register_cars and only return the `Register_car_ID`
+     * const register_carWithRegister_car_IDOnly = await prisma.register_car.updateManyAndReturn({
+     *   select: { Register_car_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends Register_carUpdateManyAndReturnArgs>(args: SelectSubset<T, Register_carUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Register_car.
+     * @param {Register_carUpsertArgs} args - Arguments to update or create a Register_car.
+     * @example
+     * // Update or create a Register_car
+     * const register_car = await prisma.register_car.upsert({
+     *   create: {
+     *     // ... data to create a Register_car
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Register_car we want to update
+     *   }
+     * })
+     */
+    upsert<T extends Register_carUpsertArgs>(args: SelectSubset<T, Register_carUpsertArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Register_cars.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_carCountArgs} args - Arguments to filter Register_cars to count.
+     * @example
+     * // Count the number of Register_cars
+     * const count = await prisma.register_car.count({
+     *   where: {
+     *     // ... the filter for the Register_cars we want to count
+     *   }
+     * })
+    **/
+    count<T extends Register_carCountArgs>(
+      args?: Subset<T, Register_carCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Register_carCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Register_car.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_carAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Register_carAggregateArgs>(args: Subset<T, Register_carAggregateArgs>): Prisma.PrismaPromise<GetRegister_carAggregateType<T>>
+
+    /**
+     * Group by Register_car.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_carGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends Register_carGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: Register_carGroupByArgs['orderBy'] }
+        : { orderBy?: Register_carGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, Register_carGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRegister_carGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Register_car model
+   */
+  readonly fields: Register_carFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Register_car.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__Register_carClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    History<T extends Register_car$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, Register_car$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Register_car model
+   */
+  interface Register_carFieldRefs {
+    readonly Register_car_ID: FieldRef<"Register_car", 'Int'>
+    readonly Register_car_manufacturer: FieldRef<"Register_car", 'String'>
+    readonly Register_car_mark: FieldRef<"Register_car", 'String'>
+    readonly Register_car_year: FieldRef<"Register_car", 'Int'>
+    readonly Register_car_vin: FieldRef<"Register_car", 'String'>
+    readonly Register_car_status: FieldRef<"Register_car", 'Register_car_status_enum'>
+    readonly Register_car_create_at: FieldRef<"Register_car", 'DateTime'>
+    readonly Register_car_update_at: FieldRef<"Register_car", 'DateTime'>
+    readonly Register_car_user_ID: FieldRef<"Register_car", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Register_car findUnique
+   */
+  export type Register_carFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_car to fetch.
+     */
+    where: Register_carWhereUniqueInput
+  }
+
+  /**
+   * Register_car findUniqueOrThrow
+   */
+  export type Register_carFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_car to fetch.
+     */
+    where: Register_carWhereUniqueInput
+  }
+
+  /**
+   * Register_car findFirst
+   */
+  export type Register_carFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_car to fetch.
+     */
+    where?: Register_carWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Register_cars to fetch.
+     */
+    orderBy?: Register_carOrderByWithRelationInput | Register_carOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Register_cars.
+     */
+    cursor?: Register_carWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Register_cars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Register_cars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Register_cars.
+     */
+    distinct?: Register_carScalarFieldEnum | Register_carScalarFieldEnum[]
+  }
+
+  /**
+   * Register_car findFirstOrThrow
+   */
+  export type Register_carFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_car to fetch.
+     */
+    where?: Register_carWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Register_cars to fetch.
+     */
+    orderBy?: Register_carOrderByWithRelationInput | Register_carOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Register_cars.
+     */
+    cursor?: Register_carWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Register_cars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Register_cars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Register_cars.
+     */
+    distinct?: Register_carScalarFieldEnum | Register_carScalarFieldEnum[]
+  }
+
+  /**
+   * Register_car findMany
+   */
+  export type Register_carFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_cars to fetch.
+     */
+    where?: Register_carWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Register_cars to fetch.
+     */
+    orderBy?: Register_carOrderByWithRelationInput | Register_carOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Register_cars.
+     */
+    cursor?: Register_carWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Register_cars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Register_cars.
+     */
+    skip?: number
+    distinct?: Register_carScalarFieldEnum | Register_carScalarFieldEnum[]
+  }
+
+  /**
+   * Register_car create
+   */
+  export type Register_carCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Register_car.
+     */
+    data: XOR<Register_carCreateInput, Register_carUncheckedCreateInput>
+  }
+
+  /**
+   * Register_car createMany
+   */
+  export type Register_carCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Register_cars.
+     */
+    data: Register_carCreateManyInput | Register_carCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Register_car createManyAndReturn
+   */
+  export type Register_carCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * The data used to create many Register_cars.
+     */
+    data: Register_carCreateManyInput | Register_carCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Register_car update
+   */
+  export type Register_carUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Register_car.
+     */
+    data: XOR<Register_carUpdateInput, Register_carUncheckedUpdateInput>
+    /**
+     * Choose, which Register_car to update.
+     */
+    where: Register_carWhereUniqueInput
+  }
+
+  /**
+   * Register_car updateMany
+   */
+  export type Register_carUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Register_cars.
+     */
+    data: XOR<Register_carUpdateManyMutationInput, Register_carUncheckedUpdateManyInput>
+    /**
+     * Filter which Register_cars to update
+     */
+    where?: Register_carWhereInput
+    /**
+     * Limit how many Register_cars to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Register_car updateManyAndReturn
+   */
+  export type Register_carUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * The data used to update Register_cars.
+     */
+    data: XOR<Register_carUpdateManyMutationInput, Register_carUncheckedUpdateManyInput>
+    /**
+     * Filter which Register_cars to update
+     */
+    where?: Register_carWhereInput
+    /**
+     * Limit how many Register_cars to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Register_car upsert
+   */
+  export type Register_carUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Register_car to update in case it exists.
+     */
+    where: Register_carWhereUniqueInput
+    /**
+     * In case the Register_car found by the `where` argument doesn't exist, create a new Register_car with this data.
+     */
+    create: XOR<Register_carCreateInput, Register_carUncheckedCreateInput>
+    /**
+     * In case the Register_car was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<Register_carUpdateInput, Register_carUncheckedUpdateInput>
+  }
+
+  /**
+   * Register_car delete
+   */
+  export type Register_carDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+    /**
+     * Filter which Register_car to delete.
+     */
+    where: Register_carWhereUniqueInput
+  }
+
+  /**
+   * Register_car deleteMany
+   */
+  export type Register_carDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Register_cars to delete
+     */
+    where?: Register_carWhereInput
+    /**
+     * Limit how many Register_cars to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Register_car.History
+   */
+  export type Register_car$HistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    where?: HistoryWhereInput
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    cursor?: HistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Register_car without action
+   */
+  export type Register_carDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_car
+     */
+    select?: Register_carSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_car
+     */
+    omit?: Register_carOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_carInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Register_service
+   */
+
+  export type AggregateRegister_service = {
+    _count: Register_serviceCountAggregateOutputType | null
+    _avg: Register_serviceAvgAggregateOutputType | null
+    _sum: Register_serviceSumAggregateOutputType | null
+    _min: Register_serviceMinAggregateOutputType | null
+    _max: Register_serviceMaxAggregateOutputType | null
+  }
+
+  export type Register_serviceAvgAggregateOutputType = {
+    Register_service_ID: number | null
+    Register_service_user_ID: number | null
+    Register_service_car: number | null
+    Register_service_service_ID: number | null
+    Register_service_multi_branch_ID: number | null
+  }
+
+  export type Register_serviceSumAggregateOutputType = {
+    Register_service_ID: number | null
+    Register_service_user_ID: number | null
+    Register_service_car: number | null
+    Register_service_service_ID: number | null
+    Register_service_multi_branch_ID: number | null
+  }
+
+  export type Register_serviceMinAggregateOutputType = {
+    Register_service_ID: number | null
+    Register_service_scheduled: Date | null
+    Register_service_time_list: string | null
+    Register_service_status: $Enums.Register_service_status_enum | null
+    Register_service_create_at: Date | null
+    Register_service_update_at: Date | null
+    Register_service_user_ID: number | null
+    Register_service_car: number | null
+    Register_service_service_ID: number | null
+    Register_service_multi_branch_ID: number | null
+  }
+
+  export type Register_serviceMaxAggregateOutputType = {
+    Register_service_ID: number | null
+    Register_service_scheduled: Date | null
+    Register_service_time_list: string | null
+    Register_service_status: $Enums.Register_service_status_enum | null
+    Register_service_create_at: Date | null
+    Register_service_update_at: Date | null
+    Register_service_user_ID: number | null
+    Register_service_car: number | null
+    Register_service_service_ID: number | null
+    Register_service_multi_branch_ID: number | null
+  }
+
+  export type Register_serviceCountAggregateOutputType = {
+    Register_service_ID: number
+    Register_service_scheduled: number
+    Register_service_time_list: number
+    Register_service_status: number
+    Register_service_create_at: number
+    Register_service_update_at: number
+    Register_service_user_ID: number
+    Register_service_car: number
+    Register_service_service_ID: number
+    Register_service_multi_branch_ID: number
+    _all: number
+  }
+
+
+  export type Register_serviceAvgAggregateInputType = {
+    Register_service_ID?: true
+    Register_service_user_ID?: true
+    Register_service_car?: true
+    Register_service_service_ID?: true
+    Register_service_multi_branch_ID?: true
+  }
+
+  export type Register_serviceSumAggregateInputType = {
+    Register_service_ID?: true
+    Register_service_user_ID?: true
+    Register_service_car?: true
+    Register_service_service_ID?: true
+    Register_service_multi_branch_ID?: true
+  }
+
+  export type Register_serviceMinAggregateInputType = {
+    Register_service_ID?: true
+    Register_service_scheduled?: true
+    Register_service_time_list?: true
+    Register_service_status?: true
+    Register_service_create_at?: true
+    Register_service_update_at?: true
+    Register_service_user_ID?: true
+    Register_service_car?: true
+    Register_service_service_ID?: true
+    Register_service_multi_branch_ID?: true
+  }
+
+  export type Register_serviceMaxAggregateInputType = {
+    Register_service_ID?: true
+    Register_service_scheduled?: true
+    Register_service_time_list?: true
+    Register_service_status?: true
+    Register_service_create_at?: true
+    Register_service_update_at?: true
+    Register_service_user_ID?: true
+    Register_service_car?: true
+    Register_service_service_ID?: true
+    Register_service_multi_branch_ID?: true
+  }
+
+  export type Register_serviceCountAggregateInputType = {
+    Register_service_ID?: true
+    Register_service_scheduled?: true
+    Register_service_time_list?: true
+    Register_service_status?: true
+    Register_service_create_at?: true
+    Register_service_update_at?: true
+    Register_service_user_ID?: true
+    Register_service_car?: true
+    Register_service_service_ID?: true
+    Register_service_multi_branch_ID?: true
+    _all?: true
+  }
+
+  export type Register_serviceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Register_service to aggregate.
+     */
+    where?: Register_serviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Register_services to fetch.
+     */
+    orderBy?: Register_serviceOrderByWithRelationInput | Register_serviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: Register_serviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Register_services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Register_services.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Register_services
+    **/
+    _count?: true | Register_serviceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Register_serviceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Register_serviceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Register_serviceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Register_serviceMaxAggregateInputType
+  }
+
+  export type GetRegister_serviceAggregateType<T extends Register_serviceAggregateArgs> = {
+        [P in keyof T & keyof AggregateRegister_service]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRegister_service[P]>
+      : GetScalarType<T[P], AggregateRegister_service[P]>
+  }
+
+
+
+
+  export type Register_serviceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Register_serviceWhereInput
+    orderBy?: Register_serviceOrderByWithAggregationInput | Register_serviceOrderByWithAggregationInput[]
+    by: Register_serviceScalarFieldEnum[] | Register_serviceScalarFieldEnum
+    having?: Register_serviceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Register_serviceCountAggregateInputType | true
+    _avg?: Register_serviceAvgAggregateInputType
+    _sum?: Register_serviceSumAggregateInputType
+    _min?: Register_serviceMinAggregateInputType
+    _max?: Register_serviceMaxAggregateInputType
+  }
+
+  export type Register_serviceGroupByOutputType = {
+    Register_service_ID: number
+    Register_service_scheduled: Date | null
+    Register_service_time_list: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at: Date
+    Register_service_update_at: Date
+    Register_service_user_ID: number
+    Register_service_car: number
+    Register_service_service_ID: number
+    Register_service_multi_branch_ID: number
+    _count: Register_serviceCountAggregateOutputType | null
+    _avg: Register_serviceAvgAggregateOutputType | null
+    _sum: Register_serviceSumAggregateOutputType | null
+    _min: Register_serviceMinAggregateOutputType | null
+    _max: Register_serviceMaxAggregateOutputType | null
+  }
+
+  type GetRegister_serviceGroupByPayload<T extends Register_serviceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Register_serviceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Register_serviceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Register_serviceGroupByOutputType[P]>
+            : GetScalarType<T[P], Register_serviceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type Register_serviceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Register_service_ID?: boolean
+    Register_service_scheduled?: boolean
+    Register_service_time_list?: boolean
+    Register_service_status?: boolean
+    Register_service_create_at?: boolean
+    Register_service_update_at?: boolean
+    Register_service_user_ID?: boolean
+    Register_service_car?: boolean
+    Register_service_service_ID?: boolean
+    Register_service_multi_branch_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Car?: boolean | CarDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    History?: boolean | Register_service$HistoryArgs<ExtArgs>
+    _count?: boolean | Register_serviceCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["register_service"]>
+
+  export type Register_serviceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Register_service_ID?: boolean
+    Register_service_scheduled?: boolean
+    Register_service_time_list?: boolean
+    Register_service_status?: boolean
+    Register_service_create_at?: boolean
+    Register_service_update_at?: boolean
+    Register_service_user_ID?: boolean
+    Register_service_car?: boolean
+    Register_service_service_ID?: boolean
+    Register_service_multi_branch_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Car?: boolean | CarDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["register_service"]>
+
+  export type Register_serviceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Register_service_ID?: boolean
+    Register_service_scheduled?: boolean
+    Register_service_time_list?: boolean
+    Register_service_status?: boolean
+    Register_service_create_at?: boolean
+    Register_service_update_at?: boolean
+    Register_service_user_ID?: boolean
+    Register_service_car?: boolean
+    Register_service_service_ID?: boolean
+    Register_service_multi_branch_ID?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Car?: boolean | CarDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["register_service"]>
+
+  export type Register_serviceSelectScalar = {
+    Register_service_ID?: boolean
+    Register_service_scheduled?: boolean
+    Register_service_time_list?: boolean
+    Register_service_status?: boolean
+    Register_service_create_at?: boolean
+    Register_service_update_at?: boolean
+    Register_service_user_ID?: boolean
+    Register_service_car?: boolean
+    Register_service_service_ID?: boolean
+    Register_service_multi_branch_ID?: boolean
+  }
+
+  export type Register_serviceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Register_service_ID" | "Register_service_scheduled" | "Register_service_time_list" | "Register_service_status" | "Register_service_create_at" | "Register_service_update_at" | "Register_service_user_ID" | "Register_service_car" | "Register_service_service_ID" | "Register_service_multi_branch_ID", ExtArgs["result"]["register_service"]>
+  export type Register_serviceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Car?: boolean | CarDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    History?: boolean | Register_service$HistoryArgs<ExtArgs>
+    _count?: boolean | Register_serviceCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type Register_serviceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Car?: boolean | CarDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+  }
+  export type Register_serviceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    Car?: boolean | CarDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+  }
+
+  export type $Register_servicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Register_service"
+    objects: {
+      User: Prisma.$UserPayload<ExtArgs>
+      Car: Prisma.$CarPayload<ExtArgs>
+      Service: Prisma.$ServicePayload<ExtArgs>
+      Multi_branch: Prisma.$Multi_branchPayload<ExtArgs>
+      History: Prisma.$HistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Register_service_ID: number
+      Register_service_scheduled: Date | null
+      Register_service_time_list: string | null
+      Register_service_status: $Enums.Register_service_status_enum
+      Register_service_create_at: Date
+      Register_service_update_at: Date
+      Register_service_user_ID: number
+      Register_service_car: number
+      Register_service_service_ID: number
+      Register_service_multi_branch_ID: number
+    }, ExtArgs["result"]["register_service"]>
+    composites: {}
+  }
+
+  type Register_serviceGetPayload<S extends boolean | null | undefined | Register_serviceDefaultArgs> = $Result.GetResult<Prisma.$Register_servicePayload, S>
+
+  type Register_serviceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<Register_serviceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Register_serviceCountAggregateInputType | true
+    }
+
+  export interface Register_serviceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Register_service'], meta: { name: 'Register_service' } }
+    /**
+     * Find zero or one Register_service that matches the filter.
+     * @param {Register_serviceFindUniqueArgs} args - Arguments to find a Register_service
+     * @example
+     * // Get one Register_service
+     * const register_service = await prisma.register_service.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends Register_serviceFindUniqueArgs>(args: SelectSubset<T, Register_serviceFindUniqueArgs<ExtArgs>>): Prisma__Register_serviceClient<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Register_service that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {Register_serviceFindUniqueOrThrowArgs} args - Arguments to find a Register_service
+     * @example
+     * // Get one Register_service
+     * const register_service = await prisma.register_service.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends Register_serviceFindUniqueOrThrowArgs>(args: SelectSubset<T, Register_serviceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__Register_serviceClient<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Register_service that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_serviceFindFirstArgs} args - Arguments to find a Register_service
+     * @example
+     * // Get one Register_service
+     * const register_service = await prisma.register_service.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends Register_serviceFindFirstArgs>(args?: SelectSubset<T, Register_serviceFindFirstArgs<ExtArgs>>): Prisma__Register_serviceClient<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Register_service that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_serviceFindFirstOrThrowArgs} args - Arguments to find a Register_service
+     * @example
+     * // Get one Register_service
+     * const register_service = await prisma.register_service.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends Register_serviceFindFirstOrThrowArgs>(args?: SelectSubset<T, Register_serviceFindFirstOrThrowArgs<ExtArgs>>): Prisma__Register_serviceClient<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Register_services that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_serviceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Register_services
+     * const register_services = await prisma.register_service.findMany()
+     * 
+     * // Get first 10 Register_services
+     * const register_services = await prisma.register_service.findMany({ take: 10 })
+     * 
+     * // Only select the `Register_service_ID`
+     * const register_serviceWithRegister_service_IDOnly = await prisma.register_service.findMany({ select: { Register_service_ID: true } })
+     * 
+     */
+    findMany<T extends Register_serviceFindManyArgs>(args?: SelectSubset<T, Register_serviceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Register_service.
+     * @param {Register_serviceCreateArgs} args - Arguments to create a Register_service.
+     * @example
+     * // Create one Register_service
+     * const Register_service = await prisma.register_service.create({
+     *   data: {
+     *     // ... data to create a Register_service
+     *   }
+     * })
+     * 
+     */
+    create<T extends Register_serviceCreateArgs>(args: SelectSubset<T, Register_serviceCreateArgs<ExtArgs>>): Prisma__Register_serviceClient<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Register_services.
+     * @param {Register_serviceCreateManyArgs} args - Arguments to create many Register_services.
+     * @example
+     * // Create many Register_services
+     * const register_service = await prisma.register_service.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends Register_serviceCreateManyArgs>(args?: SelectSubset<T, Register_serviceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Register_services and returns the data saved in the database.
+     * @param {Register_serviceCreateManyAndReturnArgs} args - Arguments to create many Register_services.
+     * @example
+     * // Create many Register_services
+     * const register_service = await prisma.register_service.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Register_services and only return the `Register_service_ID`
+     * const register_serviceWithRegister_service_IDOnly = await prisma.register_service.createManyAndReturn({
+     *   select: { Register_service_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends Register_serviceCreateManyAndReturnArgs>(args?: SelectSubset<T, Register_serviceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Register_service.
+     * @param {Register_serviceDeleteArgs} args - Arguments to delete one Register_service.
+     * @example
+     * // Delete one Register_service
+     * const Register_service = await prisma.register_service.delete({
+     *   where: {
+     *     // ... filter to delete one Register_service
+     *   }
+     * })
+     * 
+     */
+    delete<T extends Register_serviceDeleteArgs>(args: SelectSubset<T, Register_serviceDeleteArgs<ExtArgs>>): Prisma__Register_serviceClient<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Register_service.
+     * @param {Register_serviceUpdateArgs} args - Arguments to update one Register_service.
+     * @example
+     * // Update one Register_service
+     * const register_service = await prisma.register_service.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends Register_serviceUpdateArgs>(args: SelectSubset<T, Register_serviceUpdateArgs<ExtArgs>>): Prisma__Register_serviceClient<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Register_services.
+     * @param {Register_serviceDeleteManyArgs} args - Arguments to filter Register_services to delete.
+     * @example
+     * // Delete a few Register_services
+     * const { count } = await prisma.register_service.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends Register_serviceDeleteManyArgs>(args?: SelectSubset<T, Register_serviceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Register_services.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_serviceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Register_services
+     * const register_service = await prisma.register_service.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends Register_serviceUpdateManyArgs>(args: SelectSubset<T, Register_serviceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Register_services and returns the data updated in the database.
+     * @param {Register_serviceUpdateManyAndReturnArgs} args - Arguments to update many Register_services.
+     * @example
+     * // Update many Register_services
+     * const register_service = await prisma.register_service.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Register_services and only return the `Register_service_ID`
+     * const register_serviceWithRegister_service_IDOnly = await prisma.register_service.updateManyAndReturn({
+     *   select: { Register_service_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends Register_serviceUpdateManyAndReturnArgs>(args: SelectSubset<T, Register_serviceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Register_service.
+     * @param {Register_serviceUpsertArgs} args - Arguments to update or create a Register_service.
+     * @example
+     * // Update or create a Register_service
+     * const register_service = await prisma.register_service.upsert({
+     *   create: {
+     *     // ... data to create a Register_service
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Register_service we want to update
+     *   }
+     * })
+     */
+    upsert<T extends Register_serviceUpsertArgs>(args: SelectSubset<T, Register_serviceUpsertArgs<ExtArgs>>): Prisma__Register_serviceClient<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Register_services.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_serviceCountArgs} args - Arguments to filter Register_services to count.
+     * @example
+     * // Count the number of Register_services
+     * const count = await prisma.register_service.count({
+     *   where: {
+     *     // ... the filter for the Register_services we want to count
+     *   }
+     * })
+    **/
+    count<T extends Register_serviceCountArgs>(
+      args?: Subset<T, Register_serviceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Register_serviceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Register_service.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_serviceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Register_serviceAggregateArgs>(args: Subset<T, Register_serviceAggregateArgs>): Prisma.PrismaPromise<GetRegister_serviceAggregateType<T>>
+
+    /**
+     * Group by Register_service.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Register_serviceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends Register_serviceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: Register_serviceGroupByArgs['orderBy'] }
+        : { orderBy?: Register_serviceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, Register_serviceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRegister_serviceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Register_service model
+   */
+  readonly fields: Register_serviceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Register_service.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__Register_serviceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Car<T extends CarDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CarDefaultArgs<ExtArgs>>): Prisma__CarClient<$Result.GetResult<Prisma.$CarPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Service<T extends ServiceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ServiceDefaultArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Multi_branch<T extends Multi_branchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, Multi_branchDefaultArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    History<T extends Register_service$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, Register_service$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Register_service model
+   */
+  interface Register_serviceFieldRefs {
+    readonly Register_service_ID: FieldRef<"Register_service", 'Int'>
+    readonly Register_service_scheduled: FieldRef<"Register_service", 'DateTime'>
+    readonly Register_service_time_list: FieldRef<"Register_service", 'String'>
+    readonly Register_service_status: FieldRef<"Register_service", 'Register_service_status_enum'>
+    readonly Register_service_create_at: FieldRef<"Register_service", 'DateTime'>
+    readonly Register_service_update_at: FieldRef<"Register_service", 'DateTime'>
+    readonly Register_service_user_ID: FieldRef<"Register_service", 'Int'>
+    readonly Register_service_car: FieldRef<"Register_service", 'Int'>
+    readonly Register_service_service_ID: FieldRef<"Register_service", 'Int'>
+    readonly Register_service_multi_branch_ID: FieldRef<"Register_service", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Register_service findUnique
+   */
+  export type Register_serviceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_service to fetch.
+     */
+    where: Register_serviceWhereUniqueInput
+  }
+
+  /**
+   * Register_service findUniqueOrThrow
+   */
+  export type Register_serviceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_service to fetch.
+     */
+    where: Register_serviceWhereUniqueInput
+  }
+
+  /**
+   * Register_service findFirst
+   */
+  export type Register_serviceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_service to fetch.
+     */
+    where?: Register_serviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Register_services to fetch.
+     */
+    orderBy?: Register_serviceOrderByWithRelationInput | Register_serviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Register_services.
+     */
+    cursor?: Register_serviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Register_services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Register_services.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Register_services.
+     */
+    distinct?: Register_serviceScalarFieldEnum | Register_serviceScalarFieldEnum[]
+  }
+
+  /**
+   * Register_service findFirstOrThrow
+   */
+  export type Register_serviceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_service to fetch.
+     */
+    where?: Register_serviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Register_services to fetch.
+     */
+    orderBy?: Register_serviceOrderByWithRelationInput | Register_serviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Register_services.
+     */
+    cursor?: Register_serviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Register_services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Register_services.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Register_services.
+     */
+    distinct?: Register_serviceScalarFieldEnum | Register_serviceScalarFieldEnum[]
+  }
+
+  /**
+   * Register_service findMany
+   */
+  export type Register_serviceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    /**
+     * Filter, which Register_services to fetch.
+     */
+    where?: Register_serviceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Register_services to fetch.
+     */
+    orderBy?: Register_serviceOrderByWithRelationInput | Register_serviceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Register_services.
+     */
+    cursor?: Register_serviceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Register_services from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Register_services.
+     */
+    skip?: number
+    distinct?: Register_serviceScalarFieldEnum | Register_serviceScalarFieldEnum[]
+  }
+
+  /**
+   * Register_service create
+   */
+  export type Register_serviceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Register_service.
+     */
+    data: XOR<Register_serviceCreateInput, Register_serviceUncheckedCreateInput>
+  }
+
+  /**
+   * Register_service createMany
+   */
+  export type Register_serviceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Register_services.
+     */
+    data: Register_serviceCreateManyInput | Register_serviceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Register_service createManyAndReturn
+   */
+  export type Register_serviceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * The data used to create many Register_services.
+     */
+    data: Register_serviceCreateManyInput | Register_serviceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Register_service update
+   */
+  export type Register_serviceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Register_service.
+     */
+    data: XOR<Register_serviceUpdateInput, Register_serviceUncheckedUpdateInput>
+    /**
+     * Choose, which Register_service to update.
+     */
+    where: Register_serviceWhereUniqueInput
+  }
+
+  /**
+   * Register_service updateMany
+   */
+  export type Register_serviceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Register_services.
+     */
+    data: XOR<Register_serviceUpdateManyMutationInput, Register_serviceUncheckedUpdateManyInput>
+    /**
+     * Filter which Register_services to update
+     */
+    where?: Register_serviceWhereInput
+    /**
+     * Limit how many Register_services to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Register_service updateManyAndReturn
+   */
+  export type Register_serviceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * The data used to update Register_services.
+     */
+    data: XOR<Register_serviceUpdateManyMutationInput, Register_serviceUncheckedUpdateManyInput>
+    /**
+     * Filter which Register_services to update
+     */
+    where?: Register_serviceWhereInput
+    /**
+     * Limit how many Register_services to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Register_service upsert
+   */
+  export type Register_serviceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Register_service to update in case it exists.
+     */
+    where: Register_serviceWhereUniqueInput
+    /**
+     * In case the Register_service found by the `where` argument doesn't exist, create a new Register_service with this data.
+     */
+    create: XOR<Register_serviceCreateInput, Register_serviceUncheckedCreateInput>
+    /**
+     * In case the Register_service was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<Register_serviceUpdateInput, Register_serviceUncheckedUpdateInput>
+  }
+
+  /**
+   * Register_service delete
+   */
+  export type Register_serviceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+    /**
+     * Filter which Register_service to delete.
+     */
+    where: Register_serviceWhereUniqueInput
+  }
+
+  /**
+   * Register_service deleteMany
+   */
+  export type Register_serviceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Register_services to delete
+     */
+    where?: Register_serviceWhereInput
+    /**
+     * Limit how many Register_services to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Register_service.History
+   */
+  export type Register_service$HistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the History
+     */
+    select?: HistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the History
+     */
+    omit?: HistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HistoryInclude<ExtArgs> | null
+    where?: HistoryWhereInput
+    orderBy?: HistoryOrderByWithRelationInput | HistoryOrderByWithRelationInput[]
+    cursor?: HistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Register_service without action
+   */
+  export type Register_serviceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Register_service
+     */
+    select?: Register_serviceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Register_service
+     */
+    omit?: Register_serviceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Register_serviceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Enums
+   */
+
+  export const TransactionIsolationLevel: {
+    ReadUncommitted: 'ReadUncommitted',
+    ReadCommitted: 'ReadCommitted',
+    RepeatableRead: 'RepeatableRead',
+    Serializable: 'Serializable'
+  };
+
+  export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+  export const UserScalarFieldEnum: {
+    User_ID: 'User_ID',
+    User_last_name: 'User_last_name',
+    User_first_name: 'User_first_name',
+    User_email: 'User_email',
+    User_phone: 'User_phone',
+    User_password: 'User_password',
+    User_role: 'User_role',
+    User_create_at: 'User_create_at',
+    User_update_at: 'User_update_at'
+  };
+
+  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const CarScalarFieldEnum: {
+    Car_ID: 'Car_ID',
+    Car_list: 'Car_list'
+  };
+
+  export type CarScalarFieldEnum = (typeof CarScalarFieldEnum)[keyof typeof CarScalarFieldEnum]
+
+
+  export const ServiceScalarFieldEnum: {
+    Service_ID: 'Service_ID',
+    Service_name: 'Service_name',
+    Service_description: 'Service_description',
+    Service_price: 'Service_price',
+    Service_duration_min: 'Service_duration_min'
+  };
+
+  export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
+
+
+  export const BonusScalarFieldEnum: {
+    Bonus_ID: 'Bonus_ID',
+    Bonus_point: 'Bonus_point',
+    Bonus_type: 'Bonus_type',
+    Bonus_user_ID: 'Bonus_user_ID'
+  };
+
+  export type BonusScalarFieldEnum = (typeof BonusScalarFieldEnum)[keyof typeof BonusScalarFieldEnum]
+
+
+  export const Multi_branchScalarFieldEnum: {
+    Multi_branch_ID: 'Multi_branch_ID',
+    Multi_branch_name: 'Multi_branch_name',
+    Multi_branch_address: 'Multi_branch_address',
+    Multi_branch_phone: 'Multi_branch_phone',
+    Multi_branch_email: 'Multi_branch_email',
+    Multi_branch_opening_hours: 'Multi_branch_opening_hours',
+    Multi_branch_create_at: 'Multi_branch_create_at',
+    Multi_branch_update_at: 'Multi_branch_update_at'
+  };
+
+  export type Multi_branchScalarFieldEnum = (typeof Multi_branchScalarFieldEnum)[keyof typeof Multi_branchScalarFieldEnum]
+
+
+  export const CommitScalarFieldEnum: {
+    Commit_ID: 'Commit_ID',
+    Commit_text: 'Commit_text',
+    Commit_review: 'Commit_review',
+    Commit_entity_id: 'Commit_entity_id',
+    Commit_entity_name: 'Commit_entity_name',
+    Commit_create_at: 'Commit_create_at',
+    Commit_user_ID: 'Commit_user_ID'
+  };
+
+  export type CommitScalarFieldEnum = (typeof CommitScalarFieldEnum)[keyof typeof CommitScalarFieldEnum]
+
+
+  export const NotificationScalarFieldEnum: {
+    Notification_ID: 'Notification_ID',
+    Notification_text: 'Notification_text',
+    Notification_is_read: 'Notification_is_read',
+    Notification_create_at: 'Notification_create_at',
+    Notification_user_ID: 'Notification_user_ID'
+  };
+
+  export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
+
+
+  export const OTPScalarFieldEnum: {
+    OTP_ID: 'OTP_ID',
+    OTP_code: 'OTP_code',
+    OTP_type: 'OTP_type',
+    OTP_status: 'OTP_status',
+    OTP_create_at: 'OTP_create_at',
+    OTP_expires_at: 'OTP_expires_at',
+    OTP_user_ID: 'OTP_user_ID'
+  };
+
+  export type OTPScalarFieldEnum = (typeof OTPScalarFieldEnum)[keyof typeof OTPScalarFieldEnum]
+
+
+  export const HistoryScalarFieldEnum: {
+    History_ID: 'History_ID',
+    History_bonus: 'History_bonus',
+    History_price: 'History_price',
+    History_status: 'History_status',
+    History_create_at: 'History_create_at',
+    History_multi_branch_ID: 'History_multi_branch_ID',
+    History_user_ID: 'History_user_ID',
+    History_service_ID: 'History_service_ID',
+    History_register_car: 'History_register_car',
+    History_register_service_ID: 'History_register_service_ID',
+    carCar_ID: 'carCar_ID'
+  };
+
+  export type HistoryScalarFieldEnum = (typeof HistoryScalarFieldEnum)[keyof typeof HistoryScalarFieldEnum]
+
+
+  export const Register_carScalarFieldEnum: {
+    Register_car_ID: 'Register_car_ID',
+    Register_car_manufacturer: 'Register_car_manufacturer',
+    Register_car_mark: 'Register_car_mark',
+    Register_car_year: 'Register_car_year',
+    Register_car_vin: 'Register_car_vin',
+    Register_car_status: 'Register_car_status',
+    Register_car_create_at: 'Register_car_create_at',
+    Register_car_update_at: 'Register_car_update_at',
+    Register_car_user_ID: 'Register_car_user_ID'
+  };
+
+  export type Register_carScalarFieldEnum = (typeof Register_carScalarFieldEnum)[keyof typeof Register_carScalarFieldEnum]
+
+
+  export const Register_serviceScalarFieldEnum: {
+    Register_service_ID: 'Register_service_ID',
+    Register_service_scheduled: 'Register_service_scheduled',
+    Register_service_time_list: 'Register_service_time_list',
+    Register_service_status: 'Register_service_status',
+    Register_service_create_at: 'Register_service_create_at',
+    Register_service_update_at: 'Register_service_update_at',
+    Register_service_user_ID: 'Register_service_user_ID',
+    Register_service_car: 'Register_service_car',
+    Register_service_service_ID: 'Register_service_service_ID',
+    Register_service_multi_branch_ID: 'Register_service_multi_branch_ID'
+  };
+
+  export type Register_serviceScalarFieldEnum = (typeof Register_serviceScalarFieldEnum)[keyof typeof Register_serviceScalarFieldEnum]
+
+
+  export const SortOrder: {
+    asc: 'asc',
+    desc: 'desc'
+  };
+
+  export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  /**
+   * Field references
+   */
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'String'
+   */
+  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'User_role_enum'
+   */
+  export type EnumUser_role_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'User_role_enum'>
+    
+
+
+  /**
+   * Reference to a field of type 'User_role_enum[]'
+   */
+  export type ListEnumUser_role_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'User_role_enum[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Bonus_type_enum'
+   */
+  export type EnumBonus_type_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bonus_type_enum'>
+    
+
+
+  /**
+   * Reference to a field of type 'Bonus_type_enum[]'
+   */
+  export type ListEnumBonus_type_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bonus_type_enum[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'OTP_type_enum'
+   */
+  export type EnumOTP_type_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OTP_type_enum'>
+    
+
+
+  /**
+   * Reference to a field of type 'OTP_type_enum[]'
+   */
+  export type ListEnumOTP_type_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OTP_type_enum[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'OTP_status_enum'
+   */
+  export type EnumOTP_status_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OTP_status_enum'>
+    
+
+
+  /**
+   * Reference to a field of type 'OTP_status_enum[]'
+   */
+  export type ListEnumOTP_status_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OTP_status_enum[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'History_status_enum'
+   */
+  export type EnumHistory_status_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'History_status_enum'>
+    
+
+
+  /**
+   * Reference to a field of type 'History_status_enum[]'
+   */
+  export type ListEnumHistory_status_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'History_status_enum[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Register_car_status_enum'
+   */
+  export type EnumRegister_car_status_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Register_car_status_enum'>
+    
+
+
+  /**
+   * Reference to a field of type 'Register_car_status_enum[]'
+   */
+  export type ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Register_car_status_enum[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Register_service_status_enum'
+   */
+  export type EnumRegister_service_status_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Register_service_status_enum'>
+    
+
+
+  /**
+   * Reference to a field of type 'Register_service_status_enum[]'
+   */
+  export type ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Register_service_status_enum[]'>
+    
+  /**
+   * Deep Input Types
+   */
+
+
+  export type UserWhereInput = {
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    User_ID?: IntFilter<"User"> | number
+    User_last_name?: StringFilter<"User"> | string
+    User_first_name?: StringFilter<"User"> | string
+    User_email?: StringFilter<"User"> | string
+    User_phone?: StringNullableFilter<"User"> | string | null
+    User_password?: StringFilter<"User"> | string
+    User_role?: EnumUser_role_enumFilter<"User"> | $Enums.User_role_enum
+    User_create_at?: DateTimeFilter<"User"> | Date | string
+    User_update_at?: DateTimeFilter<"User"> | Date | string
+    Bonus?: BonusListRelationFilter
+    Notification?: NotificationListRelationFilter
+    Commit?: CommitListRelationFilter
+    OTP?: OTPListRelationFilter
+    Register_car?: Register_carListRelationFilter
+    Register_service?: Register_serviceListRelationFilter
+    History?: HistoryListRelationFilter
+  }
+
+  export type UserOrderByWithRelationInput = {
+    User_ID?: SortOrder
+    User_last_name?: SortOrder
+    User_first_name?: SortOrder
+    User_email?: SortOrder
+    User_phone?: SortOrderInput | SortOrder
+    User_password?: SortOrder
+    User_role?: SortOrder
+    User_create_at?: SortOrder
+    User_update_at?: SortOrder
+    Bonus?: BonusOrderByRelationAggregateInput
+    Notification?: NotificationOrderByRelationAggregateInput
+    Commit?: CommitOrderByRelationAggregateInput
+    OTP?: OTPOrderByRelationAggregateInput
+    Register_car?: Register_carOrderByRelationAggregateInput
+    Register_service?: Register_serviceOrderByRelationAggregateInput
+    History?: HistoryOrderByRelationAggregateInput
+  }
+
+  export type UserWhereUniqueInput = Prisma.AtLeast<{
+    User_ID?: number
+    User_email?: string
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    User_last_name?: StringFilter<"User"> | string
+    User_first_name?: StringFilter<"User"> | string
+    User_phone?: StringNullableFilter<"User"> | string | null
+    User_password?: StringFilter<"User"> | string
+    User_role?: EnumUser_role_enumFilter<"User"> | $Enums.User_role_enum
+    User_create_at?: DateTimeFilter<"User"> | Date | string
+    User_update_at?: DateTimeFilter<"User"> | Date | string
+    Bonus?: BonusListRelationFilter
+    Notification?: NotificationListRelationFilter
+    Commit?: CommitListRelationFilter
+    OTP?: OTPListRelationFilter
+    Register_car?: Register_carListRelationFilter
+    Register_service?: Register_serviceListRelationFilter
+    History?: HistoryListRelationFilter
+  }, "User_ID" | "User_email">
+
+  export type UserOrderByWithAggregationInput = {
+    User_ID?: SortOrder
+    User_last_name?: SortOrder
+    User_first_name?: SortOrder
+    User_email?: SortOrder
+    User_phone?: SortOrderInput | SortOrder
+    User_password?: SortOrder
+    User_role?: SortOrder
+    User_create_at?: SortOrder
+    User_update_at?: SortOrder
+    _count?: UserCountOrderByAggregateInput
+    _avg?: UserAvgOrderByAggregateInput
+    _max?: UserMaxOrderByAggregateInput
+    _min?: UserMinOrderByAggregateInput
+    _sum?: UserSumOrderByAggregateInput
+  }
+
+  export type UserScalarWhereWithAggregatesInput = {
+    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    OR?: UserScalarWhereWithAggregatesInput[]
+    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    User_ID?: IntWithAggregatesFilter<"User"> | number
+    User_last_name?: StringWithAggregatesFilter<"User"> | string
+    User_first_name?: StringWithAggregatesFilter<"User"> | string
+    User_email?: StringWithAggregatesFilter<"User"> | string
+    User_phone?: StringNullableWithAggregatesFilter<"User"> | string | null
+    User_password?: StringWithAggregatesFilter<"User"> | string
+    User_role?: EnumUser_role_enumWithAggregatesFilter<"User"> | $Enums.User_role_enum
+    User_create_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    User_update_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
+  }
+
+  export type CarWhereInput = {
+    AND?: CarWhereInput | CarWhereInput[]
+    OR?: CarWhereInput[]
+    NOT?: CarWhereInput | CarWhereInput[]
+    Car_ID?: IntFilter<"Car"> | number
+    Car_list?: StringNullableFilter<"Car"> | string | null
+    Register_service?: Register_serviceListRelationFilter
+    History?: HistoryListRelationFilter
+  }
+
+  export type CarOrderByWithRelationInput = {
+    Car_ID?: SortOrder
+    Car_list?: SortOrderInput | SortOrder
+    Register_service?: Register_serviceOrderByRelationAggregateInput
+    History?: HistoryOrderByRelationAggregateInput
+  }
+
+  export type CarWhereUniqueInput = Prisma.AtLeast<{
+    Car_ID?: number
+    AND?: CarWhereInput | CarWhereInput[]
+    OR?: CarWhereInput[]
+    NOT?: CarWhereInput | CarWhereInput[]
+    Car_list?: StringNullableFilter<"Car"> | string | null
+    Register_service?: Register_serviceListRelationFilter
+    History?: HistoryListRelationFilter
+  }, "Car_ID">
+
+  export type CarOrderByWithAggregationInput = {
+    Car_ID?: SortOrder
+    Car_list?: SortOrderInput | SortOrder
+    _count?: CarCountOrderByAggregateInput
+    _avg?: CarAvgOrderByAggregateInput
+    _max?: CarMaxOrderByAggregateInput
+    _min?: CarMinOrderByAggregateInput
+    _sum?: CarSumOrderByAggregateInput
+  }
+
+  export type CarScalarWhereWithAggregatesInput = {
+    AND?: CarScalarWhereWithAggregatesInput | CarScalarWhereWithAggregatesInput[]
+    OR?: CarScalarWhereWithAggregatesInput[]
+    NOT?: CarScalarWhereWithAggregatesInput | CarScalarWhereWithAggregatesInput[]
+    Car_ID?: IntWithAggregatesFilter<"Car"> | number
+    Car_list?: StringNullableWithAggregatesFilter<"Car"> | string | null
+  }
+
+  export type ServiceWhereInput = {
+    AND?: ServiceWhereInput | ServiceWhereInput[]
+    OR?: ServiceWhereInput[]
+    NOT?: ServiceWhereInput | ServiceWhereInput[]
+    Service_ID?: IntFilter<"Service"> | number
+    Service_name?: StringFilter<"Service"> | string
+    Service_description?: StringNullableFilter<"Service"> | string | null
+    Service_price?: FloatFilter<"Service"> | number
+    Service_duration_min?: IntFilter<"Service"> | number
+    Register_service?: Register_serviceListRelationFilter
+    History?: HistoryListRelationFilter
+  }
+
+  export type ServiceOrderByWithRelationInput = {
+    Service_ID?: SortOrder
+    Service_name?: SortOrder
+    Service_description?: SortOrderInput | SortOrder
+    Service_price?: SortOrder
+    Service_duration_min?: SortOrder
+    Register_service?: Register_serviceOrderByRelationAggregateInput
+    History?: HistoryOrderByRelationAggregateInput
+  }
+
+  export type ServiceWhereUniqueInput = Prisma.AtLeast<{
+    Service_ID?: number
+    AND?: ServiceWhereInput | ServiceWhereInput[]
+    OR?: ServiceWhereInput[]
+    NOT?: ServiceWhereInput | ServiceWhereInput[]
+    Service_name?: StringFilter<"Service"> | string
+    Service_description?: StringNullableFilter<"Service"> | string | null
+    Service_price?: FloatFilter<"Service"> | number
+    Service_duration_min?: IntFilter<"Service"> | number
+    Register_service?: Register_serviceListRelationFilter
+    History?: HistoryListRelationFilter
+  }, "Service_ID">
+
+  export type ServiceOrderByWithAggregationInput = {
+    Service_ID?: SortOrder
+    Service_name?: SortOrder
+    Service_description?: SortOrderInput | SortOrder
+    Service_price?: SortOrder
+    Service_duration_min?: SortOrder
+    _count?: ServiceCountOrderByAggregateInput
+    _avg?: ServiceAvgOrderByAggregateInput
+    _max?: ServiceMaxOrderByAggregateInput
+    _min?: ServiceMinOrderByAggregateInput
+    _sum?: ServiceSumOrderByAggregateInput
+  }
+
+  export type ServiceScalarWhereWithAggregatesInput = {
+    AND?: ServiceScalarWhereWithAggregatesInput | ServiceScalarWhereWithAggregatesInput[]
+    OR?: ServiceScalarWhereWithAggregatesInput[]
+    NOT?: ServiceScalarWhereWithAggregatesInput | ServiceScalarWhereWithAggregatesInput[]
+    Service_ID?: IntWithAggregatesFilter<"Service"> | number
+    Service_name?: StringWithAggregatesFilter<"Service"> | string
+    Service_description?: StringNullableWithAggregatesFilter<"Service"> | string | null
+    Service_price?: FloatWithAggregatesFilter<"Service"> | number
+    Service_duration_min?: IntWithAggregatesFilter<"Service"> | number
+  }
+
+  export type BonusWhereInput = {
+    AND?: BonusWhereInput | BonusWhereInput[]
+    OR?: BonusWhereInput[]
+    NOT?: BonusWhereInput | BonusWhereInput[]
+    Bonus_ID?: IntFilter<"Bonus"> | number
+    Bonus_point?: IntFilter<"Bonus"> | number
+    Bonus_type?: EnumBonus_type_enumFilter<"Bonus"> | $Enums.Bonus_type_enum
+    Bonus_user_ID?: IntFilter<"Bonus"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type BonusOrderByWithRelationInput = {
+    Bonus_ID?: SortOrder
+    Bonus_point?: SortOrder
+    Bonus_type?: SortOrder
+    Bonus_user_ID?: SortOrder
+    User?: UserOrderByWithRelationInput
+  }
+
+  export type BonusWhereUniqueInput = Prisma.AtLeast<{
+    Bonus_ID?: number
+    AND?: BonusWhereInput | BonusWhereInput[]
+    OR?: BonusWhereInput[]
+    NOT?: BonusWhereInput | BonusWhereInput[]
+    Bonus_point?: IntFilter<"Bonus"> | number
+    Bonus_type?: EnumBonus_type_enumFilter<"Bonus"> | $Enums.Bonus_type_enum
+    Bonus_user_ID?: IntFilter<"Bonus"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "Bonus_ID">
+
+  export type BonusOrderByWithAggregationInput = {
+    Bonus_ID?: SortOrder
+    Bonus_point?: SortOrder
+    Bonus_type?: SortOrder
+    Bonus_user_ID?: SortOrder
+    _count?: BonusCountOrderByAggregateInput
+    _avg?: BonusAvgOrderByAggregateInput
+    _max?: BonusMaxOrderByAggregateInput
+    _min?: BonusMinOrderByAggregateInput
+    _sum?: BonusSumOrderByAggregateInput
+  }
+
+  export type BonusScalarWhereWithAggregatesInput = {
+    AND?: BonusScalarWhereWithAggregatesInput | BonusScalarWhereWithAggregatesInput[]
+    OR?: BonusScalarWhereWithAggregatesInput[]
+    NOT?: BonusScalarWhereWithAggregatesInput | BonusScalarWhereWithAggregatesInput[]
+    Bonus_ID?: IntWithAggregatesFilter<"Bonus"> | number
+    Bonus_point?: IntWithAggregatesFilter<"Bonus"> | number
+    Bonus_type?: EnumBonus_type_enumWithAggregatesFilter<"Bonus"> | $Enums.Bonus_type_enum
+    Bonus_user_ID?: IntWithAggregatesFilter<"Bonus"> | number
+  }
+
+  export type Multi_branchWhereInput = {
+    AND?: Multi_branchWhereInput | Multi_branchWhereInput[]
+    OR?: Multi_branchWhereInput[]
+    NOT?: Multi_branchWhereInput | Multi_branchWhereInput[]
+    Multi_branch_ID?: IntFilter<"Multi_branch"> | number
+    Multi_branch_name?: StringFilter<"Multi_branch"> | string
+    Multi_branch_address?: StringNullableFilter<"Multi_branch"> | string | null
+    Multi_branch_phone?: StringNullableFilter<"Multi_branch"> | string | null
+    Multi_branch_email?: StringNullableFilter<"Multi_branch"> | string | null
+    Multi_branch_opening_hours?: StringNullableFilter<"Multi_branch"> | string | null
+    Multi_branch_create_at?: DateTimeFilter<"Multi_branch"> | Date | string
+    Multi_branch_update_at?: DateTimeFilter<"Multi_branch"> | Date | string
+    Register_service?: Register_serviceListRelationFilter
+    History?: HistoryListRelationFilter
+  }
+
+  export type Multi_branchOrderByWithRelationInput = {
+    Multi_branch_ID?: SortOrder
+    Multi_branch_name?: SortOrder
+    Multi_branch_address?: SortOrderInput | SortOrder
+    Multi_branch_phone?: SortOrderInput | SortOrder
+    Multi_branch_email?: SortOrderInput | SortOrder
+    Multi_branch_opening_hours?: SortOrderInput | SortOrder
+    Multi_branch_create_at?: SortOrder
+    Multi_branch_update_at?: SortOrder
+    Register_service?: Register_serviceOrderByRelationAggregateInput
+    History?: HistoryOrderByRelationAggregateInput
+  }
+
+  export type Multi_branchWhereUniqueInput = Prisma.AtLeast<{
+    Multi_branch_ID?: number
+    AND?: Multi_branchWhereInput | Multi_branchWhereInput[]
+    OR?: Multi_branchWhereInput[]
+    NOT?: Multi_branchWhereInput | Multi_branchWhereInput[]
+    Multi_branch_name?: StringFilter<"Multi_branch"> | string
+    Multi_branch_address?: StringNullableFilter<"Multi_branch"> | string | null
+    Multi_branch_phone?: StringNullableFilter<"Multi_branch"> | string | null
+    Multi_branch_email?: StringNullableFilter<"Multi_branch"> | string | null
+    Multi_branch_opening_hours?: StringNullableFilter<"Multi_branch"> | string | null
+    Multi_branch_create_at?: DateTimeFilter<"Multi_branch"> | Date | string
+    Multi_branch_update_at?: DateTimeFilter<"Multi_branch"> | Date | string
+    Register_service?: Register_serviceListRelationFilter
+    History?: HistoryListRelationFilter
+  }, "Multi_branch_ID">
+
+  export type Multi_branchOrderByWithAggregationInput = {
+    Multi_branch_ID?: SortOrder
+    Multi_branch_name?: SortOrder
+    Multi_branch_address?: SortOrderInput | SortOrder
+    Multi_branch_phone?: SortOrderInput | SortOrder
+    Multi_branch_email?: SortOrderInput | SortOrder
+    Multi_branch_opening_hours?: SortOrderInput | SortOrder
+    Multi_branch_create_at?: SortOrder
+    Multi_branch_update_at?: SortOrder
+    _count?: Multi_branchCountOrderByAggregateInput
+    _avg?: Multi_branchAvgOrderByAggregateInput
+    _max?: Multi_branchMaxOrderByAggregateInput
+    _min?: Multi_branchMinOrderByAggregateInput
+    _sum?: Multi_branchSumOrderByAggregateInput
+  }
+
+  export type Multi_branchScalarWhereWithAggregatesInput = {
+    AND?: Multi_branchScalarWhereWithAggregatesInput | Multi_branchScalarWhereWithAggregatesInput[]
+    OR?: Multi_branchScalarWhereWithAggregatesInput[]
+    NOT?: Multi_branchScalarWhereWithAggregatesInput | Multi_branchScalarWhereWithAggregatesInput[]
+    Multi_branch_ID?: IntWithAggregatesFilter<"Multi_branch"> | number
+    Multi_branch_name?: StringWithAggregatesFilter<"Multi_branch"> | string
+    Multi_branch_address?: StringNullableWithAggregatesFilter<"Multi_branch"> | string | null
+    Multi_branch_phone?: StringNullableWithAggregatesFilter<"Multi_branch"> | string | null
+    Multi_branch_email?: StringNullableWithAggregatesFilter<"Multi_branch"> | string | null
+    Multi_branch_opening_hours?: StringNullableWithAggregatesFilter<"Multi_branch"> | string | null
+    Multi_branch_create_at?: DateTimeWithAggregatesFilter<"Multi_branch"> | Date | string
+    Multi_branch_update_at?: DateTimeWithAggregatesFilter<"Multi_branch"> | Date | string
+  }
+
+  export type CommitWhereInput = {
+    AND?: CommitWhereInput | CommitWhereInput[]
+    OR?: CommitWhereInput[]
+    NOT?: CommitWhereInput | CommitWhereInput[]
+    Commit_ID?: IntFilter<"Commit"> | number
+    Commit_text?: StringFilter<"Commit"> | string
+    Commit_review?: StringNullableFilter<"Commit"> | string | null
+    Commit_entity_id?: IntNullableFilter<"Commit"> | number | null
+    Commit_entity_name?: StringNullableFilter<"Commit"> | string | null
+    Commit_create_at?: DateTimeFilter<"Commit"> | Date | string
+    Commit_user_ID?: IntFilter<"Commit"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type CommitOrderByWithRelationInput = {
+    Commit_ID?: SortOrder
+    Commit_text?: SortOrder
+    Commit_review?: SortOrderInput | SortOrder
+    Commit_entity_id?: SortOrderInput | SortOrder
+    Commit_entity_name?: SortOrderInput | SortOrder
+    Commit_create_at?: SortOrder
+    Commit_user_ID?: SortOrder
+    User?: UserOrderByWithRelationInput
+  }
+
+  export type CommitWhereUniqueInput = Prisma.AtLeast<{
+    Commit_ID?: number
+    AND?: CommitWhereInput | CommitWhereInput[]
+    OR?: CommitWhereInput[]
+    NOT?: CommitWhereInput | CommitWhereInput[]
+    Commit_text?: StringFilter<"Commit"> | string
+    Commit_review?: StringNullableFilter<"Commit"> | string | null
+    Commit_entity_id?: IntNullableFilter<"Commit"> | number | null
+    Commit_entity_name?: StringNullableFilter<"Commit"> | string | null
+    Commit_create_at?: DateTimeFilter<"Commit"> | Date | string
+    Commit_user_ID?: IntFilter<"Commit"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "Commit_ID">
+
+  export type CommitOrderByWithAggregationInput = {
+    Commit_ID?: SortOrder
+    Commit_text?: SortOrder
+    Commit_review?: SortOrderInput | SortOrder
+    Commit_entity_id?: SortOrderInput | SortOrder
+    Commit_entity_name?: SortOrderInput | SortOrder
+    Commit_create_at?: SortOrder
+    Commit_user_ID?: SortOrder
+    _count?: CommitCountOrderByAggregateInput
+    _avg?: CommitAvgOrderByAggregateInput
+    _max?: CommitMaxOrderByAggregateInput
+    _min?: CommitMinOrderByAggregateInput
+    _sum?: CommitSumOrderByAggregateInput
+  }
+
+  export type CommitScalarWhereWithAggregatesInput = {
+    AND?: CommitScalarWhereWithAggregatesInput | CommitScalarWhereWithAggregatesInput[]
+    OR?: CommitScalarWhereWithAggregatesInput[]
+    NOT?: CommitScalarWhereWithAggregatesInput | CommitScalarWhereWithAggregatesInput[]
+    Commit_ID?: IntWithAggregatesFilter<"Commit"> | number
+    Commit_text?: StringWithAggregatesFilter<"Commit"> | string
+    Commit_review?: StringNullableWithAggregatesFilter<"Commit"> | string | null
+    Commit_entity_id?: IntNullableWithAggregatesFilter<"Commit"> | number | null
+    Commit_entity_name?: StringNullableWithAggregatesFilter<"Commit"> | string | null
+    Commit_create_at?: DateTimeWithAggregatesFilter<"Commit"> | Date | string
+    Commit_user_ID?: IntWithAggregatesFilter<"Commit"> | number
+  }
+
+  export type NotificationWhereInput = {
+    AND?: NotificationWhereInput | NotificationWhereInput[]
+    OR?: NotificationWhereInput[]
+    NOT?: NotificationWhereInput | NotificationWhereInput[]
+    Notification_ID?: IntFilter<"Notification"> | number
+    Notification_text?: StringFilter<"Notification"> | string
+    Notification_is_read?: BoolFilter<"Notification"> | boolean
+    Notification_create_at?: DateTimeFilter<"Notification"> | Date | string
+    Notification_user_ID?: IntFilter<"Notification"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type NotificationOrderByWithRelationInput = {
+    Notification_ID?: SortOrder
+    Notification_text?: SortOrder
+    Notification_is_read?: SortOrder
+    Notification_create_at?: SortOrder
+    Notification_user_ID?: SortOrder
+    User?: UserOrderByWithRelationInput
+  }
+
+  export type NotificationWhereUniqueInput = Prisma.AtLeast<{
+    Notification_ID?: number
+    AND?: NotificationWhereInput | NotificationWhereInput[]
+    OR?: NotificationWhereInput[]
+    NOT?: NotificationWhereInput | NotificationWhereInput[]
+    Notification_text?: StringFilter<"Notification"> | string
+    Notification_is_read?: BoolFilter<"Notification"> | boolean
+    Notification_create_at?: DateTimeFilter<"Notification"> | Date | string
+    Notification_user_ID?: IntFilter<"Notification"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "Notification_ID">
+
+  export type NotificationOrderByWithAggregationInput = {
+    Notification_ID?: SortOrder
+    Notification_text?: SortOrder
+    Notification_is_read?: SortOrder
+    Notification_create_at?: SortOrder
+    Notification_user_ID?: SortOrder
+    _count?: NotificationCountOrderByAggregateInput
+    _avg?: NotificationAvgOrderByAggregateInput
+    _max?: NotificationMaxOrderByAggregateInput
+    _min?: NotificationMinOrderByAggregateInput
+    _sum?: NotificationSumOrderByAggregateInput
+  }
+
+  export type NotificationScalarWhereWithAggregatesInput = {
+    AND?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
+    OR?: NotificationScalarWhereWithAggregatesInput[]
+    NOT?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
+    Notification_ID?: IntWithAggregatesFilter<"Notification"> | number
+    Notification_text?: StringWithAggregatesFilter<"Notification"> | string
+    Notification_is_read?: BoolWithAggregatesFilter<"Notification"> | boolean
+    Notification_create_at?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
+    Notification_user_ID?: IntWithAggregatesFilter<"Notification"> | number
+  }
+
+  export type OTPWhereInput = {
+    AND?: OTPWhereInput | OTPWhereInput[]
+    OR?: OTPWhereInput[]
+    NOT?: OTPWhereInput | OTPWhereInput[]
+    OTP_ID?: IntFilter<"OTP"> | number
+    OTP_code?: StringFilter<"OTP"> | string
+    OTP_type?: EnumOTP_type_enumFilter<"OTP"> | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFilter<"OTP"> | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFilter<"OTP"> | Date | string
+    OTP_expires_at?: DateTimeFilter<"OTP"> | Date | string
+    OTP_user_ID?: IntFilter<"OTP"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type OTPOrderByWithRelationInput = {
+    OTP_ID?: SortOrder
+    OTP_code?: SortOrder
+    OTP_type?: SortOrder
+    OTP_status?: SortOrder
+    OTP_create_at?: SortOrder
+    OTP_expires_at?: SortOrder
+    OTP_user_ID?: SortOrder
+    User?: UserOrderByWithRelationInput
+  }
+
+  export type OTPWhereUniqueInput = Prisma.AtLeast<{
+    OTP_ID?: number
+    AND?: OTPWhereInput | OTPWhereInput[]
+    OR?: OTPWhereInput[]
+    NOT?: OTPWhereInput | OTPWhereInput[]
+    OTP_code?: StringFilter<"OTP"> | string
+    OTP_type?: EnumOTP_type_enumFilter<"OTP"> | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFilter<"OTP"> | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFilter<"OTP"> | Date | string
+    OTP_expires_at?: DateTimeFilter<"OTP"> | Date | string
+    OTP_user_ID?: IntFilter<"OTP"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "OTP_ID">
+
+  export type OTPOrderByWithAggregationInput = {
+    OTP_ID?: SortOrder
+    OTP_code?: SortOrder
+    OTP_type?: SortOrder
+    OTP_status?: SortOrder
+    OTP_create_at?: SortOrder
+    OTP_expires_at?: SortOrder
+    OTP_user_ID?: SortOrder
+    _count?: OTPCountOrderByAggregateInput
+    _avg?: OTPAvgOrderByAggregateInput
+    _max?: OTPMaxOrderByAggregateInput
+    _min?: OTPMinOrderByAggregateInput
+    _sum?: OTPSumOrderByAggregateInput
+  }
+
+  export type OTPScalarWhereWithAggregatesInput = {
+    AND?: OTPScalarWhereWithAggregatesInput | OTPScalarWhereWithAggregatesInput[]
+    OR?: OTPScalarWhereWithAggregatesInput[]
+    NOT?: OTPScalarWhereWithAggregatesInput | OTPScalarWhereWithAggregatesInput[]
+    OTP_ID?: IntWithAggregatesFilter<"OTP"> | number
+    OTP_code?: StringWithAggregatesFilter<"OTP"> | string
+    OTP_type?: EnumOTP_type_enumWithAggregatesFilter<"OTP"> | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumWithAggregatesFilter<"OTP"> | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeWithAggregatesFilter<"OTP"> | Date | string
+    OTP_expires_at?: DateTimeWithAggregatesFilter<"OTP"> | Date | string
+    OTP_user_ID?: IntWithAggregatesFilter<"OTP"> | number
+  }
+
+  export type HistoryWhereInput = {
+    AND?: HistoryWhereInput | HistoryWhereInput[]
+    OR?: HistoryWhereInput[]
+    NOT?: HistoryWhereInput | HistoryWhereInput[]
+    History_ID?: IntFilter<"History"> | number
+    History_bonus?: IntNullableFilter<"History"> | number | null
+    History_price?: FloatNullableFilter<"History"> | number | null
+    History_status?: EnumHistory_status_enumFilter<"History"> | $Enums.History_status_enum
+    History_create_at?: DateTimeFilter<"History"> | Date | string
+    History_multi_branch_ID?: IntFilter<"History"> | number
+    History_user_ID?: IntFilter<"History"> | number
+    History_service_ID?: IntFilter<"History"> | number
+    History_register_car?: IntNullableFilter<"History"> | number | null
+    History_register_service_ID?: IntNullableFilter<"History"> | number | null
+    carCar_ID?: IntNullableFilter<"History"> | number | null
+    Multi_branch?: XOR<Multi_branchScalarRelationFilter, Multi_branchWhereInput>
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+    Service?: XOR<ServiceScalarRelationFilter, ServiceWhereInput>
+    Register_car?: XOR<Register_carNullableScalarRelationFilter, Register_carWhereInput> | null
+    Register_service?: XOR<Register_serviceNullableScalarRelationFilter, Register_serviceWhereInput> | null
+    Car?: XOR<CarNullableScalarRelationFilter, CarWhereInput> | null
+  }
+
+  export type HistoryOrderByWithRelationInput = {
+    History_ID?: SortOrder
+    History_bonus?: SortOrderInput | SortOrder
+    History_price?: SortOrderInput | SortOrder
+    History_status?: SortOrder
+    History_create_at?: SortOrder
+    History_multi_branch_ID?: SortOrder
+    History_user_ID?: SortOrder
+    History_service_ID?: SortOrder
+    History_register_car?: SortOrderInput | SortOrder
+    History_register_service_ID?: SortOrderInput | SortOrder
+    carCar_ID?: SortOrderInput | SortOrder
+    Multi_branch?: Multi_branchOrderByWithRelationInput
+    User?: UserOrderByWithRelationInput
+    Service?: ServiceOrderByWithRelationInput
+    Register_car?: Register_carOrderByWithRelationInput
+    Register_service?: Register_serviceOrderByWithRelationInput
+    Car?: CarOrderByWithRelationInput
+  }
+
+  export type HistoryWhereUniqueInput = Prisma.AtLeast<{
+    History_ID?: number
+    AND?: HistoryWhereInput | HistoryWhereInput[]
+    OR?: HistoryWhereInput[]
+    NOT?: HistoryWhereInput | HistoryWhereInput[]
+    History_bonus?: IntNullableFilter<"History"> | number | null
+    History_price?: FloatNullableFilter<"History"> | number | null
+    History_status?: EnumHistory_status_enumFilter<"History"> | $Enums.History_status_enum
+    History_create_at?: DateTimeFilter<"History"> | Date | string
+    History_multi_branch_ID?: IntFilter<"History"> | number
+    History_user_ID?: IntFilter<"History"> | number
+    History_service_ID?: IntFilter<"History"> | number
+    History_register_car?: IntNullableFilter<"History"> | number | null
+    History_register_service_ID?: IntNullableFilter<"History"> | number | null
+    carCar_ID?: IntNullableFilter<"History"> | number | null
+    Multi_branch?: XOR<Multi_branchScalarRelationFilter, Multi_branchWhereInput>
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+    Service?: XOR<ServiceScalarRelationFilter, ServiceWhereInput>
+    Register_car?: XOR<Register_carNullableScalarRelationFilter, Register_carWhereInput> | null
+    Register_service?: XOR<Register_serviceNullableScalarRelationFilter, Register_serviceWhereInput> | null
+    Car?: XOR<CarNullableScalarRelationFilter, CarWhereInput> | null
+  }, "History_ID">
+
+  export type HistoryOrderByWithAggregationInput = {
+    History_ID?: SortOrder
+    History_bonus?: SortOrderInput | SortOrder
+    History_price?: SortOrderInput | SortOrder
+    History_status?: SortOrder
+    History_create_at?: SortOrder
+    History_multi_branch_ID?: SortOrder
+    History_user_ID?: SortOrder
+    History_service_ID?: SortOrder
+    History_register_car?: SortOrderInput | SortOrder
+    History_register_service_ID?: SortOrderInput | SortOrder
+    carCar_ID?: SortOrderInput | SortOrder
+    _count?: HistoryCountOrderByAggregateInput
+    _avg?: HistoryAvgOrderByAggregateInput
+    _max?: HistoryMaxOrderByAggregateInput
+    _min?: HistoryMinOrderByAggregateInput
+    _sum?: HistorySumOrderByAggregateInput
+  }
+
+  export type HistoryScalarWhereWithAggregatesInput = {
+    AND?: HistoryScalarWhereWithAggregatesInput | HistoryScalarWhereWithAggregatesInput[]
+    OR?: HistoryScalarWhereWithAggregatesInput[]
+    NOT?: HistoryScalarWhereWithAggregatesInput | HistoryScalarWhereWithAggregatesInput[]
+    History_ID?: IntWithAggregatesFilter<"History"> | number
+    History_bonus?: IntNullableWithAggregatesFilter<"History"> | number | null
+    History_price?: FloatNullableWithAggregatesFilter<"History"> | number | null
+    History_status?: EnumHistory_status_enumWithAggregatesFilter<"History"> | $Enums.History_status_enum
+    History_create_at?: DateTimeWithAggregatesFilter<"History"> | Date | string
+    History_multi_branch_ID?: IntWithAggregatesFilter<"History"> | number
+    History_user_ID?: IntWithAggregatesFilter<"History"> | number
+    History_service_ID?: IntWithAggregatesFilter<"History"> | number
+    History_register_car?: IntNullableWithAggregatesFilter<"History"> | number | null
+    History_register_service_ID?: IntNullableWithAggregatesFilter<"History"> | number | null
+    carCar_ID?: IntNullableWithAggregatesFilter<"History"> | number | null
+  }
+
+  export type Register_carWhereInput = {
+    AND?: Register_carWhereInput | Register_carWhereInput[]
+    OR?: Register_carWhereInput[]
+    NOT?: Register_carWhereInput | Register_carWhereInput[]
+    Register_car_ID?: IntFilter<"Register_car"> | number
+    Register_car_manufacturer?: StringNullableFilter<"Register_car"> | string | null
+    Register_car_mark?: StringNullableFilter<"Register_car"> | string | null
+    Register_car_year?: IntNullableFilter<"Register_car"> | number | null
+    Register_car_vin?: StringNullableFilter<"Register_car"> | string | null
+    Register_car_status?: EnumRegister_car_status_enumFilter<"Register_car"> | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFilter<"Register_car"> | Date | string
+    Register_car_update_at?: DateTimeFilter<"Register_car"> | Date | string
+    Register_car_user_ID?: IntFilter<"Register_car"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+    History?: HistoryListRelationFilter
+  }
+
+  export type Register_carOrderByWithRelationInput = {
+    Register_car_ID?: SortOrder
+    Register_car_manufacturer?: SortOrderInput | SortOrder
+    Register_car_mark?: SortOrderInput | SortOrder
+    Register_car_year?: SortOrderInput | SortOrder
+    Register_car_vin?: SortOrderInput | SortOrder
+    Register_car_status?: SortOrder
+    Register_car_create_at?: SortOrder
+    Register_car_update_at?: SortOrder
+    Register_car_user_ID?: SortOrder
+    User?: UserOrderByWithRelationInput
+    History?: HistoryOrderByRelationAggregateInput
+  }
+
+  export type Register_carWhereUniqueInput = Prisma.AtLeast<{
+    Register_car_ID?: number
+    Register_car_vin?: string
+    AND?: Register_carWhereInput | Register_carWhereInput[]
+    OR?: Register_carWhereInput[]
+    NOT?: Register_carWhereInput | Register_carWhereInput[]
+    Register_car_manufacturer?: StringNullableFilter<"Register_car"> | string | null
+    Register_car_mark?: StringNullableFilter<"Register_car"> | string | null
+    Register_car_year?: IntNullableFilter<"Register_car"> | number | null
+    Register_car_status?: EnumRegister_car_status_enumFilter<"Register_car"> | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFilter<"Register_car"> | Date | string
+    Register_car_update_at?: DateTimeFilter<"Register_car"> | Date | string
+    Register_car_user_ID?: IntFilter<"Register_car"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+    History?: HistoryListRelationFilter
+  }, "Register_car_ID" | "Register_car_vin">
+
+  export type Register_carOrderByWithAggregationInput = {
+    Register_car_ID?: SortOrder
+    Register_car_manufacturer?: SortOrderInput | SortOrder
+    Register_car_mark?: SortOrderInput | SortOrder
+    Register_car_year?: SortOrderInput | SortOrder
+    Register_car_vin?: SortOrderInput | SortOrder
+    Register_car_status?: SortOrder
+    Register_car_create_at?: SortOrder
+    Register_car_update_at?: SortOrder
+    Register_car_user_ID?: SortOrder
+    _count?: Register_carCountOrderByAggregateInput
+    _avg?: Register_carAvgOrderByAggregateInput
+    _max?: Register_carMaxOrderByAggregateInput
+    _min?: Register_carMinOrderByAggregateInput
+    _sum?: Register_carSumOrderByAggregateInput
+  }
+
+  export type Register_carScalarWhereWithAggregatesInput = {
+    AND?: Register_carScalarWhereWithAggregatesInput | Register_carScalarWhereWithAggregatesInput[]
+    OR?: Register_carScalarWhereWithAggregatesInput[]
+    NOT?: Register_carScalarWhereWithAggregatesInput | Register_carScalarWhereWithAggregatesInput[]
+    Register_car_ID?: IntWithAggregatesFilter<"Register_car"> | number
+    Register_car_manufacturer?: StringNullableWithAggregatesFilter<"Register_car"> | string | null
+    Register_car_mark?: StringNullableWithAggregatesFilter<"Register_car"> | string | null
+    Register_car_year?: IntNullableWithAggregatesFilter<"Register_car"> | number | null
+    Register_car_vin?: StringNullableWithAggregatesFilter<"Register_car"> | string | null
+    Register_car_status?: EnumRegister_car_status_enumWithAggregatesFilter<"Register_car"> | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeWithAggregatesFilter<"Register_car"> | Date | string
+    Register_car_update_at?: DateTimeWithAggregatesFilter<"Register_car"> | Date | string
+    Register_car_user_ID?: IntWithAggregatesFilter<"Register_car"> | number
+  }
+
+  export type Register_serviceWhereInput = {
+    AND?: Register_serviceWhereInput | Register_serviceWhereInput[]
+    OR?: Register_serviceWhereInput[]
+    NOT?: Register_serviceWhereInput | Register_serviceWhereInput[]
+    Register_service_ID?: IntFilter<"Register_service"> | number
+    Register_service_scheduled?: DateTimeNullableFilter<"Register_service"> | Date | string | null
+    Register_service_time_list?: StringNullableFilter<"Register_service"> | string | null
+    Register_service_status?: EnumRegister_service_status_enumFilter<"Register_service"> | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFilter<"Register_service"> | Date | string
+    Register_service_update_at?: DateTimeFilter<"Register_service"> | Date | string
+    Register_service_user_ID?: IntFilter<"Register_service"> | number
+    Register_service_car?: IntFilter<"Register_service"> | number
+    Register_service_service_ID?: IntFilter<"Register_service"> | number
+    Register_service_multi_branch_ID?: IntFilter<"Register_service"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+    Car?: XOR<CarScalarRelationFilter, CarWhereInput>
+    Service?: XOR<ServiceScalarRelationFilter, ServiceWhereInput>
+    Multi_branch?: XOR<Multi_branchScalarRelationFilter, Multi_branchWhereInput>
+    History?: HistoryListRelationFilter
+  }
+
+  export type Register_serviceOrderByWithRelationInput = {
+    Register_service_ID?: SortOrder
+    Register_service_scheduled?: SortOrderInput | SortOrder
+    Register_service_time_list?: SortOrderInput | SortOrder
+    Register_service_status?: SortOrder
+    Register_service_create_at?: SortOrder
+    Register_service_update_at?: SortOrder
+    Register_service_user_ID?: SortOrder
+    Register_service_car?: SortOrder
+    Register_service_service_ID?: SortOrder
+    Register_service_multi_branch_ID?: SortOrder
+    User?: UserOrderByWithRelationInput
+    Car?: CarOrderByWithRelationInput
+    Service?: ServiceOrderByWithRelationInput
+    Multi_branch?: Multi_branchOrderByWithRelationInput
+    History?: HistoryOrderByRelationAggregateInput
+  }
+
+  export type Register_serviceWhereUniqueInput = Prisma.AtLeast<{
+    Register_service_ID?: number
+    AND?: Register_serviceWhereInput | Register_serviceWhereInput[]
+    OR?: Register_serviceWhereInput[]
+    NOT?: Register_serviceWhereInput | Register_serviceWhereInput[]
+    Register_service_scheduled?: DateTimeNullableFilter<"Register_service"> | Date | string | null
+    Register_service_time_list?: StringNullableFilter<"Register_service"> | string | null
+    Register_service_status?: EnumRegister_service_status_enumFilter<"Register_service"> | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFilter<"Register_service"> | Date | string
+    Register_service_update_at?: DateTimeFilter<"Register_service"> | Date | string
+    Register_service_user_ID?: IntFilter<"Register_service"> | number
+    Register_service_car?: IntFilter<"Register_service"> | number
+    Register_service_service_ID?: IntFilter<"Register_service"> | number
+    Register_service_multi_branch_ID?: IntFilter<"Register_service"> | number
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+    Car?: XOR<CarScalarRelationFilter, CarWhereInput>
+    Service?: XOR<ServiceScalarRelationFilter, ServiceWhereInput>
+    Multi_branch?: XOR<Multi_branchScalarRelationFilter, Multi_branchWhereInput>
+    History?: HistoryListRelationFilter
+  }, "Register_service_ID">
+
+  export type Register_serviceOrderByWithAggregationInput = {
+    Register_service_ID?: SortOrder
+    Register_service_scheduled?: SortOrderInput | SortOrder
+    Register_service_time_list?: SortOrderInput | SortOrder
+    Register_service_status?: SortOrder
+    Register_service_create_at?: SortOrder
+    Register_service_update_at?: SortOrder
+    Register_service_user_ID?: SortOrder
+    Register_service_car?: SortOrder
+    Register_service_service_ID?: SortOrder
+    Register_service_multi_branch_ID?: SortOrder
+    _count?: Register_serviceCountOrderByAggregateInput
+    _avg?: Register_serviceAvgOrderByAggregateInput
+    _max?: Register_serviceMaxOrderByAggregateInput
+    _min?: Register_serviceMinOrderByAggregateInput
+    _sum?: Register_serviceSumOrderByAggregateInput
+  }
+
+  export type Register_serviceScalarWhereWithAggregatesInput = {
+    AND?: Register_serviceScalarWhereWithAggregatesInput | Register_serviceScalarWhereWithAggregatesInput[]
+    OR?: Register_serviceScalarWhereWithAggregatesInput[]
+    NOT?: Register_serviceScalarWhereWithAggregatesInput | Register_serviceScalarWhereWithAggregatesInput[]
+    Register_service_ID?: IntWithAggregatesFilter<"Register_service"> | number
+    Register_service_scheduled?: DateTimeNullableWithAggregatesFilter<"Register_service"> | Date | string | null
+    Register_service_time_list?: StringNullableWithAggregatesFilter<"Register_service"> | string | null
+    Register_service_status?: EnumRegister_service_status_enumWithAggregatesFilter<"Register_service"> | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeWithAggregatesFilter<"Register_service"> | Date | string
+    Register_service_update_at?: DateTimeWithAggregatesFilter<"Register_service"> | Date | string
+    Register_service_user_ID?: IntWithAggregatesFilter<"Register_service"> | number
+    Register_service_car?: IntWithAggregatesFilter<"Register_service"> | number
+    Register_service_service_ID?: IntWithAggregatesFilter<"Register_service"> | number
+    Register_service_multi_branch_ID?: IntWithAggregatesFilter<"Register_service"> | number
+  }
+
+  export type UserCreateInput = {
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusCreateNestedManyWithoutUserInput
+    Notification?: NotificationCreateNestedManyWithoutUserInput
+    Commit?: CommitCreateNestedManyWithoutUserInput
+    OTP?: OTPCreateNestedManyWithoutUserInput
+    Register_car?: Register_carCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceCreateNestedManyWithoutUserInput
+    History?: HistoryCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusUncheckedCreateNestedManyWithoutUserInput
+    Notification?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    Commit?: CommitUncheckedCreateNestedManyWithoutUserInput
+    OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
+    Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
+    History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUpdateInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUpdateManyWithoutUserNestedInput
+    Commit?: CommitUpdateManyWithoutUserNestedInput
+    OTP?: OTPUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
+    History?: HistoryUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUncheckedUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    Commit?: CommitUncheckedUpdateManyWithoutUserNestedInput
+    OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateManyInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+  }
+
+  export type UserUpdateManyMutationInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserUncheckedUpdateManyInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CarCreateInput = {
+    Car_list?: string | null
+    Register_service?: Register_serviceCreateNestedManyWithoutCarInput
+    History?: HistoryCreateNestedManyWithoutCarInput
+  }
+
+  export type CarUncheckedCreateInput = {
+    Car_ID?: number
+    Car_list?: string | null
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutCarInput
+    History?: HistoryUncheckedCreateNestedManyWithoutCarInput
+  }
+
+  export type CarUpdateInput = {
+    Car_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service?: Register_serviceUpdateManyWithoutCarNestedInput
+    History?: HistoryUpdateManyWithoutCarNestedInput
+  }
+
+  export type CarUncheckedUpdateInput = {
+    Car_ID?: IntFieldUpdateOperationsInput | number
+    Car_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutCarNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutCarNestedInput
+  }
+
+  export type CarCreateManyInput = {
+    Car_ID?: number
+    Car_list?: string | null
+  }
+
+  export type CarUpdateManyMutationInput = {
+    Car_list?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CarUncheckedUpdateManyInput = {
+    Car_ID?: IntFieldUpdateOperationsInput | number
+    Car_list?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ServiceCreateInput = {
+    Service_name: string
+    Service_description?: string | null
+    Service_price: number
+    Service_duration_min: number
+    Register_service?: Register_serviceCreateNestedManyWithoutServiceInput
+    History?: HistoryCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceUncheckedCreateInput = {
+    Service_ID?: number
+    Service_name: string
+    Service_description?: string | null
+    Service_price: number
+    Service_duration_min: number
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutServiceInput
+    History?: HistoryUncheckedCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceUpdateInput = {
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+    Register_service?: Register_serviceUpdateManyWithoutServiceNestedInput
+    History?: HistoryUpdateManyWithoutServiceNestedInput
+  }
+
+  export type ServiceUncheckedUpdateInput = {
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutServiceNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutServiceNestedInput
+  }
+
+  export type ServiceCreateManyInput = {
+    Service_ID?: number
+    Service_name: string
+    Service_description?: string | null
+    Service_price: number
+    Service_duration_min: number
+  }
+
+  export type ServiceUpdateManyMutationInput = {
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ServiceUncheckedUpdateManyInput = {
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BonusCreateInput = {
+    Bonus_point: number
+    Bonus_type: $Enums.Bonus_type_enum
+    User: UserCreateNestedOneWithoutBonusInput
+  }
+
+  export type BonusUncheckedCreateInput = {
+    Bonus_ID?: number
+    Bonus_point: number
+    Bonus_type: $Enums.Bonus_type_enum
+    Bonus_user_ID: number
+  }
+
+  export type BonusUpdateInput = {
+    Bonus_point?: IntFieldUpdateOperationsInput | number
+    Bonus_type?: EnumBonus_type_enumFieldUpdateOperationsInput | $Enums.Bonus_type_enum
+    User?: UserUpdateOneRequiredWithoutBonusNestedInput
+  }
+
+  export type BonusUncheckedUpdateInput = {
+    Bonus_ID?: IntFieldUpdateOperationsInput | number
+    Bonus_point?: IntFieldUpdateOperationsInput | number
+    Bonus_type?: EnumBonus_type_enumFieldUpdateOperationsInput | $Enums.Bonus_type_enum
+    Bonus_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BonusCreateManyInput = {
+    Bonus_ID?: number
+    Bonus_point: number
+    Bonus_type: $Enums.Bonus_type_enum
+    Bonus_user_ID: number
+  }
+
+  export type BonusUpdateManyMutationInput = {
+    Bonus_point?: IntFieldUpdateOperationsInput | number
+    Bonus_type?: EnumBonus_type_enumFieldUpdateOperationsInput | $Enums.Bonus_type_enum
+  }
+
+  export type BonusUncheckedUpdateManyInput = {
+    Bonus_ID?: IntFieldUpdateOperationsInput | number
+    Bonus_point?: IntFieldUpdateOperationsInput | number
+    Bonus_type?: EnumBonus_type_enumFieldUpdateOperationsInput | $Enums.Bonus_type_enum
+    Bonus_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type Multi_branchCreateInput = {
+    Multi_branch_name: string
+    Multi_branch_address?: string | null
+    Multi_branch_phone?: string | null
+    Multi_branch_email?: string | null
+    Multi_branch_opening_hours?: string | null
+    Multi_branch_create_at?: Date | string
+    Multi_branch_update_at?: Date | string
+    Register_service?: Register_serviceCreateNestedManyWithoutMulti_branchInput
+    History?: HistoryCreateNestedManyWithoutMulti_branchInput
+  }
+
+  export type Multi_branchUncheckedCreateInput = {
+    Multi_branch_ID?: number
+    Multi_branch_name: string
+    Multi_branch_address?: string | null
+    Multi_branch_phone?: string | null
+    Multi_branch_email?: string | null
+    Multi_branch_opening_hours?: string | null
+    Multi_branch_create_at?: Date | string
+    Multi_branch_update_at?: Date | string
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutMulti_branchInput
+    History?: HistoryUncheckedCreateNestedManyWithoutMulti_branchInput
+  }
+
+  export type Multi_branchUpdateInput = {
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service?: Register_serviceUpdateManyWithoutMulti_branchNestedInput
+    History?: HistoryUpdateManyWithoutMulti_branchNestedInput
+  }
+
+  export type Multi_branchUncheckedUpdateInput = {
+    Multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutMulti_branchNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutMulti_branchNestedInput
+  }
+
+  export type Multi_branchCreateManyInput = {
+    Multi_branch_ID?: number
+    Multi_branch_name: string
+    Multi_branch_address?: string | null
+    Multi_branch_phone?: string | null
+    Multi_branch_email?: string | null
+    Multi_branch_opening_hours?: string | null
+    Multi_branch_create_at?: Date | string
+    Multi_branch_update_at?: Date | string
+  }
+
+  export type Multi_branchUpdateManyMutationInput = {
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type Multi_branchUncheckedUpdateManyInput = {
+    Multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommitCreateInput = {
+    Commit_text: string
+    Commit_review?: string | null
+    Commit_entity_id?: number | null
+    Commit_entity_name?: string | null
+    Commit_create_at?: Date | string
+    User: UserCreateNestedOneWithoutCommitInput
+  }
+
+  export type CommitUncheckedCreateInput = {
+    Commit_ID?: number
+    Commit_text: string
+    Commit_review?: string | null
+    Commit_entity_id?: number | null
+    Commit_entity_name?: string | null
+    Commit_create_at?: Date | string
+    Commit_user_ID: number
+  }
+
+  export type CommitUpdateInput = {
+    Commit_text?: StringFieldUpdateOperationsInput | string
+    Commit_review?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_entity_id?: NullableIntFieldUpdateOperationsInput | number | null
+    Commit_entity_name?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutCommitNestedInput
+  }
+
+  export type CommitUncheckedUpdateInput = {
+    Commit_ID?: IntFieldUpdateOperationsInput | number
+    Commit_text?: StringFieldUpdateOperationsInput | string
+    Commit_review?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_entity_id?: NullableIntFieldUpdateOperationsInput | number | null
+    Commit_entity_name?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Commit_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CommitCreateManyInput = {
+    Commit_ID?: number
+    Commit_text: string
+    Commit_review?: string | null
+    Commit_entity_id?: number | null
+    Commit_entity_name?: string | null
+    Commit_create_at?: Date | string
+    Commit_user_ID: number
+  }
+
+  export type CommitUpdateManyMutationInput = {
+    Commit_text?: StringFieldUpdateOperationsInput | string
+    Commit_review?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_entity_id?: NullableIntFieldUpdateOperationsInput | number | null
+    Commit_entity_name?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommitUncheckedUpdateManyInput = {
+    Commit_ID?: IntFieldUpdateOperationsInput | number
+    Commit_text?: StringFieldUpdateOperationsInput | string
+    Commit_review?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_entity_id?: NullableIntFieldUpdateOperationsInput | number | null
+    Commit_entity_name?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Commit_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type NotificationCreateInput = {
+    Notification_text: string
+    Notification_is_read?: boolean
+    Notification_create_at?: Date | string
+    User: UserCreateNestedOneWithoutNotificationInput
+  }
+
+  export type NotificationUncheckedCreateInput = {
+    Notification_ID?: number
+    Notification_text: string
+    Notification_is_read?: boolean
+    Notification_create_at?: Date | string
+    Notification_user_ID: number
+  }
+
+  export type NotificationUpdateInput = {
+    Notification_text?: StringFieldUpdateOperationsInput | string
+    Notification_is_read?: BoolFieldUpdateOperationsInput | boolean
+    Notification_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutNotificationNestedInput
+  }
+
+  export type NotificationUncheckedUpdateInput = {
+    Notification_ID?: IntFieldUpdateOperationsInput | number
+    Notification_text?: StringFieldUpdateOperationsInput | string
+    Notification_is_read?: BoolFieldUpdateOperationsInput | boolean
+    Notification_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Notification_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type NotificationCreateManyInput = {
+    Notification_ID?: number
+    Notification_text: string
+    Notification_is_read?: boolean
+    Notification_create_at?: Date | string
+    Notification_user_ID: number
+  }
+
+  export type NotificationUpdateManyMutationInput = {
+    Notification_text?: StringFieldUpdateOperationsInput | string
+    Notification_is_read?: BoolFieldUpdateOperationsInput | boolean
+    Notification_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyInput = {
+    Notification_ID?: IntFieldUpdateOperationsInput | number
+    Notification_text?: StringFieldUpdateOperationsInput | string
+    Notification_is_read?: BoolFieldUpdateOperationsInput | boolean
+    Notification_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Notification_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OTPCreateInput = {
+    OTP_code: string
+    OTP_type: $Enums.OTP_type_enum
+    OTP_status: $Enums.OTP_status_enum
+    OTP_create_at?: Date | string
+    OTP_expires_at: Date | string
+    User: UserCreateNestedOneWithoutOTPInput
+  }
+
+  export type OTPUncheckedCreateInput = {
+    OTP_ID?: number
+    OTP_code: string
+    OTP_type: $Enums.OTP_type_enum
+    OTP_status: $Enums.OTP_status_enum
+    OTP_create_at?: Date | string
+    OTP_expires_at: Date | string
+    OTP_user_ID: number
+  }
+
+  export type OTPUpdateInput = {
+    OTP_code?: StringFieldUpdateOperationsInput | string
+    OTP_type?: EnumOTP_type_enumFieldUpdateOperationsInput | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFieldUpdateOperationsInput | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    OTP_expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutOTPNestedInput
+  }
+
+  export type OTPUncheckedUpdateInput = {
+    OTP_ID?: IntFieldUpdateOperationsInput | number
+    OTP_code?: StringFieldUpdateOperationsInput | string
+    OTP_type?: EnumOTP_type_enumFieldUpdateOperationsInput | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFieldUpdateOperationsInput | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    OTP_expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    OTP_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OTPCreateManyInput = {
+    OTP_ID?: number
+    OTP_code: string
+    OTP_type: $Enums.OTP_type_enum
+    OTP_status: $Enums.OTP_status_enum
+    OTP_create_at?: Date | string
+    OTP_expires_at: Date | string
+    OTP_user_ID: number
+  }
+
+  export type OTPUpdateManyMutationInput = {
+    OTP_code?: StringFieldUpdateOperationsInput | string
+    OTP_type?: EnumOTP_type_enumFieldUpdateOperationsInput | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFieldUpdateOperationsInput | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    OTP_expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OTPUncheckedUpdateManyInput = {
+    OTP_ID?: IntFieldUpdateOperationsInput | number
+    OTP_code?: StringFieldUpdateOperationsInput | string
+    OTP_type?: EnumOTP_type_enumFieldUpdateOperationsInput | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFieldUpdateOperationsInput | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    OTP_expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    OTP_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type HistoryCreateInput = {
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    Multi_branch: Multi_branchCreateNestedOneWithoutHistoryInput
+    User: UserCreateNestedOneWithoutHistoryInput
+    Service: ServiceCreateNestedOneWithoutHistoryInput
+    Register_car?: Register_carCreateNestedOneWithoutHistoryInput
+    Register_service?: Register_serviceCreateNestedOneWithoutHistoryInput
+    Car?: CarCreateNestedOneWithoutHistoryInput
+  }
+
+  export type HistoryUncheckedCreateInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type HistoryUpdateInput = {
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutHistoryNestedInput
+    User?: UserUpdateOneRequiredWithoutHistoryNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutHistoryNestedInput
+    Register_car?: Register_carUpdateOneWithoutHistoryNestedInput
+    Register_service?: Register_serviceUpdateOneWithoutHistoryNestedInput
+    Car?: CarUpdateOneWithoutHistoryNestedInput
+  }
+
+  export type HistoryUncheckedUpdateInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HistoryCreateManyInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type HistoryUpdateManyMutationInput = {
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HistoryUncheckedUpdateManyInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type Register_carCreateInput = {
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+    User: UserCreateNestedOneWithoutRegister_carInput
+    History?: HistoryCreateNestedManyWithoutRegister_carInput
+  }
+
+  export type Register_carUncheckedCreateInput = {
+    Register_car_ID?: number
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+    Register_car_user_ID: number
+    History?: HistoryUncheckedCreateNestedManyWithoutRegister_carInput
+  }
+
+  export type Register_carUpdateInput = {
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutRegister_carNestedInput
+    History?: HistoryUpdateManyWithoutRegister_carNestedInput
+  }
+
+  export type Register_carUncheckedUpdateInput = {
+    Register_car_ID?: IntFieldUpdateOperationsInput | number
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_user_ID?: IntFieldUpdateOperationsInput | number
+    History?: HistoryUncheckedUpdateManyWithoutRegister_carNestedInput
+  }
+
+  export type Register_carCreateManyInput = {
+    Register_car_ID?: number
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+    Register_car_user_ID: number
+  }
+
+  export type Register_carUpdateManyMutationInput = {
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type Register_carUncheckedUpdateManyInput = {
+    Register_car_ID?: IntFieldUpdateOperationsInput | number
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type Register_serviceCreateInput = {
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    User: UserCreateNestedOneWithoutRegister_serviceInput
+    Car: CarCreateNestedOneWithoutRegister_serviceInput
+    Service: ServiceCreateNestedOneWithoutRegister_serviceInput
+    Multi_branch: Multi_branchCreateNestedOneWithoutRegister_serviceInput
+    History?: HistoryCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceUncheckedCreateInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_user_ID: number
+    Register_service_car: number
+    Register_service_service_ID: number
+    Register_service_multi_branch_ID: number
+    History?: HistoryUncheckedCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceUpdateInput = {
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Car?: CarUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutRegister_serviceNestedInput
+    History?: HistoryUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_user_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_car?: IntFieldUpdateOperationsInput | number
+    Register_service_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History?: HistoryUncheckedUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceCreateManyInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_user_ID: number
+    Register_service_car: number
+    Register_service_service_ID: number
+    Register_service_multi_branch_ID: number
+  }
+
+  export type Register_serviceUpdateManyMutationInput = {
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type Register_serviceUncheckedUpdateManyInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_user_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_car?: IntFieldUpdateOperationsInput | number
+    Register_service_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type StringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type EnumUser_role_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.User_role_enum | EnumUser_role_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.User_role_enum[] | ListEnumUser_role_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.User_role_enum[] | ListEnumUser_role_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumUser_role_enumFilter<$PrismaModel> | $Enums.User_role_enum
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type BonusListRelationFilter = {
+    every?: BonusWhereInput
+    some?: BonusWhereInput
+    none?: BonusWhereInput
+  }
+
+  export type NotificationListRelationFilter = {
+    every?: NotificationWhereInput
+    some?: NotificationWhereInput
+    none?: NotificationWhereInput
+  }
+
+  export type CommitListRelationFilter = {
+    every?: CommitWhereInput
+    some?: CommitWhereInput
+    none?: CommitWhereInput
+  }
+
+  export type OTPListRelationFilter = {
+    every?: OTPWhereInput
+    some?: OTPWhereInput
+    none?: OTPWhereInput
+  }
+
+  export type Register_carListRelationFilter = {
+    every?: Register_carWhereInput
+    some?: Register_carWhereInput
+    none?: Register_carWhereInput
+  }
+
+  export type Register_serviceListRelationFilter = {
+    every?: Register_serviceWhereInput
+    some?: Register_serviceWhereInput
+    none?: Register_serviceWhereInput
+  }
+
+  export type HistoryListRelationFilter = {
+    every?: HistoryWhereInput
+    some?: HistoryWhereInput
+    none?: HistoryWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type BonusOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type NotificationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CommitOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type OTPOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type Register_carOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type Register_serviceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type HistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserCountOrderByAggregateInput = {
+    User_ID?: SortOrder
+    User_last_name?: SortOrder
+    User_first_name?: SortOrder
+    User_email?: SortOrder
+    User_phone?: SortOrder
+    User_password?: SortOrder
+    User_role?: SortOrder
+    User_create_at?: SortOrder
+    User_update_at?: SortOrder
+  }
+
+  export type UserAvgOrderByAggregateInput = {
+    User_ID?: SortOrder
+  }
+
+  export type UserMaxOrderByAggregateInput = {
+    User_ID?: SortOrder
+    User_last_name?: SortOrder
+    User_first_name?: SortOrder
+    User_email?: SortOrder
+    User_phone?: SortOrder
+    User_password?: SortOrder
+    User_role?: SortOrder
+    User_create_at?: SortOrder
+    User_update_at?: SortOrder
+  }
+
+  export type UserMinOrderByAggregateInput = {
+    User_ID?: SortOrder
+    User_last_name?: SortOrder
+    User_first_name?: SortOrder
+    User_email?: SortOrder
+    User_phone?: SortOrder
+    User_password?: SortOrder
+    User_role?: SortOrder
+    User_create_at?: SortOrder
+    User_update_at?: SortOrder
+  }
+
+  export type UserSumOrderByAggregateInput = {
+    User_ID?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type EnumUser_role_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.User_role_enum | EnumUser_role_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.User_role_enum[] | ListEnumUser_role_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.User_role_enum[] | ListEnumUser_role_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumUser_role_enumWithAggregatesFilter<$PrismaModel> | $Enums.User_role_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUser_role_enumFilter<$PrismaModel>
+    _max?: NestedEnumUser_role_enumFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type CarCountOrderByAggregateInput = {
+    Car_ID?: SortOrder
+    Car_list?: SortOrder
+  }
+
+  export type CarAvgOrderByAggregateInput = {
+    Car_ID?: SortOrder
+  }
+
+  export type CarMaxOrderByAggregateInput = {
+    Car_ID?: SortOrder
+    Car_list?: SortOrder
+  }
+
+  export type CarMinOrderByAggregateInput = {
+    Car_ID?: SortOrder
+    Car_list?: SortOrder
+  }
+
+  export type CarSumOrderByAggregateInput = {
+    Car_ID?: SortOrder
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type ServiceCountOrderByAggregateInput = {
+    Service_ID?: SortOrder
+    Service_name?: SortOrder
+    Service_description?: SortOrder
+    Service_price?: SortOrder
+    Service_duration_min?: SortOrder
+  }
+
+  export type ServiceAvgOrderByAggregateInput = {
+    Service_ID?: SortOrder
+    Service_price?: SortOrder
+    Service_duration_min?: SortOrder
+  }
+
+  export type ServiceMaxOrderByAggregateInput = {
+    Service_ID?: SortOrder
+    Service_name?: SortOrder
+    Service_description?: SortOrder
+    Service_price?: SortOrder
+    Service_duration_min?: SortOrder
+  }
+
+  export type ServiceMinOrderByAggregateInput = {
+    Service_ID?: SortOrder
+    Service_name?: SortOrder
+    Service_description?: SortOrder
+    Service_price?: SortOrder
+    Service_duration_min?: SortOrder
+  }
+
+  export type ServiceSumOrderByAggregateInput = {
+    Service_ID?: SortOrder
+    Service_price?: SortOrder
+    Service_duration_min?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type EnumBonus_type_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.Bonus_type_enum | EnumBonus_type_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Bonus_type_enum[] | ListEnumBonus_type_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Bonus_type_enum[] | ListEnumBonus_type_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumBonus_type_enumFilter<$PrismaModel> | $Enums.Bonus_type_enum
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type BonusCountOrderByAggregateInput = {
+    Bonus_ID?: SortOrder
+    Bonus_point?: SortOrder
+    Bonus_type?: SortOrder
+    Bonus_user_ID?: SortOrder
+  }
+
+  export type BonusAvgOrderByAggregateInput = {
+    Bonus_ID?: SortOrder
+    Bonus_point?: SortOrder
+    Bonus_user_ID?: SortOrder
+  }
+
+  export type BonusMaxOrderByAggregateInput = {
+    Bonus_ID?: SortOrder
+    Bonus_point?: SortOrder
+    Bonus_type?: SortOrder
+    Bonus_user_ID?: SortOrder
+  }
+
+  export type BonusMinOrderByAggregateInput = {
+    Bonus_ID?: SortOrder
+    Bonus_point?: SortOrder
+    Bonus_type?: SortOrder
+    Bonus_user_ID?: SortOrder
+  }
+
+  export type BonusSumOrderByAggregateInput = {
+    Bonus_ID?: SortOrder
+    Bonus_point?: SortOrder
+    Bonus_user_ID?: SortOrder
+  }
+
+  export type EnumBonus_type_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Bonus_type_enum | EnumBonus_type_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Bonus_type_enum[] | ListEnumBonus_type_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Bonus_type_enum[] | ListEnumBonus_type_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumBonus_type_enumWithAggregatesFilter<$PrismaModel> | $Enums.Bonus_type_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBonus_type_enumFilter<$PrismaModel>
+    _max?: NestedEnumBonus_type_enumFilter<$PrismaModel>
+  }
+
+  export type Multi_branchCountOrderByAggregateInput = {
+    Multi_branch_ID?: SortOrder
+    Multi_branch_name?: SortOrder
+    Multi_branch_address?: SortOrder
+    Multi_branch_phone?: SortOrder
+    Multi_branch_email?: SortOrder
+    Multi_branch_opening_hours?: SortOrder
+    Multi_branch_create_at?: SortOrder
+    Multi_branch_update_at?: SortOrder
+  }
+
+  export type Multi_branchAvgOrderByAggregateInput = {
+    Multi_branch_ID?: SortOrder
+  }
+
+  export type Multi_branchMaxOrderByAggregateInput = {
+    Multi_branch_ID?: SortOrder
+    Multi_branch_name?: SortOrder
+    Multi_branch_address?: SortOrder
+    Multi_branch_phone?: SortOrder
+    Multi_branch_email?: SortOrder
+    Multi_branch_opening_hours?: SortOrder
+    Multi_branch_create_at?: SortOrder
+    Multi_branch_update_at?: SortOrder
+  }
+
+  export type Multi_branchMinOrderByAggregateInput = {
+    Multi_branch_ID?: SortOrder
+    Multi_branch_name?: SortOrder
+    Multi_branch_address?: SortOrder
+    Multi_branch_phone?: SortOrder
+    Multi_branch_email?: SortOrder
+    Multi_branch_opening_hours?: SortOrder
+    Multi_branch_create_at?: SortOrder
+    Multi_branch_update_at?: SortOrder
+  }
+
+  export type Multi_branchSumOrderByAggregateInput = {
+    Multi_branch_ID?: SortOrder
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type CommitCountOrderByAggregateInput = {
+    Commit_ID?: SortOrder
+    Commit_text?: SortOrder
+    Commit_review?: SortOrder
+    Commit_entity_id?: SortOrder
+    Commit_entity_name?: SortOrder
+    Commit_create_at?: SortOrder
+    Commit_user_ID?: SortOrder
+  }
+
+  export type CommitAvgOrderByAggregateInput = {
+    Commit_ID?: SortOrder
+    Commit_entity_id?: SortOrder
+    Commit_user_ID?: SortOrder
+  }
+
+  export type CommitMaxOrderByAggregateInput = {
+    Commit_ID?: SortOrder
+    Commit_text?: SortOrder
+    Commit_review?: SortOrder
+    Commit_entity_id?: SortOrder
+    Commit_entity_name?: SortOrder
+    Commit_create_at?: SortOrder
+    Commit_user_ID?: SortOrder
+  }
+
+  export type CommitMinOrderByAggregateInput = {
+    Commit_ID?: SortOrder
+    Commit_text?: SortOrder
+    Commit_review?: SortOrder
+    Commit_entity_id?: SortOrder
+    Commit_entity_name?: SortOrder
+    Commit_create_at?: SortOrder
+    Commit_user_ID?: SortOrder
+  }
+
+  export type CommitSumOrderByAggregateInput = {
+    Commit_ID?: SortOrder
+    Commit_entity_id?: SortOrder
+    Commit_user_ID?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NotificationCountOrderByAggregateInput = {
+    Notification_ID?: SortOrder
+    Notification_text?: SortOrder
+    Notification_is_read?: SortOrder
+    Notification_create_at?: SortOrder
+    Notification_user_ID?: SortOrder
+  }
+
+  export type NotificationAvgOrderByAggregateInput = {
+    Notification_ID?: SortOrder
+    Notification_user_ID?: SortOrder
+  }
+
+  export type NotificationMaxOrderByAggregateInput = {
+    Notification_ID?: SortOrder
+    Notification_text?: SortOrder
+    Notification_is_read?: SortOrder
+    Notification_create_at?: SortOrder
+    Notification_user_ID?: SortOrder
+  }
+
+  export type NotificationMinOrderByAggregateInput = {
+    Notification_ID?: SortOrder
+    Notification_text?: SortOrder
+    Notification_is_read?: SortOrder
+    Notification_create_at?: SortOrder
+    Notification_user_ID?: SortOrder
+  }
+
+  export type NotificationSumOrderByAggregateInput = {
+    Notification_ID?: SortOrder
+    Notification_user_ID?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type EnumOTP_type_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.OTP_type_enum | EnumOTP_type_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.OTP_type_enum[] | ListEnumOTP_type_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OTP_type_enum[] | ListEnumOTP_type_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumOTP_type_enumFilter<$PrismaModel> | $Enums.OTP_type_enum
+  }
+
+  export type EnumOTP_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.OTP_status_enum | EnumOTP_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.OTP_status_enum[] | ListEnumOTP_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OTP_status_enum[] | ListEnumOTP_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumOTP_status_enumFilter<$PrismaModel> | $Enums.OTP_status_enum
+  }
+
+  export type OTPCountOrderByAggregateInput = {
+    OTP_ID?: SortOrder
+    OTP_code?: SortOrder
+    OTP_type?: SortOrder
+    OTP_status?: SortOrder
+    OTP_create_at?: SortOrder
+    OTP_expires_at?: SortOrder
+    OTP_user_ID?: SortOrder
+  }
+
+  export type OTPAvgOrderByAggregateInput = {
+    OTP_ID?: SortOrder
+    OTP_user_ID?: SortOrder
+  }
+
+  export type OTPMaxOrderByAggregateInput = {
+    OTP_ID?: SortOrder
+    OTP_code?: SortOrder
+    OTP_type?: SortOrder
+    OTP_status?: SortOrder
+    OTP_create_at?: SortOrder
+    OTP_expires_at?: SortOrder
+    OTP_user_ID?: SortOrder
+  }
+
+  export type OTPMinOrderByAggregateInput = {
+    OTP_ID?: SortOrder
+    OTP_code?: SortOrder
+    OTP_type?: SortOrder
+    OTP_status?: SortOrder
+    OTP_create_at?: SortOrder
+    OTP_expires_at?: SortOrder
+    OTP_user_ID?: SortOrder
+  }
+
+  export type OTPSumOrderByAggregateInput = {
+    OTP_ID?: SortOrder
+    OTP_user_ID?: SortOrder
+  }
+
+  export type EnumOTP_type_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OTP_type_enum | EnumOTP_type_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.OTP_type_enum[] | ListEnumOTP_type_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OTP_type_enum[] | ListEnumOTP_type_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumOTP_type_enumWithAggregatesFilter<$PrismaModel> | $Enums.OTP_type_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOTP_type_enumFilter<$PrismaModel>
+    _max?: NestedEnumOTP_type_enumFilter<$PrismaModel>
+  }
+
+  export type EnumOTP_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OTP_status_enum | EnumOTP_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.OTP_status_enum[] | ListEnumOTP_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OTP_status_enum[] | ListEnumOTP_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumOTP_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.OTP_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOTP_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumOTP_status_enumFilter<$PrismaModel>
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type EnumHistory_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.History_status_enum | EnumHistory_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.History_status_enum[] | ListEnumHistory_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.History_status_enum[] | ListEnumHistory_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumHistory_status_enumFilter<$PrismaModel> | $Enums.History_status_enum
+  }
+
+  export type Multi_branchScalarRelationFilter = {
+    is?: Multi_branchWhereInput
+    isNot?: Multi_branchWhereInput
+  }
+
+  export type ServiceScalarRelationFilter = {
+    is?: ServiceWhereInput
+    isNot?: ServiceWhereInput
+  }
+
+  export type Register_carNullableScalarRelationFilter = {
+    is?: Register_carWhereInput | null
+    isNot?: Register_carWhereInput | null
+  }
+
+  export type Register_serviceNullableScalarRelationFilter = {
+    is?: Register_serviceWhereInput | null
+    isNot?: Register_serviceWhereInput | null
+  }
+
+  export type CarNullableScalarRelationFilter = {
+    is?: CarWhereInput | null
+    isNot?: CarWhereInput | null
+  }
+
+  export type HistoryCountOrderByAggregateInput = {
+    History_ID?: SortOrder
+    History_bonus?: SortOrder
+    History_price?: SortOrder
+    History_status?: SortOrder
+    History_create_at?: SortOrder
+    History_multi_branch_ID?: SortOrder
+    History_user_ID?: SortOrder
+    History_service_ID?: SortOrder
+    History_register_car?: SortOrder
+    History_register_service_ID?: SortOrder
+    carCar_ID?: SortOrder
+  }
+
+  export type HistoryAvgOrderByAggregateInput = {
+    History_ID?: SortOrder
+    History_bonus?: SortOrder
+    History_price?: SortOrder
+    History_multi_branch_ID?: SortOrder
+    History_user_ID?: SortOrder
+    History_service_ID?: SortOrder
+    History_register_car?: SortOrder
+    History_register_service_ID?: SortOrder
+    carCar_ID?: SortOrder
+  }
+
+  export type HistoryMaxOrderByAggregateInput = {
+    History_ID?: SortOrder
+    History_bonus?: SortOrder
+    History_price?: SortOrder
+    History_status?: SortOrder
+    History_create_at?: SortOrder
+    History_multi_branch_ID?: SortOrder
+    History_user_ID?: SortOrder
+    History_service_ID?: SortOrder
+    History_register_car?: SortOrder
+    History_register_service_ID?: SortOrder
+    carCar_ID?: SortOrder
+  }
+
+  export type HistoryMinOrderByAggregateInput = {
+    History_ID?: SortOrder
+    History_bonus?: SortOrder
+    History_price?: SortOrder
+    History_status?: SortOrder
+    History_create_at?: SortOrder
+    History_multi_branch_ID?: SortOrder
+    History_user_ID?: SortOrder
+    History_service_ID?: SortOrder
+    History_register_car?: SortOrder
+    History_register_service_ID?: SortOrder
+    carCar_ID?: SortOrder
+  }
+
+  export type HistorySumOrderByAggregateInput = {
+    History_ID?: SortOrder
+    History_bonus?: SortOrder
+    History_price?: SortOrder
+    History_multi_branch_ID?: SortOrder
+    History_user_ID?: SortOrder
+    History_service_ID?: SortOrder
+    History_register_car?: SortOrder
+    History_register_service_ID?: SortOrder
+    carCar_ID?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type EnumHistory_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.History_status_enum | EnumHistory_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.History_status_enum[] | ListEnumHistory_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.History_status_enum[] | ListEnumHistory_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumHistory_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.History_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumHistory_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumHistory_status_enumFilter<$PrismaModel>
+  }
+
+  export type EnumRegister_car_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_car_status_enum | EnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_car_status_enum[] | ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_car_status_enum[] | ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_car_status_enumFilter<$PrismaModel> | $Enums.Register_car_status_enum
+  }
+
+  export type Register_carCountOrderByAggregateInput = {
+    Register_car_ID?: SortOrder
+    Register_car_manufacturer?: SortOrder
+    Register_car_mark?: SortOrder
+    Register_car_year?: SortOrder
+    Register_car_vin?: SortOrder
+    Register_car_status?: SortOrder
+    Register_car_create_at?: SortOrder
+    Register_car_update_at?: SortOrder
+    Register_car_user_ID?: SortOrder
+  }
+
+  export type Register_carAvgOrderByAggregateInput = {
+    Register_car_ID?: SortOrder
+    Register_car_year?: SortOrder
+    Register_car_user_ID?: SortOrder
+  }
+
+  export type Register_carMaxOrderByAggregateInput = {
+    Register_car_ID?: SortOrder
+    Register_car_manufacturer?: SortOrder
+    Register_car_mark?: SortOrder
+    Register_car_year?: SortOrder
+    Register_car_vin?: SortOrder
+    Register_car_status?: SortOrder
+    Register_car_create_at?: SortOrder
+    Register_car_update_at?: SortOrder
+    Register_car_user_ID?: SortOrder
+  }
+
+  export type Register_carMinOrderByAggregateInput = {
+    Register_car_ID?: SortOrder
+    Register_car_manufacturer?: SortOrder
+    Register_car_mark?: SortOrder
+    Register_car_year?: SortOrder
+    Register_car_vin?: SortOrder
+    Register_car_status?: SortOrder
+    Register_car_create_at?: SortOrder
+    Register_car_update_at?: SortOrder
+    Register_car_user_ID?: SortOrder
+  }
+
+  export type Register_carSumOrderByAggregateInput = {
+    Register_car_ID?: SortOrder
+    Register_car_year?: SortOrder
+    Register_car_user_ID?: SortOrder
+  }
+
+  export type EnumRegister_car_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_car_status_enum | EnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_car_status_enum[] | ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_car_status_enum[] | ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_car_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.Register_car_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegister_car_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumRegister_car_status_enumFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type EnumRegister_service_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_service_status_enumFilter<$PrismaModel> | $Enums.Register_service_status_enum
+  }
+
+  export type CarScalarRelationFilter = {
+    is?: CarWhereInput
+    isNot?: CarWhereInput
+  }
+
+  export type Register_serviceCountOrderByAggregateInput = {
+    Register_service_ID?: SortOrder
+    Register_service_scheduled?: SortOrder
+    Register_service_time_list?: SortOrder
+    Register_service_status?: SortOrder
+    Register_service_create_at?: SortOrder
+    Register_service_update_at?: SortOrder
+    Register_service_user_ID?: SortOrder
+    Register_service_car?: SortOrder
+    Register_service_service_ID?: SortOrder
+    Register_service_multi_branch_ID?: SortOrder
+  }
+
+  export type Register_serviceAvgOrderByAggregateInput = {
+    Register_service_ID?: SortOrder
+    Register_service_user_ID?: SortOrder
+    Register_service_car?: SortOrder
+    Register_service_service_ID?: SortOrder
+    Register_service_multi_branch_ID?: SortOrder
+  }
+
+  export type Register_serviceMaxOrderByAggregateInput = {
+    Register_service_ID?: SortOrder
+    Register_service_scheduled?: SortOrder
+    Register_service_time_list?: SortOrder
+    Register_service_status?: SortOrder
+    Register_service_create_at?: SortOrder
+    Register_service_update_at?: SortOrder
+    Register_service_user_ID?: SortOrder
+    Register_service_car?: SortOrder
+    Register_service_service_ID?: SortOrder
+    Register_service_multi_branch_ID?: SortOrder
+  }
+
+  export type Register_serviceMinOrderByAggregateInput = {
+    Register_service_ID?: SortOrder
+    Register_service_scheduled?: SortOrder
+    Register_service_time_list?: SortOrder
+    Register_service_status?: SortOrder
+    Register_service_create_at?: SortOrder
+    Register_service_update_at?: SortOrder
+    Register_service_user_ID?: SortOrder
+    Register_service_car?: SortOrder
+    Register_service_service_ID?: SortOrder
+    Register_service_multi_branch_ID?: SortOrder
+  }
+
+  export type Register_serviceSumOrderByAggregateInput = {
+    Register_service_ID?: SortOrder
+    Register_service_user_ID?: SortOrder
+    Register_service_car?: SortOrder
+    Register_service_service_ID?: SortOrder
+    Register_service_multi_branch_ID?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type EnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.Register_service_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
+  }
+
+  export type BonusCreateNestedManyWithoutUserInput = {
+    create?: XOR<BonusCreateWithoutUserInput, BonusUncheckedCreateWithoutUserInput> | BonusCreateWithoutUserInput[] | BonusUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BonusCreateOrConnectWithoutUserInput | BonusCreateOrConnectWithoutUserInput[]
+    createMany?: BonusCreateManyUserInputEnvelope
+    connect?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+  }
+
+  export type NotificationCreateNestedManyWithoutUserInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
+  export type CommitCreateNestedManyWithoutUserInput = {
+    create?: XOR<CommitCreateWithoutUserInput, CommitUncheckedCreateWithoutUserInput> | CommitCreateWithoutUserInput[] | CommitUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommitCreateOrConnectWithoutUserInput | CommitCreateOrConnectWithoutUserInput[]
+    createMany?: CommitCreateManyUserInputEnvelope
+    connect?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+  }
+
+  export type OTPCreateNestedManyWithoutUserInput = {
+    create?: XOR<OTPCreateWithoutUserInput, OTPUncheckedCreateWithoutUserInput> | OTPCreateWithoutUserInput[] | OTPUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: OTPCreateOrConnectWithoutUserInput | OTPCreateOrConnectWithoutUserInput[]
+    createMany?: OTPCreateManyUserInputEnvelope
+    connect?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+  }
+
+  export type Register_carCreateNestedManyWithoutUserInput = {
+    create?: XOR<Register_carCreateWithoutUserInput, Register_carUncheckedCreateWithoutUserInput> | Register_carCreateWithoutUserInput[] | Register_carUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Register_carCreateOrConnectWithoutUserInput | Register_carCreateOrConnectWithoutUserInput[]
+    createMany?: Register_carCreateManyUserInputEnvelope
+    connect?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+  }
+
+  export type Register_serviceCreateNestedManyWithoutUserInput = {
+    create?: XOR<Register_serviceCreateWithoutUserInput, Register_serviceUncheckedCreateWithoutUserInput> | Register_serviceCreateWithoutUserInput[] | Register_serviceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutUserInput | Register_serviceCreateOrConnectWithoutUserInput[]
+    createMany?: Register_serviceCreateManyUserInputEnvelope
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+  }
+
+  export type HistoryCreateNestedManyWithoutUserInput = {
+    create?: XOR<HistoryCreateWithoutUserInput, HistoryUncheckedCreateWithoutUserInput> | HistoryCreateWithoutUserInput[] | HistoryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutUserInput | HistoryCreateOrConnectWithoutUserInput[]
+    createMany?: HistoryCreateManyUserInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type BonusUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<BonusCreateWithoutUserInput, BonusUncheckedCreateWithoutUserInput> | BonusCreateWithoutUserInput[] | BonusUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BonusCreateOrConnectWithoutUserInput | BonusCreateOrConnectWithoutUserInput[]
+    createMany?: BonusCreateManyUserInputEnvelope
+    connect?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+  }
+
+  export type NotificationUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
+  export type CommitUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<CommitCreateWithoutUserInput, CommitUncheckedCreateWithoutUserInput> | CommitCreateWithoutUserInput[] | CommitUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommitCreateOrConnectWithoutUserInput | CommitCreateOrConnectWithoutUserInput[]
+    createMany?: CommitCreateManyUserInputEnvelope
+    connect?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+  }
+
+  export type OTPUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<OTPCreateWithoutUserInput, OTPUncheckedCreateWithoutUserInput> | OTPCreateWithoutUserInput[] | OTPUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: OTPCreateOrConnectWithoutUserInput | OTPCreateOrConnectWithoutUserInput[]
+    createMany?: OTPCreateManyUserInputEnvelope
+    connect?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+  }
+
+  export type Register_carUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<Register_carCreateWithoutUserInput, Register_carUncheckedCreateWithoutUserInput> | Register_carCreateWithoutUserInput[] | Register_carUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Register_carCreateOrConnectWithoutUserInput | Register_carCreateOrConnectWithoutUserInput[]
+    createMany?: Register_carCreateManyUserInputEnvelope
+    connect?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+  }
+
+  export type Register_serviceUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<Register_serviceCreateWithoutUserInput, Register_serviceUncheckedCreateWithoutUserInput> | Register_serviceCreateWithoutUserInput[] | Register_serviceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutUserInput | Register_serviceCreateOrConnectWithoutUserInput[]
+    createMany?: Register_serviceCreateManyUserInputEnvelope
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+  }
+
+  export type HistoryUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<HistoryCreateWithoutUserInput, HistoryUncheckedCreateWithoutUserInput> | HistoryCreateWithoutUserInput[] | HistoryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutUserInput | HistoryCreateOrConnectWithoutUserInput[]
+    createMany?: HistoryCreateManyUserInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type EnumUser_role_enumFieldUpdateOperationsInput = {
+    set?: $Enums.User_role_enum
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type BonusUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BonusCreateWithoutUserInput, BonusUncheckedCreateWithoutUserInput> | BonusCreateWithoutUserInput[] | BonusUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BonusCreateOrConnectWithoutUserInput | BonusCreateOrConnectWithoutUserInput[]
+    upsert?: BonusUpsertWithWhereUniqueWithoutUserInput | BonusUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BonusCreateManyUserInputEnvelope
+    set?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+    disconnect?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+    delete?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+    connect?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+    update?: BonusUpdateWithWhereUniqueWithoutUserInput | BonusUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BonusUpdateManyWithWhereWithoutUserInput | BonusUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BonusScalarWhereInput | BonusScalarWhereInput[]
+  }
+
+  export type NotificationUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type CommitUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CommitCreateWithoutUserInput, CommitUncheckedCreateWithoutUserInput> | CommitCreateWithoutUserInput[] | CommitUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommitCreateOrConnectWithoutUserInput | CommitCreateOrConnectWithoutUserInput[]
+    upsert?: CommitUpsertWithWhereUniqueWithoutUserInput | CommitUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CommitCreateManyUserInputEnvelope
+    set?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+    disconnect?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+    delete?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+    connect?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+    update?: CommitUpdateWithWhereUniqueWithoutUserInput | CommitUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CommitUpdateManyWithWhereWithoutUserInput | CommitUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CommitScalarWhereInput | CommitScalarWhereInput[]
+  }
+
+  export type OTPUpdateManyWithoutUserNestedInput = {
+    create?: XOR<OTPCreateWithoutUserInput, OTPUncheckedCreateWithoutUserInput> | OTPCreateWithoutUserInput[] | OTPUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: OTPCreateOrConnectWithoutUserInput | OTPCreateOrConnectWithoutUserInput[]
+    upsert?: OTPUpsertWithWhereUniqueWithoutUserInput | OTPUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: OTPCreateManyUserInputEnvelope
+    set?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+    disconnect?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+    delete?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+    connect?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+    update?: OTPUpdateWithWhereUniqueWithoutUserInput | OTPUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: OTPUpdateManyWithWhereWithoutUserInput | OTPUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: OTPScalarWhereInput | OTPScalarWhereInput[]
+  }
+
+  export type Register_carUpdateManyWithoutUserNestedInput = {
+    create?: XOR<Register_carCreateWithoutUserInput, Register_carUncheckedCreateWithoutUserInput> | Register_carCreateWithoutUserInput[] | Register_carUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Register_carCreateOrConnectWithoutUserInput | Register_carCreateOrConnectWithoutUserInput[]
+    upsert?: Register_carUpsertWithWhereUniqueWithoutUserInput | Register_carUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: Register_carCreateManyUserInputEnvelope
+    set?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+    disconnect?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+    delete?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+    connect?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+    update?: Register_carUpdateWithWhereUniqueWithoutUserInput | Register_carUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: Register_carUpdateManyWithWhereWithoutUserInput | Register_carUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: Register_carScalarWhereInput | Register_carScalarWhereInput[]
+  }
+
+  export type Register_serviceUpdateManyWithoutUserNestedInput = {
+    create?: XOR<Register_serviceCreateWithoutUserInput, Register_serviceUncheckedCreateWithoutUserInput> | Register_serviceCreateWithoutUserInput[] | Register_serviceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutUserInput | Register_serviceCreateOrConnectWithoutUserInput[]
+    upsert?: Register_serviceUpsertWithWhereUniqueWithoutUserInput | Register_serviceUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: Register_serviceCreateManyUserInputEnvelope
+    set?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    disconnect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    delete?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    update?: Register_serviceUpdateWithWhereUniqueWithoutUserInput | Register_serviceUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: Register_serviceUpdateManyWithWhereWithoutUserInput | Register_serviceUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+  }
+
+  export type HistoryUpdateManyWithoutUserNestedInput = {
+    create?: XOR<HistoryCreateWithoutUserInput, HistoryUncheckedCreateWithoutUserInput> | HistoryCreateWithoutUserInput[] | HistoryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutUserInput | HistoryCreateOrConnectWithoutUserInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutUserInput | HistoryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: HistoryCreateManyUserInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutUserInput | HistoryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutUserInput | HistoryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type BonusUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BonusCreateWithoutUserInput, BonusUncheckedCreateWithoutUserInput> | BonusCreateWithoutUserInput[] | BonusUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BonusCreateOrConnectWithoutUserInput | BonusCreateOrConnectWithoutUserInput[]
+    upsert?: BonusUpsertWithWhereUniqueWithoutUserInput | BonusUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BonusCreateManyUserInputEnvelope
+    set?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+    disconnect?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+    delete?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+    connect?: BonusWhereUniqueInput | BonusWhereUniqueInput[]
+    update?: BonusUpdateWithWhereUniqueWithoutUserInput | BonusUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BonusUpdateManyWithWhereWithoutUserInput | BonusUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BonusScalarWhereInput | BonusScalarWhereInput[]
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput> | NotificationCreateWithoutUserInput[] | NotificationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutUserInput | NotificationCreateOrConnectWithoutUserInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutUserInput | NotificationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NotificationCreateManyUserInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutUserInput | NotificationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutUserInput | NotificationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
+  export type CommitUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CommitCreateWithoutUserInput, CommitUncheckedCreateWithoutUserInput> | CommitCreateWithoutUserInput[] | CommitUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CommitCreateOrConnectWithoutUserInput | CommitCreateOrConnectWithoutUserInput[]
+    upsert?: CommitUpsertWithWhereUniqueWithoutUserInput | CommitUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CommitCreateManyUserInputEnvelope
+    set?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+    disconnect?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+    delete?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+    connect?: CommitWhereUniqueInput | CommitWhereUniqueInput[]
+    update?: CommitUpdateWithWhereUniqueWithoutUserInput | CommitUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CommitUpdateManyWithWhereWithoutUserInput | CommitUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CommitScalarWhereInput | CommitScalarWhereInput[]
+  }
+
+  export type OTPUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<OTPCreateWithoutUserInput, OTPUncheckedCreateWithoutUserInput> | OTPCreateWithoutUserInput[] | OTPUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: OTPCreateOrConnectWithoutUserInput | OTPCreateOrConnectWithoutUserInput[]
+    upsert?: OTPUpsertWithWhereUniqueWithoutUserInput | OTPUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: OTPCreateManyUserInputEnvelope
+    set?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+    disconnect?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+    delete?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+    connect?: OTPWhereUniqueInput | OTPWhereUniqueInput[]
+    update?: OTPUpdateWithWhereUniqueWithoutUserInput | OTPUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: OTPUpdateManyWithWhereWithoutUserInput | OTPUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: OTPScalarWhereInput | OTPScalarWhereInput[]
+  }
+
+  export type Register_carUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<Register_carCreateWithoutUserInput, Register_carUncheckedCreateWithoutUserInput> | Register_carCreateWithoutUserInput[] | Register_carUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Register_carCreateOrConnectWithoutUserInput | Register_carCreateOrConnectWithoutUserInput[]
+    upsert?: Register_carUpsertWithWhereUniqueWithoutUserInput | Register_carUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: Register_carCreateManyUserInputEnvelope
+    set?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+    disconnect?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+    delete?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+    connect?: Register_carWhereUniqueInput | Register_carWhereUniqueInput[]
+    update?: Register_carUpdateWithWhereUniqueWithoutUserInput | Register_carUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: Register_carUpdateManyWithWhereWithoutUserInput | Register_carUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: Register_carScalarWhereInput | Register_carScalarWhereInput[]
+  }
+
+  export type Register_serviceUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<Register_serviceCreateWithoutUserInput, Register_serviceUncheckedCreateWithoutUserInput> | Register_serviceCreateWithoutUserInput[] | Register_serviceUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutUserInput | Register_serviceCreateOrConnectWithoutUserInput[]
+    upsert?: Register_serviceUpsertWithWhereUniqueWithoutUserInput | Register_serviceUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: Register_serviceCreateManyUserInputEnvelope
+    set?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    disconnect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    delete?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    update?: Register_serviceUpdateWithWhereUniqueWithoutUserInput | Register_serviceUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: Register_serviceUpdateManyWithWhereWithoutUserInput | Register_serviceUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<HistoryCreateWithoutUserInput, HistoryUncheckedCreateWithoutUserInput> | HistoryCreateWithoutUserInput[] | HistoryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutUserInput | HistoryCreateOrConnectWithoutUserInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutUserInput | HistoryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: HistoryCreateManyUserInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutUserInput | HistoryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutUserInput | HistoryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type Register_serviceCreateNestedManyWithoutCarInput = {
+    create?: XOR<Register_serviceCreateWithoutCarInput, Register_serviceUncheckedCreateWithoutCarInput> | Register_serviceCreateWithoutCarInput[] | Register_serviceUncheckedCreateWithoutCarInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutCarInput | Register_serviceCreateOrConnectWithoutCarInput[]
+    createMany?: Register_serviceCreateManyCarInputEnvelope
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+  }
+
+  export type HistoryCreateNestedManyWithoutCarInput = {
+    create?: XOR<HistoryCreateWithoutCarInput, HistoryUncheckedCreateWithoutCarInput> | HistoryCreateWithoutCarInput[] | HistoryUncheckedCreateWithoutCarInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutCarInput | HistoryCreateOrConnectWithoutCarInput[]
+    createMany?: HistoryCreateManyCarInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type Register_serviceUncheckedCreateNestedManyWithoutCarInput = {
+    create?: XOR<Register_serviceCreateWithoutCarInput, Register_serviceUncheckedCreateWithoutCarInput> | Register_serviceCreateWithoutCarInput[] | Register_serviceUncheckedCreateWithoutCarInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutCarInput | Register_serviceCreateOrConnectWithoutCarInput[]
+    createMany?: Register_serviceCreateManyCarInputEnvelope
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+  }
+
+  export type HistoryUncheckedCreateNestedManyWithoutCarInput = {
+    create?: XOR<HistoryCreateWithoutCarInput, HistoryUncheckedCreateWithoutCarInput> | HistoryCreateWithoutCarInput[] | HistoryUncheckedCreateWithoutCarInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutCarInput | HistoryCreateOrConnectWithoutCarInput[]
+    createMany?: HistoryCreateManyCarInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type Register_serviceUpdateManyWithoutCarNestedInput = {
+    create?: XOR<Register_serviceCreateWithoutCarInput, Register_serviceUncheckedCreateWithoutCarInput> | Register_serviceCreateWithoutCarInput[] | Register_serviceUncheckedCreateWithoutCarInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutCarInput | Register_serviceCreateOrConnectWithoutCarInput[]
+    upsert?: Register_serviceUpsertWithWhereUniqueWithoutCarInput | Register_serviceUpsertWithWhereUniqueWithoutCarInput[]
+    createMany?: Register_serviceCreateManyCarInputEnvelope
+    set?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    disconnect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    delete?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    update?: Register_serviceUpdateWithWhereUniqueWithoutCarInput | Register_serviceUpdateWithWhereUniqueWithoutCarInput[]
+    updateMany?: Register_serviceUpdateManyWithWhereWithoutCarInput | Register_serviceUpdateManyWithWhereWithoutCarInput[]
+    deleteMany?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+  }
+
+  export type HistoryUpdateManyWithoutCarNestedInput = {
+    create?: XOR<HistoryCreateWithoutCarInput, HistoryUncheckedCreateWithoutCarInput> | HistoryCreateWithoutCarInput[] | HistoryUncheckedCreateWithoutCarInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutCarInput | HistoryCreateOrConnectWithoutCarInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutCarInput | HistoryUpsertWithWhereUniqueWithoutCarInput[]
+    createMany?: HistoryCreateManyCarInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutCarInput | HistoryUpdateWithWhereUniqueWithoutCarInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutCarInput | HistoryUpdateManyWithWhereWithoutCarInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type Register_serviceUncheckedUpdateManyWithoutCarNestedInput = {
+    create?: XOR<Register_serviceCreateWithoutCarInput, Register_serviceUncheckedCreateWithoutCarInput> | Register_serviceCreateWithoutCarInput[] | Register_serviceUncheckedCreateWithoutCarInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutCarInput | Register_serviceCreateOrConnectWithoutCarInput[]
+    upsert?: Register_serviceUpsertWithWhereUniqueWithoutCarInput | Register_serviceUpsertWithWhereUniqueWithoutCarInput[]
+    createMany?: Register_serviceCreateManyCarInputEnvelope
+    set?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    disconnect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    delete?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    update?: Register_serviceUpdateWithWhereUniqueWithoutCarInput | Register_serviceUpdateWithWhereUniqueWithoutCarInput[]
+    updateMany?: Register_serviceUpdateManyWithWhereWithoutCarInput | Register_serviceUpdateManyWithWhereWithoutCarInput[]
+    deleteMany?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutCarNestedInput = {
+    create?: XOR<HistoryCreateWithoutCarInput, HistoryUncheckedCreateWithoutCarInput> | HistoryCreateWithoutCarInput[] | HistoryUncheckedCreateWithoutCarInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutCarInput | HistoryCreateOrConnectWithoutCarInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutCarInput | HistoryUpsertWithWhereUniqueWithoutCarInput[]
+    createMany?: HistoryCreateManyCarInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutCarInput | HistoryUpdateWithWhereUniqueWithoutCarInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutCarInput | HistoryUpdateManyWithWhereWithoutCarInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type Register_serviceCreateNestedManyWithoutServiceInput = {
+    create?: XOR<Register_serviceCreateWithoutServiceInput, Register_serviceUncheckedCreateWithoutServiceInput> | Register_serviceCreateWithoutServiceInput[] | Register_serviceUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutServiceInput | Register_serviceCreateOrConnectWithoutServiceInput[]
+    createMany?: Register_serviceCreateManyServiceInputEnvelope
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+  }
+
+  export type HistoryCreateNestedManyWithoutServiceInput = {
+    create?: XOR<HistoryCreateWithoutServiceInput, HistoryUncheckedCreateWithoutServiceInput> | HistoryCreateWithoutServiceInput[] | HistoryUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutServiceInput | HistoryCreateOrConnectWithoutServiceInput[]
+    createMany?: HistoryCreateManyServiceInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type Register_serviceUncheckedCreateNestedManyWithoutServiceInput = {
+    create?: XOR<Register_serviceCreateWithoutServiceInput, Register_serviceUncheckedCreateWithoutServiceInput> | Register_serviceCreateWithoutServiceInput[] | Register_serviceUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutServiceInput | Register_serviceCreateOrConnectWithoutServiceInput[]
+    createMany?: Register_serviceCreateManyServiceInputEnvelope
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+  }
+
+  export type HistoryUncheckedCreateNestedManyWithoutServiceInput = {
+    create?: XOR<HistoryCreateWithoutServiceInput, HistoryUncheckedCreateWithoutServiceInput> | HistoryCreateWithoutServiceInput[] | HistoryUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutServiceInput | HistoryCreateOrConnectWithoutServiceInput[]
+    createMany?: HistoryCreateManyServiceInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type Register_serviceUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<Register_serviceCreateWithoutServiceInput, Register_serviceUncheckedCreateWithoutServiceInput> | Register_serviceCreateWithoutServiceInput[] | Register_serviceUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutServiceInput | Register_serviceCreateOrConnectWithoutServiceInput[]
+    upsert?: Register_serviceUpsertWithWhereUniqueWithoutServiceInput | Register_serviceUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: Register_serviceCreateManyServiceInputEnvelope
+    set?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    disconnect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    delete?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    update?: Register_serviceUpdateWithWhereUniqueWithoutServiceInput | Register_serviceUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: Register_serviceUpdateManyWithWhereWithoutServiceInput | Register_serviceUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+  }
+
+  export type HistoryUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<HistoryCreateWithoutServiceInput, HistoryUncheckedCreateWithoutServiceInput> | HistoryCreateWithoutServiceInput[] | HistoryUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutServiceInput | HistoryCreateOrConnectWithoutServiceInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutServiceInput | HistoryUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: HistoryCreateManyServiceInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutServiceInput | HistoryUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutServiceInput | HistoryUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type Register_serviceUncheckedUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<Register_serviceCreateWithoutServiceInput, Register_serviceUncheckedCreateWithoutServiceInput> | Register_serviceCreateWithoutServiceInput[] | Register_serviceUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutServiceInput | Register_serviceCreateOrConnectWithoutServiceInput[]
+    upsert?: Register_serviceUpsertWithWhereUniqueWithoutServiceInput | Register_serviceUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: Register_serviceCreateManyServiceInputEnvelope
+    set?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    disconnect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    delete?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    update?: Register_serviceUpdateWithWhereUniqueWithoutServiceInput | Register_serviceUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: Register_serviceUpdateManyWithWhereWithoutServiceInput | Register_serviceUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<HistoryCreateWithoutServiceInput, HistoryUncheckedCreateWithoutServiceInput> | HistoryCreateWithoutServiceInput[] | HistoryUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutServiceInput | HistoryCreateOrConnectWithoutServiceInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutServiceInput | HistoryUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: HistoryCreateManyServiceInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutServiceInput | HistoryUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutServiceInput | HistoryUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutBonusInput = {
+    create?: XOR<UserCreateWithoutBonusInput, UserUncheckedCreateWithoutBonusInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBonusInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumBonus_type_enumFieldUpdateOperationsInput = {
+    set?: $Enums.Bonus_type_enum
+  }
+
+  export type UserUpdateOneRequiredWithoutBonusNestedInput = {
+    create?: XOR<UserCreateWithoutBonusInput, UserUncheckedCreateWithoutBonusInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBonusInput
+    upsert?: UserUpsertWithoutBonusInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBonusInput, UserUpdateWithoutBonusInput>, UserUncheckedUpdateWithoutBonusInput>
+  }
+
+  export type Register_serviceCreateNestedManyWithoutMulti_branchInput = {
+    create?: XOR<Register_serviceCreateWithoutMulti_branchInput, Register_serviceUncheckedCreateWithoutMulti_branchInput> | Register_serviceCreateWithoutMulti_branchInput[] | Register_serviceUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutMulti_branchInput | Register_serviceCreateOrConnectWithoutMulti_branchInput[]
+    createMany?: Register_serviceCreateManyMulti_branchInputEnvelope
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+  }
+
+  export type HistoryCreateNestedManyWithoutMulti_branchInput = {
+    create?: XOR<HistoryCreateWithoutMulti_branchInput, HistoryUncheckedCreateWithoutMulti_branchInput> | HistoryCreateWithoutMulti_branchInput[] | HistoryUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutMulti_branchInput | HistoryCreateOrConnectWithoutMulti_branchInput[]
+    createMany?: HistoryCreateManyMulti_branchInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type Register_serviceUncheckedCreateNestedManyWithoutMulti_branchInput = {
+    create?: XOR<Register_serviceCreateWithoutMulti_branchInput, Register_serviceUncheckedCreateWithoutMulti_branchInput> | Register_serviceCreateWithoutMulti_branchInput[] | Register_serviceUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutMulti_branchInput | Register_serviceCreateOrConnectWithoutMulti_branchInput[]
+    createMany?: Register_serviceCreateManyMulti_branchInputEnvelope
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+  }
+
+  export type HistoryUncheckedCreateNestedManyWithoutMulti_branchInput = {
+    create?: XOR<HistoryCreateWithoutMulti_branchInput, HistoryUncheckedCreateWithoutMulti_branchInput> | HistoryCreateWithoutMulti_branchInput[] | HistoryUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutMulti_branchInput | HistoryCreateOrConnectWithoutMulti_branchInput[]
+    createMany?: HistoryCreateManyMulti_branchInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type Register_serviceUpdateManyWithoutMulti_branchNestedInput = {
+    create?: XOR<Register_serviceCreateWithoutMulti_branchInput, Register_serviceUncheckedCreateWithoutMulti_branchInput> | Register_serviceCreateWithoutMulti_branchInput[] | Register_serviceUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutMulti_branchInput | Register_serviceCreateOrConnectWithoutMulti_branchInput[]
+    upsert?: Register_serviceUpsertWithWhereUniqueWithoutMulti_branchInput | Register_serviceUpsertWithWhereUniqueWithoutMulti_branchInput[]
+    createMany?: Register_serviceCreateManyMulti_branchInputEnvelope
+    set?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    disconnect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    delete?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    update?: Register_serviceUpdateWithWhereUniqueWithoutMulti_branchInput | Register_serviceUpdateWithWhereUniqueWithoutMulti_branchInput[]
+    updateMany?: Register_serviceUpdateManyWithWhereWithoutMulti_branchInput | Register_serviceUpdateManyWithWhereWithoutMulti_branchInput[]
+    deleteMany?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+  }
+
+  export type HistoryUpdateManyWithoutMulti_branchNestedInput = {
+    create?: XOR<HistoryCreateWithoutMulti_branchInput, HistoryUncheckedCreateWithoutMulti_branchInput> | HistoryCreateWithoutMulti_branchInput[] | HistoryUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutMulti_branchInput | HistoryCreateOrConnectWithoutMulti_branchInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutMulti_branchInput | HistoryUpsertWithWhereUniqueWithoutMulti_branchInput[]
+    createMany?: HistoryCreateManyMulti_branchInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutMulti_branchInput | HistoryUpdateWithWhereUniqueWithoutMulti_branchInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutMulti_branchInput | HistoryUpdateManyWithWhereWithoutMulti_branchInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type Register_serviceUncheckedUpdateManyWithoutMulti_branchNestedInput = {
+    create?: XOR<Register_serviceCreateWithoutMulti_branchInput, Register_serviceUncheckedCreateWithoutMulti_branchInput> | Register_serviceCreateWithoutMulti_branchInput[] | Register_serviceUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutMulti_branchInput | Register_serviceCreateOrConnectWithoutMulti_branchInput[]
+    upsert?: Register_serviceUpsertWithWhereUniqueWithoutMulti_branchInput | Register_serviceUpsertWithWhereUniqueWithoutMulti_branchInput[]
+    createMany?: Register_serviceCreateManyMulti_branchInputEnvelope
+    set?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    disconnect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    delete?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    connect?: Register_serviceWhereUniqueInput | Register_serviceWhereUniqueInput[]
+    update?: Register_serviceUpdateWithWhereUniqueWithoutMulti_branchInput | Register_serviceUpdateWithWhereUniqueWithoutMulti_branchInput[]
+    updateMany?: Register_serviceUpdateManyWithWhereWithoutMulti_branchInput | Register_serviceUpdateManyWithWhereWithoutMulti_branchInput[]
+    deleteMany?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutMulti_branchNestedInput = {
+    create?: XOR<HistoryCreateWithoutMulti_branchInput, HistoryUncheckedCreateWithoutMulti_branchInput> | HistoryCreateWithoutMulti_branchInput[] | HistoryUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutMulti_branchInput | HistoryCreateOrConnectWithoutMulti_branchInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutMulti_branchInput | HistoryUpsertWithWhereUniqueWithoutMulti_branchInput[]
+    createMany?: HistoryCreateManyMulti_branchInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutMulti_branchInput | HistoryUpdateWithWhereUniqueWithoutMulti_branchInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutMulti_branchInput | HistoryUpdateManyWithWhereWithoutMulti_branchInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutCommitInput = {
+    create?: XOR<UserCreateWithoutCommitInput, UserUncheckedCreateWithoutCommitInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCommitInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserUpdateOneRequiredWithoutCommitNestedInput = {
+    create?: XOR<UserCreateWithoutCommitInput, UserUncheckedCreateWithoutCommitInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCommitInput
+    upsert?: UserUpsertWithoutCommitInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCommitInput, UserUpdateWithoutCommitInput>, UserUncheckedUpdateWithoutCommitInput>
+  }
+
+  export type UserCreateNestedOneWithoutNotificationInput = {
+    create?: XOR<UserCreateWithoutNotificationInput, UserUncheckedCreateWithoutNotificationInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNotificationInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type UserUpdateOneRequiredWithoutNotificationNestedInput = {
+    create?: XOR<UserCreateWithoutNotificationInput, UserUncheckedCreateWithoutNotificationInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNotificationInput
+    upsert?: UserUpsertWithoutNotificationInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNotificationInput, UserUpdateWithoutNotificationInput>, UserUncheckedUpdateWithoutNotificationInput>
+  }
+
+  export type UserCreateNestedOneWithoutOTPInput = {
+    create?: XOR<UserCreateWithoutOTPInput, UserUncheckedCreateWithoutOTPInput>
+    connectOrCreate?: UserCreateOrConnectWithoutOTPInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumOTP_type_enumFieldUpdateOperationsInput = {
+    set?: $Enums.OTP_type_enum
+  }
+
+  export type EnumOTP_status_enumFieldUpdateOperationsInput = {
+    set?: $Enums.OTP_status_enum
+  }
+
+  export type UserUpdateOneRequiredWithoutOTPNestedInput = {
+    create?: XOR<UserCreateWithoutOTPInput, UserUncheckedCreateWithoutOTPInput>
+    connectOrCreate?: UserCreateOrConnectWithoutOTPInput
+    upsert?: UserUpsertWithoutOTPInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutOTPInput, UserUpdateWithoutOTPInput>, UserUncheckedUpdateWithoutOTPInput>
+  }
+
+  export type Multi_branchCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<Multi_branchCreateWithoutHistoryInput, Multi_branchUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: Multi_branchCreateOrConnectWithoutHistoryInput
+    connect?: Multi_branchWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<UserCreateWithoutHistoryInput, UserUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: UserCreateOrConnectWithoutHistoryInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ServiceCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<ServiceCreateWithoutHistoryInput, ServiceUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: ServiceCreateOrConnectWithoutHistoryInput
+    connect?: ServiceWhereUniqueInput
+  }
+
+  export type Register_carCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<Register_carCreateWithoutHistoryInput, Register_carUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: Register_carCreateOrConnectWithoutHistoryInput
+    connect?: Register_carWhereUniqueInput
+  }
+
+  export type Register_serviceCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<Register_serviceCreateWithoutHistoryInput, Register_serviceUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutHistoryInput
+    connect?: Register_serviceWhereUniqueInput
+  }
+
+  export type CarCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<CarCreateWithoutHistoryInput, CarUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: CarCreateOrConnectWithoutHistoryInput
+    connect?: CarWhereUniqueInput
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type EnumHistory_status_enumFieldUpdateOperationsInput = {
+    set?: $Enums.History_status_enum
+  }
+
+  export type Multi_branchUpdateOneRequiredWithoutHistoryNestedInput = {
+    create?: XOR<Multi_branchCreateWithoutHistoryInput, Multi_branchUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: Multi_branchCreateOrConnectWithoutHistoryInput
+    upsert?: Multi_branchUpsertWithoutHistoryInput
+    connect?: Multi_branchWhereUniqueInput
+    update?: XOR<XOR<Multi_branchUpdateToOneWithWhereWithoutHistoryInput, Multi_branchUpdateWithoutHistoryInput>, Multi_branchUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutHistoryNestedInput = {
+    create?: XOR<UserCreateWithoutHistoryInput, UserUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: UserCreateOrConnectWithoutHistoryInput
+    upsert?: UserUpsertWithoutHistoryInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutHistoryInput, UserUpdateWithoutHistoryInput>, UserUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type ServiceUpdateOneRequiredWithoutHistoryNestedInput = {
+    create?: XOR<ServiceCreateWithoutHistoryInput, ServiceUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: ServiceCreateOrConnectWithoutHistoryInput
+    upsert?: ServiceUpsertWithoutHistoryInput
+    connect?: ServiceWhereUniqueInput
+    update?: XOR<XOR<ServiceUpdateToOneWithWhereWithoutHistoryInput, ServiceUpdateWithoutHistoryInput>, ServiceUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type Register_carUpdateOneWithoutHistoryNestedInput = {
+    create?: XOR<Register_carCreateWithoutHistoryInput, Register_carUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: Register_carCreateOrConnectWithoutHistoryInput
+    upsert?: Register_carUpsertWithoutHistoryInput
+    disconnect?: Register_carWhereInput | boolean
+    delete?: Register_carWhereInput | boolean
+    connect?: Register_carWhereUniqueInput
+    update?: XOR<XOR<Register_carUpdateToOneWithWhereWithoutHistoryInput, Register_carUpdateWithoutHistoryInput>, Register_carUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type Register_serviceUpdateOneWithoutHistoryNestedInput = {
+    create?: XOR<Register_serviceCreateWithoutHistoryInput, Register_serviceUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: Register_serviceCreateOrConnectWithoutHistoryInput
+    upsert?: Register_serviceUpsertWithoutHistoryInput
+    disconnect?: Register_serviceWhereInput | boolean
+    delete?: Register_serviceWhereInput | boolean
+    connect?: Register_serviceWhereUniqueInput
+    update?: XOR<XOR<Register_serviceUpdateToOneWithWhereWithoutHistoryInput, Register_serviceUpdateWithoutHistoryInput>, Register_serviceUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type CarUpdateOneWithoutHistoryNestedInput = {
+    create?: XOR<CarCreateWithoutHistoryInput, CarUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: CarCreateOrConnectWithoutHistoryInput
+    upsert?: CarUpsertWithoutHistoryInput
+    disconnect?: CarWhereInput | boolean
+    delete?: CarWhereInput | boolean
+    connect?: CarWhereUniqueInput
+    update?: XOR<XOR<CarUpdateToOneWithWhereWithoutHistoryInput, CarUpdateWithoutHistoryInput>, CarUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type UserCreateNestedOneWithoutRegister_carInput = {
+    create?: XOR<UserCreateWithoutRegister_carInput, UserUncheckedCreateWithoutRegister_carInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRegister_carInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type HistoryCreateNestedManyWithoutRegister_carInput = {
+    create?: XOR<HistoryCreateWithoutRegister_carInput, HistoryUncheckedCreateWithoutRegister_carInput> | HistoryCreateWithoutRegister_carInput[] | HistoryUncheckedCreateWithoutRegister_carInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutRegister_carInput | HistoryCreateOrConnectWithoutRegister_carInput[]
+    createMany?: HistoryCreateManyRegister_carInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type HistoryUncheckedCreateNestedManyWithoutRegister_carInput = {
+    create?: XOR<HistoryCreateWithoutRegister_carInput, HistoryUncheckedCreateWithoutRegister_carInput> | HistoryCreateWithoutRegister_carInput[] | HistoryUncheckedCreateWithoutRegister_carInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutRegister_carInput | HistoryCreateOrConnectWithoutRegister_carInput[]
+    createMany?: HistoryCreateManyRegister_carInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type EnumRegister_car_status_enumFieldUpdateOperationsInput = {
+    set?: $Enums.Register_car_status_enum
+  }
+
+  export type UserUpdateOneRequiredWithoutRegister_carNestedInput = {
+    create?: XOR<UserCreateWithoutRegister_carInput, UserUncheckedCreateWithoutRegister_carInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRegister_carInput
+    upsert?: UserUpsertWithoutRegister_carInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRegister_carInput, UserUpdateWithoutRegister_carInput>, UserUncheckedUpdateWithoutRegister_carInput>
+  }
+
+  export type HistoryUpdateManyWithoutRegister_carNestedInput = {
+    create?: XOR<HistoryCreateWithoutRegister_carInput, HistoryUncheckedCreateWithoutRegister_carInput> | HistoryCreateWithoutRegister_carInput[] | HistoryUncheckedCreateWithoutRegister_carInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutRegister_carInput | HistoryCreateOrConnectWithoutRegister_carInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutRegister_carInput | HistoryUpsertWithWhereUniqueWithoutRegister_carInput[]
+    createMany?: HistoryCreateManyRegister_carInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutRegister_carInput | HistoryUpdateWithWhereUniqueWithoutRegister_carInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutRegister_carInput | HistoryUpdateManyWithWhereWithoutRegister_carInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutRegister_carNestedInput = {
+    create?: XOR<HistoryCreateWithoutRegister_carInput, HistoryUncheckedCreateWithoutRegister_carInput> | HistoryCreateWithoutRegister_carInput[] | HistoryUncheckedCreateWithoutRegister_carInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutRegister_carInput | HistoryCreateOrConnectWithoutRegister_carInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutRegister_carInput | HistoryUpsertWithWhereUniqueWithoutRegister_carInput[]
+    createMany?: HistoryCreateManyRegister_carInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutRegister_carInput | HistoryUpdateWithWhereUniqueWithoutRegister_carInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutRegister_carInput | HistoryUpdateManyWithWhereWithoutRegister_carInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutRegister_serviceInput = {
+    create?: XOR<UserCreateWithoutRegister_serviceInput, UserUncheckedCreateWithoutRegister_serviceInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRegister_serviceInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type CarCreateNestedOneWithoutRegister_serviceInput = {
+    create?: XOR<CarCreateWithoutRegister_serviceInput, CarUncheckedCreateWithoutRegister_serviceInput>
+    connectOrCreate?: CarCreateOrConnectWithoutRegister_serviceInput
+    connect?: CarWhereUniqueInput
+  }
+
+  export type ServiceCreateNestedOneWithoutRegister_serviceInput = {
+    create?: XOR<ServiceCreateWithoutRegister_serviceInput, ServiceUncheckedCreateWithoutRegister_serviceInput>
+    connectOrCreate?: ServiceCreateOrConnectWithoutRegister_serviceInput
+    connect?: ServiceWhereUniqueInput
+  }
+
+  export type Multi_branchCreateNestedOneWithoutRegister_serviceInput = {
+    create?: XOR<Multi_branchCreateWithoutRegister_serviceInput, Multi_branchUncheckedCreateWithoutRegister_serviceInput>
+    connectOrCreate?: Multi_branchCreateOrConnectWithoutRegister_serviceInput
+    connect?: Multi_branchWhereUniqueInput
+  }
+
+  export type HistoryCreateNestedManyWithoutRegister_serviceInput = {
+    create?: XOR<HistoryCreateWithoutRegister_serviceInput, HistoryUncheckedCreateWithoutRegister_serviceInput> | HistoryCreateWithoutRegister_serviceInput[] | HistoryUncheckedCreateWithoutRegister_serviceInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutRegister_serviceInput | HistoryCreateOrConnectWithoutRegister_serviceInput[]
+    createMany?: HistoryCreateManyRegister_serviceInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type HistoryUncheckedCreateNestedManyWithoutRegister_serviceInput = {
+    create?: XOR<HistoryCreateWithoutRegister_serviceInput, HistoryUncheckedCreateWithoutRegister_serviceInput> | HistoryCreateWithoutRegister_serviceInput[] | HistoryUncheckedCreateWithoutRegister_serviceInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutRegister_serviceInput | HistoryCreateOrConnectWithoutRegister_serviceInput[]
+    createMany?: HistoryCreateManyRegister_serviceInputEnvelope
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type EnumRegister_service_status_enumFieldUpdateOperationsInput = {
+    set?: $Enums.Register_service_status_enum
+  }
+
+  export type UserUpdateOneRequiredWithoutRegister_serviceNestedInput = {
+    create?: XOR<UserCreateWithoutRegister_serviceInput, UserUncheckedCreateWithoutRegister_serviceInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRegister_serviceInput
+    upsert?: UserUpsertWithoutRegister_serviceInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRegister_serviceInput, UserUpdateWithoutRegister_serviceInput>, UserUncheckedUpdateWithoutRegister_serviceInput>
+  }
+
+  export type CarUpdateOneRequiredWithoutRegister_serviceNestedInput = {
+    create?: XOR<CarCreateWithoutRegister_serviceInput, CarUncheckedCreateWithoutRegister_serviceInput>
+    connectOrCreate?: CarCreateOrConnectWithoutRegister_serviceInput
+    upsert?: CarUpsertWithoutRegister_serviceInput
+    connect?: CarWhereUniqueInput
+    update?: XOR<XOR<CarUpdateToOneWithWhereWithoutRegister_serviceInput, CarUpdateWithoutRegister_serviceInput>, CarUncheckedUpdateWithoutRegister_serviceInput>
+  }
+
+  export type ServiceUpdateOneRequiredWithoutRegister_serviceNestedInput = {
+    create?: XOR<ServiceCreateWithoutRegister_serviceInput, ServiceUncheckedCreateWithoutRegister_serviceInput>
+    connectOrCreate?: ServiceCreateOrConnectWithoutRegister_serviceInput
+    upsert?: ServiceUpsertWithoutRegister_serviceInput
+    connect?: ServiceWhereUniqueInput
+    update?: XOR<XOR<ServiceUpdateToOneWithWhereWithoutRegister_serviceInput, ServiceUpdateWithoutRegister_serviceInput>, ServiceUncheckedUpdateWithoutRegister_serviceInput>
+  }
+
+  export type Multi_branchUpdateOneRequiredWithoutRegister_serviceNestedInput = {
+    create?: XOR<Multi_branchCreateWithoutRegister_serviceInput, Multi_branchUncheckedCreateWithoutRegister_serviceInput>
+    connectOrCreate?: Multi_branchCreateOrConnectWithoutRegister_serviceInput
+    upsert?: Multi_branchUpsertWithoutRegister_serviceInput
+    connect?: Multi_branchWhereUniqueInput
+    update?: XOR<XOR<Multi_branchUpdateToOneWithWhereWithoutRegister_serviceInput, Multi_branchUpdateWithoutRegister_serviceInput>, Multi_branchUncheckedUpdateWithoutRegister_serviceInput>
+  }
+
+  export type HistoryUpdateManyWithoutRegister_serviceNestedInput = {
+    create?: XOR<HistoryCreateWithoutRegister_serviceInput, HistoryUncheckedCreateWithoutRegister_serviceInput> | HistoryCreateWithoutRegister_serviceInput[] | HistoryUncheckedCreateWithoutRegister_serviceInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutRegister_serviceInput | HistoryCreateOrConnectWithoutRegister_serviceInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutRegister_serviceInput | HistoryUpsertWithWhereUniqueWithoutRegister_serviceInput[]
+    createMany?: HistoryCreateManyRegister_serviceInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutRegister_serviceInput | HistoryUpdateWithWhereUniqueWithoutRegister_serviceInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutRegister_serviceInput | HistoryUpdateManyWithWhereWithoutRegister_serviceInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutRegister_serviceNestedInput = {
+    create?: XOR<HistoryCreateWithoutRegister_serviceInput, HistoryUncheckedCreateWithoutRegister_serviceInput> | HistoryCreateWithoutRegister_serviceInput[] | HistoryUncheckedCreateWithoutRegister_serviceInput[]
+    connectOrCreate?: HistoryCreateOrConnectWithoutRegister_serviceInput | HistoryCreateOrConnectWithoutRegister_serviceInput[]
+    upsert?: HistoryUpsertWithWhereUniqueWithoutRegister_serviceInput | HistoryUpsertWithWhereUniqueWithoutRegister_serviceInput[]
+    createMany?: HistoryCreateManyRegister_serviceInputEnvelope
+    set?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    disconnect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    delete?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+    update?: HistoryUpdateWithWhereUniqueWithoutRegister_serviceInput | HistoryUpdateWithWhereUniqueWithoutRegister_serviceInput[]
+    updateMany?: HistoryUpdateManyWithWhereWithoutRegister_serviceInput | HistoryUpdateManyWithWhereWithoutRegister_serviceInput[]
+    deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedStringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedEnumUser_role_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.User_role_enum | EnumUser_role_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.User_role_enum[] | ListEnumUser_role_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.User_role_enum[] | ListEnumUser_role_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumUser_role_enumFilter<$PrismaModel> | $Enums.User_role_enum
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumUser_role_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.User_role_enum | EnumUser_role_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.User_role_enum[] | ListEnumUser_role_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.User_role_enum[] | ListEnumUser_role_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumUser_role_enumWithAggregatesFilter<$PrismaModel> | $Enums.User_role_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUser_role_enumFilter<$PrismaModel>
+    _max?: NestedEnumUser_role_enumFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedEnumBonus_type_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.Bonus_type_enum | EnumBonus_type_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Bonus_type_enum[] | ListEnumBonus_type_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Bonus_type_enum[] | ListEnumBonus_type_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumBonus_type_enumFilter<$PrismaModel> | $Enums.Bonus_type_enum
+  }
+
+  export type NestedEnumBonus_type_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Bonus_type_enum | EnumBonus_type_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Bonus_type_enum[] | ListEnumBonus_type_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Bonus_type_enum[] | ListEnumBonus_type_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumBonus_type_enumWithAggregatesFilter<$PrismaModel> | $Enums.Bonus_type_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBonus_type_enumFilter<$PrismaModel>
+    _max?: NestedEnumBonus_type_enumFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedEnumOTP_type_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.OTP_type_enum | EnumOTP_type_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.OTP_type_enum[] | ListEnumOTP_type_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OTP_type_enum[] | ListEnumOTP_type_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumOTP_type_enumFilter<$PrismaModel> | $Enums.OTP_type_enum
+  }
+
+  export type NestedEnumOTP_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.OTP_status_enum | EnumOTP_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.OTP_status_enum[] | ListEnumOTP_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OTP_status_enum[] | ListEnumOTP_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumOTP_status_enumFilter<$PrismaModel> | $Enums.OTP_status_enum
+  }
+
+  export type NestedEnumOTP_type_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OTP_type_enum | EnumOTP_type_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.OTP_type_enum[] | ListEnumOTP_type_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OTP_type_enum[] | ListEnumOTP_type_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumOTP_type_enumWithAggregatesFilter<$PrismaModel> | $Enums.OTP_type_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOTP_type_enumFilter<$PrismaModel>
+    _max?: NestedEnumOTP_type_enumFilter<$PrismaModel>
+  }
+
+  export type NestedEnumOTP_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OTP_status_enum | EnumOTP_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.OTP_status_enum[] | ListEnumOTP_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OTP_status_enum[] | ListEnumOTP_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumOTP_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.OTP_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOTP_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumOTP_status_enumFilter<$PrismaModel>
+  }
+
+  export type NestedEnumHistory_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.History_status_enum | EnumHistory_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.History_status_enum[] | ListEnumHistory_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.History_status_enum[] | ListEnumHistory_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumHistory_status_enumFilter<$PrismaModel> | $Enums.History_status_enum
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumHistory_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.History_status_enum | EnumHistory_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.History_status_enum[] | ListEnumHistory_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.History_status_enum[] | ListEnumHistory_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumHistory_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.History_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumHistory_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumHistory_status_enumFilter<$PrismaModel>
+  }
+
+  export type NestedEnumRegister_car_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_car_status_enum | EnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_car_status_enum[] | ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_car_status_enum[] | ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_car_status_enumFilter<$PrismaModel> | $Enums.Register_car_status_enum
+  }
+
+  export type NestedEnumRegister_car_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_car_status_enum | EnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_car_status_enum[] | ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_car_status_enum[] | ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_car_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.Register_car_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegister_car_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumRegister_car_status_enumFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedEnumRegister_service_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_service_status_enumFilter<$PrismaModel> | $Enums.Register_service_status_enum
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.Register_service_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
+  }
+
+  export type BonusCreateWithoutUserInput = {
+    Bonus_point: number
+    Bonus_type: $Enums.Bonus_type_enum
+  }
+
+  export type BonusUncheckedCreateWithoutUserInput = {
+    Bonus_ID?: number
+    Bonus_point: number
+    Bonus_type: $Enums.Bonus_type_enum
+  }
+
+  export type BonusCreateOrConnectWithoutUserInput = {
+    where: BonusWhereUniqueInput
+    create: XOR<BonusCreateWithoutUserInput, BonusUncheckedCreateWithoutUserInput>
+  }
+
+  export type BonusCreateManyUserInputEnvelope = {
+    data: BonusCreateManyUserInput | BonusCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NotificationCreateWithoutUserInput = {
+    Notification_text: string
+    Notification_is_read?: boolean
+    Notification_create_at?: Date | string
+  }
+
+  export type NotificationUncheckedCreateWithoutUserInput = {
+    Notification_ID?: number
+    Notification_text: string
+    Notification_is_read?: boolean
+    Notification_create_at?: Date | string
+  }
+
+  export type NotificationCreateOrConnectWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
+  }
+
+  export type NotificationCreateManyUserInputEnvelope = {
+    data: NotificationCreateManyUserInput | NotificationCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CommitCreateWithoutUserInput = {
+    Commit_text: string
+    Commit_review?: string | null
+    Commit_entity_id?: number | null
+    Commit_entity_name?: string | null
+    Commit_create_at?: Date | string
+  }
+
+  export type CommitUncheckedCreateWithoutUserInput = {
+    Commit_ID?: number
+    Commit_text: string
+    Commit_review?: string | null
+    Commit_entity_id?: number | null
+    Commit_entity_name?: string | null
+    Commit_create_at?: Date | string
+  }
+
+  export type CommitCreateOrConnectWithoutUserInput = {
+    where: CommitWhereUniqueInput
+    create: XOR<CommitCreateWithoutUserInput, CommitUncheckedCreateWithoutUserInput>
+  }
+
+  export type CommitCreateManyUserInputEnvelope = {
+    data: CommitCreateManyUserInput | CommitCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type OTPCreateWithoutUserInput = {
+    OTP_code: string
+    OTP_type: $Enums.OTP_type_enum
+    OTP_status: $Enums.OTP_status_enum
+    OTP_create_at?: Date | string
+    OTP_expires_at: Date | string
+  }
+
+  export type OTPUncheckedCreateWithoutUserInput = {
+    OTP_ID?: number
+    OTP_code: string
+    OTP_type: $Enums.OTP_type_enum
+    OTP_status: $Enums.OTP_status_enum
+    OTP_create_at?: Date | string
+    OTP_expires_at: Date | string
+  }
+
+  export type OTPCreateOrConnectWithoutUserInput = {
+    where: OTPWhereUniqueInput
+    create: XOR<OTPCreateWithoutUserInput, OTPUncheckedCreateWithoutUserInput>
+  }
+
+  export type OTPCreateManyUserInputEnvelope = {
+    data: OTPCreateManyUserInput | OTPCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Register_carCreateWithoutUserInput = {
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+    History?: HistoryCreateNestedManyWithoutRegister_carInput
+  }
+
+  export type Register_carUncheckedCreateWithoutUserInput = {
+    Register_car_ID?: number
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+    History?: HistoryUncheckedCreateNestedManyWithoutRegister_carInput
+  }
+
+  export type Register_carCreateOrConnectWithoutUserInput = {
+    where: Register_carWhereUniqueInput
+    create: XOR<Register_carCreateWithoutUserInput, Register_carUncheckedCreateWithoutUserInput>
+  }
+
+  export type Register_carCreateManyUserInputEnvelope = {
+    data: Register_carCreateManyUserInput | Register_carCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Register_serviceCreateWithoutUserInput = {
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Car: CarCreateNestedOneWithoutRegister_serviceInput
+    Service: ServiceCreateNestedOneWithoutRegister_serviceInput
+    Multi_branch: Multi_branchCreateNestedOneWithoutRegister_serviceInput
+    History?: HistoryCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceUncheckedCreateWithoutUserInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_car: number
+    Register_service_service_ID: number
+    Register_service_multi_branch_ID: number
+    History?: HistoryUncheckedCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceCreateOrConnectWithoutUserInput = {
+    where: Register_serviceWhereUniqueInput
+    create: XOR<Register_serviceCreateWithoutUserInput, Register_serviceUncheckedCreateWithoutUserInput>
+  }
+
+  export type Register_serviceCreateManyUserInputEnvelope = {
+    data: Register_serviceCreateManyUserInput | Register_serviceCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type HistoryCreateWithoutUserInput = {
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    Multi_branch: Multi_branchCreateNestedOneWithoutHistoryInput
+    Service: ServiceCreateNestedOneWithoutHistoryInput
+    Register_car?: Register_carCreateNestedOneWithoutHistoryInput
+    Register_service?: Register_serviceCreateNestedOneWithoutHistoryInput
+    Car?: CarCreateNestedOneWithoutHistoryInput
+  }
+
+  export type HistoryUncheckedCreateWithoutUserInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type HistoryCreateOrConnectWithoutUserInput = {
+    where: HistoryWhereUniqueInput
+    create: XOR<HistoryCreateWithoutUserInput, HistoryUncheckedCreateWithoutUserInput>
+  }
+
+  export type HistoryCreateManyUserInputEnvelope = {
+    data: HistoryCreateManyUserInput | HistoryCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BonusUpsertWithWhereUniqueWithoutUserInput = {
+    where: BonusWhereUniqueInput
+    update: XOR<BonusUpdateWithoutUserInput, BonusUncheckedUpdateWithoutUserInput>
+    create: XOR<BonusCreateWithoutUserInput, BonusUncheckedCreateWithoutUserInput>
+  }
+
+  export type BonusUpdateWithWhereUniqueWithoutUserInput = {
+    where: BonusWhereUniqueInput
+    data: XOR<BonusUpdateWithoutUserInput, BonusUncheckedUpdateWithoutUserInput>
+  }
+
+  export type BonusUpdateManyWithWhereWithoutUserInput = {
+    where: BonusScalarWhereInput
+    data: XOR<BonusUpdateManyMutationInput, BonusUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type BonusScalarWhereInput = {
+    AND?: BonusScalarWhereInput | BonusScalarWhereInput[]
+    OR?: BonusScalarWhereInput[]
+    NOT?: BonusScalarWhereInput | BonusScalarWhereInput[]
+    Bonus_ID?: IntFilter<"Bonus"> | number
+    Bonus_point?: IntFilter<"Bonus"> | number
+    Bonus_type?: EnumBonus_type_enumFilter<"Bonus"> | $Enums.Bonus_type_enum
+    Bonus_user_ID?: IntFilter<"Bonus"> | number
+  }
+
+  export type NotificationUpsertWithWhereUniqueWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    update: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
+    create: XOR<NotificationCreateWithoutUserInput, NotificationUncheckedCreateWithoutUserInput>
+  }
+
+  export type NotificationUpdateWithWhereUniqueWithoutUserInput = {
+    where: NotificationWhereUniqueInput
+    data: XOR<NotificationUpdateWithoutUserInput, NotificationUncheckedUpdateWithoutUserInput>
+  }
+
+  export type NotificationUpdateManyWithWhereWithoutUserInput = {
+    where: NotificationScalarWhereInput
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type NotificationScalarWhereInput = {
+    AND?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    OR?: NotificationScalarWhereInput[]
+    NOT?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    Notification_ID?: IntFilter<"Notification"> | number
+    Notification_text?: StringFilter<"Notification"> | string
+    Notification_is_read?: BoolFilter<"Notification"> | boolean
+    Notification_create_at?: DateTimeFilter<"Notification"> | Date | string
+    Notification_user_ID?: IntFilter<"Notification"> | number
+  }
+
+  export type CommitUpsertWithWhereUniqueWithoutUserInput = {
+    where: CommitWhereUniqueInput
+    update: XOR<CommitUpdateWithoutUserInput, CommitUncheckedUpdateWithoutUserInput>
+    create: XOR<CommitCreateWithoutUserInput, CommitUncheckedCreateWithoutUserInput>
+  }
+
+  export type CommitUpdateWithWhereUniqueWithoutUserInput = {
+    where: CommitWhereUniqueInput
+    data: XOR<CommitUpdateWithoutUserInput, CommitUncheckedUpdateWithoutUserInput>
+  }
+
+  export type CommitUpdateManyWithWhereWithoutUserInput = {
+    where: CommitScalarWhereInput
+    data: XOR<CommitUpdateManyMutationInput, CommitUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type CommitScalarWhereInput = {
+    AND?: CommitScalarWhereInput | CommitScalarWhereInput[]
+    OR?: CommitScalarWhereInput[]
+    NOT?: CommitScalarWhereInput | CommitScalarWhereInput[]
+    Commit_ID?: IntFilter<"Commit"> | number
+    Commit_text?: StringFilter<"Commit"> | string
+    Commit_review?: StringNullableFilter<"Commit"> | string | null
+    Commit_entity_id?: IntNullableFilter<"Commit"> | number | null
+    Commit_entity_name?: StringNullableFilter<"Commit"> | string | null
+    Commit_create_at?: DateTimeFilter<"Commit"> | Date | string
+    Commit_user_ID?: IntFilter<"Commit"> | number
+  }
+
+  export type OTPUpsertWithWhereUniqueWithoutUserInput = {
+    where: OTPWhereUniqueInput
+    update: XOR<OTPUpdateWithoutUserInput, OTPUncheckedUpdateWithoutUserInput>
+    create: XOR<OTPCreateWithoutUserInput, OTPUncheckedCreateWithoutUserInput>
+  }
+
+  export type OTPUpdateWithWhereUniqueWithoutUserInput = {
+    where: OTPWhereUniqueInput
+    data: XOR<OTPUpdateWithoutUserInput, OTPUncheckedUpdateWithoutUserInput>
+  }
+
+  export type OTPUpdateManyWithWhereWithoutUserInput = {
+    where: OTPScalarWhereInput
+    data: XOR<OTPUpdateManyMutationInput, OTPUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type OTPScalarWhereInput = {
+    AND?: OTPScalarWhereInput | OTPScalarWhereInput[]
+    OR?: OTPScalarWhereInput[]
+    NOT?: OTPScalarWhereInput | OTPScalarWhereInput[]
+    OTP_ID?: IntFilter<"OTP"> | number
+    OTP_code?: StringFilter<"OTP"> | string
+    OTP_type?: EnumOTP_type_enumFilter<"OTP"> | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFilter<"OTP"> | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFilter<"OTP"> | Date | string
+    OTP_expires_at?: DateTimeFilter<"OTP"> | Date | string
+    OTP_user_ID?: IntFilter<"OTP"> | number
+  }
+
+  export type Register_carUpsertWithWhereUniqueWithoutUserInput = {
+    where: Register_carWhereUniqueInput
+    update: XOR<Register_carUpdateWithoutUserInput, Register_carUncheckedUpdateWithoutUserInput>
+    create: XOR<Register_carCreateWithoutUserInput, Register_carUncheckedCreateWithoutUserInput>
+  }
+
+  export type Register_carUpdateWithWhereUniqueWithoutUserInput = {
+    where: Register_carWhereUniqueInput
+    data: XOR<Register_carUpdateWithoutUserInput, Register_carUncheckedUpdateWithoutUserInput>
+  }
+
+  export type Register_carUpdateManyWithWhereWithoutUserInput = {
+    where: Register_carScalarWhereInput
+    data: XOR<Register_carUpdateManyMutationInput, Register_carUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type Register_carScalarWhereInput = {
+    AND?: Register_carScalarWhereInput | Register_carScalarWhereInput[]
+    OR?: Register_carScalarWhereInput[]
+    NOT?: Register_carScalarWhereInput | Register_carScalarWhereInput[]
+    Register_car_ID?: IntFilter<"Register_car"> | number
+    Register_car_manufacturer?: StringNullableFilter<"Register_car"> | string | null
+    Register_car_mark?: StringNullableFilter<"Register_car"> | string | null
+    Register_car_year?: IntNullableFilter<"Register_car"> | number | null
+    Register_car_vin?: StringNullableFilter<"Register_car"> | string | null
+    Register_car_status?: EnumRegister_car_status_enumFilter<"Register_car"> | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFilter<"Register_car"> | Date | string
+    Register_car_update_at?: DateTimeFilter<"Register_car"> | Date | string
+    Register_car_user_ID?: IntFilter<"Register_car"> | number
+  }
+
+  export type Register_serviceUpsertWithWhereUniqueWithoutUserInput = {
+    where: Register_serviceWhereUniqueInput
+    update: XOR<Register_serviceUpdateWithoutUserInput, Register_serviceUncheckedUpdateWithoutUserInput>
+    create: XOR<Register_serviceCreateWithoutUserInput, Register_serviceUncheckedCreateWithoutUserInput>
+  }
+
+  export type Register_serviceUpdateWithWhereUniqueWithoutUserInput = {
+    where: Register_serviceWhereUniqueInput
+    data: XOR<Register_serviceUpdateWithoutUserInput, Register_serviceUncheckedUpdateWithoutUserInput>
+  }
+
+  export type Register_serviceUpdateManyWithWhereWithoutUserInput = {
+    where: Register_serviceScalarWhereInput
+    data: XOR<Register_serviceUpdateManyMutationInput, Register_serviceUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type Register_serviceScalarWhereInput = {
+    AND?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+    OR?: Register_serviceScalarWhereInput[]
+    NOT?: Register_serviceScalarWhereInput | Register_serviceScalarWhereInput[]
+    Register_service_ID?: IntFilter<"Register_service"> | number
+    Register_service_scheduled?: DateTimeNullableFilter<"Register_service"> | Date | string | null
+    Register_service_time_list?: StringNullableFilter<"Register_service"> | string | null
+    Register_service_status?: EnumRegister_service_status_enumFilter<"Register_service"> | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFilter<"Register_service"> | Date | string
+    Register_service_update_at?: DateTimeFilter<"Register_service"> | Date | string
+    Register_service_user_ID?: IntFilter<"Register_service"> | number
+    Register_service_car?: IntFilter<"Register_service"> | number
+    Register_service_service_ID?: IntFilter<"Register_service"> | number
+    Register_service_multi_branch_ID?: IntFilter<"Register_service"> | number
+  }
+
+  export type HistoryUpsertWithWhereUniqueWithoutUserInput = {
+    where: HistoryWhereUniqueInput
+    update: XOR<HistoryUpdateWithoutUserInput, HistoryUncheckedUpdateWithoutUserInput>
+    create: XOR<HistoryCreateWithoutUserInput, HistoryUncheckedCreateWithoutUserInput>
+  }
+
+  export type HistoryUpdateWithWhereUniqueWithoutUserInput = {
+    where: HistoryWhereUniqueInput
+    data: XOR<HistoryUpdateWithoutUserInput, HistoryUncheckedUpdateWithoutUserInput>
+  }
+
+  export type HistoryUpdateManyWithWhereWithoutUserInput = {
+    where: HistoryScalarWhereInput
+    data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type HistoryScalarWhereInput = {
+    AND?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+    OR?: HistoryScalarWhereInput[]
+    NOT?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+    History_ID?: IntFilter<"History"> | number
+    History_bonus?: IntNullableFilter<"History"> | number | null
+    History_price?: FloatNullableFilter<"History"> | number | null
+    History_status?: EnumHistory_status_enumFilter<"History"> | $Enums.History_status_enum
+    History_create_at?: DateTimeFilter<"History"> | Date | string
+    History_multi_branch_ID?: IntFilter<"History"> | number
+    History_user_ID?: IntFilter<"History"> | number
+    History_service_ID?: IntFilter<"History"> | number
+    History_register_car?: IntNullableFilter<"History"> | number | null
+    History_register_service_ID?: IntNullableFilter<"History"> | number | null
+    carCar_ID?: IntNullableFilter<"History"> | number | null
+  }
+
+  export type Register_serviceCreateWithoutCarInput = {
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    User: UserCreateNestedOneWithoutRegister_serviceInput
+    Service: ServiceCreateNestedOneWithoutRegister_serviceInput
+    Multi_branch: Multi_branchCreateNestedOneWithoutRegister_serviceInput
+    History?: HistoryCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceUncheckedCreateWithoutCarInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_user_ID: number
+    Register_service_service_ID: number
+    Register_service_multi_branch_ID: number
+    History?: HistoryUncheckedCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceCreateOrConnectWithoutCarInput = {
+    where: Register_serviceWhereUniqueInput
+    create: XOR<Register_serviceCreateWithoutCarInput, Register_serviceUncheckedCreateWithoutCarInput>
+  }
+
+  export type Register_serviceCreateManyCarInputEnvelope = {
+    data: Register_serviceCreateManyCarInput | Register_serviceCreateManyCarInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type HistoryCreateWithoutCarInput = {
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    Multi_branch: Multi_branchCreateNestedOneWithoutHistoryInput
+    User: UserCreateNestedOneWithoutHistoryInput
+    Service: ServiceCreateNestedOneWithoutHistoryInput
+    Register_car?: Register_carCreateNestedOneWithoutHistoryInput
+    Register_service?: Register_serviceCreateNestedOneWithoutHistoryInput
+  }
+
+  export type HistoryUncheckedCreateWithoutCarInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+  }
+
+  export type HistoryCreateOrConnectWithoutCarInput = {
+    where: HistoryWhereUniqueInput
+    create: XOR<HistoryCreateWithoutCarInput, HistoryUncheckedCreateWithoutCarInput>
+  }
+
+  export type HistoryCreateManyCarInputEnvelope = {
+    data: HistoryCreateManyCarInput | HistoryCreateManyCarInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Register_serviceUpsertWithWhereUniqueWithoutCarInput = {
+    where: Register_serviceWhereUniqueInput
+    update: XOR<Register_serviceUpdateWithoutCarInput, Register_serviceUncheckedUpdateWithoutCarInput>
+    create: XOR<Register_serviceCreateWithoutCarInput, Register_serviceUncheckedCreateWithoutCarInput>
+  }
+
+  export type Register_serviceUpdateWithWhereUniqueWithoutCarInput = {
+    where: Register_serviceWhereUniqueInput
+    data: XOR<Register_serviceUpdateWithoutCarInput, Register_serviceUncheckedUpdateWithoutCarInput>
+  }
+
+  export type Register_serviceUpdateManyWithWhereWithoutCarInput = {
+    where: Register_serviceScalarWhereInput
+    data: XOR<Register_serviceUpdateManyMutationInput, Register_serviceUncheckedUpdateManyWithoutCarInput>
+  }
+
+  export type HistoryUpsertWithWhereUniqueWithoutCarInput = {
+    where: HistoryWhereUniqueInput
+    update: XOR<HistoryUpdateWithoutCarInput, HistoryUncheckedUpdateWithoutCarInput>
+    create: XOR<HistoryCreateWithoutCarInput, HistoryUncheckedCreateWithoutCarInput>
+  }
+
+  export type HistoryUpdateWithWhereUniqueWithoutCarInput = {
+    where: HistoryWhereUniqueInput
+    data: XOR<HistoryUpdateWithoutCarInput, HistoryUncheckedUpdateWithoutCarInput>
+  }
+
+  export type HistoryUpdateManyWithWhereWithoutCarInput = {
+    where: HistoryScalarWhereInput
+    data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyWithoutCarInput>
+  }
+
+  export type Register_serviceCreateWithoutServiceInput = {
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    User: UserCreateNestedOneWithoutRegister_serviceInput
+    Car: CarCreateNestedOneWithoutRegister_serviceInput
+    Multi_branch: Multi_branchCreateNestedOneWithoutRegister_serviceInput
+    History?: HistoryCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceUncheckedCreateWithoutServiceInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_user_ID: number
+    Register_service_car: number
+    Register_service_multi_branch_ID: number
+    History?: HistoryUncheckedCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceCreateOrConnectWithoutServiceInput = {
+    where: Register_serviceWhereUniqueInput
+    create: XOR<Register_serviceCreateWithoutServiceInput, Register_serviceUncheckedCreateWithoutServiceInput>
+  }
+
+  export type Register_serviceCreateManyServiceInputEnvelope = {
+    data: Register_serviceCreateManyServiceInput | Register_serviceCreateManyServiceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type HistoryCreateWithoutServiceInput = {
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    Multi_branch: Multi_branchCreateNestedOneWithoutHistoryInput
+    User: UserCreateNestedOneWithoutHistoryInput
+    Register_car?: Register_carCreateNestedOneWithoutHistoryInput
+    Register_service?: Register_serviceCreateNestedOneWithoutHistoryInput
+    Car?: CarCreateNestedOneWithoutHistoryInput
+  }
+
+  export type HistoryUncheckedCreateWithoutServiceInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type HistoryCreateOrConnectWithoutServiceInput = {
+    where: HistoryWhereUniqueInput
+    create: XOR<HistoryCreateWithoutServiceInput, HistoryUncheckedCreateWithoutServiceInput>
+  }
+
+  export type HistoryCreateManyServiceInputEnvelope = {
+    data: HistoryCreateManyServiceInput | HistoryCreateManyServiceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Register_serviceUpsertWithWhereUniqueWithoutServiceInput = {
+    where: Register_serviceWhereUniqueInput
+    update: XOR<Register_serviceUpdateWithoutServiceInput, Register_serviceUncheckedUpdateWithoutServiceInput>
+    create: XOR<Register_serviceCreateWithoutServiceInput, Register_serviceUncheckedCreateWithoutServiceInput>
+  }
+
+  export type Register_serviceUpdateWithWhereUniqueWithoutServiceInput = {
+    where: Register_serviceWhereUniqueInput
+    data: XOR<Register_serviceUpdateWithoutServiceInput, Register_serviceUncheckedUpdateWithoutServiceInput>
+  }
+
+  export type Register_serviceUpdateManyWithWhereWithoutServiceInput = {
+    where: Register_serviceScalarWhereInput
+    data: XOR<Register_serviceUpdateManyMutationInput, Register_serviceUncheckedUpdateManyWithoutServiceInput>
+  }
+
+  export type HistoryUpsertWithWhereUniqueWithoutServiceInput = {
+    where: HistoryWhereUniqueInput
+    update: XOR<HistoryUpdateWithoutServiceInput, HistoryUncheckedUpdateWithoutServiceInput>
+    create: XOR<HistoryCreateWithoutServiceInput, HistoryUncheckedCreateWithoutServiceInput>
+  }
+
+  export type HistoryUpdateWithWhereUniqueWithoutServiceInput = {
+    where: HistoryWhereUniqueInput
+    data: XOR<HistoryUpdateWithoutServiceInput, HistoryUncheckedUpdateWithoutServiceInput>
+  }
+
+  export type HistoryUpdateManyWithWhereWithoutServiceInput = {
+    where: HistoryScalarWhereInput
+    data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyWithoutServiceInput>
+  }
+
+  export type UserCreateWithoutBonusInput = {
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Notification?: NotificationCreateNestedManyWithoutUserInput
+    Commit?: CommitCreateNestedManyWithoutUserInput
+    OTP?: OTPCreateNestedManyWithoutUserInput
+    Register_car?: Register_carCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceCreateNestedManyWithoutUserInput
+    History?: HistoryCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutBonusInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Notification?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    Commit?: CommitUncheckedCreateNestedManyWithoutUserInput
+    OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
+    Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
+    History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutBonusInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutBonusInput, UserUncheckedCreateWithoutBonusInput>
+  }
+
+  export type UserUpsertWithoutBonusInput = {
+    update: XOR<UserUpdateWithoutBonusInput, UserUncheckedUpdateWithoutBonusInput>
+    create: XOR<UserCreateWithoutBonusInput, UserUncheckedCreateWithoutBonusInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutBonusInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutBonusInput, UserUncheckedUpdateWithoutBonusInput>
+  }
+
+  export type UserUpdateWithoutBonusInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Notification?: NotificationUpdateManyWithoutUserNestedInput
+    Commit?: CommitUpdateManyWithoutUserNestedInput
+    OTP?: OTPUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
+    History?: HistoryUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutBonusInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Notification?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    Commit?: CommitUncheckedUpdateManyWithoutUserNestedInput
+    OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type Register_serviceCreateWithoutMulti_branchInput = {
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    User: UserCreateNestedOneWithoutRegister_serviceInput
+    Car: CarCreateNestedOneWithoutRegister_serviceInput
+    Service: ServiceCreateNestedOneWithoutRegister_serviceInput
+    History?: HistoryCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceUncheckedCreateWithoutMulti_branchInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_user_ID: number
+    Register_service_car: number
+    Register_service_service_ID: number
+    History?: HistoryUncheckedCreateNestedManyWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceCreateOrConnectWithoutMulti_branchInput = {
+    where: Register_serviceWhereUniqueInput
+    create: XOR<Register_serviceCreateWithoutMulti_branchInput, Register_serviceUncheckedCreateWithoutMulti_branchInput>
+  }
+
+  export type Register_serviceCreateManyMulti_branchInputEnvelope = {
+    data: Register_serviceCreateManyMulti_branchInput | Register_serviceCreateManyMulti_branchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type HistoryCreateWithoutMulti_branchInput = {
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    User: UserCreateNestedOneWithoutHistoryInput
+    Service: ServiceCreateNestedOneWithoutHistoryInput
+    Register_car?: Register_carCreateNestedOneWithoutHistoryInput
+    Register_service?: Register_serviceCreateNestedOneWithoutHistoryInput
+    Car?: CarCreateNestedOneWithoutHistoryInput
+  }
+
+  export type HistoryUncheckedCreateWithoutMulti_branchInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type HistoryCreateOrConnectWithoutMulti_branchInput = {
+    where: HistoryWhereUniqueInput
+    create: XOR<HistoryCreateWithoutMulti_branchInput, HistoryUncheckedCreateWithoutMulti_branchInput>
+  }
+
+  export type HistoryCreateManyMulti_branchInputEnvelope = {
+    data: HistoryCreateManyMulti_branchInput | HistoryCreateManyMulti_branchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Register_serviceUpsertWithWhereUniqueWithoutMulti_branchInput = {
+    where: Register_serviceWhereUniqueInput
+    update: XOR<Register_serviceUpdateWithoutMulti_branchInput, Register_serviceUncheckedUpdateWithoutMulti_branchInput>
+    create: XOR<Register_serviceCreateWithoutMulti_branchInput, Register_serviceUncheckedCreateWithoutMulti_branchInput>
+  }
+
+  export type Register_serviceUpdateWithWhereUniqueWithoutMulti_branchInput = {
+    where: Register_serviceWhereUniqueInput
+    data: XOR<Register_serviceUpdateWithoutMulti_branchInput, Register_serviceUncheckedUpdateWithoutMulti_branchInput>
+  }
+
+  export type Register_serviceUpdateManyWithWhereWithoutMulti_branchInput = {
+    where: Register_serviceScalarWhereInput
+    data: XOR<Register_serviceUpdateManyMutationInput, Register_serviceUncheckedUpdateManyWithoutMulti_branchInput>
+  }
+
+  export type HistoryUpsertWithWhereUniqueWithoutMulti_branchInput = {
+    where: HistoryWhereUniqueInput
+    update: XOR<HistoryUpdateWithoutMulti_branchInput, HistoryUncheckedUpdateWithoutMulti_branchInput>
+    create: XOR<HistoryCreateWithoutMulti_branchInput, HistoryUncheckedCreateWithoutMulti_branchInput>
+  }
+
+  export type HistoryUpdateWithWhereUniqueWithoutMulti_branchInput = {
+    where: HistoryWhereUniqueInput
+    data: XOR<HistoryUpdateWithoutMulti_branchInput, HistoryUncheckedUpdateWithoutMulti_branchInput>
+  }
+
+  export type HistoryUpdateManyWithWhereWithoutMulti_branchInput = {
+    where: HistoryScalarWhereInput
+    data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyWithoutMulti_branchInput>
+  }
+
+  export type UserCreateWithoutCommitInput = {
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusCreateNestedManyWithoutUserInput
+    Notification?: NotificationCreateNestedManyWithoutUserInput
+    OTP?: OTPCreateNestedManyWithoutUserInput
+    Register_car?: Register_carCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceCreateNestedManyWithoutUserInput
+    History?: HistoryCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutCommitInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusUncheckedCreateNestedManyWithoutUserInput
+    Notification?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
+    Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
+    History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutCommitInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCommitInput, UserUncheckedCreateWithoutCommitInput>
+  }
+
+  export type UserUpsertWithoutCommitInput = {
+    update: XOR<UserUpdateWithoutCommitInput, UserUncheckedUpdateWithoutCommitInput>
+    create: XOR<UserCreateWithoutCommitInput, UserUncheckedCreateWithoutCommitInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutCommitInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutCommitInput, UserUncheckedUpdateWithoutCommitInput>
+  }
+
+  export type UserUpdateWithoutCommitInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUpdateManyWithoutUserNestedInput
+    OTP?: OTPUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
+    History?: HistoryUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCommitInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUncheckedUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutNotificationInput = {
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusCreateNestedManyWithoutUserInput
+    Commit?: CommitCreateNestedManyWithoutUserInput
+    OTP?: OTPCreateNestedManyWithoutUserInput
+    Register_car?: Register_carCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceCreateNestedManyWithoutUserInput
+    History?: HistoryCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutNotificationInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusUncheckedCreateNestedManyWithoutUserInput
+    Commit?: CommitUncheckedCreateNestedManyWithoutUserInput
+    OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
+    Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
+    History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutNotificationInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutNotificationInput, UserUncheckedCreateWithoutNotificationInput>
+  }
+
+  export type UserUpsertWithoutNotificationInput = {
+    update: XOR<UserUpdateWithoutNotificationInput, UserUncheckedUpdateWithoutNotificationInput>
+    create: XOR<UserCreateWithoutNotificationInput, UserUncheckedCreateWithoutNotificationInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutNotificationInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutNotificationInput, UserUncheckedUpdateWithoutNotificationInput>
+  }
+
+  export type UserUpdateWithoutNotificationInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUpdateManyWithoutUserNestedInput
+    Commit?: CommitUpdateManyWithoutUserNestedInput
+    OTP?: OTPUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
+    History?: HistoryUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutNotificationInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUncheckedUpdateManyWithoutUserNestedInput
+    Commit?: CommitUncheckedUpdateManyWithoutUserNestedInput
+    OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutOTPInput = {
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusCreateNestedManyWithoutUserInput
+    Notification?: NotificationCreateNestedManyWithoutUserInput
+    Commit?: CommitCreateNestedManyWithoutUserInput
+    Register_car?: Register_carCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceCreateNestedManyWithoutUserInput
+    History?: HistoryCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutOTPInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusUncheckedCreateNestedManyWithoutUserInput
+    Notification?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    Commit?: CommitUncheckedCreateNestedManyWithoutUserInput
+    Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
+    History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutOTPInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutOTPInput, UserUncheckedCreateWithoutOTPInput>
+  }
+
+  export type UserUpsertWithoutOTPInput = {
+    update: XOR<UserUpdateWithoutOTPInput, UserUncheckedUpdateWithoutOTPInput>
+    create: XOR<UserCreateWithoutOTPInput, UserUncheckedCreateWithoutOTPInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutOTPInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutOTPInput, UserUncheckedUpdateWithoutOTPInput>
+  }
+
+  export type UserUpdateWithoutOTPInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUpdateManyWithoutUserNestedInput
+    Commit?: CommitUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
+    History?: HistoryUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutOTPInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUncheckedUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    Commit?: CommitUncheckedUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type Multi_branchCreateWithoutHistoryInput = {
+    Multi_branch_name: string
+    Multi_branch_address?: string | null
+    Multi_branch_phone?: string | null
+    Multi_branch_email?: string | null
+    Multi_branch_opening_hours?: string | null
+    Multi_branch_create_at?: Date | string
+    Multi_branch_update_at?: Date | string
+    Register_service?: Register_serviceCreateNestedManyWithoutMulti_branchInput
+  }
+
+  export type Multi_branchUncheckedCreateWithoutHistoryInput = {
+    Multi_branch_ID?: number
+    Multi_branch_name: string
+    Multi_branch_address?: string | null
+    Multi_branch_phone?: string | null
+    Multi_branch_email?: string | null
+    Multi_branch_opening_hours?: string | null
+    Multi_branch_create_at?: Date | string
+    Multi_branch_update_at?: Date | string
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutMulti_branchInput
+  }
+
+  export type Multi_branchCreateOrConnectWithoutHistoryInput = {
+    where: Multi_branchWhereUniqueInput
+    create: XOR<Multi_branchCreateWithoutHistoryInput, Multi_branchUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type UserCreateWithoutHistoryInput = {
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusCreateNestedManyWithoutUserInput
+    Notification?: NotificationCreateNestedManyWithoutUserInput
+    Commit?: CommitCreateNestedManyWithoutUserInput
+    OTP?: OTPCreateNestedManyWithoutUserInput
+    Register_car?: Register_carCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutHistoryInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusUncheckedCreateNestedManyWithoutUserInput
+    Notification?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    Commit?: CommitUncheckedCreateNestedManyWithoutUserInput
+    OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
+    Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutHistoryInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutHistoryInput, UserUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type ServiceCreateWithoutHistoryInput = {
+    Service_name: string
+    Service_description?: string | null
+    Service_price: number
+    Service_duration_min: number
+    Register_service?: Register_serviceCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceUncheckedCreateWithoutHistoryInput = {
+    Service_ID?: number
+    Service_name: string
+    Service_description?: string | null
+    Service_price: number
+    Service_duration_min: number
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceCreateOrConnectWithoutHistoryInput = {
+    where: ServiceWhereUniqueInput
+    create: XOR<ServiceCreateWithoutHistoryInput, ServiceUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type Register_carCreateWithoutHistoryInput = {
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+    User: UserCreateNestedOneWithoutRegister_carInput
+  }
+
+  export type Register_carUncheckedCreateWithoutHistoryInput = {
+    Register_car_ID?: number
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+    Register_car_user_ID: number
+  }
+
+  export type Register_carCreateOrConnectWithoutHistoryInput = {
+    where: Register_carWhereUniqueInput
+    create: XOR<Register_carCreateWithoutHistoryInput, Register_carUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type Register_serviceCreateWithoutHistoryInput = {
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    User: UserCreateNestedOneWithoutRegister_serviceInput
+    Car: CarCreateNestedOneWithoutRegister_serviceInput
+    Service: ServiceCreateNestedOneWithoutRegister_serviceInput
+    Multi_branch: Multi_branchCreateNestedOneWithoutRegister_serviceInput
+  }
+
+  export type Register_serviceUncheckedCreateWithoutHistoryInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_user_ID: number
+    Register_service_car: number
+    Register_service_service_ID: number
+    Register_service_multi_branch_ID: number
+  }
+
+  export type Register_serviceCreateOrConnectWithoutHistoryInput = {
+    where: Register_serviceWhereUniqueInput
+    create: XOR<Register_serviceCreateWithoutHistoryInput, Register_serviceUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type CarCreateWithoutHistoryInput = {
+    Car_list?: string | null
+    Register_service?: Register_serviceCreateNestedManyWithoutCarInput
+  }
+
+  export type CarUncheckedCreateWithoutHistoryInput = {
+    Car_ID?: number
+    Car_list?: string | null
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutCarInput
+  }
+
+  export type CarCreateOrConnectWithoutHistoryInput = {
+    where: CarWhereUniqueInput
+    create: XOR<CarCreateWithoutHistoryInput, CarUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type Multi_branchUpsertWithoutHistoryInput = {
+    update: XOR<Multi_branchUpdateWithoutHistoryInput, Multi_branchUncheckedUpdateWithoutHistoryInput>
+    create: XOR<Multi_branchCreateWithoutHistoryInput, Multi_branchUncheckedCreateWithoutHistoryInput>
+    where?: Multi_branchWhereInput
+  }
+
+  export type Multi_branchUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: Multi_branchWhereInput
+    data: XOR<Multi_branchUpdateWithoutHistoryInput, Multi_branchUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type Multi_branchUpdateWithoutHistoryInput = {
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service?: Register_serviceUpdateManyWithoutMulti_branchNestedInput
+  }
+
+  export type Multi_branchUncheckedUpdateWithoutHistoryInput = {
+    Multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutMulti_branchNestedInput
+  }
+
+  export type UserUpsertWithoutHistoryInput = {
+    update: XOR<UserUpdateWithoutHistoryInput, UserUncheckedUpdateWithoutHistoryInput>
+    create: XOR<UserCreateWithoutHistoryInput, UserUncheckedCreateWithoutHistoryInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutHistoryInput, UserUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type UserUpdateWithoutHistoryInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUpdateManyWithoutUserNestedInput
+    Commit?: CommitUpdateManyWithoutUserNestedInput
+    OTP?: OTPUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutHistoryInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUncheckedUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    Commit?: CommitUncheckedUpdateManyWithoutUserNestedInput
+    OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ServiceUpsertWithoutHistoryInput = {
+    update: XOR<ServiceUpdateWithoutHistoryInput, ServiceUncheckedUpdateWithoutHistoryInput>
+    create: XOR<ServiceCreateWithoutHistoryInput, ServiceUncheckedCreateWithoutHistoryInput>
+    where?: ServiceWhereInput
+  }
+
+  export type ServiceUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: ServiceWhereInput
+    data: XOR<ServiceUpdateWithoutHistoryInput, ServiceUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type ServiceUpdateWithoutHistoryInput = {
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+    Register_service?: Register_serviceUpdateManyWithoutServiceNestedInput
+  }
+
+  export type ServiceUncheckedUpdateWithoutHistoryInput = {
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutServiceNestedInput
+  }
+
+  export type Register_carUpsertWithoutHistoryInput = {
+    update: XOR<Register_carUpdateWithoutHistoryInput, Register_carUncheckedUpdateWithoutHistoryInput>
+    create: XOR<Register_carCreateWithoutHistoryInput, Register_carUncheckedCreateWithoutHistoryInput>
+    where?: Register_carWhereInput
+  }
+
+  export type Register_carUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: Register_carWhereInput
+    data: XOR<Register_carUpdateWithoutHistoryInput, Register_carUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type Register_carUpdateWithoutHistoryInput = {
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutRegister_carNestedInput
+  }
+
+  export type Register_carUncheckedUpdateWithoutHistoryInput = {
+    Register_car_ID?: IntFieldUpdateOperationsInput | number
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type Register_serviceUpsertWithoutHistoryInput = {
+    update: XOR<Register_serviceUpdateWithoutHistoryInput, Register_serviceUncheckedUpdateWithoutHistoryInput>
+    create: XOR<Register_serviceCreateWithoutHistoryInput, Register_serviceUncheckedCreateWithoutHistoryInput>
+    where?: Register_serviceWhereInput
+  }
+
+  export type Register_serviceUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: Register_serviceWhereInput
+    data: XOR<Register_serviceUpdateWithoutHistoryInput, Register_serviceUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type Register_serviceUpdateWithoutHistoryInput = {
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Car?: CarUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateWithoutHistoryInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_user_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_car?: IntFieldUpdateOperationsInput | number
+    Register_service_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CarUpsertWithoutHistoryInput = {
+    update: XOR<CarUpdateWithoutHistoryInput, CarUncheckedUpdateWithoutHistoryInput>
+    create: XOR<CarCreateWithoutHistoryInput, CarUncheckedCreateWithoutHistoryInput>
+    where?: CarWhereInput
+  }
+
+  export type CarUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: CarWhereInput
+    data: XOR<CarUpdateWithoutHistoryInput, CarUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type CarUpdateWithoutHistoryInput = {
+    Car_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service?: Register_serviceUpdateManyWithoutCarNestedInput
+  }
+
+  export type CarUncheckedUpdateWithoutHistoryInput = {
+    Car_ID?: IntFieldUpdateOperationsInput | number
+    Car_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutCarNestedInput
+  }
+
+  export type UserCreateWithoutRegister_carInput = {
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusCreateNestedManyWithoutUserInput
+    Notification?: NotificationCreateNestedManyWithoutUserInput
+    Commit?: CommitCreateNestedManyWithoutUserInput
+    OTP?: OTPCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceCreateNestedManyWithoutUserInput
+    History?: HistoryCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutRegister_carInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusUncheckedCreateNestedManyWithoutUserInput
+    Notification?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    Commit?: CommitUncheckedCreateNestedManyWithoutUserInput
+    OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
+    History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutRegister_carInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutRegister_carInput, UserUncheckedCreateWithoutRegister_carInput>
+  }
+
+  export type HistoryCreateWithoutRegister_carInput = {
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    Multi_branch: Multi_branchCreateNestedOneWithoutHistoryInput
+    User: UserCreateNestedOneWithoutHistoryInput
+    Service: ServiceCreateNestedOneWithoutHistoryInput
+    Register_service?: Register_serviceCreateNestedOneWithoutHistoryInput
+    Car?: CarCreateNestedOneWithoutHistoryInput
+  }
+
+  export type HistoryUncheckedCreateWithoutRegister_carInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type HistoryCreateOrConnectWithoutRegister_carInput = {
+    where: HistoryWhereUniqueInput
+    create: XOR<HistoryCreateWithoutRegister_carInput, HistoryUncheckedCreateWithoutRegister_carInput>
+  }
+
+  export type HistoryCreateManyRegister_carInputEnvelope = {
+    data: HistoryCreateManyRegister_carInput | HistoryCreateManyRegister_carInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutRegister_carInput = {
+    update: XOR<UserUpdateWithoutRegister_carInput, UserUncheckedUpdateWithoutRegister_carInput>
+    create: XOR<UserCreateWithoutRegister_carInput, UserUncheckedCreateWithoutRegister_carInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutRegister_carInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutRegister_carInput, UserUncheckedUpdateWithoutRegister_carInput>
+  }
+
+  export type UserUpdateWithoutRegister_carInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUpdateManyWithoutUserNestedInput
+    Commit?: CommitUpdateManyWithoutUserNestedInput
+    OTP?: OTPUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
+    History?: HistoryUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutRegister_carInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUncheckedUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    Commit?: CommitUncheckedUpdateManyWithoutUserNestedInput
+    OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type HistoryUpsertWithWhereUniqueWithoutRegister_carInput = {
+    where: HistoryWhereUniqueInput
+    update: XOR<HistoryUpdateWithoutRegister_carInput, HistoryUncheckedUpdateWithoutRegister_carInput>
+    create: XOR<HistoryCreateWithoutRegister_carInput, HistoryUncheckedCreateWithoutRegister_carInput>
+  }
+
+  export type HistoryUpdateWithWhereUniqueWithoutRegister_carInput = {
+    where: HistoryWhereUniqueInput
+    data: XOR<HistoryUpdateWithoutRegister_carInput, HistoryUncheckedUpdateWithoutRegister_carInput>
+  }
+
+  export type HistoryUpdateManyWithWhereWithoutRegister_carInput = {
+    where: HistoryScalarWhereInput
+    data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyWithoutRegister_carInput>
+  }
+
+  export type UserCreateWithoutRegister_serviceInput = {
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusCreateNestedManyWithoutUserInput
+    Notification?: NotificationCreateNestedManyWithoutUserInput
+    Commit?: CommitCreateNestedManyWithoutUserInput
+    OTP?: OTPCreateNestedManyWithoutUserInput
+    Register_car?: Register_carCreateNestedManyWithoutUserInput
+    History?: HistoryCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutRegister_serviceInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusUncheckedCreateNestedManyWithoutUserInput
+    Notification?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    Commit?: CommitUncheckedCreateNestedManyWithoutUserInput
+    OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
+    Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
+    History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutRegister_serviceInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutRegister_serviceInput, UserUncheckedCreateWithoutRegister_serviceInput>
+  }
+
+  export type CarCreateWithoutRegister_serviceInput = {
+    Car_list?: string | null
+    History?: HistoryCreateNestedManyWithoutCarInput
+  }
+
+  export type CarUncheckedCreateWithoutRegister_serviceInput = {
+    Car_ID?: number
+    Car_list?: string | null
+    History?: HistoryUncheckedCreateNestedManyWithoutCarInput
+  }
+
+  export type CarCreateOrConnectWithoutRegister_serviceInput = {
+    where: CarWhereUniqueInput
+    create: XOR<CarCreateWithoutRegister_serviceInput, CarUncheckedCreateWithoutRegister_serviceInput>
+  }
+
+  export type ServiceCreateWithoutRegister_serviceInput = {
+    Service_name: string
+    Service_description?: string | null
+    Service_price: number
+    Service_duration_min: number
+    History?: HistoryCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceUncheckedCreateWithoutRegister_serviceInput = {
+    Service_ID?: number
+    Service_name: string
+    Service_description?: string | null
+    Service_price: number
+    Service_duration_min: number
+    History?: HistoryUncheckedCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceCreateOrConnectWithoutRegister_serviceInput = {
+    where: ServiceWhereUniqueInput
+    create: XOR<ServiceCreateWithoutRegister_serviceInput, ServiceUncheckedCreateWithoutRegister_serviceInput>
+  }
+
+  export type Multi_branchCreateWithoutRegister_serviceInput = {
+    Multi_branch_name: string
+    Multi_branch_address?: string | null
+    Multi_branch_phone?: string | null
+    Multi_branch_email?: string | null
+    Multi_branch_opening_hours?: string | null
+    Multi_branch_create_at?: Date | string
+    Multi_branch_update_at?: Date | string
+    History?: HistoryCreateNestedManyWithoutMulti_branchInput
+  }
+
+  export type Multi_branchUncheckedCreateWithoutRegister_serviceInput = {
+    Multi_branch_ID?: number
+    Multi_branch_name: string
+    Multi_branch_address?: string | null
+    Multi_branch_phone?: string | null
+    Multi_branch_email?: string | null
+    Multi_branch_opening_hours?: string | null
+    Multi_branch_create_at?: Date | string
+    Multi_branch_update_at?: Date | string
+    History?: HistoryUncheckedCreateNestedManyWithoutMulti_branchInput
+  }
+
+  export type Multi_branchCreateOrConnectWithoutRegister_serviceInput = {
+    where: Multi_branchWhereUniqueInput
+    create: XOR<Multi_branchCreateWithoutRegister_serviceInput, Multi_branchUncheckedCreateWithoutRegister_serviceInput>
+  }
+
+  export type HistoryCreateWithoutRegister_serviceInput = {
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    Multi_branch: Multi_branchCreateNestedOneWithoutHistoryInput
+    User: UserCreateNestedOneWithoutHistoryInput
+    Service: ServiceCreateNestedOneWithoutHistoryInput
+    Register_car?: Register_carCreateNestedOneWithoutHistoryInput
+    Car?: CarCreateNestedOneWithoutHistoryInput
+  }
+
+  export type HistoryUncheckedCreateWithoutRegister_serviceInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type HistoryCreateOrConnectWithoutRegister_serviceInput = {
+    where: HistoryWhereUniqueInput
+    create: XOR<HistoryCreateWithoutRegister_serviceInput, HistoryUncheckedCreateWithoutRegister_serviceInput>
+  }
+
+  export type HistoryCreateManyRegister_serviceInputEnvelope = {
+    data: HistoryCreateManyRegister_serviceInput | HistoryCreateManyRegister_serviceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutRegister_serviceInput = {
+    update: XOR<UserUpdateWithoutRegister_serviceInput, UserUncheckedUpdateWithoutRegister_serviceInput>
+    create: XOR<UserCreateWithoutRegister_serviceInput, UserUncheckedCreateWithoutRegister_serviceInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutRegister_serviceInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutRegister_serviceInput, UserUncheckedUpdateWithoutRegister_serviceInput>
+  }
+
+  export type UserUpdateWithoutRegister_serviceInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUpdateManyWithoutUserNestedInput
+    Commit?: CommitUpdateManyWithoutUserNestedInput
+    OTP?: OTPUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUpdateManyWithoutUserNestedInput
+    History?: HistoryUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutRegister_serviceInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUncheckedUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    Commit?: CommitUncheckedUpdateManyWithoutUserNestedInput
+    OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type CarUpsertWithoutRegister_serviceInput = {
+    update: XOR<CarUpdateWithoutRegister_serviceInput, CarUncheckedUpdateWithoutRegister_serviceInput>
+    create: XOR<CarCreateWithoutRegister_serviceInput, CarUncheckedCreateWithoutRegister_serviceInput>
+    where?: CarWhereInput
+  }
+
+  export type CarUpdateToOneWithWhereWithoutRegister_serviceInput = {
+    where?: CarWhereInput
+    data: XOR<CarUpdateWithoutRegister_serviceInput, CarUncheckedUpdateWithoutRegister_serviceInput>
+  }
+
+  export type CarUpdateWithoutRegister_serviceInput = {
+    Car_list?: NullableStringFieldUpdateOperationsInput | string | null
+    History?: HistoryUpdateManyWithoutCarNestedInput
+  }
+
+  export type CarUncheckedUpdateWithoutRegister_serviceInput = {
+    Car_ID?: IntFieldUpdateOperationsInput | number
+    Car_list?: NullableStringFieldUpdateOperationsInput | string | null
+    History?: HistoryUncheckedUpdateManyWithoutCarNestedInput
+  }
+
+  export type ServiceUpsertWithoutRegister_serviceInput = {
+    update: XOR<ServiceUpdateWithoutRegister_serviceInput, ServiceUncheckedUpdateWithoutRegister_serviceInput>
+    create: XOR<ServiceCreateWithoutRegister_serviceInput, ServiceUncheckedCreateWithoutRegister_serviceInput>
+    where?: ServiceWhereInput
+  }
+
+  export type ServiceUpdateToOneWithWhereWithoutRegister_serviceInput = {
+    where?: ServiceWhereInput
+    data: XOR<ServiceUpdateWithoutRegister_serviceInput, ServiceUncheckedUpdateWithoutRegister_serviceInput>
+  }
+
+  export type ServiceUpdateWithoutRegister_serviceInput = {
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+    History?: HistoryUpdateManyWithoutServiceNestedInput
+  }
+
+  export type ServiceUncheckedUpdateWithoutRegister_serviceInput = {
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+    History?: HistoryUncheckedUpdateManyWithoutServiceNestedInput
+  }
+
+  export type Multi_branchUpsertWithoutRegister_serviceInput = {
+    update: XOR<Multi_branchUpdateWithoutRegister_serviceInput, Multi_branchUncheckedUpdateWithoutRegister_serviceInput>
+    create: XOR<Multi_branchCreateWithoutRegister_serviceInput, Multi_branchUncheckedCreateWithoutRegister_serviceInput>
+    where?: Multi_branchWhereInput
+  }
+
+  export type Multi_branchUpdateToOneWithWhereWithoutRegister_serviceInput = {
+    where?: Multi_branchWhereInput
+    data: XOR<Multi_branchUpdateWithoutRegister_serviceInput, Multi_branchUncheckedUpdateWithoutRegister_serviceInput>
+  }
+
+  export type Multi_branchUpdateWithoutRegister_serviceInput = {
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History?: HistoryUpdateManyWithoutMulti_branchNestedInput
+  }
+
+  export type Multi_branchUncheckedUpdateWithoutRegister_serviceInput = {
+    Multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History?: HistoryUncheckedUpdateManyWithoutMulti_branchNestedInput
+  }
+
+  export type HistoryUpsertWithWhereUniqueWithoutRegister_serviceInput = {
+    where: HistoryWhereUniqueInput
+    update: XOR<HistoryUpdateWithoutRegister_serviceInput, HistoryUncheckedUpdateWithoutRegister_serviceInput>
+    create: XOR<HistoryCreateWithoutRegister_serviceInput, HistoryUncheckedCreateWithoutRegister_serviceInput>
+  }
+
+  export type HistoryUpdateWithWhereUniqueWithoutRegister_serviceInput = {
+    where: HistoryWhereUniqueInput
+    data: XOR<HistoryUpdateWithoutRegister_serviceInput, HistoryUncheckedUpdateWithoutRegister_serviceInput>
+  }
+
+  export type HistoryUpdateManyWithWhereWithoutRegister_serviceInput = {
+    where: HistoryScalarWhereInput
+    data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyWithoutRegister_serviceInput>
+  }
+
+  export type BonusCreateManyUserInput = {
+    Bonus_ID?: number
+    Bonus_point: number
+    Bonus_type: $Enums.Bonus_type_enum
+  }
+
+  export type NotificationCreateManyUserInput = {
+    Notification_ID?: number
+    Notification_text: string
+    Notification_is_read?: boolean
+    Notification_create_at?: Date | string
+  }
+
+  export type CommitCreateManyUserInput = {
+    Commit_ID?: number
+    Commit_text: string
+    Commit_review?: string | null
+    Commit_entity_id?: number | null
+    Commit_entity_name?: string | null
+    Commit_create_at?: Date | string
+  }
+
+  export type OTPCreateManyUserInput = {
+    OTP_ID?: number
+    OTP_code: string
+    OTP_type: $Enums.OTP_type_enum
+    OTP_status: $Enums.OTP_status_enum
+    OTP_create_at?: Date | string
+    OTP_expires_at: Date | string
+  }
+
+  export type Register_carCreateManyUserInput = {
+    Register_car_ID?: number
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+  }
+
+  export type Register_serviceCreateManyUserInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_car: number
+    Register_service_service_ID: number
+    Register_service_multi_branch_ID: number
+  }
+
+  export type HistoryCreateManyUserInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type BonusUpdateWithoutUserInput = {
+    Bonus_point?: IntFieldUpdateOperationsInput | number
+    Bonus_type?: EnumBonus_type_enumFieldUpdateOperationsInput | $Enums.Bonus_type_enum
+  }
+
+  export type BonusUncheckedUpdateWithoutUserInput = {
+    Bonus_ID?: IntFieldUpdateOperationsInput | number
+    Bonus_point?: IntFieldUpdateOperationsInput | number
+    Bonus_type?: EnumBonus_type_enumFieldUpdateOperationsInput | $Enums.Bonus_type_enum
+  }
+
+  export type BonusUncheckedUpdateManyWithoutUserInput = {
+    Bonus_ID?: IntFieldUpdateOperationsInput | number
+    Bonus_point?: IntFieldUpdateOperationsInput | number
+    Bonus_type?: EnumBonus_type_enumFieldUpdateOperationsInput | $Enums.Bonus_type_enum
+  }
+
+  export type NotificationUpdateWithoutUserInput = {
+    Notification_text?: StringFieldUpdateOperationsInput | string
+    Notification_is_read?: BoolFieldUpdateOperationsInput | boolean
+    Notification_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateWithoutUserInput = {
+    Notification_ID?: IntFieldUpdateOperationsInput | number
+    Notification_text?: StringFieldUpdateOperationsInput | string
+    Notification_is_read?: BoolFieldUpdateOperationsInput | boolean
+    Notification_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutUserInput = {
+    Notification_ID?: IntFieldUpdateOperationsInput | number
+    Notification_text?: StringFieldUpdateOperationsInput | string
+    Notification_is_read?: BoolFieldUpdateOperationsInput | boolean
+    Notification_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommitUpdateWithoutUserInput = {
+    Commit_text?: StringFieldUpdateOperationsInput | string
+    Commit_review?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_entity_id?: NullableIntFieldUpdateOperationsInput | number | null
+    Commit_entity_name?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommitUncheckedUpdateWithoutUserInput = {
+    Commit_ID?: IntFieldUpdateOperationsInput | number
+    Commit_text?: StringFieldUpdateOperationsInput | string
+    Commit_review?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_entity_id?: NullableIntFieldUpdateOperationsInput | number | null
+    Commit_entity_name?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommitUncheckedUpdateManyWithoutUserInput = {
+    Commit_ID?: IntFieldUpdateOperationsInput | number
+    Commit_text?: StringFieldUpdateOperationsInput | string
+    Commit_review?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_entity_id?: NullableIntFieldUpdateOperationsInput | number | null
+    Commit_entity_name?: NullableStringFieldUpdateOperationsInput | string | null
+    Commit_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OTPUpdateWithoutUserInput = {
+    OTP_code?: StringFieldUpdateOperationsInput | string
+    OTP_type?: EnumOTP_type_enumFieldUpdateOperationsInput | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFieldUpdateOperationsInput | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    OTP_expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OTPUncheckedUpdateWithoutUserInput = {
+    OTP_ID?: IntFieldUpdateOperationsInput | number
+    OTP_code?: StringFieldUpdateOperationsInput | string
+    OTP_type?: EnumOTP_type_enumFieldUpdateOperationsInput | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFieldUpdateOperationsInput | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    OTP_expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OTPUncheckedUpdateManyWithoutUserInput = {
+    OTP_ID?: IntFieldUpdateOperationsInput | number
+    OTP_code?: StringFieldUpdateOperationsInput | string
+    OTP_type?: EnumOTP_type_enumFieldUpdateOperationsInput | $Enums.OTP_type_enum
+    OTP_status?: EnumOTP_status_enumFieldUpdateOperationsInput | $Enums.OTP_status_enum
+    OTP_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    OTP_expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type Register_carUpdateWithoutUserInput = {
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History?: HistoryUpdateManyWithoutRegister_carNestedInput
+  }
+
+  export type Register_carUncheckedUpdateWithoutUserInput = {
+    Register_car_ID?: IntFieldUpdateOperationsInput | number
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History?: HistoryUncheckedUpdateManyWithoutRegister_carNestedInput
+  }
+
+  export type Register_carUncheckedUpdateManyWithoutUserInput = {
+    Register_car_ID?: IntFieldUpdateOperationsInput | number
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type Register_serviceUpdateWithoutUserInput = {
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Car?: CarUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutRegister_serviceNestedInput
+    History?: HistoryUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateWithoutUserInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_car?: IntFieldUpdateOperationsInput | number
+    Register_service_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History?: HistoryUncheckedUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateManyWithoutUserInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_car?: IntFieldUpdateOperationsInput | number
+    Register_service_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type HistoryUpdateWithoutUserInput = {
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutHistoryNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutHistoryNestedInput
+    Register_car?: Register_carUpdateOneWithoutHistoryNestedInput
+    Register_service?: Register_serviceUpdateOneWithoutHistoryNestedInput
+    Car?: CarUpdateOneWithoutHistoryNestedInput
+  }
+
+  export type HistoryUncheckedUpdateWithoutUserInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutUserInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type Register_serviceCreateManyCarInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_user_ID: number
+    Register_service_service_ID: number
+    Register_service_multi_branch_ID: number
+  }
+
+  export type HistoryCreateManyCarInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+  }
+
+  export type Register_serviceUpdateWithoutCarInput = {
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutRegister_serviceNestedInput
+    History?: HistoryUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateWithoutCarInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_user_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History?: HistoryUncheckedUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateManyWithoutCarInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_user_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type HistoryUpdateWithoutCarInput = {
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutHistoryNestedInput
+    User?: UserUpdateOneRequiredWithoutHistoryNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutHistoryNestedInput
+    Register_car?: Register_carUpdateOneWithoutHistoryNestedInput
+    Register_service?: Register_serviceUpdateOneWithoutHistoryNestedInput
+  }
+
+  export type HistoryUncheckedUpdateWithoutCarInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutCarInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type Register_serviceCreateManyServiceInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_user_ID: number
+    Register_service_car: number
+    Register_service_multi_branch_ID: number
+  }
+
+  export type HistoryCreateManyServiceInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type Register_serviceUpdateWithoutServiceInput = {
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Car?: CarUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutRegister_serviceNestedInput
+    History?: HistoryUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateWithoutServiceInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_user_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_car?: IntFieldUpdateOperationsInput | number
+    Register_service_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History?: HistoryUncheckedUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateManyWithoutServiceInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_user_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_car?: IntFieldUpdateOperationsInput | number
+    Register_service_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type HistoryUpdateWithoutServiceInput = {
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutHistoryNestedInput
+    User?: UserUpdateOneRequiredWithoutHistoryNestedInput
+    Register_car?: Register_carUpdateOneWithoutHistoryNestedInput
+    Register_service?: Register_serviceUpdateOneWithoutHistoryNestedInput
+    Car?: CarUpdateOneWithoutHistoryNestedInput
+  }
+
+  export type HistoryUncheckedUpdateWithoutServiceInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutServiceInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type Register_serviceCreateManyMulti_branchInput = {
+    Register_service_ID?: number
+    Register_service_scheduled?: Date | string | null
+    Register_service_time_list?: string | null
+    Register_service_status: $Enums.Register_service_status_enum
+    Register_service_create_at?: Date | string
+    Register_service_update_at?: Date | string
+    Register_service_user_ID: number
+    Register_service_car: number
+    Register_service_service_ID: number
+  }
+
+  export type HistoryCreateManyMulti_branchInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type Register_serviceUpdateWithoutMulti_branchInput = {
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Car?: CarUpdateOneRequiredWithoutRegister_serviceNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutRegister_serviceNestedInput
+    History?: HistoryUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateWithoutMulti_branchInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_user_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_car?: IntFieldUpdateOperationsInput | number
+    Register_service_service_ID?: IntFieldUpdateOperationsInput | number
+    History?: HistoryUncheckedUpdateManyWithoutRegister_serviceNestedInput
+  }
+
+  export type Register_serviceUncheckedUpdateManyWithoutMulti_branchInput = {
+    Register_service_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_service_status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    Register_service_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service_user_ID?: IntFieldUpdateOperationsInput | number
+    Register_service_car?: IntFieldUpdateOperationsInput | number
+    Register_service_service_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type HistoryUpdateWithoutMulti_branchInput = {
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutHistoryNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutHistoryNestedInput
+    Register_car?: Register_carUpdateOneWithoutHistoryNestedInput
+    Register_service?: Register_serviceUpdateOneWithoutHistoryNestedInput
+    Car?: CarUpdateOneWithoutHistoryNestedInput
+  }
+
+  export type HistoryUncheckedUpdateWithoutMulti_branchInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutMulti_branchInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HistoryCreateManyRegister_carInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_service_ID?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type HistoryUpdateWithoutRegister_carInput = {
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutHistoryNestedInput
+    User?: UserUpdateOneRequiredWithoutHistoryNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutHistoryNestedInput
+    Register_service?: Register_serviceUpdateOneWithoutHistoryNestedInput
+    Car?: CarUpdateOneWithoutHistoryNestedInput
+  }
+
+  export type HistoryUncheckedUpdateWithoutRegister_carInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutRegister_carInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HistoryCreateManyRegister_serviceInput = {
+    History_ID?: number
+    History_bonus?: number | null
+    History_price?: number | null
+    History_status: $Enums.History_status_enum
+    History_create_at?: Date | string
+    History_multi_branch_ID: number
+    History_user_ID: number
+    History_service_ID: number
+    History_register_car?: number | null
+    carCar_ID?: number | null
+  }
+
+  export type HistoryUpdateWithoutRegister_serviceInput = {
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutHistoryNestedInput
+    User?: UserUpdateOneRequiredWithoutHistoryNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutHistoryNestedInput
+    Register_car?: Register_carUpdateOneWithoutHistoryNestedInput
+    Car?: CarUpdateOneWithoutHistoryNestedInput
+  }
+
+  export type HistoryUncheckedUpdateWithoutRegister_serviceInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type HistoryUncheckedUpdateManyWithoutRegister_serviceInput = {
+    History_ID?: IntFieldUpdateOperationsInput | number
+    History_bonus?: NullableIntFieldUpdateOperationsInput | number | null
+    History_price?: NullableFloatFieldUpdateOperationsInput | number | null
+    History_status?: EnumHistory_status_enumFieldUpdateOperationsInput | $Enums.History_status_enum
+    History_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    History_multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    History_user_ID?: IntFieldUpdateOperationsInput | number
+    History_service_ID?: IntFieldUpdateOperationsInput | number
+    History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
+    carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+
+
+  /**
+   * Batch Payload for updateMany & deleteMany & createMany
+   */
+
+  export type BatchPayload = {
+    count: number
+  }
+
+  /**
+   * DMMF
+   */
+  export const dmmf: runtime.BaseDMMF
+}
