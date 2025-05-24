@@ -59,10 +59,20 @@ export type OTP = $Result.DefaultSelection<Prisma.$OTPPayload>
  */
 export type History = $Result.DefaultSelection<Prisma.$HistoryPayload>
 /**
+ * Model TimeSlot
+ * 
+ */
+export type TimeSlot = $Result.DefaultSelection<Prisma.$TimeSlotPayload>
+/**
  * Model Register_car
  * 
  */
 export type Register_car = $Result.DefaultSelection<Prisma.$Register_carPayload>
+/**
+ * Model Booking
+ * 
+ */
+export type Booking = $Result.DefaultSelection<Prisma.$BookingPayload>
 /**
  * Model Register_service
  * 
@@ -128,8 +138,10 @@ export type Register_car_status_enum = (typeof Register_car_status_enum)[keyof t
 
 export const Register_service_status_enum: {
   SCHEDULED: 'SCHEDULED',
-  DONE: 'DONE',
-  NO_SHOW: 'NO_SHOW'
+  CONFIRMED: 'CONFIRMED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
 };
 
 export type Register_service_status_enum = (typeof Register_service_status_enum)[keyof typeof Register_service_status_enum]
@@ -380,6 +392,16 @@ export class PrismaClient<
   get history(): Prisma.HistoryDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.timeSlot`: Exposes CRUD operations for the **TimeSlot** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TimeSlots
+    * const timeSlots = await prisma.timeSlot.findMany()
+    * ```
+    */
+  get timeSlot(): Prisma.TimeSlotDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.register_car`: Exposes CRUD operations for the **Register_car** model.
     * Example usage:
     * ```ts
@@ -388,6 +410,16 @@ export class PrismaClient<
     * ```
     */
   get register_car(): Prisma.Register_carDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.booking`: Exposes CRUD operations for the **Booking** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Bookings
+    * const bookings = await prisma.booking.findMany()
+    * ```
+    */
+  get booking(): Prisma.BookingDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.register_service`: Exposes CRUD operations for the **Register_service** model.
@@ -456,8 +488,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.6.0
-   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   * Prisma Client JS version: 6.8.2
+   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
    */
   export type PrismaVersion = {
     client: string
@@ -847,7 +879,9 @@ export namespace Prisma {
     Notification: 'Notification',
     OTP: 'OTP',
     History: 'History',
+    TimeSlot: 'TimeSlot',
     Register_car: 'Register_car',
+    Booking: 'Booking',
     Register_service: 'Register_service'
   };
 
@@ -867,7 +901,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "car" | "service" | "bonus" | "multi_branch" | "commit" | "notification" | "oTP" | "history" | "register_car" | "register_service"
+      modelProps: "user" | "car" | "service" | "bonus" | "multi_branch" | "commit" | "notification" | "oTP" | "history" | "timeSlot" | "register_car" | "booking" | "register_service"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1537,6 +1571,80 @@ export namespace Prisma {
           }
         }
       }
+      TimeSlot: {
+        payload: Prisma.$TimeSlotPayload<ExtArgs>
+        fields: Prisma.TimeSlotFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TimeSlotFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TimeSlotFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload>
+          }
+          findFirst: {
+            args: Prisma.TimeSlotFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TimeSlotFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload>
+          }
+          findMany: {
+            args: Prisma.TimeSlotFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload>[]
+          }
+          create: {
+            args: Prisma.TimeSlotCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload>
+          }
+          createMany: {
+            args: Prisma.TimeSlotCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TimeSlotCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload>[]
+          }
+          delete: {
+            args: Prisma.TimeSlotDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload>
+          }
+          update: {
+            args: Prisma.TimeSlotUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload>
+          }
+          deleteMany: {
+            args: Prisma.TimeSlotDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TimeSlotUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TimeSlotUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload>[]
+          }
+          upsert: {
+            args: Prisma.TimeSlotUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TimeSlotPayload>
+          }
+          aggregate: {
+            args: Prisma.TimeSlotAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTimeSlot>
+          }
+          groupBy: {
+            args: Prisma.TimeSlotGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TimeSlotGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TimeSlotCountArgs<ExtArgs>
+            result: $Utils.Optional<TimeSlotCountAggregateOutputType> | number
+          }
+        }
+      }
       Register_car: {
         payload: Prisma.$Register_carPayload<ExtArgs>
         fields: Prisma.Register_carFieldRefs
@@ -1608,6 +1716,80 @@ export namespace Prisma {
           count: {
             args: Prisma.Register_carCountArgs<ExtArgs>
             result: $Utils.Optional<Register_carCountAggregateOutputType> | number
+          }
+        }
+      }
+      Booking: {
+        payload: Prisma.$BookingPayload<ExtArgs>
+        fields: Prisma.BookingFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BookingFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BookingFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload>
+          }
+          findFirst: {
+            args: Prisma.BookingFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BookingFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload>
+          }
+          findMany: {
+            args: Prisma.BookingFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload>[]
+          }
+          create: {
+            args: Prisma.BookingCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload>
+          }
+          createMany: {
+            args: Prisma.BookingCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BookingCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload>[]
+          }
+          delete: {
+            args: Prisma.BookingDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload>
+          }
+          update: {
+            args: Prisma.BookingUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload>
+          }
+          deleteMany: {
+            args: Prisma.BookingDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BookingUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BookingUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload>[]
+          }
+          upsert: {
+            args: Prisma.BookingUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookingPayload>
+          }
+          aggregate: {
+            args: Prisma.BookingAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBooking>
+          }
+          groupBy: {
+            args: Prisma.BookingGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BookingGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BookingCountArgs<ExtArgs>
+            result: $Utils.Optional<BookingCountAggregateOutputType> | number
           }
         }
       }
@@ -1778,7 +1960,9 @@ export namespace Prisma {
     notification?: NotificationOmit
     oTP?: OTPOmit
     history?: HistoryOmit
+    timeSlot?: TimeSlotOmit
     register_car?: Register_carOmit
+    booking?: BookingOmit
     register_service?: Register_serviceOmit
   }
 
@@ -1881,6 +2065,7 @@ export namespace Prisma {
     Register_car: number
     Register_service: number
     History: number
+    Bookings: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1891,6 +2076,7 @@ export namespace Prisma {
     Register_car?: boolean | UserCountOutputTypeCountRegister_carArgs
     Register_service?: boolean | UserCountOutputTypeCountRegister_serviceArgs
     History?: boolean | UserCountOutputTypeCountHistoryArgs
+    Bookings?: boolean | UserCountOutputTypeCountBookingsArgs
   }
 
   // Custom InputTypes
@@ -1953,6 +2139,13 @@ export namespace Prisma {
     where?: HistoryWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountBookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BookingWhereInput
+  }
+
 
   /**
    * Count Type CarCountOutputType
@@ -2001,11 +2194,13 @@ export namespace Prisma {
   export type ServiceCountOutputType = {
     Register_service: number
     History: number
+    TimeSlots: number
   }
 
   export type ServiceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Register_service?: boolean | ServiceCountOutputTypeCountRegister_serviceArgs
     History?: boolean | ServiceCountOutputTypeCountHistoryArgs
+    TimeSlots?: boolean | ServiceCountOutputTypeCountTimeSlotsArgs
   }
 
   // Custom InputTypes
@@ -2033,6 +2228,13 @@ export namespace Prisma {
     where?: HistoryWhereInput
   }
 
+  /**
+   * ServiceCountOutputType without action
+   */
+  export type ServiceCountOutputTypeCountTimeSlotsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TimeSlotWhereInput
+  }
+
 
   /**
    * Count Type Multi_branchCountOutputType
@@ -2041,11 +2243,13 @@ export namespace Prisma {
   export type Multi_branchCountOutputType = {
     Register_service: number
     History: number
+    TimeSlots: number
   }
 
   export type Multi_branchCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Register_service?: boolean | Multi_branchCountOutputTypeCountRegister_serviceArgs
     History?: boolean | Multi_branchCountOutputTypeCountHistoryArgs
+    TimeSlots?: boolean | Multi_branchCountOutputTypeCountTimeSlotsArgs
   }
 
   // Custom InputTypes
@@ -2073,6 +2277,44 @@ export namespace Prisma {
     where?: HistoryWhereInput
   }
 
+  /**
+   * Multi_branchCountOutputType without action
+   */
+  export type Multi_branchCountOutputTypeCountTimeSlotsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TimeSlotWhereInput
+  }
+
+
+  /**
+   * Count Type TimeSlotCountOutputType
+   */
+
+  export type TimeSlotCountOutputType = {
+    Bookings: number
+  }
+
+  export type TimeSlotCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Bookings?: boolean | TimeSlotCountOutputTypeCountBookingsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TimeSlotCountOutputType without action
+   */
+  export type TimeSlotCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlotCountOutputType
+     */
+    select?: TimeSlotCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TimeSlotCountOutputType without action
+   */
+  export type TimeSlotCountOutputTypeCountBookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BookingWhereInput
+  }
+
 
   /**
    * Count Type Register_carCountOutputType
@@ -2080,10 +2322,12 @@ export namespace Prisma {
 
   export type Register_carCountOutputType = {
     History: number
+    Bookings: number
   }
 
   export type Register_carCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     History?: boolean | Register_carCountOutputTypeCountHistoryArgs
+    Bookings?: boolean | Register_carCountOutputTypeCountBookingsArgs
   }
 
   // Custom InputTypes
@@ -2102,6 +2346,13 @@ export namespace Prisma {
    */
   export type Register_carCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: HistoryWhereInput
+  }
+
+  /**
+   * Register_carCountOutputType without action
+   */
+  export type Register_carCountOutputTypeCountBookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BookingWhereInput
   }
 
 
@@ -2377,6 +2628,7 @@ export namespace Prisma {
     Register_car?: boolean | User$Register_carArgs<ExtArgs>
     Register_service?: boolean | User$Register_serviceArgs<ExtArgs>
     History?: boolean | User$HistoryArgs<ExtArgs>
+    Bookings?: boolean | User$BookingsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2425,6 +2677,7 @@ export namespace Prisma {
     Register_car?: boolean | User$Register_carArgs<ExtArgs>
     Register_service?: boolean | User$Register_serviceArgs<ExtArgs>
     History?: boolean | User$HistoryArgs<ExtArgs>
+    Bookings?: boolean | User$BookingsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2440,6 +2693,7 @@ export namespace Prisma {
       Register_car: Prisma.$Register_carPayload<ExtArgs>[]
       Register_service: Prisma.$Register_servicePayload<ExtArgs>[]
       History: Prisma.$HistoryPayload<ExtArgs>[]
+      Bookings: Prisma.$BookingPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       User_ID: number
@@ -2852,6 +3106,7 @@ export namespace Prisma {
     Register_car<T extends User$Register_carArgs<ExtArgs> = {}>(args?: Subset<T, User$Register_carArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Register_service<T extends User$Register_serviceArgs<ExtArgs> = {}>(args?: Subset<T, User$Register_serviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     History<T extends User$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, User$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Bookings<T extends User$BookingsArgs<ExtArgs> = {}>(args?: Subset<T, User$BookingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3443,6 +3698,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * User.Bookings
+   */
+  export type User$BookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    where?: BookingWhereInput
+    orderBy?: BookingOrderByWithRelationInput | BookingOrderByWithRelationInput[]
+    cursor?: BookingWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BookingScalarFieldEnum | BookingScalarFieldEnum[]
   }
 
   /**
@@ -4765,6 +5044,7 @@ export namespace Prisma {
     Service_duration_min?: boolean
     Register_service?: boolean | Service$Register_serviceArgs<ExtArgs>
     History?: boolean | Service$HistoryArgs<ExtArgs>
+    TimeSlots?: boolean | Service$TimeSlotsArgs<ExtArgs>
     _count?: boolean | ServiceCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["service"]>
 
@@ -4796,6 +5076,7 @@ export namespace Prisma {
   export type ServiceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Register_service?: boolean | Service$Register_serviceArgs<ExtArgs>
     History?: boolean | Service$HistoryArgs<ExtArgs>
+    TimeSlots?: boolean | Service$TimeSlotsArgs<ExtArgs>
     _count?: boolean | ServiceCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ServiceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -4806,6 +5087,7 @@ export namespace Prisma {
     objects: {
       Register_service: Prisma.$Register_servicePayload<ExtArgs>[]
       History: Prisma.$HistoryPayload<ExtArgs>[]
+      TimeSlots: Prisma.$TimeSlotPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       Service_ID: number
@@ -5209,6 +5491,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Register_service<T extends Service$Register_serviceArgs<ExtArgs> = {}>(args?: Subset<T, Service$Register_serviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     History<T extends Service$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, Service$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    TimeSlots<T extends Service$TimeSlotsArgs<ExtArgs> = {}>(args?: Subset<T, Service$TimeSlotsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5676,6 +5959,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Service.TimeSlots
+   */
+  export type Service$TimeSlotsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    where?: TimeSlotWhereInput
+    orderBy?: TimeSlotOrderByWithRelationInput | TimeSlotOrderByWithRelationInput[]
+    cursor?: TimeSlotWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TimeSlotScalarFieldEnum | TimeSlotScalarFieldEnum[]
   }
 
   /**
@@ -7008,6 +7315,7 @@ export namespace Prisma {
     Multi_branch_update_at?: boolean
     Register_service?: boolean | Multi_branch$Register_serviceArgs<ExtArgs>
     History?: boolean | Multi_branch$HistoryArgs<ExtArgs>
+    TimeSlots?: boolean | Multi_branch$TimeSlotsArgs<ExtArgs>
     _count?: boolean | Multi_branchCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["multi_branch"]>
 
@@ -7048,6 +7356,7 @@ export namespace Prisma {
   export type Multi_branchInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Register_service?: boolean | Multi_branch$Register_serviceArgs<ExtArgs>
     History?: boolean | Multi_branch$HistoryArgs<ExtArgs>
+    TimeSlots?: boolean | Multi_branch$TimeSlotsArgs<ExtArgs>
     _count?: boolean | Multi_branchCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type Multi_branchIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -7058,6 +7367,7 @@ export namespace Prisma {
     objects: {
       Register_service: Prisma.$Register_servicePayload<ExtArgs>[]
       History: Prisma.$HistoryPayload<ExtArgs>[]
+      TimeSlots: Prisma.$TimeSlotPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       Multi_branch_ID: number
@@ -7464,6 +7774,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Register_service<T extends Multi_branch$Register_serviceArgs<ExtArgs> = {}>(args?: Subset<T, Multi_branch$Register_serviceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Register_servicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     History<T extends Multi_branch$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, Multi_branch$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    TimeSlots<T extends Multi_branch$TimeSlotsArgs<ExtArgs> = {}>(args?: Subset<T, Multi_branch$TimeSlotsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7934,6 +8245,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: HistoryScalarFieldEnum | HistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Multi_branch.TimeSlots
+   */
+  export type Multi_branch$TimeSlotsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    where?: TimeSlotWhereInput
+    orderBy?: TimeSlotOrderByWithRelationInput | TimeSlotOrderByWithRelationInput[]
+    cursor?: TimeSlotWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TimeSlotScalarFieldEnum | TimeSlotScalarFieldEnum[]
   }
 
   /**
@@ -12599,6 +12934,1204 @@ export namespace Prisma {
 
 
   /**
+   * Model TimeSlot
+   */
+
+  export type AggregateTimeSlot = {
+    _count: TimeSlotCountAggregateOutputType | null
+    _avg: TimeSlotAvgAggregateOutputType | null
+    _sum: TimeSlotSumAggregateOutputType | null
+    _min: TimeSlotMinAggregateOutputType | null
+    _max: TimeSlotMaxAggregateOutputType | null
+  }
+
+  export type TimeSlotAvgAggregateOutputType = {
+    TimeSlot_ID: number | null
+    MaxAppointments: number | null
+    AvailableSlots: number | null
+    Branch_ID: number | null
+    Service_ID: number | null
+  }
+
+  export type TimeSlotSumAggregateOutputType = {
+    TimeSlot_ID: number | null
+    MaxAppointments: number | null
+    AvailableSlots: number | null
+    Branch_ID: number | null
+    Service_ID: number | null
+  }
+
+  export type TimeSlotMinAggregateOutputType = {
+    TimeSlot_ID: number | null
+    StartTime: Date | null
+    EndTime: Date | null
+    MaxAppointments: number | null
+    AvailableSlots: number | null
+    Branch_ID: number | null
+    Service_ID: number | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
+  }
+
+  export type TimeSlotMaxAggregateOutputType = {
+    TimeSlot_ID: number | null
+    StartTime: Date | null
+    EndTime: Date | null
+    MaxAppointments: number | null
+    AvailableSlots: number | null
+    Branch_ID: number | null
+    Service_ID: number | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
+  }
+
+  export type TimeSlotCountAggregateOutputType = {
+    TimeSlot_ID: number
+    StartTime: number
+    EndTime: number
+    MaxAppointments: number
+    AvailableSlots: number
+    Branch_ID: number
+    Service_ID: number
+    CreatedAt: number
+    UpdatedAt: number
+    _all: number
+  }
+
+
+  export type TimeSlotAvgAggregateInputType = {
+    TimeSlot_ID?: true
+    MaxAppointments?: true
+    AvailableSlots?: true
+    Branch_ID?: true
+    Service_ID?: true
+  }
+
+  export type TimeSlotSumAggregateInputType = {
+    TimeSlot_ID?: true
+    MaxAppointments?: true
+    AvailableSlots?: true
+    Branch_ID?: true
+    Service_ID?: true
+  }
+
+  export type TimeSlotMinAggregateInputType = {
+    TimeSlot_ID?: true
+    StartTime?: true
+    EndTime?: true
+    MaxAppointments?: true
+    AvailableSlots?: true
+    Branch_ID?: true
+    Service_ID?: true
+    CreatedAt?: true
+    UpdatedAt?: true
+  }
+
+  export type TimeSlotMaxAggregateInputType = {
+    TimeSlot_ID?: true
+    StartTime?: true
+    EndTime?: true
+    MaxAppointments?: true
+    AvailableSlots?: true
+    Branch_ID?: true
+    Service_ID?: true
+    CreatedAt?: true
+    UpdatedAt?: true
+  }
+
+  export type TimeSlotCountAggregateInputType = {
+    TimeSlot_ID?: true
+    StartTime?: true
+    EndTime?: true
+    MaxAppointments?: true
+    AvailableSlots?: true
+    Branch_ID?: true
+    Service_ID?: true
+    CreatedAt?: true
+    UpdatedAt?: true
+    _all?: true
+  }
+
+  export type TimeSlotAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TimeSlot to aggregate.
+     */
+    where?: TimeSlotWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TimeSlots to fetch.
+     */
+    orderBy?: TimeSlotOrderByWithRelationInput | TimeSlotOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TimeSlotWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TimeSlots from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TimeSlots.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TimeSlots
+    **/
+    _count?: true | TimeSlotCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TimeSlotAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TimeSlotSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TimeSlotMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TimeSlotMaxAggregateInputType
+  }
+
+  export type GetTimeSlotAggregateType<T extends TimeSlotAggregateArgs> = {
+        [P in keyof T & keyof AggregateTimeSlot]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTimeSlot[P]>
+      : GetScalarType<T[P], AggregateTimeSlot[P]>
+  }
+
+
+
+
+  export type TimeSlotGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TimeSlotWhereInput
+    orderBy?: TimeSlotOrderByWithAggregationInput | TimeSlotOrderByWithAggregationInput[]
+    by: TimeSlotScalarFieldEnum[] | TimeSlotScalarFieldEnum
+    having?: TimeSlotScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TimeSlotCountAggregateInputType | true
+    _avg?: TimeSlotAvgAggregateInputType
+    _sum?: TimeSlotSumAggregateInputType
+    _min?: TimeSlotMinAggregateInputType
+    _max?: TimeSlotMaxAggregateInputType
+  }
+
+  export type TimeSlotGroupByOutputType = {
+    TimeSlot_ID: number
+    StartTime: Date
+    EndTime: Date
+    MaxAppointments: number
+    AvailableSlots: number
+    Branch_ID: number
+    Service_ID: number
+    CreatedAt: Date
+    UpdatedAt: Date
+    _count: TimeSlotCountAggregateOutputType | null
+    _avg: TimeSlotAvgAggregateOutputType | null
+    _sum: TimeSlotSumAggregateOutputType | null
+    _min: TimeSlotMinAggregateOutputType | null
+    _max: TimeSlotMaxAggregateOutputType | null
+  }
+
+  type GetTimeSlotGroupByPayload<T extends TimeSlotGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TimeSlotGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TimeSlotGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TimeSlotGroupByOutputType[P]>
+            : GetScalarType<T[P], TimeSlotGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TimeSlotSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    TimeSlot_ID?: boolean
+    StartTime?: boolean
+    EndTime?: boolean
+    MaxAppointments?: boolean
+    AvailableSlots?: boolean
+    Branch_ID?: boolean
+    Service_ID?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Bookings?: boolean | TimeSlot$BookingsArgs<ExtArgs>
+    _count?: boolean | TimeSlotCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["timeSlot"]>
+
+  export type TimeSlotSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    TimeSlot_ID?: boolean
+    StartTime?: boolean
+    EndTime?: boolean
+    MaxAppointments?: boolean
+    AvailableSlots?: boolean
+    Branch_ID?: boolean
+    Service_ID?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["timeSlot"]>
+
+  export type TimeSlotSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    TimeSlot_ID?: boolean
+    StartTime?: boolean
+    EndTime?: boolean
+    MaxAppointments?: boolean
+    AvailableSlots?: boolean
+    Branch_ID?: boolean
+    Service_ID?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["timeSlot"]>
+
+  export type TimeSlotSelectScalar = {
+    TimeSlot_ID?: boolean
+    StartTime?: boolean
+    EndTime?: boolean
+    MaxAppointments?: boolean
+    AvailableSlots?: boolean
+    Branch_ID?: boolean
+    Service_ID?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+  }
+
+  export type TimeSlotOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"TimeSlot_ID" | "StartTime" | "EndTime" | "MaxAppointments" | "AvailableSlots" | "Branch_ID" | "Service_ID" | "CreatedAt" | "UpdatedAt", ExtArgs["result"]["timeSlot"]>
+  export type TimeSlotInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+    Bookings?: boolean | TimeSlot$BookingsArgs<ExtArgs>
+    _count?: boolean | TimeSlotCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TimeSlotIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+  }
+  export type TimeSlotIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Multi_branch?: boolean | Multi_branchDefaultArgs<ExtArgs>
+    Service?: boolean | ServiceDefaultArgs<ExtArgs>
+  }
+
+  export type $TimeSlotPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TimeSlot"
+    objects: {
+      Multi_branch: Prisma.$Multi_branchPayload<ExtArgs>
+      Service: Prisma.$ServicePayload<ExtArgs>
+      Bookings: Prisma.$BookingPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      TimeSlot_ID: number
+      StartTime: Date
+      EndTime: Date
+      MaxAppointments: number
+      AvailableSlots: number
+      Branch_ID: number
+      Service_ID: number
+      CreatedAt: Date
+      UpdatedAt: Date
+    }, ExtArgs["result"]["timeSlot"]>
+    composites: {}
+  }
+
+  type TimeSlotGetPayload<S extends boolean | null | undefined | TimeSlotDefaultArgs> = $Result.GetResult<Prisma.$TimeSlotPayload, S>
+
+  type TimeSlotCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TimeSlotFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TimeSlotCountAggregateInputType | true
+    }
+
+  export interface TimeSlotDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TimeSlot'], meta: { name: 'TimeSlot' } }
+    /**
+     * Find zero or one TimeSlot that matches the filter.
+     * @param {TimeSlotFindUniqueArgs} args - Arguments to find a TimeSlot
+     * @example
+     * // Get one TimeSlot
+     * const timeSlot = await prisma.timeSlot.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TimeSlotFindUniqueArgs>(args: SelectSubset<T, TimeSlotFindUniqueArgs<ExtArgs>>): Prisma__TimeSlotClient<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TimeSlot that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TimeSlotFindUniqueOrThrowArgs} args - Arguments to find a TimeSlot
+     * @example
+     * // Get one TimeSlot
+     * const timeSlot = await prisma.timeSlot.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TimeSlotFindUniqueOrThrowArgs>(args: SelectSubset<T, TimeSlotFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TimeSlotClient<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TimeSlot that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TimeSlotFindFirstArgs} args - Arguments to find a TimeSlot
+     * @example
+     * // Get one TimeSlot
+     * const timeSlot = await prisma.timeSlot.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TimeSlotFindFirstArgs>(args?: SelectSubset<T, TimeSlotFindFirstArgs<ExtArgs>>): Prisma__TimeSlotClient<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TimeSlot that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TimeSlotFindFirstOrThrowArgs} args - Arguments to find a TimeSlot
+     * @example
+     * // Get one TimeSlot
+     * const timeSlot = await prisma.timeSlot.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TimeSlotFindFirstOrThrowArgs>(args?: SelectSubset<T, TimeSlotFindFirstOrThrowArgs<ExtArgs>>): Prisma__TimeSlotClient<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TimeSlots that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TimeSlotFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TimeSlots
+     * const timeSlots = await prisma.timeSlot.findMany()
+     * 
+     * // Get first 10 TimeSlots
+     * const timeSlots = await prisma.timeSlot.findMany({ take: 10 })
+     * 
+     * // Only select the `TimeSlot_ID`
+     * const timeSlotWithTimeSlot_IDOnly = await prisma.timeSlot.findMany({ select: { TimeSlot_ID: true } })
+     * 
+     */
+    findMany<T extends TimeSlotFindManyArgs>(args?: SelectSubset<T, TimeSlotFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TimeSlot.
+     * @param {TimeSlotCreateArgs} args - Arguments to create a TimeSlot.
+     * @example
+     * // Create one TimeSlot
+     * const TimeSlot = await prisma.timeSlot.create({
+     *   data: {
+     *     // ... data to create a TimeSlot
+     *   }
+     * })
+     * 
+     */
+    create<T extends TimeSlotCreateArgs>(args: SelectSubset<T, TimeSlotCreateArgs<ExtArgs>>): Prisma__TimeSlotClient<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TimeSlots.
+     * @param {TimeSlotCreateManyArgs} args - Arguments to create many TimeSlots.
+     * @example
+     * // Create many TimeSlots
+     * const timeSlot = await prisma.timeSlot.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TimeSlotCreateManyArgs>(args?: SelectSubset<T, TimeSlotCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TimeSlots and returns the data saved in the database.
+     * @param {TimeSlotCreateManyAndReturnArgs} args - Arguments to create many TimeSlots.
+     * @example
+     * // Create many TimeSlots
+     * const timeSlot = await prisma.timeSlot.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TimeSlots and only return the `TimeSlot_ID`
+     * const timeSlotWithTimeSlot_IDOnly = await prisma.timeSlot.createManyAndReturn({
+     *   select: { TimeSlot_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TimeSlotCreateManyAndReturnArgs>(args?: SelectSubset<T, TimeSlotCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TimeSlot.
+     * @param {TimeSlotDeleteArgs} args - Arguments to delete one TimeSlot.
+     * @example
+     * // Delete one TimeSlot
+     * const TimeSlot = await prisma.timeSlot.delete({
+     *   where: {
+     *     // ... filter to delete one TimeSlot
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TimeSlotDeleteArgs>(args: SelectSubset<T, TimeSlotDeleteArgs<ExtArgs>>): Prisma__TimeSlotClient<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TimeSlot.
+     * @param {TimeSlotUpdateArgs} args - Arguments to update one TimeSlot.
+     * @example
+     * // Update one TimeSlot
+     * const timeSlot = await prisma.timeSlot.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TimeSlotUpdateArgs>(args: SelectSubset<T, TimeSlotUpdateArgs<ExtArgs>>): Prisma__TimeSlotClient<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TimeSlots.
+     * @param {TimeSlotDeleteManyArgs} args - Arguments to filter TimeSlots to delete.
+     * @example
+     * // Delete a few TimeSlots
+     * const { count } = await prisma.timeSlot.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TimeSlotDeleteManyArgs>(args?: SelectSubset<T, TimeSlotDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TimeSlots.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TimeSlotUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TimeSlots
+     * const timeSlot = await prisma.timeSlot.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TimeSlotUpdateManyArgs>(args: SelectSubset<T, TimeSlotUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TimeSlots and returns the data updated in the database.
+     * @param {TimeSlotUpdateManyAndReturnArgs} args - Arguments to update many TimeSlots.
+     * @example
+     * // Update many TimeSlots
+     * const timeSlot = await prisma.timeSlot.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TimeSlots and only return the `TimeSlot_ID`
+     * const timeSlotWithTimeSlot_IDOnly = await prisma.timeSlot.updateManyAndReturn({
+     *   select: { TimeSlot_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TimeSlotUpdateManyAndReturnArgs>(args: SelectSubset<T, TimeSlotUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TimeSlot.
+     * @param {TimeSlotUpsertArgs} args - Arguments to update or create a TimeSlot.
+     * @example
+     * // Update or create a TimeSlot
+     * const timeSlot = await prisma.timeSlot.upsert({
+     *   create: {
+     *     // ... data to create a TimeSlot
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TimeSlot we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TimeSlotUpsertArgs>(args: SelectSubset<T, TimeSlotUpsertArgs<ExtArgs>>): Prisma__TimeSlotClient<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TimeSlots.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TimeSlotCountArgs} args - Arguments to filter TimeSlots to count.
+     * @example
+     * // Count the number of TimeSlots
+     * const count = await prisma.timeSlot.count({
+     *   where: {
+     *     // ... the filter for the TimeSlots we want to count
+     *   }
+     * })
+    **/
+    count<T extends TimeSlotCountArgs>(
+      args?: Subset<T, TimeSlotCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TimeSlotCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TimeSlot.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TimeSlotAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TimeSlotAggregateArgs>(args: Subset<T, TimeSlotAggregateArgs>): Prisma.PrismaPromise<GetTimeSlotAggregateType<T>>
+
+    /**
+     * Group by TimeSlot.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TimeSlotGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TimeSlotGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TimeSlotGroupByArgs['orderBy'] }
+        : { orderBy?: TimeSlotGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TimeSlotGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTimeSlotGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TimeSlot model
+   */
+  readonly fields: TimeSlotFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TimeSlot.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TimeSlotClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Multi_branch<T extends Multi_branchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, Multi_branchDefaultArgs<ExtArgs>>): Prisma__Multi_branchClient<$Result.GetResult<Prisma.$Multi_branchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Service<T extends ServiceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ServiceDefaultArgs<ExtArgs>>): Prisma__ServiceClient<$Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Bookings<T extends TimeSlot$BookingsArgs<ExtArgs> = {}>(args?: Subset<T, TimeSlot$BookingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TimeSlot model
+   */
+  interface TimeSlotFieldRefs {
+    readonly TimeSlot_ID: FieldRef<"TimeSlot", 'Int'>
+    readonly StartTime: FieldRef<"TimeSlot", 'DateTime'>
+    readonly EndTime: FieldRef<"TimeSlot", 'DateTime'>
+    readonly MaxAppointments: FieldRef<"TimeSlot", 'Int'>
+    readonly AvailableSlots: FieldRef<"TimeSlot", 'Int'>
+    readonly Branch_ID: FieldRef<"TimeSlot", 'Int'>
+    readonly Service_ID: FieldRef<"TimeSlot", 'Int'>
+    readonly CreatedAt: FieldRef<"TimeSlot", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"TimeSlot", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TimeSlot findUnique
+   */
+  export type TimeSlotFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    /**
+     * Filter, which TimeSlot to fetch.
+     */
+    where: TimeSlotWhereUniqueInput
+  }
+
+  /**
+   * TimeSlot findUniqueOrThrow
+   */
+  export type TimeSlotFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    /**
+     * Filter, which TimeSlot to fetch.
+     */
+    where: TimeSlotWhereUniqueInput
+  }
+
+  /**
+   * TimeSlot findFirst
+   */
+  export type TimeSlotFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    /**
+     * Filter, which TimeSlot to fetch.
+     */
+    where?: TimeSlotWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TimeSlots to fetch.
+     */
+    orderBy?: TimeSlotOrderByWithRelationInput | TimeSlotOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TimeSlots.
+     */
+    cursor?: TimeSlotWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TimeSlots from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TimeSlots.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TimeSlots.
+     */
+    distinct?: TimeSlotScalarFieldEnum | TimeSlotScalarFieldEnum[]
+  }
+
+  /**
+   * TimeSlot findFirstOrThrow
+   */
+  export type TimeSlotFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    /**
+     * Filter, which TimeSlot to fetch.
+     */
+    where?: TimeSlotWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TimeSlots to fetch.
+     */
+    orderBy?: TimeSlotOrderByWithRelationInput | TimeSlotOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TimeSlots.
+     */
+    cursor?: TimeSlotWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TimeSlots from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TimeSlots.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TimeSlots.
+     */
+    distinct?: TimeSlotScalarFieldEnum | TimeSlotScalarFieldEnum[]
+  }
+
+  /**
+   * TimeSlot findMany
+   */
+  export type TimeSlotFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    /**
+     * Filter, which TimeSlots to fetch.
+     */
+    where?: TimeSlotWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TimeSlots to fetch.
+     */
+    orderBy?: TimeSlotOrderByWithRelationInput | TimeSlotOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TimeSlots.
+     */
+    cursor?: TimeSlotWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TimeSlots from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TimeSlots.
+     */
+    skip?: number
+    distinct?: TimeSlotScalarFieldEnum | TimeSlotScalarFieldEnum[]
+  }
+
+  /**
+   * TimeSlot create
+   */
+  export type TimeSlotCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TimeSlot.
+     */
+    data: XOR<TimeSlotCreateInput, TimeSlotUncheckedCreateInput>
+  }
+
+  /**
+   * TimeSlot createMany
+   */
+  export type TimeSlotCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TimeSlots.
+     */
+    data: TimeSlotCreateManyInput | TimeSlotCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TimeSlot createManyAndReturn
+   */
+  export type TimeSlotCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * The data used to create many TimeSlots.
+     */
+    data: TimeSlotCreateManyInput | TimeSlotCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TimeSlot update
+   */
+  export type TimeSlotUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TimeSlot.
+     */
+    data: XOR<TimeSlotUpdateInput, TimeSlotUncheckedUpdateInput>
+    /**
+     * Choose, which TimeSlot to update.
+     */
+    where: TimeSlotWhereUniqueInput
+  }
+
+  /**
+   * TimeSlot updateMany
+   */
+  export type TimeSlotUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TimeSlots.
+     */
+    data: XOR<TimeSlotUpdateManyMutationInput, TimeSlotUncheckedUpdateManyInput>
+    /**
+     * Filter which TimeSlots to update
+     */
+    where?: TimeSlotWhereInput
+    /**
+     * Limit how many TimeSlots to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TimeSlot updateManyAndReturn
+   */
+  export type TimeSlotUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * The data used to update TimeSlots.
+     */
+    data: XOR<TimeSlotUpdateManyMutationInput, TimeSlotUncheckedUpdateManyInput>
+    /**
+     * Filter which TimeSlots to update
+     */
+    where?: TimeSlotWhereInput
+    /**
+     * Limit how many TimeSlots to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TimeSlot upsert
+   */
+  export type TimeSlotUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TimeSlot to update in case it exists.
+     */
+    where: TimeSlotWhereUniqueInput
+    /**
+     * In case the TimeSlot found by the `where` argument doesn't exist, create a new TimeSlot with this data.
+     */
+    create: XOR<TimeSlotCreateInput, TimeSlotUncheckedCreateInput>
+    /**
+     * In case the TimeSlot was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TimeSlotUpdateInput, TimeSlotUncheckedUpdateInput>
+  }
+
+  /**
+   * TimeSlot delete
+   */
+  export type TimeSlotDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+    /**
+     * Filter which TimeSlot to delete.
+     */
+    where: TimeSlotWhereUniqueInput
+  }
+
+  /**
+   * TimeSlot deleteMany
+   */
+  export type TimeSlotDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TimeSlots to delete
+     */
+    where?: TimeSlotWhereInput
+    /**
+     * Limit how many TimeSlots to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TimeSlot.Bookings
+   */
+  export type TimeSlot$BookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    where?: BookingWhereInput
+    orderBy?: BookingOrderByWithRelationInput | BookingOrderByWithRelationInput[]
+    cursor?: BookingWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BookingScalarFieldEnum | BookingScalarFieldEnum[]
+  }
+
+  /**
+   * TimeSlot without action
+   */
+  export type TimeSlotDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TimeSlot
+     */
+    select?: TimeSlotSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TimeSlot
+     */
+    omit?: TimeSlotOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TimeSlotInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Register_car
    */
 
@@ -12838,6 +14371,7 @@ export namespace Prisma {
     Register_car_user_ID?: boolean
     User?: boolean | UserDefaultArgs<ExtArgs>
     History?: boolean | Register_car$HistoryArgs<ExtArgs>
+    Bookings?: boolean | Register_car$BookingsArgs<ExtArgs>
     _count?: boolean | Register_carCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["register_car"]>
 
@@ -12883,6 +14417,7 @@ export namespace Prisma {
   export type Register_carInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | UserDefaultArgs<ExtArgs>
     History?: boolean | Register_car$HistoryArgs<ExtArgs>
+    Bookings?: boolean | Register_car$BookingsArgs<ExtArgs>
     _count?: boolean | Register_carCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type Register_carIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12897,6 +14432,7 @@ export namespace Prisma {
     objects: {
       User: Prisma.$UserPayload<ExtArgs>
       History: Prisma.$HistoryPayload<ExtArgs>[]
+      Bookings: Prisma.$BookingPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       Register_car_ID: number
@@ -13304,6 +14840,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     History<T extends Register_car$HistoryArgs<ExtArgs> = {}>(args?: Subset<T, Register_car$HistoryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Bookings<T extends Register_car$BookingsArgs<ExtArgs> = {}>(args?: Subset<T, Register_car$BookingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13762,6 +15299,30 @@ export namespace Prisma {
   }
 
   /**
+   * Register_car.Bookings
+   */
+  export type Register_car$BookingsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    where?: BookingWhereInput
+    orderBy?: BookingOrderByWithRelationInput | BookingOrderByWithRelationInput[]
+    cursor?: BookingWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BookingScalarFieldEnum | BookingScalarFieldEnum[]
+  }
+
+  /**
    * Register_car without action
    */
   export type Register_carDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13777,6 +15338,1165 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: Register_carInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Booking
+   */
+
+  export type AggregateBooking = {
+    _count: BookingCountAggregateOutputType | null
+    _avg: BookingAvgAggregateOutputType | null
+    _sum: BookingSumAggregateOutputType | null
+    _min: BookingMinAggregateOutputType | null
+    _max: BookingMaxAggregateOutputType | null
+  }
+
+  export type BookingAvgAggregateOutputType = {
+    Booking_ID: number | null
+    User_ID: number | null
+    TimeSlot_ID: number | null
+    Vehicle_ID: number | null
+  }
+
+  export type BookingSumAggregateOutputType = {
+    Booking_ID: number | null
+    User_ID: number | null
+    TimeSlot_ID: number | null
+    Vehicle_ID: number | null
+  }
+
+  export type BookingMinAggregateOutputType = {
+    Booking_ID: number | null
+    User_ID: number | null
+    TimeSlot_ID: number | null
+    Vehicle_ID: number | null
+    Notes: string | null
+    Status: $Enums.Register_service_status_enum | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
+  }
+
+  export type BookingMaxAggregateOutputType = {
+    Booking_ID: number | null
+    User_ID: number | null
+    TimeSlot_ID: number | null
+    Vehicle_ID: number | null
+    Notes: string | null
+    Status: $Enums.Register_service_status_enum | null
+    CreatedAt: Date | null
+    UpdatedAt: Date | null
+  }
+
+  export type BookingCountAggregateOutputType = {
+    Booking_ID: number
+    User_ID: number
+    TimeSlot_ID: number
+    Vehicle_ID: number
+    Notes: number
+    Status: number
+    CreatedAt: number
+    UpdatedAt: number
+    _all: number
+  }
+
+
+  export type BookingAvgAggregateInputType = {
+    Booking_ID?: true
+    User_ID?: true
+    TimeSlot_ID?: true
+    Vehicle_ID?: true
+  }
+
+  export type BookingSumAggregateInputType = {
+    Booking_ID?: true
+    User_ID?: true
+    TimeSlot_ID?: true
+    Vehicle_ID?: true
+  }
+
+  export type BookingMinAggregateInputType = {
+    Booking_ID?: true
+    User_ID?: true
+    TimeSlot_ID?: true
+    Vehicle_ID?: true
+    Notes?: true
+    Status?: true
+    CreatedAt?: true
+    UpdatedAt?: true
+  }
+
+  export type BookingMaxAggregateInputType = {
+    Booking_ID?: true
+    User_ID?: true
+    TimeSlot_ID?: true
+    Vehicle_ID?: true
+    Notes?: true
+    Status?: true
+    CreatedAt?: true
+    UpdatedAt?: true
+  }
+
+  export type BookingCountAggregateInputType = {
+    Booking_ID?: true
+    User_ID?: true
+    TimeSlot_ID?: true
+    Vehicle_ID?: true
+    Notes?: true
+    Status?: true
+    CreatedAt?: true
+    UpdatedAt?: true
+    _all?: true
+  }
+
+  export type BookingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Booking to aggregate.
+     */
+    where?: BookingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bookings to fetch.
+     */
+    orderBy?: BookingOrderByWithRelationInput | BookingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BookingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bookings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bookings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Bookings
+    **/
+    _count?: true | BookingCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BookingAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BookingSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BookingMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BookingMaxAggregateInputType
+  }
+
+  export type GetBookingAggregateType<T extends BookingAggregateArgs> = {
+        [P in keyof T & keyof AggregateBooking]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBooking[P]>
+      : GetScalarType<T[P], AggregateBooking[P]>
+  }
+
+
+
+
+  export type BookingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BookingWhereInput
+    orderBy?: BookingOrderByWithAggregationInput | BookingOrderByWithAggregationInput[]
+    by: BookingScalarFieldEnum[] | BookingScalarFieldEnum
+    having?: BookingScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BookingCountAggregateInputType | true
+    _avg?: BookingAvgAggregateInputType
+    _sum?: BookingSumAggregateInputType
+    _min?: BookingMinAggregateInputType
+    _max?: BookingMaxAggregateInputType
+  }
+
+  export type BookingGroupByOutputType = {
+    Booking_ID: number
+    User_ID: number
+    TimeSlot_ID: number
+    Vehicle_ID: number
+    Notes: string | null
+    Status: $Enums.Register_service_status_enum
+    CreatedAt: Date
+    UpdatedAt: Date
+    _count: BookingCountAggregateOutputType | null
+    _avg: BookingAvgAggregateOutputType | null
+    _sum: BookingSumAggregateOutputType | null
+    _min: BookingMinAggregateOutputType | null
+    _max: BookingMaxAggregateOutputType | null
+  }
+
+  type GetBookingGroupByPayload<T extends BookingGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BookingGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BookingGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BookingGroupByOutputType[P]>
+            : GetScalarType<T[P], BookingGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BookingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Booking_ID?: boolean
+    User_ID?: boolean
+    TimeSlot_ID?: boolean
+    Vehicle_ID?: boolean
+    Notes?: boolean
+    Status?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    TimeSlot?: boolean | TimeSlotDefaultArgs<ExtArgs>
+    Register_car?: boolean | Register_carDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["booking"]>
+
+  export type BookingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Booking_ID?: boolean
+    User_ID?: boolean
+    TimeSlot_ID?: boolean
+    Vehicle_ID?: boolean
+    Notes?: boolean
+    Status?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    TimeSlot?: boolean | TimeSlotDefaultArgs<ExtArgs>
+    Register_car?: boolean | Register_carDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["booking"]>
+
+  export type BookingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    Booking_ID?: boolean
+    User_ID?: boolean
+    TimeSlot_ID?: boolean
+    Vehicle_ID?: boolean
+    Notes?: boolean
+    Status?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    TimeSlot?: boolean | TimeSlotDefaultArgs<ExtArgs>
+    Register_car?: boolean | Register_carDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["booking"]>
+
+  export type BookingSelectScalar = {
+    Booking_ID?: boolean
+    User_ID?: boolean
+    TimeSlot_ID?: boolean
+    Vehicle_ID?: boolean
+    Notes?: boolean
+    Status?: boolean
+    CreatedAt?: boolean
+    UpdatedAt?: boolean
+  }
+
+  export type BookingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"Booking_ID" | "User_ID" | "TimeSlot_ID" | "Vehicle_ID" | "Notes" | "Status" | "CreatedAt" | "UpdatedAt", ExtArgs["result"]["booking"]>
+  export type BookingInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    TimeSlot?: boolean | TimeSlotDefaultArgs<ExtArgs>
+    Register_car?: boolean | Register_carDefaultArgs<ExtArgs>
+  }
+  export type BookingIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    TimeSlot?: boolean | TimeSlotDefaultArgs<ExtArgs>
+    Register_car?: boolean | Register_carDefaultArgs<ExtArgs>
+  }
+  export type BookingIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    TimeSlot?: boolean | TimeSlotDefaultArgs<ExtArgs>
+    Register_car?: boolean | Register_carDefaultArgs<ExtArgs>
+  }
+
+  export type $BookingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Booking"
+    objects: {
+      User: Prisma.$UserPayload<ExtArgs>
+      TimeSlot: Prisma.$TimeSlotPayload<ExtArgs>
+      Register_car: Prisma.$Register_carPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      Booking_ID: number
+      User_ID: number
+      TimeSlot_ID: number
+      Vehicle_ID: number
+      Notes: string | null
+      Status: $Enums.Register_service_status_enum
+      CreatedAt: Date
+      UpdatedAt: Date
+    }, ExtArgs["result"]["booking"]>
+    composites: {}
+  }
+
+  type BookingGetPayload<S extends boolean | null | undefined | BookingDefaultArgs> = $Result.GetResult<Prisma.$BookingPayload, S>
+
+  type BookingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BookingFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BookingCountAggregateInputType | true
+    }
+
+  export interface BookingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Booking'], meta: { name: 'Booking' } }
+    /**
+     * Find zero or one Booking that matches the filter.
+     * @param {BookingFindUniqueArgs} args - Arguments to find a Booking
+     * @example
+     * // Get one Booking
+     * const booking = await prisma.booking.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BookingFindUniqueArgs>(args: SelectSubset<T, BookingFindUniqueArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Booking that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BookingFindUniqueOrThrowArgs} args - Arguments to find a Booking
+     * @example
+     * // Get one Booking
+     * const booking = await prisma.booking.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BookingFindUniqueOrThrowArgs>(args: SelectSubset<T, BookingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Booking that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookingFindFirstArgs} args - Arguments to find a Booking
+     * @example
+     * // Get one Booking
+     * const booking = await prisma.booking.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BookingFindFirstArgs>(args?: SelectSubset<T, BookingFindFirstArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Booking that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookingFindFirstOrThrowArgs} args - Arguments to find a Booking
+     * @example
+     * // Get one Booking
+     * const booking = await prisma.booking.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BookingFindFirstOrThrowArgs>(args?: SelectSubset<T, BookingFindFirstOrThrowArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Bookings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Bookings
+     * const bookings = await prisma.booking.findMany()
+     * 
+     * // Get first 10 Bookings
+     * const bookings = await prisma.booking.findMany({ take: 10 })
+     * 
+     * // Only select the `Booking_ID`
+     * const bookingWithBooking_IDOnly = await prisma.booking.findMany({ select: { Booking_ID: true } })
+     * 
+     */
+    findMany<T extends BookingFindManyArgs>(args?: SelectSubset<T, BookingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Booking.
+     * @param {BookingCreateArgs} args - Arguments to create a Booking.
+     * @example
+     * // Create one Booking
+     * const Booking = await prisma.booking.create({
+     *   data: {
+     *     // ... data to create a Booking
+     *   }
+     * })
+     * 
+     */
+    create<T extends BookingCreateArgs>(args: SelectSubset<T, BookingCreateArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Bookings.
+     * @param {BookingCreateManyArgs} args - Arguments to create many Bookings.
+     * @example
+     * // Create many Bookings
+     * const booking = await prisma.booking.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BookingCreateManyArgs>(args?: SelectSubset<T, BookingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Bookings and returns the data saved in the database.
+     * @param {BookingCreateManyAndReturnArgs} args - Arguments to create many Bookings.
+     * @example
+     * // Create many Bookings
+     * const booking = await prisma.booking.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Bookings and only return the `Booking_ID`
+     * const bookingWithBooking_IDOnly = await prisma.booking.createManyAndReturn({
+     *   select: { Booking_ID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BookingCreateManyAndReturnArgs>(args?: SelectSubset<T, BookingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Booking.
+     * @param {BookingDeleteArgs} args - Arguments to delete one Booking.
+     * @example
+     * // Delete one Booking
+     * const Booking = await prisma.booking.delete({
+     *   where: {
+     *     // ... filter to delete one Booking
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BookingDeleteArgs>(args: SelectSubset<T, BookingDeleteArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Booking.
+     * @param {BookingUpdateArgs} args - Arguments to update one Booking.
+     * @example
+     * // Update one Booking
+     * const booking = await prisma.booking.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BookingUpdateArgs>(args: SelectSubset<T, BookingUpdateArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Bookings.
+     * @param {BookingDeleteManyArgs} args - Arguments to filter Bookings to delete.
+     * @example
+     * // Delete a few Bookings
+     * const { count } = await prisma.booking.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BookingDeleteManyArgs>(args?: SelectSubset<T, BookingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bookings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Bookings
+     * const booking = await prisma.booking.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BookingUpdateManyArgs>(args: SelectSubset<T, BookingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bookings and returns the data updated in the database.
+     * @param {BookingUpdateManyAndReturnArgs} args - Arguments to update many Bookings.
+     * @example
+     * // Update many Bookings
+     * const booking = await prisma.booking.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Bookings and only return the `Booking_ID`
+     * const bookingWithBooking_IDOnly = await prisma.booking.updateManyAndReturn({
+     *   select: { Booking_ID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BookingUpdateManyAndReturnArgs>(args: SelectSubset<T, BookingUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Booking.
+     * @param {BookingUpsertArgs} args - Arguments to update or create a Booking.
+     * @example
+     * // Update or create a Booking
+     * const booking = await prisma.booking.upsert({
+     *   create: {
+     *     // ... data to create a Booking
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Booking we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BookingUpsertArgs>(args: SelectSubset<T, BookingUpsertArgs<ExtArgs>>): Prisma__BookingClient<$Result.GetResult<Prisma.$BookingPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Bookings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookingCountArgs} args - Arguments to filter Bookings to count.
+     * @example
+     * // Count the number of Bookings
+     * const count = await prisma.booking.count({
+     *   where: {
+     *     // ... the filter for the Bookings we want to count
+     *   }
+     * })
+    **/
+    count<T extends BookingCountArgs>(
+      args?: Subset<T, BookingCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BookingCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Booking.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BookingAggregateArgs>(args: Subset<T, BookingAggregateArgs>): Prisma.PrismaPromise<GetBookingAggregateType<T>>
+
+    /**
+     * Group by Booking.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookingGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BookingGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BookingGroupByArgs['orderBy'] }
+        : { orderBy?: BookingGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BookingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBookingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Booking model
+   */
+  readonly fields: BookingFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Booking.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BookingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    TimeSlot<T extends TimeSlotDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TimeSlotDefaultArgs<ExtArgs>>): Prisma__TimeSlotClient<$Result.GetResult<Prisma.$TimeSlotPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Register_car<T extends Register_carDefaultArgs<ExtArgs> = {}>(args?: Subset<T, Register_carDefaultArgs<ExtArgs>>): Prisma__Register_carClient<$Result.GetResult<Prisma.$Register_carPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Booking model
+   */
+  interface BookingFieldRefs {
+    readonly Booking_ID: FieldRef<"Booking", 'Int'>
+    readonly User_ID: FieldRef<"Booking", 'Int'>
+    readonly TimeSlot_ID: FieldRef<"Booking", 'Int'>
+    readonly Vehicle_ID: FieldRef<"Booking", 'Int'>
+    readonly Notes: FieldRef<"Booking", 'String'>
+    readonly Status: FieldRef<"Booking", 'Register_service_status_enum'>
+    readonly CreatedAt: FieldRef<"Booking", 'DateTime'>
+    readonly UpdatedAt: FieldRef<"Booking", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Booking findUnique
+   */
+  export type BookingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    /**
+     * Filter, which Booking to fetch.
+     */
+    where: BookingWhereUniqueInput
+  }
+
+  /**
+   * Booking findUniqueOrThrow
+   */
+  export type BookingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    /**
+     * Filter, which Booking to fetch.
+     */
+    where: BookingWhereUniqueInput
+  }
+
+  /**
+   * Booking findFirst
+   */
+  export type BookingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    /**
+     * Filter, which Booking to fetch.
+     */
+    where?: BookingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bookings to fetch.
+     */
+    orderBy?: BookingOrderByWithRelationInput | BookingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bookings.
+     */
+    cursor?: BookingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bookings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bookings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bookings.
+     */
+    distinct?: BookingScalarFieldEnum | BookingScalarFieldEnum[]
+  }
+
+  /**
+   * Booking findFirstOrThrow
+   */
+  export type BookingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    /**
+     * Filter, which Booking to fetch.
+     */
+    where?: BookingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bookings to fetch.
+     */
+    orderBy?: BookingOrderByWithRelationInput | BookingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bookings.
+     */
+    cursor?: BookingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bookings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bookings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bookings.
+     */
+    distinct?: BookingScalarFieldEnum | BookingScalarFieldEnum[]
+  }
+
+  /**
+   * Booking findMany
+   */
+  export type BookingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    /**
+     * Filter, which Bookings to fetch.
+     */
+    where?: BookingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bookings to fetch.
+     */
+    orderBy?: BookingOrderByWithRelationInput | BookingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Bookings.
+     */
+    cursor?: BookingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bookings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bookings.
+     */
+    skip?: number
+    distinct?: BookingScalarFieldEnum | BookingScalarFieldEnum[]
+  }
+
+  /**
+   * Booking create
+   */
+  export type BookingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Booking.
+     */
+    data: XOR<BookingCreateInput, BookingUncheckedCreateInput>
+  }
+
+  /**
+   * Booking createMany
+   */
+  export type BookingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Bookings.
+     */
+    data: BookingCreateManyInput | BookingCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Booking createManyAndReturn
+   */
+  export type BookingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * The data used to create many Bookings.
+     */
+    data: BookingCreateManyInput | BookingCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Booking update
+   */
+  export type BookingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Booking.
+     */
+    data: XOR<BookingUpdateInput, BookingUncheckedUpdateInput>
+    /**
+     * Choose, which Booking to update.
+     */
+    where: BookingWhereUniqueInput
+  }
+
+  /**
+   * Booking updateMany
+   */
+  export type BookingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Bookings.
+     */
+    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyInput>
+    /**
+     * Filter which Bookings to update
+     */
+    where?: BookingWhereInput
+    /**
+     * Limit how many Bookings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Booking updateManyAndReturn
+   */
+  export type BookingUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * The data used to update Bookings.
+     */
+    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyInput>
+    /**
+     * Filter which Bookings to update
+     */
+    where?: BookingWhereInput
+    /**
+     * Limit how many Bookings to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Booking upsert
+   */
+  export type BookingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Booking to update in case it exists.
+     */
+    where: BookingWhereUniqueInput
+    /**
+     * In case the Booking found by the `where` argument doesn't exist, create a new Booking with this data.
+     */
+    create: XOR<BookingCreateInput, BookingUncheckedCreateInput>
+    /**
+     * In case the Booking was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BookingUpdateInput, BookingUncheckedUpdateInput>
+  }
+
+  /**
+   * Booking delete
+   */
+  export type BookingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
+    /**
+     * Filter which Booking to delete.
+     */
+    where: BookingWhereUniqueInput
+  }
+
+  /**
+   * Booking deleteMany
+   */
+  export type BookingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bookings to delete
+     */
+    where?: BookingWhereInput
+    /**
+     * Limit how many Bookings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Booking without action
+   */
+  export type BookingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Booking
+     */
+    select?: BookingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Booking
+     */
+    omit?: BookingOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookingInclude<ExtArgs> | null
   }
 
 
@@ -15133,6 +17853,21 @@ export namespace Prisma {
   export type HistoryScalarFieldEnum = (typeof HistoryScalarFieldEnum)[keyof typeof HistoryScalarFieldEnum]
 
 
+  export const TimeSlotScalarFieldEnum: {
+    TimeSlot_ID: 'TimeSlot_ID',
+    StartTime: 'StartTime',
+    EndTime: 'EndTime',
+    MaxAppointments: 'MaxAppointments',
+    AvailableSlots: 'AvailableSlots',
+    Branch_ID: 'Branch_ID',
+    Service_ID: 'Service_ID',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
+  };
+
+  export type TimeSlotScalarFieldEnum = (typeof TimeSlotScalarFieldEnum)[keyof typeof TimeSlotScalarFieldEnum]
+
+
   export const Register_carScalarFieldEnum: {
     Register_car_ID: 'Register_car_ID',
     Register_car_manufacturer: 'Register_car_manufacturer',
@@ -15146,6 +17881,20 @@ export namespace Prisma {
   };
 
   export type Register_carScalarFieldEnum = (typeof Register_carScalarFieldEnum)[keyof typeof Register_carScalarFieldEnum]
+
+
+  export const BookingScalarFieldEnum: {
+    Booking_ID: 'Booking_ID',
+    User_ID: 'User_ID',
+    TimeSlot_ID: 'TimeSlot_ID',
+    Vehicle_ID: 'Vehicle_ID',
+    Notes: 'Notes',
+    Status: 'Status',
+    CreatedAt: 'CreatedAt',
+    UpdatedAt: 'UpdatedAt'
+  };
+
+  export type BookingScalarFieldEnum = (typeof BookingScalarFieldEnum)[keyof typeof BookingScalarFieldEnum]
 
 
   export const Register_serviceScalarFieldEnum: {
@@ -15377,6 +18126,7 @@ export namespace Prisma {
     Register_car?: Register_carListRelationFilter
     Register_service?: Register_serviceListRelationFilter
     History?: HistoryListRelationFilter
+    Bookings?: BookingListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -15396,6 +18146,7 @@ export namespace Prisma {
     Register_car?: Register_carOrderByRelationAggregateInput
     Register_service?: Register_serviceOrderByRelationAggregateInput
     History?: HistoryOrderByRelationAggregateInput
+    Bookings?: BookingOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -15418,6 +18169,7 @@ export namespace Prisma {
     Register_car?: Register_carListRelationFilter
     Register_service?: Register_serviceListRelationFilter
     History?: HistoryListRelationFilter
+    Bookings?: BookingListRelationFilter
   }, "User_ID" | "User_email">
 
   export type UserOrderByWithAggregationInput = {
@@ -15508,6 +18260,7 @@ export namespace Prisma {
     Service_duration_min?: IntFilter<"Service"> | number
     Register_service?: Register_serviceListRelationFilter
     History?: HistoryListRelationFilter
+    TimeSlots?: TimeSlotListRelationFilter
   }
 
   export type ServiceOrderByWithRelationInput = {
@@ -15518,6 +18271,7 @@ export namespace Prisma {
     Service_duration_min?: SortOrder
     Register_service?: Register_serviceOrderByRelationAggregateInput
     History?: HistoryOrderByRelationAggregateInput
+    TimeSlots?: TimeSlotOrderByRelationAggregateInput
   }
 
   export type ServiceWhereUniqueInput = Prisma.AtLeast<{
@@ -15531,6 +18285,7 @@ export namespace Prisma {
     Service_duration_min?: IntFilter<"Service"> | number
     Register_service?: Register_serviceListRelationFilter
     History?: HistoryListRelationFilter
+    TimeSlots?: TimeSlotListRelationFilter
   }, "Service_ID">
 
   export type ServiceOrderByWithAggregationInput = {
@@ -15623,6 +18378,7 @@ export namespace Prisma {
     Multi_branch_update_at?: DateTimeFilter<"Multi_branch"> | Date | string
     Register_service?: Register_serviceListRelationFilter
     History?: HistoryListRelationFilter
+    TimeSlots?: TimeSlotListRelationFilter
   }
 
   export type Multi_branchOrderByWithRelationInput = {
@@ -15636,6 +18392,7 @@ export namespace Prisma {
     Multi_branch_update_at?: SortOrder
     Register_service?: Register_serviceOrderByRelationAggregateInput
     History?: HistoryOrderByRelationAggregateInput
+    TimeSlots?: TimeSlotOrderByRelationAggregateInput
   }
 
   export type Multi_branchWhereUniqueInput = Prisma.AtLeast<{
@@ -15652,6 +18409,7 @@ export namespace Prisma {
     Multi_branch_update_at?: DateTimeFilter<"Multi_branch"> | Date | string
     Register_service?: Register_serviceListRelationFilter
     History?: HistoryListRelationFilter
+    TimeSlots?: TimeSlotListRelationFilter
   }, "Multi_branch_ID">
 
   export type Multi_branchOrderByWithAggregationInput = {
@@ -15977,6 +18735,89 @@ export namespace Prisma {
     carCar_ID?: IntNullableWithAggregatesFilter<"History"> | number | null
   }
 
+  export type TimeSlotWhereInput = {
+    AND?: TimeSlotWhereInput | TimeSlotWhereInput[]
+    OR?: TimeSlotWhereInput[]
+    NOT?: TimeSlotWhereInput | TimeSlotWhereInput[]
+    TimeSlot_ID?: IntFilter<"TimeSlot"> | number
+    StartTime?: DateTimeFilter<"TimeSlot"> | Date | string
+    EndTime?: DateTimeFilter<"TimeSlot"> | Date | string
+    MaxAppointments?: IntFilter<"TimeSlot"> | number
+    AvailableSlots?: IntFilter<"TimeSlot"> | number
+    Branch_ID?: IntFilter<"TimeSlot"> | number
+    Service_ID?: IntFilter<"TimeSlot"> | number
+    CreatedAt?: DateTimeFilter<"TimeSlot"> | Date | string
+    UpdatedAt?: DateTimeFilter<"TimeSlot"> | Date | string
+    Multi_branch?: XOR<Multi_branchScalarRelationFilter, Multi_branchWhereInput>
+    Service?: XOR<ServiceScalarRelationFilter, ServiceWhereInput>
+    Bookings?: BookingListRelationFilter
+  }
+
+  export type TimeSlotOrderByWithRelationInput = {
+    TimeSlot_ID?: SortOrder
+    StartTime?: SortOrder
+    EndTime?: SortOrder
+    MaxAppointments?: SortOrder
+    AvailableSlots?: SortOrder
+    Branch_ID?: SortOrder
+    Service_ID?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    Multi_branch?: Multi_branchOrderByWithRelationInput
+    Service?: ServiceOrderByWithRelationInput
+    Bookings?: BookingOrderByRelationAggregateInput
+  }
+
+  export type TimeSlotWhereUniqueInput = Prisma.AtLeast<{
+    TimeSlot_ID?: number
+    AND?: TimeSlotWhereInput | TimeSlotWhereInput[]
+    OR?: TimeSlotWhereInput[]
+    NOT?: TimeSlotWhereInput | TimeSlotWhereInput[]
+    StartTime?: DateTimeFilter<"TimeSlot"> | Date | string
+    EndTime?: DateTimeFilter<"TimeSlot"> | Date | string
+    MaxAppointments?: IntFilter<"TimeSlot"> | number
+    AvailableSlots?: IntFilter<"TimeSlot"> | number
+    Branch_ID?: IntFilter<"TimeSlot"> | number
+    Service_ID?: IntFilter<"TimeSlot"> | number
+    CreatedAt?: DateTimeFilter<"TimeSlot"> | Date | string
+    UpdatedAt?: DateTimeFilter<"TimeSlot"> | Date | string
+    Multi_branch?: XOR<Multi_branchScalarRelationFilter, Multi_branchWhereInput>
+    Service?: XOR<ServiceScalarRelationFilter, ServiceWhereInput>
+    Bookings?: BookingListRelationFilter
+  }, "TimeSlot_ID">
+
+  export type TimeSlotOrderByWithAggregationInput = {
+    TimeSlot_ID?: SortOrder
+    StartTime?: SortOrder
+    EndTime?: SortOrder
+    MaxAppointments?: SortOrder
+    AvailableSlots?: SortOrder
+    Branch_ID?: SortOrder
+    Service_ID?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    _count?: TimeSlotCountOrderByAggregateInput
+    _avg?: TimeSlotAvgOrderByAggregateInput
+    _max?: TimeSlotMaxOrderByAggregateInput
+    _min?: TimeSlotMinOrderByAggregateInput
+    _sum?: TimeSlotSumOrderByAggregateInput
+  }
+
+  export type TimeSlotScalarWhereWithAggregatesInput = {
+    AND?: TimeSlotScalarWhereWithAggregatesInput | TimeSlotScalarWhereWithAggregatesInput[]
+    OR?: TimeSlotScalarWhereWithAggregatesInput[]
+    NOT?: TimeSlotScalarWhereWithAggregatesInput | TimeSlotScalarWhereWithAggregatesInput[]
+    TimeSlot_ID?: IntWithAggregatesFilter<"TimeSlot"> | number
+    StartTime?: DateTimeWithAggregatesFilter<"TimeSlot"> | Date | string
+    EndTime?: DateTimeWithAggregatesFilter<"TimeSlot"> | Date | string
+    MaxAppointments?: IntWithAggregatesFilter<"TimeSlot"> | number
+    AvailableSlots?: IntWithAggregatesFilter<"TimeSlot"> | number
+    Branch_ID?: IntWithAggregatesFilter<"TimeSlot"> | number
+    Service_ID?: IntWithAggregatesFilter<"TimeSlot"> | number
+    CreatedAt?: DateTimeWithAggregatesFilter<"TimeSlot"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"TimeSlot"> | Date | string
+  }
+
   export type Register_carWhereInput = {
     AND?: Register_carWhereInput | Register_carWhereInput[]
     OR?: Register_carWhereInput[]
@@ -15992,6 +18833,7 @@ export namespace Prisma {
     Register_car_user_ID?: IntFilter<"Register_car"> | number
     User?: XOR<UserScalarRelationFilter, UserWhereInput>
     History?: HistoryListRelationFilter
+    Bookings?: BookingListRelationFilter
   }
 
   export type Register_carOrderByWithRelationInput = {
@@ -16006,6 +18848,7 @@ export namespace Prisma {
     Register_car_user_ID?: SortOrder
     User?: UserOrderByWithRelationInput
     History?: HistoryOrderByRelationAggregateInput
+    Bookings?: BookingOrderByRelationAggregateInput
   }
 
   export type Register_carWhereUniqueInput = Prisma.AtLeast<{
@@ -16023,6 +18866,7 @@ export namespace Prisma {
     Register_car_user_ID?: IntFilter<"Register_car"> | number
     User?: XOR<UserScalarRelationFilter, UserWhereInput>
     History?: HistoryListRelationFilter
+    Bookings?: BookingListRelationFilter
   }, "Register_car_ID" | "Register_car_vin">
 
   export type Register_carOrderByWithAggregationInput = {
@@ -16055,6 +18899,84 @@ export namespace Prisma {
     Register_car_create_at?: DateTimeWithAggregatesFilter<"Register_car"> | Date | string
     Register_car_update_at?: DateTimeWithAggregatesFilter<"Register_car"> | Date | string
     Register_car_user_ID?: IntWithAggregatesFilter<"Register_car"> | number
+  }
+
+  export type BookingWhereInput = {
+    AND?: BookingWhereInput | BookingWhereInput[]
+    OR?: BookingWhereInput[]
+    NOT?: BookingWhereInput | BookingWhereInput[]
+    Booking_ID?: IntFilter<"Booking"> | number
+    User_ID?: IntFilter<"Booking"> | number
+    TimeSlot_ID?: IntFilter<"Booking"> | number
+    Vehicle_ID?: IntFilter<"Booking"> | number
+    Notes?: StringNullableFilter<"Booking"> | string | null
+    Status?: EnumRegister_service_status_enumFilter<"Booking"> | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFilter<"Booking"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Booking"> | Date | string
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+    TimeSlot?: XOR<TimeSlotScalarRelationFilter, TimeSlotWhereInput>
+    Register_car?: XOR<Register_carScalarRelationFilter, Register_carWhereInput>
+  }
+
+  export type BookingOrderByWithRelationInput = {
+    Booking_ID?: SortOrder
+    User_ID?: SortOrder
+    TimeSlot_ID?: SortOrder
+    Vehicle_ID?: SortOrder
+    Notes?: SortOrderInput | SortOrder
+    Status?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    User?: UserOrderByWithRelationInput
+    TimeSlot?: TimeSlotOrderByWithRelationInput
+    Register_car?: Register_carOrderByWithRelationInput
+  }
+
+  export type BookingWhereUniqueInput = Prisma.AtLeast<{
+    Booking_ID?: number
+    AND?: BookingWhereInput | BookingWhereInput[]
+    OR?: BookingWhereInput[]
+    NOT?: BookingWhereInput | BookingWhereInput[]
+    User_ID?: IntFilter<"Booking"> | number
+    TimeSlot_ID?: IntFilter<"Booking"> | number
+    Vehicle_ID?: IntFilter<"Booking"> | number
+    Notes?: StringNullableFilter<"Booking"> | string | null
+    Status?: EnumRegister_service_status_enumFilter<"Booking"> | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFilter<"Booking"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Booking"> | Date | string
+    User?: XOR<UserScalarRelationFilter, UserWhereInput>
+    TimeSlot?: XOR<TimeSlotScalarRelationFilter, TimeSlotWhereInput>
+    Register_car?: XOR<Register_carScalarRelationFilter, Register_carWhereInput>
+  }, "Booking_ID">
+
+  export type BookingOrderByWithAggregationInput = {
+    Booking_ID?: SortOrder
+    User_ID?: SortOrder
+    TimeSlot_ID?: SortOrder
+    Vehicle_ID?: SortOrder
+    Notes?: SortOrderInput | SortOrder
+    Status?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+    _count?: BookingCountOrderByAggregateInput
+    _avg?: BookingAvgOrderByAggregateInput
+    _max?: BookingMaxOrderByAggregateInput
+    _min?: BookingMinOrderByAggregateInput
+    _sum?: BookingSumOrderByAggregateInput
+  }
+
+  export type BookingScalarWhereWithAggregatesInput = {
+    AND?: BookingScalarWhereWithAggregatesInput | BookingScalarWhereWithAggregatesInput[]
+    OR?: BookingScalarWhereWithAggregatesInput[]
+    NOT?: BookingScalarWhereWithAggregatesInput | BookingScalarWhereWithAggregatesInput[]
+    Booking_ID?: IntWithAggregatesFilter<"Booking"> | number
+    User_ID?: IntWithAggregatesFilter<"Booking"> | number
+    TimeSlot_ID?: IntWithAggregatesFilter<"Booking"> | number
+    Vehicle_ID?: IntWithAggregatesFilter<"Booking"> | number
+    Notes?: StringNullableWithAggregatesFilter<"Booking"> | string | null
+    Status?: EnumRegister_service_status_enumWithAggregatesFilter<"Booking"> | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeWithAggregatesFilter<"Booking"> | Date | string
+    UpdatedAt?: DateTimeWithAggregatesFilter<"Booking"> | Date | string
   }
 
   export type Register_serviceWhereInput = {
@@ -16167,6 +19089,7 @@ export namespace Prisma {
     Register_car?: Register_carCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceCreateNestedManyWithoutUserInput
     History?: HistoryCreateNestedManyWithoutUserInput
+    Bookings?: BookingCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -16186,6 +19109,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
     History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -16204,6 +19128,7 @@ export namespace Prisma {
     Register_car?: Register_carUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
     History?: HistoryUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -16223,6 +19148,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
     History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -16307,6 +19233,7 @@ export namespace Prisma {
     Service_duration_min: number
     Register_service?: Register_serviceCreateNestedManyWithoutServiceInput
     History?: HistoryCreateNestedManyWithoutServiceInput
+    TimeSlots?: TimeSlotCreateNestedManyWithoutServiceInput
   }
 
   export type ServiceUncheckedCreateInput = {
@@ -16317,6 +19244,7 @@ export namespace Prisma {
     Service_duration_min: number
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutServiceInput
     History?: HistoryUncheckedCreateNestedManyWithoutServiceInput
+    TimeSlots?: TimeSlotUncheckedCreateNestedManyWithoutServiceInput
   }
 
   export type ServiceUpdateInput = {
@@ -16326,6 +19254,7 @@ export namespace Prisma {
     Service_duration_min?: IntFieldUpdateOperationsInput | number
     Register_service?: Register_serviceUpdateManyWithoutServiceNestedInput
     History?: HistoryUpdateManyWithoutServiceNestedInput
+    TimeSlots?: TimeSlotUpdateManyWithoutServiceNestedInput
   }
 
   export type ServiceUncheckedUpdateInput = {
@@ -16336,6 +19265,7 @@ export namespace Prisma {
     Service_duration_min?: IntFieldUpdateOperationsInput | number
     Register_service?: Register_serviceUncheckedUpdateManyWithoutServiceNestedInput
     History?: HistoryUncheckedUpdateManyWithoutServiceNestedInput
+    TimeSlots?: TimeSlotUncheckedUpdateManyWithoutServiceNestedInput
   }
 
   export type ServiceCreateManyInput = {
@@ -16416,6 +19346,7 @@ export namespace Prisma {
     Multi_branch_update_at?: Date | string
     Register_service?: Register_serviceCreateNestedManyWithoutMulti_branchInput
     History?: HistoryCreateNestedManyWithoutMulti_branchInput
+    TimeSlots?: TimeSlotCreateNestedManyWithoutMulti_branchInput
   }
 
   export type Multi_branchUncheckedCreateInput = {
@@ -16429,6 +19360,7 @@ export namespace Prisma {
     Multi_branch_update_at?: Date | string
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutMulti_branchInput
     History?: HistoryUncheckedCreateNestedManyWithoutMulti_branchInput
+    TimeSlots?: TimeSlotUncheckedCreateNestedManyWithoutMulti_branchInput
   }
 
   export type Multi_branchUpdateInput = {
@@ -16441,6 +19373,7 @@ export namespace Prisma {
     Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_service?: Register_serviceUpdateManyWithoutMulti_branchNestedInput
     History?: HistoryUpdateManyWithoutMulti_branchNestedInput
+    TimeSlots?: TimeSlotUpdateManyWithoutMulti_branchNestedInput
   }
 
   export type Multi_branchUncheckedUpdateInput = {
@@ -16454,6 +19387,7 @@ export namespace Prisma {
     Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_service?: Register_serviceUncheckedUpdateManyWithoutMulti_branchNestedInput
     History?: HistoryUncheckedUpdateManyWithoutMulti_branchNestedInput
+    TimeSlots?: TimeSlotUncheckedUpdateManyWithoutMulti_branchNestedInput
   }
 
   export type Multi_branchCreateManyInput = {
@@ -16761,6 +19695,89 @@ export namespace Prisma {
     carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type TimeSlotCreateInput = {
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Multi_branch: Multi_branchCreateNestedOneWithoutTimeSlotsInput
+    Service: ServiceCreateNestedOneWithoutTimeSlotsInput
+    Bookings?: BookingCreateNestedManyWithoutTimeSlotInput
+  }
+
+  export type TimeSlotUncheckedCreateInput = {
+    TimeSlot_ID?: number
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    Branch_ID: number
+    Service_ID: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Bookings?: BookingUncheckedCreateNestedManyWithoutTimeSlotInput
+  }
+
+  export type TimeSlotUpdateInput = {
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutTimeSlotsNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutTimeSlotsNestedInput
+    Bookings?: BookingUpdateManyWithoutTimeSlotNestedInput
+  }
+
+  export type TimeSlotUncheckedUpdateInput = {
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    Branch_ID?: IntFieldUpdateOperationsInput | number
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bookings?: BookingUncheckedUpdateManyWithoutTimeSlotNestedInput
+  }
+
+  export type TimeSlotCreateManyInput = {
+    TimeSlot_ID?: number
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    Branch_ID: number
+    Service_ID: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type TimeSlotUpdateManyMutationInput = {
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TimeSlotUncheckedUpdateManyInput = {
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    Branch_ID?: IntFieldUpdateOperationsInput | number
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type Register_carCreateInput = {
     Register_car_manufacturer?: string | null
     Register_car_mark?: string | null
@@ -16771,6 +19788,7 @@ export namespace Prisma {
     Register_car_update_at?: Date | string
     User: UserCreateNestedOneWithoutRegister_carInput
     History?: HistoryCreateNestedManyWithoutRegister_carInput
+    Bookings?: BookingCreateNestedManyWithoutRegister_carInput
   }
 
   export type Register_carUncheckedCreateInput = {
@@ -16784,6 +19802,7 @@ export namespace Prisma {
     Register_car_update_at?: Date | string
     Register_car_user_ID: number
     History?: HistoryUncheckedCreateNestedManyWithoutRegister_carInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutRegister_carInput
   }
 
   export type Register_carUpdateInput = {
@@ -16796,6 +19815,7 @@ export namespace Prisma {
     Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UserUpdateOneRequiredWithoutRegister_carNestedInput
     History?: HistoryUpdateManyWithoutRegister_carNestedInput
+    Bookings?: BookingUpdateManyWithoutRegister_carNestedInput
   }
 
   export type Register_carUncheckedUpdateInput = {
@@ -16809,6 +19829,7 @@ export namespace Prisma {
     Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_car_user_ID?: IntFieldUpdateOperationsInput | number
     History?: HistoryUncheckedUpdateManyWithoutRegister_carNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutRegister_carNestedInput
   }
 
   export type Register_carCreateManyInput = {
@@ -16843,6 +19864,77 @@ export namespace Prisma {
     Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_car_user_ID?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BookingCreateInput = {
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    User: UserCreateNestedOneWithoutBookingsInput
+    TimeSlot: TimeSlotCreateNestedOneWithoutBookingsInput
+    Register_car: Register_carCreateNestedOneWithoutBookingsInput
+  }
+
+  export type BookingUncheckedCreateInput = {
+    Booking_ID?: number
+    User_ID: number
+    TimeSlot_ID: number
+    Vehicle_ID: number
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type BookingUpdateInput = {
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    TimeSlot?: TimeSlotUpdateOneRequiredWithoutBookingsNestedInput
+    Register_car?: Register_carUpdateOneRequiredWithoutBookingsNestedInput
+  }
+
+  export type BookingUncheckedUpdateInput = {
+    Booking_ID?: IntFieldUpdateOperationsInput | number
+    User_ID?: IntFieldUpdateOperationsInput | number
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    Vehicle_ID?: IntFieldUpdateOperationsInput | number
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookingCreateManyInput = {
+    Booking_ID?: number
+    User_ID: number
+    TimeSlot_ID: number
+    Vehicle_ID: number
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type BookingUpdateManyMutationInput = {
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookingUncheckedUpdateManyInput = {
+    Booking_ID?: IntFieldUpdateOperationsInput | number
+    User_ID?: IntFieldUpdateOperationsInput | number
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    Vehicle_ID?: IntFieldUpdateOperationsInput | number
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type Register_serviceCreateInput = {
@@ -17034,6 +20126,12 @@ export namespace Prisma {
     none?: HistoryWhereInput
   }
 
+  export type BookingListRelationFilter = {
+    every?: BookingWhereInput
+    some?: BookingWhereInput
+    none?: BookingWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -17064,6 +20162,10 @@ export namespace Prisma {
   }
 
   export type HistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BookingOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -17219,6 +20321,16 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type TimeSlotListRelationFilter = {
+    every?: TimeSlotWhereInput
+    some?: TimeSlotWhereInput
+    none?: TimeSlotWhereInput
+  }
+
+  export type TimeSlotOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type ServiceCountOrderByAggregateInput = {
@@ -17694,6 +20806,58 @@ export namespace Prisma {
     _max?: NestedEnumHistory_status_enumFilter<$PrismaModel>
   }
 
+  export type TimeSlotCountOrderByAggregateInput = {
+    TimeSlot_ID?: SortOrder
+    StartTime?: SortOrder
+    EndTime?: SortOrder
+    MaxAppointments?: SortOrder
+    AvailableSlots?: SortOrder
+    Branch_ID?: SortOrder
+    Service_ID?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type TimeSlotAvgOrderByAggregateInput = {
+    TimeSlot_ID?: SortOrder
+    MaxAppointments?: SortOrder
+    AvailableSlots?: SortOrder
+    Branch_ID?: SortOrder
+    Service_ID?: SortOrder
+  }
+
+  export type TimeSlotMaxOrderByAggregateInput = {
+    TimeSlot_ID?: SortOrder
+    StartTime?: SortOrder
+    EndTime?: SortOrder
+    MaxAppointments?: SortOrder
+    AvailableSlots?: SortOrder
+    Branch_ID?: SortOrder
+    Service_ID?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type TimeSlotMinOrderByAggregateInput = {
+    TimeSlot_ID?: SortOrder
+    StartTime?: SortOrder
+    EndTime?: SortOrder
+    MaxAppointments?: SortOrder
+    AvailableSlots?: SortOrder
+    Branch_ID?: SortOrder
+    Service_ID?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type TimeSlotSumOrderByAggregateInput = {
+    TimeSlot_ID?: SortOrder
+    MaxAppointments?: SortOrder
+    AvailableSlots?: SortOrder
+    Branch_ID?: SortOrder
+    Service_ID?: SortOrder
+  }
+
   export type EnumRegister_car_status_enumFilter<$PrismaModel = never> = {
     equals?: $Enums.Register_car_status_enum | EnumRegister_car_status_enumFieldRefInput<$PrismaModel>
     in?: $Enums.Register_car_status_enum[] | ListEnumRegister_car_status_enumFieldRefInput<$PrismaModel>
@@ -17759,6 +20923,80 @@ export namespace Prisma {
     _max?: NestedEnumRegister_car_status_enumFilter<$PrismaModel>
   }
 
+  export type EnumRegister_service_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_service_status_enumFilter<$PrismaModel> | $Enums.Register_service_status_enum
+  }
+
+  export type TimeSlotScalarRelationFilter = {
+    is?: TimeSlotWhereInput
+    isNot?: TimeSlotWhereInput
+  }
+
+  export type Register_carScalarRelationFilter = {
+    is?: Register_carWhereInput
+    isNot?: Register_carWhereInput
+  }
+
+  export type BookingCountOrderByAggregateInput = {
+    Booking_ID?: SortOrder
+    User_ID?: SortOrder
+    TimeSlot_ID?: SortOrder
+    Vehicle_ID?: SortOrder
+    Notes?: SortOrder
+    Status?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type BookingAvgOrderByAggregateInput = {
+    Booking_ID?: SortOrder
+    User_ID?: SortOrder
+    TimeSlot_ID?: SortOrder
+    Vehicle_ID?: SortOrder
+  }
+
+  export type BookingMaxOrderByAggregateInput = {
+    Booking_ID?: SortOrder
+    User_ID?: SortOrder
+    TimeSlot_ID?: SortOrder
+    Vehicle_ID?: SortOrder
+    Notes?: SortOrder
+    Status?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type BookingMinOrderByAggregateInput = {
+    Booking_ID?: SortOrder
+    User_ID?: SortOrder
+    TimeSlot_ID?: SortOrder
+    Vehicle_ID?: SortOrder
+    Notes?: SortOrder
+    Status?: SortOrder
+    CreatedAt?: SortOrder
+    UpdatedAt?: SortOrder
+  }
+
+  export type BookingSumOrderByAggregateInput = {
+    Booking_ID?: SortOrder
+    User_ID?: SortOrder
+    TimeSlot_ID?: SortOrder
+    Vehicle_ID?: SortOrder
+  }
+
+  export type EnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.Register_service_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
+  }
+
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -17768,13 +21006,6 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type EnumRegister_service_status_enumFilter<$PrismaModel = never> = {
-    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    not?: NestedEnumRegister_service_status_enumFilter<$PrismaModel> | $Enums.Register_service_status_enum
   }
 
   export type CarScalarRelationFilter = {
@@ -17851,16 +21082,6 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type EnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    not?: NestedEnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.Register_service_status_enum
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
-    _max?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
-  }
-
   export type BonusCreateNestedManyWithoutUserInput = {
     create?: XOR<BonusCreateWithoutUserInput, BonusUncheckedCreateWithoutUserInput> | BonusCreateWithoutUserInput[] | BonusUncheckedCreateWithoutUserInput[]
     connectOrCreate?: BonusCreateOrConnectWithoutUserInput | BonusCreateOrConnectWithoutUserInput[]
@@ -17910,6 +21131,13 @@ export namespace Prisma {
     connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
   }
 
+  export type BookingCreateNestedManyWithoutUserInput = {
+    create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
+    createMany?: BookingCreateManyUserInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+  }
+
   export type BonusUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<BonusCreateWithoutUserInput, BonusUncheckedCreateWithoutUserInput> | BonusCreateWithoutUserInput[] | BonusUncheckedCreateWithoutUserInput[]
     connectOrCreate?: BonusCreateOrConnectWithoutUserInput | BonusCreateOrConnectWithoutUserInput[]
@@ -17957,6 +21185,13 @@ export namespace Prisma {
     connectOrCreate?: HistoryCreateOrConnectWithoutUserInput | HistoryCreateOrConnectWithoutUserInput[]
     createMany?: HistoryCreateManyUserInputEnvelope
     connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type BookingUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
+    createMany?: BookingCreateManyUserInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -18073,6 +21308,20 @@ export namespace Prisma {
     deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
   }
 
+  export type BookingUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutUserInput | BookingUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BookingCreateManyUserInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutUserInput | BookingUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutUserInput | BookingUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -18179,6 +21428,20 @@ export namespace Prisma {
     deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
   }
 
+  export type BookingUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput> | BookingCreateWithoutUserInput[] | BookingUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutUserInput | BookingCreateOrConnectWithoutUserInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutUserInput | BookingUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: BookingCreateManyUserInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutUserInput | BookingUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutUserInput | BookingUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  }
+
   export type Register_serviceCreateNestedManyWithoutCarInput = {
     create?: XOR<Register_serviceCreateWithoutCarInput, Register_serviceUncheckedCreateWithoutCarInput> | Register_serviceCreateWithoutCarInput[] | Register_serviceUncheckedCreateWithoutCarInput[]
     connectOrCreate?: Register_serviceCreateOrConnectWithoutCarInput | Register_serviceCreateOrConnectWithoutCarInput[]
@@ -18277,6 +21540,13 @@ export namespace Prisma {
     connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
   }
 
+  export type TimeSlotCreateNestedManyWithoutServiceInput = {
+    create?: XOR<TimeSlotCreateWithoutServiceInput, TimeSlotUncheckedCreateWithoutServiceInput> | TimeSlotCreateWithoutServiceInput[] | TimeSlotUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutServiceInput | TimeSlotCreateOrConnectWithoutServiceInput[]
+    createMany?: TimeSlotCreateManyServiceInputEnvelope
+    connect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+  }
+
   export type Register_serviceUncheckedCreateNestedManyWithoutServiceInput = {
     create?: XOR<Register_serviceCreateWithoutServiceInput, Register_serviceUncheckedCreateWithoutServiceInput> | Register_serviceCreateWithoutServiceInput[] | Register_serviceUncheckedCreateWithoutServiceInput[]
     connectOrCreate?: Register_serviceCreateOrConnectWithoutServiceInput | Register_serviceCreateOrConnectWithoutServiceInput[]
@@ -18289,6 +21559,13 @@ export namespace Prisma {
     connectOrCreate?: HistoryCreateOrConnectWithoutServiceInput | HistoryCreateOrConnectWithoutServiceInput[]
     createMany?: HistoryCreateManyServiceInputEnvelope
     connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type TimeSlotUncheckedCreateNestedManyWithoutServiceInput = {
+    create?: XOR<TimeSlotCreateWithoutServiceInput, TimeSlotUncheckedCreateWithoutServiceInput> | TimeSlotCreateWithoutServiceInput[] | TimeSlotUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutServiceInput | TimeSlotCreateOrConnectWithoutServiceInput[]
+    createMany?: TimeSlotCreateManyServiceInputEnvelope
+    connect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -18327,6 +21604,20 @@ export namespace Prisma {
     deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
   }
 
+  export type TimeSlotUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<TimeSlotCreateWithoutServiceInput, TimeSlotUncheckedCreateWithoutServiceInput> | TimeSlotCreateWithoutServiceInput[] | TimeSlotUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutServiceInput | TimeSlotCreateOrConnectWithoutServiceInput[]
+    upsert?: TimeSlotUpsertWithWhereUniqueWithoutServiceInput | TimeSlotUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: TimeSlotCreateManyServiceInputEnvelope
+    set?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    disconnect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    delete?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    connect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    update?: TimeSlotUpdateWithWhereUniqueWithoutServiceInput | TimeSlotUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: TimeSlotUpdateManyWithWhereWithoutServiceInput | TimeSlotUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: TimeSlotScalarWhereInput | TimeSlotScalarWhereInput[]
+  }
+
   export type Register_serviceUncheckedUpdateManyWithoutServiceNestedInput = {
     create?: XOR<Register_serviceCreateWithoutServiceInput, Register_serviceUncheckedCreateWithoutServiceInput> | Register_serviceCreateWithoutServiceInput[] | Register_serviceUncheckedCreateWithoutServiceInput[]
     connectOrCreate?: Register_serviceCreateOrConnectWithoutServiceInput | Register_serviceCreateOrConnectWithoutServiceInput[]
@@ -18353,6 +21644,20 @@ export namespace Prisma {
     update?: HistoryUpdateWithWhereUniqueWithoutServiceInput | HistoryUpdateWithWhereUniqueWithoutServiceInput[]
     updateMany?: HistoryUpdateManyWithWhereWithoutServiceInput | HistoryUpdateManyWithWhereWithoutServiceInput[]
     deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type TimeSlotUncheckedUpdateManyWithoutServiceNestedInput = {
+    create?: XOR<TimeSlotCreateWithoutServiceInput, TimeSlotUncheckedCreateWithoutServiceInput> | TimeSlotCreateWithoutServiceInput[] | TimeSlotUncheckedCreateWithoutServiceInput[]
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutServiceInput | TimeSlotCreateOrConnectWithoutServiceInput[]
+    upsert?: TimeSlotUpsertWithWhereUniqueWithoutServiceInput | TimeSlotUpsertWithWhereUniqueWithoutServiceInput[]
+    createMany?: TimeSlotCreateManyServiceInputEnvelope
+    set?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    disconnect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    delete?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    connect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    update?: TimeSlotUpdateWithWhereUniqueWithoutServiceInput | TimeSlotUpdateWithWhereUniqueWithoutServiceInput[]
+    updateMany?: TimeSlotUpdateManyWithWhereWithoutServiceInput | TimeSlotUpdateManyWithWhereWithoutServiceInput[]
+    deleteMany?: TimeSlotScalarWhereInput | TimeSlotScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutBonusInput = {
@@ -18387,6 +21692,13 @@ export namespace Prisma {
     connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
   }
 
+  export type TimeSlotCreateNestedManyWithoutMulti_branchInput = {
+    create?: XOR<TimeSlotCreateWithoutMulti_branchInput, TimeSlotUncheckedCreateWithoutMulti_branchInput> | TimeSlotCreateWithoutMulti_branchInput[] | TimeSlotUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutMulti_branchInput | TimeSlotCreateOrConnectWithoutMulti_branchInput[]
+    createMany?: TimeSlotCreateManyMulti_branchInputEnvelope
+    connect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+  }
+
   export type Register_serviceUncheckedCreateNestedManyWithoutMulti_branchInput = {
     create?: XOR<Register_serviceCreateWithoutMulti_branchInput, Register_serviceUncheckedCreateWithoutMulti_branchInput> | Register_serviceCreateWithoutMulti_branchInput[] | Register_serviceUncheckedCreateWithoutMulti_branchInput[]
     connectOrCreate?: Register_serviceCreateOrConnectWithoutMulti_branchInput | Register_serviceCreateOrConnectWithoutMulti_branchInput[]
@@ -18399,6 +21711,13 @@ export namespace Prisma {
     connectOrCreate?: HistoryCreateOrConnectWithoutMulti_branchInput | HistoryCreateOrConnectWithoutMulti_branchInput[]
     createMany?: HistoryCreateManyMulti_branchInputEnvelope
     connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type TimeSlotUncheckedCreateNestedManyWithoutMulti_branchInput = {
+    create?: XOR<TimeSlotCreateWithoutMulti_branchInput, TimeSlotUncheckedCreateWithoutMulti_branchInput> | TimeSlotCreateWithoutMulti_branchInput[] | TimeSlotUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutMulti_branchInput | TimeSlotCreateOrConnectWithoutMulti_branchInput[]
+    createMany?: TimeSlotCreateManyMulti_branchInputEnvelope
+    connect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
   }
 
   export type Register_serviceUpdateManyWithoutMulti_branchNestedInput = {
@@ -18429,6 +21748,20 @@ export namespace Prisma {
     deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
   }
 
+  export type TimeSlotUpdateManyWithoutMulti_branchNestedInput = {
+    create?: XOR<TimeSlotCreateWithoutMulti_branchInput, TimeSlotUncheckedCreateWithoutMulti_branchInput> | TimeSlotCreateWithoutMulti_branchInput[] | TimeSlotUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutMulti_branchInput | TimeSlotCreateOrConnectWithoutMulti_branchInput[]
+    upsert?: TimeSlotUpsertWithWhereUniqueWithoutMulti_branchInput | TimeSlotUpsertWithWhereUniqueWithoutMulti_branchInput[]
+    createMany?: TimeSlotCreateManyMulti_branchInputEnvelope
+    set?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    disconnect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    delete?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    connect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    update?: TimeSlotUpdateWithWhereUniqueWithoutMulti_branchInput | TimeSlotUpdateWithWhereUniqueWithoutMulti_branchInput[]
+    updateMany?: TimeSlotUpdateManyWithWhereWithoutMulti_branchInput | TimeSlotUpdateManyWithWhereWithoutMulti_branchInput[]
+    deleteMany?: TimeSlotScalarWhereInput | TimeSlotScalarWhereInput[]
+  }
+
   export type Register_serviceUncheckedUpdateManyWithoutMulti_branchNestedInput = {
     create?: XOR<Register_serviceCreateWithoutMulti_branchInput, Register_serviceUncheckedCreateWithoutMulti_branchInput> | Register_serviceCreateWithoutMulti_branchInput[] | Register_serviceUncheckedCreateWithoutMulti_branchInput[]
     connectOrCreate?: Register_serviceCreateOrConnectWithoutMulti_branchInput | Register_serviceCreateOrConnectWithoutMulti_branchInput[]
@@ -18455,6 +21788,20 @@ export namespace Prisma {
     update?: HistoryUpdateWithWhereUniqueWithoutMulti_branchInput | HistoryUpdateWithWhereUniqueWithoutMulti_branchInput[]
     updateMany?: HistoryUpdateManyWithWhereWithoutMulti_branchInput | HistoryUpdateManyWithWhereWithoutMulti_branchInput[]
     deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type TimeSlotUncheckedUpdateManyWithoutMulti_branchNestedInput = {
+    create?: XOR<TimeSlotCreateWithoutMulti_branchInput, TimeSlotUncheckedCreateWithoutMulti_branchInput> | TimeSlotCreateWithoutMulti_branchInput[] | TimeSlotUncheckedCreateWithoutMulti_branchInput[]
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutMulti_branchInput | TimeSlotCreateOrConnectWithoutMulti_branchInput[]
+    upsert?: TimeSlotUpsertWithWhereUniqueWithoutMulti_branchInput | TimeSlotUpsertWithWhereUniqueWithoutMulti_branchInput[]
+    createMany?: TimeSlotCreateManyMulti_branchInputEnvelope
+    set?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    disconnect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    delete?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    connect?: TimeSlotWhereUniqueInput | TimeSlotWhereUniqueInput[]
+    update?: TimeSlotUpdateWithWhereUniqueWithoutMulti_branchInput | TimeSlotUpdateWithWhereUniqueWithoutMulti_branchInput[]
+    updateMany?: TimeSlotUpdateManyWithWhereWithoutMulti_branchInput | TimeSlotUpdateManyWithWhereWithoutMulti_branchInput[]
+    deleteMany?: TimeSlotScalarWhereInput | TimeSlotScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutCommitInput = {
@@ -18621,6 +21968,76 @@ export namespace Prisma {
     update?: XOR<XOR<CarUpdateToOneWithWhereWithoutHistoryInput, CarUpdateWithoutHistoryInput>, CarUncheckedUpdateWithoutHistoryInput>
   }
 
+  export type Multi_branchCreateNestedOneWithoutTimeSlotsInput = {
+    create?: XOR<Multi_branchCreateWithoutTimeSlotsInput, Multi_branchUncheckedCreateWithoutTimeSlotsInput>
+    connectOrCreate?: Multi_branchCreateOrConnectWithoutTimeSlotsInput
+    connect?: Multi_branchWhereUniqueInput
+  }
+
+  export type ServiceCreateNestedOneWithoutTimeSlotsInput = {
+    create?: XOR<ServiceCreateWithoutTimeSlotsInput, ServiceUncheckedCreateWithoutTimeSlotsInput>
+    connectOrCreate?: ServiceCreateOrConnectWithoutTimeSlotsInput
+    connect?: ServiceWhereUniqueInput
+  }
+
+  export type BookingCreateNestedManyWithoutTimeSlotInput = {
+    create?: XOR<BookingCreateWithoutTimeSlotInput, BookingUncheckedCreateWithoutTimeSlotInput> | BookingCreateWithoutTimeSlotInput[] | BookingUncheckedCreateWithoutTimeSlotInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutTimeSlotInput | BookingCreateOrConnectWithoutTimeSlotInput[]
+    createMany?: BookingCreateManyTimeSlotInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+  }
+
+  export type BookingUncheckedCreateNestedManyWithoutTimeSlotInput = {
+    create?: XOR<BookingCreateWithoutTimeSlotInput, BookingUncheckedCreateWithoutTimeSlotInput> | BookingCreateWithoutTimeSlotInput[] | BookingUncheckedCreateWithoutTimeSlotInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutTimeSlotInput | BookingCreateOrConnectWithoutTimeSlotInput[]
+    createMany?: BookingCreateManyTimeSlotInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+  }
+
+  export type Multi_branchUpdateOneRequiredWithoutTimeSlotsNestedInput = {
+    create?: XOR<Multi_branchCreateWithoutTimeSlotsInput, Multi_branchUncheckedCreateWithoutTimeSlotsInput>
+    connectOrCreate?: Multi_branchCreateOrConnectWithoutTimeSlotsInput
+    upsert?: Multi_branchUpsertWithoutTimeSlotsInput
+    connect?: Multi_branchWhereUniqueInput
+    update?: XOR<XOR<Multi_branchUpdateToOneWithWhereWithoutTimeSlotsInput, Multi_branchUpdateWithoutTimeSlotsInput>, Multi_branchUncheckedUpdateWithoutTimeSlotsInput>
+  }
+
+  export type ServiceUpdateOneRequiredWithoutTimeSlotsNestedInput = {
+    create?: XOR<ServiceCreateWithoutTimeSlotsInput, ServiceUncheckedCreateWithoutTimeSlotsInput>
+    connectOrCreate?: ServiceCreateOrConnectWithoutTimeSlotsInput
+    upsert?: ServiceUpsertWithoutTimeSlotsInput
+    connect?: ServiceWhereUniqueInput
+    update?: XOR<XOR<ServiceUpdateToOneWithWhereWithoutTimeSlotsInput, ServiceUpdateWithoutTimeSlotsInput>, ServiceUncheckedUpdateWithoutTimeSlotsInput>
+  }
+
+  export type BookingUpdateManyWithoutTimeSlotNestedInput = {
+    create?: XOR<BookingCreateWithoutTimeSlotInput, BookingUncheckedCreateWithoutTimeSlotInput> | BookingCreateWithoutTimeSlotInput[] | BookingUncheckedCreateWithoutTimeSlotInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutTimeSlotInput | BookingCreateOrConnectWithoutTimeSlotInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutTimeSlotInput | BookingUpsertWithWhereUniqueWithoutTimeSlotInput[]
+    createMany?: BookingCreateManyTimeSlotInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutTimeSlotInput | BookingUpdateWithWhereUniqueWithoutTimeSlotInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutTimeSlotInput | BookingUpdateManyWithWhereWithoutTimeSlotInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  }
+
+  export type BookingUncheckedUpdateManyWithoutTimeSlotNestedInput = {
+    create?: XOR<BookingCreateWithoutTimeSlotInput, BookingUncheckedCreateWithoutTimeSlotInput> | BookingCreateWithoutTimeSlotInput[] | BookingUncheckedCreateWithoutTimeSlotInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutTimeSlotInput | BookingCreateOrConnectWithoutTimeSlotInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutTimeSlotInput | BookingUpsertWithWhereUniqueWithoutTimeSlotInput[]
+    createMany?: BookingCreateManyTimeSlotInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutTimeSlotInput | BookingUpdateWithWhereUniqueWithoutTimeSlotInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutTimeSlotInput | BookingUpdateManyWithWhereWithoutTimeSlotInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  }
+
   export type UserCreateNestedOneWithoutRegister_carInput = {
     create?: XOR<UserCreateWithoutRegister_carInput, UserUncheckedCreateWithoutRegister_carInput>
     connectOrCreate?: UserCreateOrConnectWithoutRegister_carInput
@@ -18634,11 +22051,25 @@ export namespace Prisma {
     connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
   }
 
+  export type BookingCreateNestedManyWithoutRegister_carInput = {
+    create?: XOR<BookingCreateWithoutRegister_carInput, BookingUncheckedCreateWithoutRegister_carInput> | BookingCreateWithoutRegister_carInput[] | BookingUncheckedCreateWithoutRegister_carInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutRegister_carInput | BookingCreateOrConnectWithoutRegister_carInput[]
+    createMany?: BookingCreateManyRegister_carInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+  }
+
   export type HistoryUncheckedCreateNestedManyWithoutRegister_carInput = {
     create?: XOR<HistoryCreateWithoutRegister_carInput, HistoryUncheckedCreateWithoutRegister_carInput> | HistoryCreateWithoutRegister_carInput[] | HistoryUncheckedCreateWithoutRegister_carInput[]
     connectOrCreate?: HistoryCreateOrConnectWithoutRegister_carInput | HistoryCreateOrConnectWithoutRegister_carInput[]
     createMany?: HistoryCreateManyRegister_carInputEnvelope
     connect?: HistoryWhereUniqueInput | HistoryWhereUniqueInput[]
+  }
+
+  export type BookingUncheckedCreateNestedManyWithoutRegister_carInput = {
+    create?: XOR<BookingCreateWithoutRegister_carInput, BookingUncheckedCreateWithoutRegister_carInput> | BookingCreateWithoutRegister_carInput[] | BookingUncheckedCreateWithoutRegister_carInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutRegister_carInput | BookingCreateOrConnectWithoutRegister_carInput[]
+    createMany?: BookingCreateManyRegister_carInputEnvelope
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
   }
 
   export type EnumRegister_car_status_enumFieldUpdateOperationsInput = {
@@ -18667,6 +22098,20 @@ export namespace Prisma {
     deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
   }
 
+  export type BookingUpdateManyWithoutRegister_carNestedInput = {
+    create?: XOR<BookingCreateWithoutRegister_carInput, BookingUncheckedCreateWithoutRegister_carInput> | BookingCreateWithoutRegister_carInput[] | BookingUncheckedCreateWithoutRegister_carInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutRegister_carInput | BookingCreateOrConnectWithoutRegister_carInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutRegister_carInput | BookingUpsertWithWhereUniqueWithoutRegister_carInput[]
+    createMany?: BookingCreateManyRegister_carInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutRegister_carInput | BookingUpdateWithWhereUniqueWithoutRegister_carInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutRegister_carInput | BookingUpdateManyWithWhereWithoutRegister_carInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  }
+
   export type HistoryUncheckedUpdateManyWithoutRegister_carNestedInput = {
     create?: XOR<HistoryCreateWithoutRegister_carInput, HistoryUncheckedCreateWithoutRegister_carInput> | HistoryCreateWithoutRegister_carInput[] | HistoryUncheckedCreateWithoutRegister_carInput[]
     connectOrCreate?: HistoryCreateOrConnectWithoutRegister_carInput | HistoryCreateOrConnectWithoutRegister_carInput[]
@@ -18679,6 +22124,66 @@ export namespace Prisma {
     update?: HistoryUpdateWithWhereUniqueWithoutRegister_carInput | HistoryUpdateWithWhereUniqueWithoutRegister_carInput[]
     updateMany?: HistoryUpdateManyWithWhereWithoutRegister_carInput | HistoryUpdateManyWithWhereWithoutRegister_carInput[]
     deleteMany?: HistoryScalarWhereInput | HistoryScalarWhereInput[]
+  }
+
+  export type BookingUncheckedUpdateManyWithoutRegister_carNestedInput = {
+    create?: XOR<BookingCreateWithoutRegister_carInput, BookingUncheckedCreateWithoutRegister_carInput> | BookingCreateWithoutRegister_carInput[] | BookingUncheckedCreateWithoutRegister_carInput[]
+    connectOrCreate?: BookingCreateOrConnectWithoutRegister_carInput | BookingCreateOrConnectWithoutRegister_carInput[]
+    upsert?: BookingUpsertWithWhereUniqueWithoutRegister_carInput | BookingUpsertWithWhereUniqueWithoutRegister_carInput[]
+    createMany?: BookingCreateManyRegister_carInputEnvelope
+    set?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    disconnect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    delete?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    connect?: BookingWhereUniqueInput | BookingWhereUniqueInput[]
+    update?: BookingUpdateWithWhereUniqueWithoutRegister_carInput | BookingUpdateWithWhereUniqueWithoutRegister_carInput[]
+    updateMany?: BookingUpdateManyWithWhereWithoutRegister_carInput | BookingUpdateManyWithWhereWithoutRegister_carInput[]
+    deleteMany?: BookingScalarWhereInput | BookingScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutBookingsInput = {
+    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type TimeSlotCreateNestedOneWithoutBookingsInput = {
+    create?: XOR<TimeSlotCreateWithoutBookingsInput, TimeSlotUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutBookingsInput
+    connect?: TimeSlotWhereUniqueInput
+  }
+
+  export type Register_carCreateNestedOneWithoutBookingsInput = {
+    create?: XOR<Register_carCreateWithoutBookingsInput, Register_carUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: Register_carCreateOrConnectWithoutBookingsInput
+    connect?: Register_carWhereUniqueInput
+  }
+
+  export type EnumRegister_service_status_enumFieldUpdateOperationsInput = {
+    set?: $Enums.Register_service_status_enum
+  }
+
+  export type UserUpdateOneRequiredWithoutBookingsNestedInput = {
+    create?: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutBookingsInput
+    upsert?: UserUpsertWithoutBookingsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBookingsInput, UserUpdateWithoutBookingsInput>, UserUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type TimeSlotUpdateOneRequiredWithoutBookingsNestedInput = {
+    create?: XOR<TimeSlotCreateWithoutBookingsInput, TimeSlotUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: TimeSlotCreateOrConnectWithoutBookingsInput
+    upsert?: TimeSlotUpsertWithoutBookingsInput
+    connect?: TimeSlotWhereUniqueInput
+    update?: XOR<XOR<TimeSlotUpdateToOneWithWhereWithoutBookingsInput, TimeSlotUpdateWithoutBookingsInput>, TimeSlotUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type Register_carUpdateOneRequiredWithoutBookingsNestedInput = {
+    create?: XOR<Register_carCreateWithoutBookingsInput, Register_carUncheckedCreateWithoutBookingsInput>
+    connectOrCreate?: Register_carCreateOrConnectWithoutBookingsInput
+    upsert?: Register_carUpsertWithoutBookingsInput
+    connect?: Register_carWhereUniqueInput
+    update?: XOR<XOR<Register_carUpdateToOneWithWhereWithoutBookingsInput, Register_carUpdateWithoutBookingsInput>, Register_carUncheckedUpdateWithoutBookingsInput>
   }
 
   export type UserCreateNestedOneWithoutRegister_serviceInput = {
@@ -18721,10 +22226,6 @@ export namespace Prisma {
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
-  }
-
-  export type EnumRegister_service_status_enumFieldUpdateOperationsInput = {
-    set?: $Enums.Register_service_status_enum
   }
 
   export type UserUpdateOneRequiredWithoutRegister_serviceNestedInput = {
@@ -19097,6 +22598,23 @@ export namespace Prisma {
     _max?: NestedEnumRegister_car_status_enumFilter<$PrismaModel>
   }
 
+  export type NestedEnumRegister_service_status_enumFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_service_status_enumFilter<$PrismaModel> | $Enums.Register_service_status_enum
+  }
+
+  export type NestedEnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
+    not?: NestedEnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.Register_service_status_enum
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
+    _max?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -19106,13 +22624,6 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type NestedEnumRegister_service_status_enumFilter<$PrismaModel = never> = {
-    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    not?: NestedEnumRegister_service_status_enumFilter<$PrismaModel> | $Enums.Register_service_status_enum
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -19127,16 +22638,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedEnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Register_service_status_enum | EnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    in?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    notIn?: $Enums.Register_service_status_enum[] | ListEnumRegister_service_status_enumFieldRefInput<$PrismaModel>
-    not?: NestedEnumRegister_service_status_enumWithAggregatesFilter<$PrismaModel> | $Enums.Register_service_status_enum
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
-    _max?: NestedEnumRegister_service_status_enumFilter<$PrismaModel>
   }
 
   export type BonusCreateWithoutUserInput = {
@@ -19246,6 +22747,7 @@ export namespace Prisma {
     Register_car_create_at?: Date | string
     Register_car_update_at?: Date | string
     History?: HistoryCreateNestedManyWithoutRegister_carInput
+    Bookings?: BookingCreateNestedManyWithoutRegister_carInput
   }
 
   export type Register_carUncheckedCreateWithoutUserInput = {
@@ -19258,6 +22760,7 @@ export namespace Prisma {
     Register_car_create_at?: Date | string
     Register_car_update_at?: Date | string
     History?: HistoryUncheckedCreateNestedManyWithoutRegister_carInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutRegister_carInput
   }
 
   export type Register_carCreateOrConnectWithoutUserInput = {
@@ -19337,6 +22840,35 @@ export namespace Prisma {
 
   export type HistoryCreateManyUserInputEnvelope = {
     data: HistoryCreateManyUserInput | HistoryCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BookingCreateWithoutUserInput = {
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    TimeSlot: TimeSlotCreateNestedOneWithoutBookingsInput
+    Register_car: Register_carCreateNestedOneWithoutBookingsInput
+  }
+
+  export type BookingUncheckedCreateWithoutUserInput = {
+    Booking_ID?: number
+    TimeSlot_ID: number
+    Vehicle_ID: number
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type BookingCreateOrConnectWithoutUserInput = {
+    where: BookingWhereUniqueInput
+    create: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput>
+  }
+
+  export type BookingCreateManyUserInputEnvelope = {
+    data: BookingCreateManyUserInput | BookingCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -19547,6 +23079,36 @@ export namespace Prisma {
     carCar_ID?: IntNullableFilter<"History"> | number | null
   }
 
+  export type BookingUpsertWithWhereUniqueWithoutUserInput = {
+    where: BookingWhereUniqueInput
+    update: XOR<BookingUpdateWithoutUserInput, BookingUncheckedUpdateWithoutUserInput>
+    create: XOR<BookingCreateWithoutUserInput, BookingUncheckedCreateWithoutUserInput>
+  }
+
+  export type BookingUpdateWithWhereUniqueWithoutUserInput = {
+    where: BookingWhereUniqueInput
+    data: XOR<BookingUpdateWithoutUserInput, BookingUncheckedUpdateWithoutUserInput>
+  }
+
+  export type BookingUpdateManyWithWhereWithoutUserInput = {
+    where: BookingScalarWhereInput
+    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type BookingScalarWhereInput = {
+    AND?: BookingScalarWhereInput | BookingScalarWhereInput[]
+    OR?: BookingScalarWhereInput[]
+    NOT?: BookingScalarWhereInput | BookingScalarWhereInput[]
+    Booking_ID?: IntFilter<"Booking"> | number
+    User_ID?: IntFilter<"Booking"> | number
+    TimeSlot_ID?: IntFilter<"Booking"> | number
+    Vehicle_ID?: IntFilter<"Booking"> | number
+    Notes?: StringNullableFilter<"Booking"> | string | null
+    Status?: EnumRegister_service_status_enumFilter<"Booking"> | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFilter<"Booking"> | Date | string
+    UpdatedAt?: DateTimeFilter<"Booking"> | Date | string
+  }
+
   export type Register_serviceCreateWithoutCarInput = {
     Register_service_scheduled?: Date | string | null
     Register_service_time_list?: string | null
@@ -19719,6 +23281,39 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type TimeSlotCreateWithoutServiceInput = {
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Multi_branch: Multi_branchCreateNestedOneWithoutTimeSlotsInput
+    Bookings?: BookingCreateNestedManyWithoutTimeSlotInput
+  }
+
+  export type TimeSlotUncheckedCreateWithoutServiceInput = {
+    TimeSlot_ID?: number
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    Branch_ID: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Bookings?: BookingUncheckedCreateNestedManyWithoutTimeSlotInput
+  }
+
+  export type TimeSlotCreateOrConnectWithoutServiceInput = {
+    where: TimeSlotWhereUniqueInput
+    create: XOR<TimeSlotCreateWithoutServiceInput, TimeSlotUncheckedCreateWithoutServiceInput>
+  }
+
+  export type TimeSlotCreateManyServiceInputEnvelope = {
+    data: TimeSlotCreateManyServiceInput | TimeSlotCreateManyServiceInput[]
+    skipDuplicates?: boolean
+  }
+
   export type Register_serviceUpsertWithWhereUniqueWithoutServiceInput = {
     where: Register_serviceWhereUniqueInput
     update: XOR<Register_serviceUpdateWithoutServiceInput, Register_serviceUncheckedUpdateWithoutServiceInput>
@@ -19751,6 +23346,37 @@ export namespace Prisma {
     data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyWithoutServiceInput>
   }
 
+  export type TimeSlotUpsertWithWhereUniqueWithoutServiceInput = {
+    where: TimeSlotWhereUniqueInput
+    update: XOR<TimeSlotUpdateWithoutServiceInput, TimeSlotUncheckedUpdateWithoutServiceInput>
+    create: XOR<TimeSlotCreateWithoutServiceInput, TimeSlotUncheckedCreateWithoutServiceInput>
+  }
+
+  export type TimeSlotUpdateWithWhereUniqueWithoutServiceInput = {
+    where: TimeSlotWhereUniqueInput
+    data: XOR<TimeSlotUpdateWithoutServiceInput, TimeSlotUncheckedUpdateWithoutServiceInput>
+  }
+
+  export type TimeSlotUpdateManyWithWhereWithoutServiceInput = {
+    where: TimeSlotScalarWhereInput
+    data: XOR<TimeSlotUpdateManyMutationInput, TimeSlotUncheckedUpdateManyWithoutServiceInput>
+  }
+
+  export type TimeSlotScalarWhereInput = {
+    AND?: TimeSlotScalarWhereInput | TimeSlotScalarWhereInput[]
+    OR?: TimeSlotScalarWhereInput[]
+    NOT?: TimeSlotScalarWhereInput | TimeSlotScalarWhereInput[]
+    TimeSlot_ID?: IntFilter<"TimeSlot"> | number
+    StartTime?: DateTimeFilter<"TimeSlot"> | Date | string
+    EndTime?: DateTimeFilter<"TimeSlot"> | Date | string
+    MaxAppointments?: IntFilter<"TimeSlot"> | number
+    AvailableSlots?: IntFilter<"TimeSlot"> | number
+    Branch_ID?: IntFilter<"TimeSlot"> | number
+    Service_ID?: IntFilter<"TimeSlot"> | number
+    CreatedAt?: DateTimeFilter<"TimeSlot"> | Date | string
+    UpdatedAt?: DateTimeFilter<"TimeSlot"> | Date | string
+  }
+
   export type UserCreateWithoutBonusInput = {
     User_last_name: string
     User_first_name: string
@@ -19766,6 +23392,7 @@ export namespace Prisma {
     Register_car?: Register_carCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceCreateNestedManyWithoutUserInput
     History?: HistoryCreateNestedManyWithoutUserInput
+    Bookings?: BookingCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutBonusInput = {
@@ -19784,6 +23411,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
     History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutBonusInput = {
@@ -19817,6 +23445,7 @@ export namespace Prisma {
     Register_car?: Register_carUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
     History?: HistoryUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutBonusInput = {
@@ -19835,6 +23464,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
     History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type Register_serviceCreateWithoutMulti_branchInput = {
@@ -19907,6 +23537,39 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type TimeSlotCreateWithoutMulti_branchInput = {
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Service: ServiceCreateNestedOneWithoutTimeSlotsInput
+    Bookings?: BookingCreateNestedManyWithoutTimeSlotInput
+  }
+
+  export type TimeSlotUncheckedCreateWithoutMulti_branchInput = {
+    TimeSlot_ID?: number
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    Service_ID: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Bookings?: BookingUncheckedCreateNestedManyWithoutTimeSlotInput
+  }
+
+  export type TimeSlotCreateOrConnectWithoutMulti_branchInput = {
+    where: TimeSlotWhereUniqueInput
+    create: XOR<TimeSlotCreateWithoutMulti_branchInput, TimeSlotUncheckedCreateWithoutMulti_branchInput>
+  }
+
+  export type TimeSlotCreateManyMulti_branchInputEnvelope = {
+    data: TimeSlotCreateManyMulti_branchInput | TimeSlotCreateManyMulti_branchInput[]
+    skipDuplicates?: boolean
+  }
+
   export type Register_serviceUpsertWithWhereUniqueWithoutMulti_branchInput = {
     where: Register_serviceWhereUniqueInput
     update: XOR<Register_serviceUpdateWithoutMulti_branchInput, Register_serviceUncheckedUpdateWithoutMulti_branchInput>
@@ -19939,6 +23602,22 @@ export namespace Prisma {
     data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyWithoutMulti_branchInput>
   }
 
+  export type TimeSlotUpsertWithWhereUniqueWithoutMulti_branchInput = {
+    where: TimeSlotWhereUniqueInput
+    update: XOR<TimeSlotUpdateWithoutMulti_branchInput, TimeSlotUncheckedUpdateWithoutMulti_branchInput>
+    create: XOR<TimeSlotCreateWithoutMulti_branchInput, TimeSlotUncheckedCreateWithoutMulti_branchInput>
+  }
+
+  export type TimeSlotUpdateWithWhereUniqueWithoutMulti_branchInput = {
+    where: TimeSlotWhereUniqueInput
+    data: XOR<TimeSlotUpdateWithoutMulti_branchInput, TimeSlotUncheckedUpdateWithoutMulti_branchInput>
+  }
+
+  export type TimeSlotUpdateManyWithWhereWithoutMulti_branchInput = {
+    where: TimeSlotScalarWhereInput
+    data: XOR<TimeSlotUpdateManyMutationInput, TimeSlotUncheckedUpdateManyWithoutMulti_branchInput>
+  }
+
   export type UserCreateWithoutCommitInput = {
     User_last_name: string
     User_first_name: string
@@ -19954,6 +23633,7 @@ export namespace Prisma {
     Register_car?: Register_carCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceCreateNestedManyWithoutUserInput
     History?: HistoryCreateNestedManyWithoutUserInput
+    Bookings?: BookingCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCommitInput = {
@@ -19972,6 +23652,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
     History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCommitInput = {
@@ -20005,6 +23686,7 @@ export namespace Prisma {
     Register_car?: Register_carUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
     History?: HistoryUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCommitInput = {
@@ -20023,6 +23705,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
     History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutNotificationInput = {
@@ -20040,6 +23723,7 @@ export namespace Prisma {
     Register_car?: Register_carCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceCreateNestedManyWithoutUserInput
     History?: HistoryCreateNestedManyWithoutUserInput
+    Bookings?: BookingCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutNotificationInput = {
@@ -20058,6 +23742,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
     History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutNotificationInput = {
@@ -20091,6 +23776,7 @@ export namespace Prisma {
     Register_car?: Register_carUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
     History?: HistoryUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutNotificationInput = {
@@ -20109,6 +23795,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
     History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutOTPInput = {
@@ -20126,6 +23813,7 @@ export namespace Prisma {
     Register_car?: Register_carCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceCreateNestedManyWithoutUserInput
     History?: HistoryCreateNestedManyWithoutUserInput
+    Bookings?: BookingCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutOTPInput = {
@@ -20144,6 +23832,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
     History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutOTPInput = {
@@ -20177,6 +23866,7 @@ export namespace Prisma {
     Register_car?: Register_carUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
     History?: HistoryUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutOTPInput = {
@@ -20195,6 +23885,7 @@ export namespace Prisma {
     Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
     History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type Multi_branchCreateWithoutHistoryInput = {
@@ -20206,6 +23897,7 @@ export namespace Prisma {
     Multi_branch_create_at?: Date | string
     Multi_branch_update_at?: Date | string
     Register_service?: Register_serviceCreateNestedManyWithoutMulti_branchInput
+    TimeSlots?: TimeSlotCreateNestedManyWithoutMulti_branchInput
   }
 
   export type Multi_branchUncheckedCreateWithoutHistoryInput = {
@@ -20218,6 +23910,7 @@ export namespace Prisma {
     Multi_branch_create_at?: Date | string
     Multi_branch_update_at?: Date | string
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutMulti_branchInput
+    TimeSlots?: TimeSlotUncheckedCreateNestedManyWithoutMulti_branchInput
   }
 
   export type Multi_branchCreateOrConnectWithoutHistoryInput = {
@@ -20240,6 +23933,7 @@ export namespace Prisma {
     OTP?: OTPCreateNestedManyWithoutUserInput
     Register_car?: Register_carCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceCreateNestedManyWithoutUserInput
+    Bookings?: BookingCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutHistoryInput = {
@@ -20258,6 +23952,7 @@ export namespace Prisma {
     OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
     Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutHistoryInput = {
@@ -20271,6 +23966,7 @@ export namespace Prisma {
     Service_price: number
     Service_duration_min: number
     Register_service?: Register_serviceCreateNestedManyWithoutServiceInput
+    TimeSlots?: TimeSlotCreateNestedManyWithoutServiceInput
   }
 
   export type ServiceUncheckedCreateWithoutHistoryInput = {
@@ -20280,6 +23976,7 @@ export namespace Prisma {
     Service_price: number
     Service_duration_min: number
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutServiceInput
+    TimeSlots?: TimeSlotUncheckedCreateNestedManyWithoutServiceInput
   }
 
   export type ServiceCreateOrConnectWithoutHistoryInput = {
@@ -20296,6 +23993,7 @@ export namespace Prisma {
     Register_car_create_at?: Date | string
     Register_car_update_at?: Date | string
     User: UserCreateNestedOneWithoutRegister_carInput
+    Bookings?: BookingCreateNestedManyWithoutRegister_carInput
   }
 
   export type Register_carUncheckedCreateWithoutHistoryInput = {
@@ -20308,6 +24006,7 @@ export namespace Prisma {
     Register_car_create_at?: Date | string
     Register_car_update_at?: Date | string
     Register_car_user_ID: number
+    Bookings?: BookingUncheckedCreateNestedManyWithoutRegister_carInput
   }
 
   export type Register_carCreateOrConnectWithoutHistoryInput = {
@@ -20381,6 +24080,7 @@ export namespace Prisma {
     Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_service?: Register_serviceUpdateManyWithoutMulti_branchNestedInput
+    TimeSlots?: TimeSlotUpdateManyWithoutMulti_branchNestedInput
   }
 
   export type Multi_branchUncheckedUpdateWithoutHistoryInput = {
@@ -20393,6 +24093,7 @@ export namespace Prisma {
     Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_service?: Register_serviceUncheckedUpdateManyWithoutMulti_branchNestedInput
+    TimeSlots?: TimeSlotUncheckedUpdateManyWithoutMulti_branchNestedInput
   }
 
   export type UserUpsertWithoutHistoryInput = {
@@ -20421,6 +24122,7 @@ export namespace Prisma {
     OTP?: OTPUpdateManyWithoutUserNestedInput
     Register_car?: Register_carUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutHistoryInput = {
@@ -20439,6 +24141,7 @@ export namespace Prisma {
     OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
     Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ServiceUpsertWithoutHistoryInput = {
@@ -20458,6 +24161,7 @@ export namespace Prisma {
     Service_price?: FloatFieldUpdateOperationsInput | number
     Service_duration_min?: IntFieldUpdateOperationsInput | number
     Register_service?: Register_serviceUpdateManyWithoutServiceNestedInput
+    TimeSlots?: TimeSlotUpdateManyWithoutServiceNestedInput
   }
 
   export type ServiceUncheckedUpdateWithoutHistoryInput = {
@@ -20467,6 +24171,7 @@ export namespace Prisma {
     Service_price?: FloatFieldUpdateOperationsInput | number
     Service_duration_min?: IntFieldUpdateOperationsInput | number
     Register_service?: Register_serviceUncheckedUpdateManyWithoutServiceNestedInput
+    TimeSlots?: TimeSlotUncheckedUpdateManyWithoutServiceNestedInput
   }
 
   export type Register_carUpsertWithoutHistoryInput = {
@@ -20489,6 +24194,7 @@ export namespace Prisma {
     Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UserUpdateOneRequiredWithoutRegister_carNestedInput
+    Bookings?: BookingUpdateManyWithoutRegister_carNestedInput
   }
 
   export type Register_carUncheckedUpdateWithoutHistoryInput = {
@@ -20501,6 +24207,7 @@ export namespace Prisma {
     Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_car_user_ID?: IntFieldUpdateOperationsInput | number
+    Bookings?: BookingUncheckedUpdateManyWithoutRegister_carNestedInput
   }
 
   export type Register_serviceUpsertWithoutHistoryInput = {
@@ -20561,6 +24268,171 @@ export namespace Prisma {
     Register_service?: Register_serviceUncheckedUpdateManyWithoutCarNestedInput
   }
 
+  export type Multi_branchCreateWithoutTimeSlotsInput = {
+    Multi_branch_name: string
+    Multi_branch_address?: string | null
+    Multi_branch_phone?: string | null
+    Multi_branch_email?: string | null
+    Multi_branch_opening_hours?: string | null
+    Multi_branch_create_at?: Date | string
+    Multi_branch_update_at?: Date | string
+    Register_service?: Register_serviceCreateNestedManyWithoutMulti_branchInput
+    History?: HistoryCreateNestedManyWithoutMulti_branchInput
+  }
+
+  export type Multi_branchUncheckedCreateWithoutTimeSlotsInput = {
+    Multi_branch_ID?: number
+    Multi_branch_name: string
+    Multi_branch_address?: string | null
+    Multi_branch_phone?: string | null
+    Multi_branch_email?: string | null
+    Multi_branch_opening_hours?: string | null
+    Multi_branch_create_at?: Date | string
+    Multi_branch_update_at?: Date | string
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutMulti_branchInput
+    History?: HistoryUncheckedCreateNestedManyWithoutMulti_branchInput
+  }
+
+  export type Multi_branchCreateOrConnectWithoutTimeSlotsInput = {
+    where: Multi_branchWhereUniqueInput
+    create: XOR<Multi_branchCreateWithoutTimeSlotsInput, Multi_branchUncheckedCreateWithoutTimeSlotsInput>
+  }
+
+  export type ServiceCreateWithoutTimeSlotsInput = {
+    Service_name: string
+    Service_description?: string | null
+    Service_price: number
+    Service_duration_min: number
+    Register_service?: Register_serviceCreateNestedManyWithoutServiceInput
+    History?: HistoryCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceUncheckedCreateWithoutTimeSlotsInput = {
+    Service_ID?: number
+    Service_name: string
+    Service_description?: string | null
+    Service_price: number
+    Service_duration_min: number
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutServiceInput
+    History?: HistoryUncheckedCreateNestedManyWithoutServiceInput
+  }
+
+  export type ServiceCreateOrConnectWithoutTimeSlotsInput = {
+    where: ServiceWhereUniqueInput
+    create: XOR<ServiceCreateWithoutTimeSlotsInput, ServiceUncheckedCreateWithoutTimeSlotsInput>
+  }
+
+  export type BookingCreateWithoutTimeSlotInput = {
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    User: UserCreateNestedOneWithoutBookingsInput
+    Register_car: Register_carCreateNestedOneWithoutBookingsInput
+  }
+
+  export type BookingUncheckedCreateWithoutTimeSlotInput = {
+    Booking_ID?: number
+    User_ID: number
+    Vehicle_ID: number
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type BookingCreateOrConnectWithoutTimeSlotInput = {
+    where: BookingWhereUniqueInput
+    create: XOR<BookingCreateWithoutTimeSlotInput, BookingUncheckedCreateWithoutTimeSlotInput>
+  }
+
+  export type BookingCreateManyTimeSlotInputEnvelope = {
+    data: BookingCreateManyTimeSlotInput | BookingCreateManyTimeSlotInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Multi_branchUpsertWithoutTimeSlotsInput = {
+    update: XOR<Multi_branchUpdateWithoutTimeSlotsInput, Multi_branchUncheckedUpdateWithoutTimeSlotsInput>
+    create: XOR<Multi_branchCreateWithoutTimeSlotsInput, Multi_branchUncheckedCreateWithoutTimeSlotsInput>
+    where?: Multi_branchWhereInput
+  }
+
+  export type Multi_branchUpdateToOneWithWhereWithoutTimeSlotsInput = {
+    where?: Multi_branchWhereInput
+    data: XOR<Multi_branchUpdateWithoutTimeSlotsInput, Multi_branchUncheckedUpdateWithoutTimeSlotsInput>
+  }
+
+  export type Multi_branchUpdateWithoutTimeSlotsInput = {
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service?: Register_serviceUpdateManyWithoutMulti_branchNestedInput
+    History?: HistoryUpdateManyWithoutMulti_branchNestedInput
+  }
+
+  export type Multi_branchUncheckedUpdateWithoutTimeSlotsInput = {
+    Multi_branch_ID?: IntFieldUpdateOperationsInput | number
+    Multi_branch_name?: StringFieldUpdateOperationsInput | string
+    Multi_branch_address?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_email?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_opening_hours?: NullableStringFieldUpdateOperationsInput | string | null
+    Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutMulti_branchNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutMulti_branchNestedInput
+  }
+
+  export type ServiceUpsertWithoutTimeSlotsInput = {
+    update: XOR<ServiceUpdateWithoutTimeSlotsInput, ServiceUncheckedUpdateWithoutTimeSlotsInput>
+    create: XOR<ServiceCreateWithoutTimeSlotsInput, ServiceUncheckedCreateWithoutTimeSlotsInput>
+    where?: ServiceWhereInput
+  }
+
+  export type ServiceUpdateToOneWithWhereWithoutTimeSlotsInput = {
+    where?: ServiceWhereInput
+    data: XOR<ServiceUpdateWithoutTimeSlotsInput, ServiceUncheckedUpdateWithoutTimeSlotsInput>
+  }
+
+  export type ServiceUpdateWithoutTimeSlotsInput = {
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+    Register_service?: Register_serviceUpdateManyWithoutServiceNestedInput
+    History?: HistoryUpdateManyWithoutServiceNestedInput
+  }
+
+  export type ServiceUncheckedUpdateWithoutTimeSlotsInput = {
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    Service_name?: StringFieldUpdateOperationsInput | string
+    Service_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Service_price?: FloatFieldUpdateOperationsInput | number
+    Service_duration_min?: IntFieldUpdateOperationsInput | number
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutServiceNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutServiceNestedInput
+  }
+
+  export type BookingUpsertWithWhereUniqueWithoutTimeSlotInput = {
+    where: BookingWhereUniqueInput
+    update: XOR<BookingUpdateWithoutTimeSlotInput, BookingUncheckedUpdateWithoutTimeSlotInput>
+    create: XOR<BookingCreateWithoutTimeSlotInput, BookingUncheckedCreateWithoutTimeSlotInput>
+  }
+
+  export type BookingUpdateWithWhereUniqueWithoutTimeSlotInput = {
+    where: BookingWhereUniqueInput
+    data: XOR<BookingUpdateWithoutTimeSlotInput, BookingUncheckedUpdateWithoutTimeSlotInput>
+  }
+
+  export type BookingUpdateManyWithWhereWithoutTimeSlotInput = {
+    where: BookingScalarWhereInput
+    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyWithoutTimeSlotInput>
+  }
+
   export type UserCreateWithoutRegister_carInput = {
     User_last_name: string
     User_first_name: string
@@ -20576,6 +24448,7 @@ export namespace Prisma {
     OTP?: OTPCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceCreateNestedManyWithoutUserInput
     History?: HistoryCreateNestedManyWithoutUserInput
+    Bookings?: BookingCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutRegister_carInput = {
@@ -20594,6 +24467,7 @@ export namespace Prisma {
     OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
     Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
     History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutRegister_carInput = {
@@ -20636,6 +24510,35 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type BookingCreateWithoutRegister_carInput = {
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    User: UserCreateNestedOneWithoutBookingsInput
+    TimeSlot: TimeSlotCreateNestedOneWithoutBookingsInput
+  }
+
+  export type BookingUncheckedCreateWithoutRegister_carInput = {
+    Booking_ID?: number
+    User_ID: number
+    TimeSlot_ID: number
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type BookingCreateOrConnectWithoutRegister_carInput = {
+    where: BookingWhereUniqueInput
+    create: XOR<BookingCreateWithoutRegister_carInput, BookingUncheckedCreateWithoutRegister_carInput>
+  }
+
+  export type BookingCreateManyRegister_carInputEnvelope = {
+    data: BookingCreateManyRegister_carInput | BookingCreateManyRegister_carInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UserUpsertWithoutRegister_carInput = {
     update: XOR<UserUpdateWithoutRegister_carInput, UserUncheckedUpdateWithoutRegister_carInput>
     create: XOR<UserCreateWithoutRegister_carInput, UserUncheckedCreateWithoutRegister_carInput>
@@ -20662,6 +24565,7 @@ export namespace Prisma {
     OTP?: OTPUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
     History?: HistoryUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutRegister_carInput = {
@@ -20680,6 +24584,7 @@ export namespace Prisma {
     OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
     Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
     History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type HistoryUpsertWithWhereUniqueWithoutRegister_carInput = {
@@ -20698,6 +24603,240 @@ export namespace Prisma {
     data: XOR<HistoryUpdateManyMutationInput, HistoryUncheckedUpdateManyWithoutRegister_carInput>
   }
 
+  export type BookingUpsertWithWhereUniqueWithoutRegister_carInput = {
+    where: BookingWhereUniqueInput
+    update: XOR<BookingUpdateWithoutRegister_carInput, BookingUncheckedUpdateWithoutRegister_carInput>
+    create: XOR<BookingCreateWithoutRegister_carInput, BookingUncheckedCreateWithoutRegister_carInput>
+  }
+
+  export type BookingUpdateWithWhereUniqueWithoutRegister_carInput = {
+    where: BookingWhereUniqueInput
+    data: XOR<BookingUpdateWithoutRegister_carInput, BookingUncheckedUpdateWithoutRegister_carInput>
+  }
+
+  export type BookingUpdateManyWithWhereWithoutRegister_carInput = {
+    where: BookingScalarWhereInput
+    data: XOR<BookingUpdateManyMutationInput, BookingUncheckedUpdateManyWithoutRegister_carInput>
+  }
+
+  export type UserCreateWithoutBookingsInput = {
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusCreateNestedManyWithoutUserInput
+    Notification?: NotificationCreateNestedManyWithoutUserInput
+    Commit?: CommitCreateNestedManyWithoutUserInput
+    OTP?: OTPCreateNestedManyWithoutUserInput
+    Register_car?: Register_carCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceCreateNestedManyWithoutUserInput
+    History?: HistoryCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutBookingsInput = {
+    User_ID?: number
+    User_last_name: string
+    User_first_name: string
+    User_email: string
+    User_phone?: string | null
+    User_password: string
+    User_role?: $Enums.User_role_enum
+    User_create_at?: Date | string
+    User_update_at?: Date | string
+    Bonus?: BonusUncheckedCreateNestedManyWithoutUserInput
+    Notification?: NotificationUncheckedCreateNestedManyWithoutUserInput
+    Commit?: CommitUncheckedCreateNestedManyWithoutUserInput
+    OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
+    Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
+    Register_service?: Register_serviceUncheckedCreateNestedManyWithoutUserInput
+    History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutBookingsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+  }
+
+  export type TimeSlotCreateWithoutBookingsInput = {
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+    Multi_branch: Multi_branchCreateNestedOneWithoutTimeSlotsInput
+    Service: ServiceCreateNestedOneWithoutTimeSlotsInput
+  }
+
+  export type TimeSlotUncheckedCreateWithoutBookingsInput = {
+    TimeSlot_ID?: number
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    Branch_ID: number
+    Service_ID: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type TimeSlotCreateOrConnectWithoutBookingsInput = {
+    where: TimeSlotWhereUniqueInput
+    create: XOR<TimeSlotCreateWithoutBookingsInput, TimeSlotUncheckedCreateWithoutBookingsInput>
+  }
+
+  export type Register_carCreateWithoutBookingsInput = {
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+    User: UserCreateNestedOneWithoutRegister_carInput
+    History?: HistoryCreateNestedManyWithoutRegister_carInput
+  }
+
+  export type Register_carUncheckedCreateWithoutBookingsInput = {
+    Register_car_ID?: number
+    Register_car_manufacturer?: string | null
+    Register_car_mark?: string | null
+    Register_car_year?: number | null
+    Register_car_vin?: string | null
+    Register_car_status: $Enums.Register_car_status_enum
+    Register_car_create_at?: Date | string
+    Register_car_update_at?: Date | string
+    Register_car_user_ID: number
+    History?: HistoryUncheckedCreateNestedManyWithoutRegister_carInput
+  }
+
+  export type Register_carCreateOrConnectWithoutBookingsInput = {
+    where: Register_carWhereUniqueInput
+    create: XOR<Register_carCreateWithoutBookingsInput, Register_carUncheckedCreateWithoutBookingsInput>
+  }
+
+  export type UserUpsertWithoutBookingsInput = {
+    update: XOR<UserUpdateWithoutBookingsInput, UserUncheckedUpdateWithoutBookingsInput>
+    create: XOR<UserCreateWithoutBookingsInput, UserUncheckedCreateWithoutBookingsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutBookingsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutBookingsInput, UserUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type UserUpdateWithoutBookingsInput = {
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUpdateManyWithoutUserNestedInput
+    Commit?: CommitUpdateManyWithoutUserNestedInput
+    OTP?: OTPUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUpdateManyWithoutUserNestedInput
+    History?: HistoryUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutBookingsInput = {
+    User_ID?: IntFieldUpdateOperationsInput | number
+    User_last_name?: StringFieldUpdateOperationsInput | string
+    User_first_name?: StringFieldUpdateOperationsInput | string
+    User_email?: StringFieldUpdateOperationsInput | string
+    User_phone?: NullableStringFieldUpdateOperationsInput | string | null
+    User_password?: StringFieldUpdateOperationsInput | string
+    User_role?: EnumUser_role_enumFieldUpdateOperationsInput | $Enums.User_role_enum
+    User_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bonus?: BonusUncheckedUpdateManyWithoutUserNestedInput
+    Notification?: NotificationUncheckedUpdateManyWithoutUserNestedInput
+    Commit?: CommitUncheckedUpdateManyWithoutUserNestedInput
+    OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
+    Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
+    Register_service?: Register_serviceUncheckedUpdateManyWithoutUserNestedInput
+    History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type TimeSlotUpsertWithoutBookingsInput = {
+    update: XOR<TimeSlotUpdateWithoutBookingsInput, TimeSlotUncheckedUpdateWithoutBookingsInput>
+    create: XOR<TimeSlotCreateWithoutBookingsInput, TimeSlotUncheckedCreateWithoutBookingsInput>
+    where?: TimeSlotWhereInput
+  }
+
+  export type TimeSlotUpdateToOneWithWhereWithoutBookingsInput = {
+    where?: TimeSlotWhereInput
+    data: XOR<TimeSlotUpdateWithoutBookingsInput, TimeSlotUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type TimeSlotUpdateWithoutBookingsInput = {
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutTimeSlotsNestedInput
+    Service?: ServiceUpdateOneRequiredWithoutTimeSlotsNestedInput
+  }
+
+  export type TimeSlotUncheckedUpdateWithoutBookingsInput = {
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    Branch_ID?: IntFieldUpdateOperationsInput | number
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type Register_carUpsertWithoutBookingsInput = {
+    update: XOR<Register_carUpdateWithoutBookingsInput, Register_carUncheckedUpdateWithoutBookingsInput>
+    create: XOR<Register_carCreateWithoutBookingsInput, Register_carUncheckedCreateWithoutBookingsInput>
+    where?: Register_carWhereInput
+  }
+
+  export type Register_carUpdateToOneWithWhereWithoutBookingsInput = {
+    where?: Register_carWhereInput
+    data: XOR<Register_carUpdateWithoutBookingsInput, Register_carUncheckedUpdateWithoutBookingsInput>
+  }
+
+  export type Register_carUpdateWithoutBookingsInput = {
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutRegister_carNestedInput
+    History?: HistoryUpdateManyWithoutRegister_carNestedInput
+  }
+
+  export type Register_carUncheckedUpdateWithoutBookingsInput = {
+    Register_car_ID?: IntFieldUpdateOperationsInput | number
+    Register_car_manufacturer?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_mark?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_year?: NullableIntFieldUpdateOperationsInput | number | null
+    Register_car_vin?: NullableStringFieldUpdateOperationsInput | string | null
+    Register_car_status?: EnumRegister_car_status_enumFieldUpdateOperationsInput | $Enums.Register_car_status_enum
+    Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    Register_car_user_ID?: IntFieldUpdateOperationsInput | number
+    History?: HistoryUncheckedUpdateManyWithoutRegister_carNestedInput
+  }
+
   export type UserCreateWithoutRegister_serviceInput = {
     User_last_name: string
     User_first_name: string
@@ -20713,6 +24852,7 @@ export namespace Prisma {
     OTP?: OTPCreateNestedManyWithoutUserInput
     Register_car?: Register_carCreateNestedManyWithoutUserInput
     History?: HistoryCreateNestedManyWithoutUserInput
+    Bookings?: BookingCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutRegister_serviceInput = {
@@ -20731,6 +24871,7 @@ export namespace Prisma {
     OTP?: OTPUncheckedCreateNestedManyWithoutUserInput
     Register_car?: Register_carUncheckedCreateNestedManyWithoutUserInput
     History?: HistoryUncheckedCreateNestedManyWithoutUserInput
+    Bookings?: BookingUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutRegister_serviceInput = {
@@ -20760,6 +24901,7 @@ export namespace Prisma {
     Service_price: number
     Service_duration_min: number
     History?: HistoryCreateNestedManyWithoutServiceInput
+    TimeSlots?: TimeSlotCreateNestedManyWithoutServiceInput
   }
 
   export type ServiceUncheckedCreateWithoutRegister_serviceInput = {
@@ -20769,6 +24911,7 @@ export namespace Prisma {
     Service_price: number
     Service_duration_min: number
     History?: HistoryUncheckedCreateNestedManyWithoutServiceInput
+    TimeSlots?: TimeSlotUncheckedCreateNestedManyWithoutServiceInput
   }
 
   export type ServiceCreateOrConnectWithoutRegister_serviceInput = {
@@ -20785,6 +24928,7 @@ export namespace Prisma {
     Multi_branch_create_at?: Date | string
     Multi_branch_update_at?: Date | string
     History?: HistoryCreateNestedManyWithoutMulti_branchInput
+    TimeSlots?: TimeSlotCreateNestedManyWithoutMulti_branchInput
   }
 
   export type Multi_branchUncheckedCreateWithoutRegister_serviceInput = {
@@ -20797,6 +24941,7 @@ export namespace Prisma {
     Multi_branch_create_at?: Date | string
     Multi_branch_update_at?: Date | string
     History?: HistoryUncheckedCreateNestedManyWithoutMulti_branchInput
+    TimeSlots?: TimeSlotUncheckedCreateNestedManyWithoutMulti_branchInput
   }
 
   export type Multi_branchCreateOrConnectWithoutRegister_serviceInput = {
@@ -20865,6 +25010,7 @@ export namespace Prisma {
     OTP?: OTPUpdateManyWithoutUserNestedInput
     Register_car?: Register_carUpdateManyWithoutUserNestedInput
     History?: HistoryUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutRegister_serviceInput = {
@@ -20883,6 +25029,7 @@ export namespace Prisma {
     OTP?: OTPUncheckedUpdateManyWithoutUserNestedInput
     Register_car?: Register_carUncheckedUpdateManyWithoutUserNestedInput
     History?: HistoryUncheckedUpdateManyWithoutUserNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CarUpsertWithoutRegister_serviceInput = {
@@ -20924,6 +25071,7 @@ export namespace Prisma {
     Service_price?: FloatFieldUpdateOperationsInput | number
     Service_duration_min?: IntFieldUpdateOperationsInput | number
     History?: HistoryUpdateManyWithoutServiceNestedInput
+    TimeSlots?: TimeSlotUpdateManyWithoutServiceNestedInput
   }
 
   export type ServiceUncheckedUpdateWithoutRegister_serviceInput = {
@@ -20933,6 +25081,7 @@ export namespace Prisma {
     Service_price?: FloatFieldUpdateOperationsInput | number
     Service_duration_min?: IntFieldUpdateOperationsInput | number
     History?: HistoryUncheckedUpdateManyWithoutServiceNestedInput
+    TimeSlots?: TimeSlotUncheckedUpdateManyWithoutServiceNestedInput
   }
 
   export type Multi_branchUpsertWithoutRegister_serviceInput = {
@@ -20955,6 +25104,7 @@ export namespace Prisma {
     Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     History?: HistoryUpdateManyWithoutMulti_branchNestedInput
+    TimeSlots?: TimeSlotUpdateManyWithoutMulti_branchNestedInput
   }
 
   export type Multi_branchUncheckedUpdateWithoutRegister_serviceInput = {
@@ -20967,6 +25117,7 @@ export namespace Prisma {
     Multi_branch_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Multi_branch_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     History?: HistoryUncheckedUpdateManyWithoutMulti_branchNestedInput
+    TimeSlots?: TimeSlotUncheckedUpdateManyWithoutMulti_branchNestedInput
   }
 
   export type HistoryUpsertWithWhereUniqueWithoutRegister_serviceInput = {
@@ -21050,6 +25201,16 @@ export namespace Prisma {
     History_register_car?: number | null
     History_register_service_ID?: number | null
     carCar_ID?: number | null
+  }
+
+  export type BookingCreateManyUserInput = {
+    Booking_ID?: number
+    TimeSlot_ID: number
+    Vehicle_ID: number
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type BonusUpdateWithoutUserInput = {
@@ -21150,6 +25311,7 @@ export namespace Prisma {
     Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     History?: HistoryUpdateManyWithoutRegister_carNestedInput
+    Bookings?: BookingUpdateManyWithoutRegister_carNestedInput
   }
 
   export type Register_carUncheckedUpdateWithoutUserInput = {
@@ -21162,6 +25324,7 @@ export namespace Prisma {
     Register_car_create_at?: DateTimeFieldUpdateOperationsInput | Date | string
     Register_car_update_at?: DateTimeFieldUpdateOperationsInput | Date | string
     History?: HistoryUncheckedUpdateManyWithoutRegister_carNestedInput
+    Bookings?: BookingUncheckedUpdateManyWithoutRegister_carNestedInput
   }
 
   export type Register_carUncheckedUpdateManyWithoutUserInput = {
@@ -21248,6 +25411,35 @@ export namespace Prisma {
     History_register_car?: NullableIntFieldUpdateOperationsInput | number | null
     History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
     carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type BookingUpdateWithoutUserInput = {
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    TimeSlot?: TimeSlotUpdateOneRequiredWithoutBookingsNestedInput
+    Register_car?: Register_carUpdateOneRequiredWithoutBookingsNestedInput
+  }
+
+  export type BookingUncheckedUpdateWithoutUserInput = {
+    Booking_ID?: IntFieldUpdateOperationsInput | number
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    Vehicle_ID?: IntFieldUpdateOperationsInput | number
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookingUncheckedUpdateManyWithoutUserInput = {
+    Booking_ID?: IntFieldUpdateOperationsInput | number
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    Vehicle_ID?: IntFieldUpdateOperationsInput | number
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type Register_serviceCreateManyCarInput = {
@@ -21375,6 +25567,17 @@ export namespace Prisma {
     carCar_ID?: number | null
   }
 
+  export type TimeSlotCreateManyServiceInput = {
+    TimeSlot_ID?: number
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    Branch_ID: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
   export type Register_serviceUpdateWithoutServiceInput = {
     Register_service_scheduled?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     Register_service_time_list?: NullableStringFieldUpdateOperationsInput | string | null
@@ -21450,6 +25653,40 @@ export namespace Prisma {
     carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type TimeSlotUpdateWithoutServiceInput = {
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Multi_branch?: Multi_branchUpdateOneRequiredWithoutTimeSlotsNestedInput
+    Bookings?: BookingUpdateManyWithoutTimeSlotNestedInput
+  }
+
+  export type TimeSlotUncheckedUpdateWithoutServiceInput = {
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    Branch_ID?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bookings?: BookingUncheckedUpdateManyWithoutTimeSlotNestedInput
+  }
+
+  export type TimeSlotUncheckedUpdateManyWithoutServiceInput = {
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    Branch_ID?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type Register_serviceCreateManyMulti_branchInput = {
     Register_service_ID?: number
     Register_service_scheduled?: Date | string | null
@@ -21473,6 +25710,17 @@ export namespace Prisma {
     History_register_car?: number | null
     History_register_service_ID?: number | null
     carCar_ID?: number | null
+  }
+
+  export type TimeSlotCreateManyMulti_branchInput = {
+    TimeSlot_ID?: number
+    StartTime: Date | string
+    EndTime: Date | string
+    MaxAppointments?: number
+    AvailableSlots: number
+    Service_ID: number
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type Register_serviceUpdateWithoutMulti_branchInput = {
@@ -21550,6 +25798,79 @@ export namespace Prisma {
     carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
+  export type TimeSlotUpdateWithoutMulti_branchInput = {
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Service?: ServiceUpdateOneRequiredWithoutTimeSlotsNestedInput
+    Bookings?: BookingUpdateManyWithoutTimeSlotNestedInput
+  }
+
+  export type TimeSlotUncheckedUpdateWithoutMulti_branchInput = {
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Bookings?: BookingUncheckedUpdateManyWithoutTimeSlotNestedInput
+  }
+
+  export type TimeSlotUncheckedUpdateManyWithoutMulti_branchInput = {
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    StartTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    EndTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    MaxAppointments?: IntFieldUpdateOperationsInput | number
+    AvailableSlots?: IntFieldUpdateOperationsInput | number
+    Service_ID?: IntFieldUpdateOperationsInput | number
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookingCreateManyTimeSlotInput = {
+    Booking_ID?: number
+    User_ID: number
+    Vehicle_ID: number
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
+  }
+
+  export type BookingUpdateWithoutTimeSlotInput = {
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    Register_car?: Register_carUpdateOneRequiredWithoutBookingsNestedInput
+  }
+
+  export type BookingUncheckedUpdateWithoutTimeSlotInput = {
+    Booking_ID?: IntFieldUpdateOperationsInput | number
+    User_ID?: IntFieldUpdateOperationsInput | number
+    Vehicle_ID?: IntFieldUpdateOperationsInput | number
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookingUncheckedUpdateManyWithoutTimeSlotInput = {
+    Booking_ID?: IntFieldUpdateOperationsInput | number
+    User_ID?: IntFieldUpdateOperationsInput | number
+    Vehicle_ID?: IntFieldUpdateOperationsInput | number
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type HistoryCreateManyRegister_carInput = {
     History_ID?: number
     History_bonus?: number | null
@@ -21561,6 +25882,16 @@ export namespace Prisma {
     History_service_ID: number
     History_register_service_ID?: number | null
     carCar_ID?: number | null
+  }
+
+  export type BookingCreateManyRegister_carInput = {
+    Booking_ID?: number
+    User_ID: number
+    TimeSlot_ID: number
+    Notes?: string | null
+    Status?: $Enums.Register_service_status_enum
+    CreatedAt?: Date | string
+    UpdatedAt?: Date | string
   }
 
   export type HistoryUpdateWithoutRegister_carInput = {
@@ -21599,6 +25930,35 @@ export namespace Prisma {
     History_service_ID?: IntFieldUpdateOperationsInput | number
     History_register_service_ID?: NullableIntFieldUpdateOperationsInput | number | null
     carCar_ID?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type BookingUpdateWithoutRegister_carInput = {
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    User?: UserUpdateOneRequiredWithoutBookingsNestedInput
+    TimeSlot?: TimeSlotUpdateOneRequiredWithoutBookingsNestedInput
+  }
+
+  export type BookingUncheckedUpdateWithoutRegister_carInput = {
+    Booking_ID?: IntFieldUpdateOperationsInput | number
+    User_ID?: IntFieldUpdateOperationsInput | number
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookingUncheckedUpdateManyWithoutRegister_carInput = {
+    Booking_ID?: IntFieldUpdateOperationsInput | number
+    User_ID?: IntFieldUpdateOperationsInput | number
+    TimeSlot_ID?: IntFieldUpdateOperationsInput | number
+    Notes?: NullableStringFieldUpdateOperationsInput | string | null
+    Status?: EnumRegister_service_status_enumFieldUpdateOperationsInput | $Enums.Register_service_status_enum
+    CreatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    UpdatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type HistoryCreateManyRegister_serviceInput = {

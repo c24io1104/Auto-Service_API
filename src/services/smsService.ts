@@ -16,3 +16,12 @@ export async function sendSMS(to: string, text: string, from = DEFAULT_FROM): Pr
         throw err;
     }
 }
+export async function sendBookingConfirmation(to: string, bookingDetails: any): Promise<void> {
+  const text = `Booking confirmed!\n
+    Service: ${bookingDetails.service}\n
+    Date: ${bookingDetails.date}\n
+    Time: ${bookingDetails.time}\n
+    Branch: ${bookingDetails.branch}`;
+  
+  await sendSMS(to, text);
+}

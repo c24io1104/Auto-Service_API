@@ -1,9 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -15,7 +12,6 @@ datasource db {
 }
 
 // ─── ENUMS ────────────────────────────────────────────────────────────────
-
 enum User_role_enum {
   ADMIN
   MECHANIC
@@ -53,12 +49,13 @@ enum Register_car_status_enum {
 
 enum Register_service_status_enum {
   SCHEDULED
-  DONE
-  NO_SHOW
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
 }
 
 // ─── MODELS ───────────────────────────────────────────────────────────────
-
 model User {
   User_ID         Int            @id @default(autoincrement()) @map("User_ID")
   User_last_name  String         @map("User_last_name")
@@ -77,6 +74,7 @@ model User {
   Register_car     Register_car[]     @relation("UserRegisterCars")
   Register_service Register_service[] @relation("UserRegisterServices")
   History          History[]          @relation("UserHistories")
+  Bookings         Booking[]          @relation("UserBookings")
 }
 
 model Car {
@@ -96,6 +94,7 @@ model Service {
 
   Register_service Register_service[] @relation("ServiceBookings")
   History          History[]          @relation("ServiceHistories")
+  TimeSlots        TimeSlot[]         @relation("ServiceTimeSlots")
 }
 
 model Bonus {
@@ -118,6 +117,7 @@ model Multi_branch {
 
   Register_service Register_service[] @relation("BranchServices")
   History          History[]          @relation("BranchHistories")
+  TimeSlots        TimeSlot[]         @relation("BranchTimeSlots")
 }
 
 model Commit {
@@ -176,6 +176,22 @@ model History {
   carCar_ID                   Int?
 }
 
+model TimeSlot {
+  TimeSlot_ID     Int      @id @default(autoincrement())
+  StartTime       DateTime
+  EndTime         DateTime
+  MaxAppointments Int      @default(5)
+  AvailableSlots  Int
+  Branch_ID       Int
+  Service_ID      Int
+  CreatedAt       DateTime @default(now())
+  UpdatedAt       DateTime @updatedAt
+
+  Multi_branch Multi_branch @relation(fields: [Branch_ID], references: [Multi_branch_ID], name: "BranchTimeSlots")
+  Service      Service      @relation(fields: [Service_ID], references: [Service_ID], name: "ServiceTimeSlots")
+  Bookings     Booking[]    @relation("TimeSlotBookings")
+}
+
 model Register_car {
   Register_car_ID           Int                      @id @default(autoincrement()) @map("Register_car_ID")
   Register_car_manufacturer String?                  @map("Register_car_manufacturer")
@@ -188,7 +204,23 @@ model Register_car {
   Register_car_user_ID      Int                      @map("Register_car_user_ID")
   User                      User                     @relation(fields: [Register_car_user_ID], references: [User_ID], name: "UserRegisterCars")
 
-  History History[] @relation("CarHistories")
+  History  History[] @relation("CarHistories")
+  Bookings Booking[] @relation("CarBookings")
+}
+
+model Booking {
+  Booking_ID  Int                          @id @default(autoincrement())
+  User_ID     Int
+  TimeSlot_ID Int
+  Vehicle_ID  Int
+  Notes       String?
+  Status      Register_service_status_enum @default(SCHEDULED)
+  CreatedAt   DateTime                     @default(now())
+  UpdatedAt   DateTime                     @updatedAt
+
+  User         User         @relation(fields: [User_ID], references: [User_ID], name: "UserBookings")
+  TimeSlot     TimeSlot     @relation(fields: [TimeSlot_ID], references: [TimeSlot_ID], name: "TimeSlotBookings")
+  Register_car Register_car @relation(fields: [Vehicle_ID], references: [Register_car_ID], name: "CarBookings")
 }
 
 model Register_service {
@@ -209,5 +241,3 @@ model Register_service {
 
   History History[] @relation("ServiceBookings")
 }
-
-//npx prisma migrate dev --name init
